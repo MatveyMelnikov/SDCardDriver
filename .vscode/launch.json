@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Cortex Debug",
+          "cwd": "${workspaceRoot}",
+          "executable": "./build/SDCardEd.elf",
+          "request": "launch",
+          "type": "cortex-debug",
+          "runToEntryPoint": "main",
+          "servertype": "openocd",
+          "device": "STM32F103C8T6",
+          "configFiles": [
+              "interface/stlink.cfg",
+              "target/stm32f1x.cfg"
+          ]
+      }
+  ]
+}

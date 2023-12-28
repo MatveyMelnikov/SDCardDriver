@@ -1,0 +1,429 @@
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"crc-buffer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.crc_buffer_calculate_crc_7,"ax",%progbits
+  18              		.align	1
+  19              		.global	crc_buffer_calculate_crc_7
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	crc_buffer_calculate_crc_7:
+  25              	.LFB0:
+  26              		.file 1 "External/CRC/Src/crc-buffer.c"
+   1:External/CRC/Src/crc-buffer.c **** /*
+   2:External/CRC/Src/crc-buffer.c **** Original code: https://github.com/MatveyMelnikov/CRC
+   3:External/CRC/Src/crc-buffer.c **** These are inverted methods that are suitable for command structures to the SD card
+   4:External/CRC/Src/crc-buffer.c **** */
+   5:External/CRC/Src/crc-buffer.c **** 
+   6:External/CRC/Src/crc-buffer.c **** #include "crc-buffer.h"
+   7:External/CRC/Src/crc-buffer.c **** #include <stdbool.h>
+   8:External/CRC/Src/crc-buffer.c **** 
+   9:External/CRC/Src/crc-buffer.c **** // 'i >> 3' equivalent 'i / 8' and 'i & 0x7' equivalent 'i % 8'
+  10:External/CRC/Src/crc-buffer.c **** #define GET_INPUT_BIT(p_data_end, i) \
+  11:External/CRC/Src/crc-buffer.c **** 	*(p_data_end - (i >> 3)) & (1 << (7 - (i & 0x7)))
+  12:External/CRC/Src/crc-buffer.c **** 
+  13:External/CRC/Src/crc-buffer.c **** uint8_t
+  14:External/CRC/Src/crc-buffer.c **** crc_buffer_calculate_crc_7(crc_buffer_7* buffer, uint8_t* data, const uint8_t data_length)
+  15:External/CRC/Src/crc-buffer.c **** {
+  27              		.loc 1 15 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 32
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 89B0     		sub	sp, sp, #36
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 40
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 F860     		str	r0, [r7, #12]
+  43 0008 B960     		str	r1, [r7, #8]
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 2
+
+
+  44 000a 1346     		mov	r3, r2
+  45 000c FB71     		strb	r3, [r7, #7]
+  16:External/CRC/Src/crc-buffer.c **** 	*buffer = 0x0;
+  46              		.loc 1 16 10
+  47 000e FB68     		ldr	r3, [r7, #12]
+  48 0010 0022     		movs	r2, #0
+  49 0012 1A70     		strb	r2, [r3]
+  17:External/CRC/Src/crc-buffer.c **** 	uint8_t* data_end = data + (data_length - 1);
+  50              		.loc 1 17 27
+  51 0014 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  52 0016 013B     		subs	r3, r3, #1
+  53              		.loc 1 17 11
+  54 0018 BA68     		ldr	r2, [r7, #8]
+  55 001a 1344     		add	r3, r3, r2
+  56 001c BB61     		str	r3, [r7, #24]
+  57              	.LBB2:
+  18:External/CRC/Src/crc-buffer.c **** 
+  19:External/CRC/Src/crc-buffer.c **** 	for (uint8_t i = 0; i < data_length * 8; i++)
+  58              		.loc 1 19 15
+  59 001e 0023     		movs	r3, #0
+  60 0020 FB77     		strb	r3, [r7, #31]
+  61              		.loc 1 19 2
+  62 0022 3FE0     		b	.L2
+  63              	.L3:
+  64              	.LBB3:
+  20:External/CRC/Src/crc-buffer.c **** 	{
+  21:External/CRC/Src/crc-buffer.c **** 		bool inputBit = GET_INPUT_BIT(data_end, i);
+  65              		.loc 1 21 19 discriminator 3
+  66 0024 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+  67 0026 DB08     		lsrs	r3, r3, #3
+  68 0028 DBB2     		uxtb	r3, r3
+  69 002a 5B42     		rsbs	r3, r3, #0
+  70 002c BA69     		ldr	r2, [r7, #24]
+  71 002e 1344     		add	r3, r3, r2
+  72 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  73 0032 1946     		mov	r1, r3
+  74 0034 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+  75 0036 DB43     		mvns	r3, r3
+  76 0038 03F00703 		and	r3, r3, #7
+  77 003c 0122     		movs	r2, #1
+  78 003e 02FA03F3 		lsl	r3, r2, r3
+  79 0042 0B40     		ands	r3, r3, r1
+  80              		.loc 1 21 8 discriminator 3
+  81 0044 002B     		cmp	r3, #0
+  82 0046 14BF     		ite	ne
+  83 0048 0123     		movne	r3, #1
+  84 004a 0023     		moveq	r3, #0
+  85 004c FB75     		strb	r3, [r7, #23]
+  22:External/CRC/Src/crc-buffer.c **** 		// XOR input bit with the bit evicted from the buffer
+  23:External/CRC/Src/crc-buffer.c **** 		inputBit ^= (bool)(*buffer & (1 << 6));
+  86              		.loc 1 23 12 discriminator 3
+  87 004e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+  88              		.loc 1 23 22 discriminator 3
+  89 0050 FA68     		ldr	r2, [r7, #12]
+  90 0052 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  91              		.loc 1 23 30 discriminator 3
+  92 0054 02F04002 		and	r2, r2, #64
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 3
+
+
+  93              		.loc 1 23 15 discriminator 3
+  94 0058 002A     		cmp	r2, #0
+  95 005a 14BF     		ite	ne
+  96 005c 0122     		movne	r2, #1
+  97 005e 0022     		moveq	r2, #0
+  98 0060 D2B2     		uxtb	r2, r2
+  99              		.loc 1 23 12 discriminator 3
+ 100 0062 5340     		eors	r3, r3, r2
+ 101 0064 002B     		cmp	r3, #0
+ 102 0066 14BF     		ite	ne
+ 103 0068 0123     		movne	r3, #1
+ 104 006a 0023     		moveq	r3, #0
+ 105 006c FB75     		strb	r3, [r7, #23]
+  24:External/CRC/Src/crc-buffer.c **** 
+  25:External/CRC/Src/crc-buffer.c **** 		*buffer <<= 1;
+ 106              		.loc 1 25 11 discriminator 3
+ 107 006e FB68     		ldr	r3, [r7, #12]
+ 108 0070 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 109 0072 5B00     		lsls	r3, r3, #1
+ 110 0074 DAB2     		uxtb	r2, r3
+ 111 0076 FB68     		ldr	r3, [r7, #12]
+ 112 0078 1A70     		strb	r2, [r3]
+  26:External/CRC/Src/crc-buffer.c **** 		// According to the documentation, we XOR the 4th position with the input bit
+  27:External/CRC/Src/crc-buffer.c **** 		*buffer ^= (inputBit << 3);
+ 113              		.loc 1 27 11 discriminator 3
+ 114 007a FB68     		ldr	r3, [r7, #12]
+ 115 007c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 116 007e 5AB2     		sxtb	r2, r3
+ 117              		.loc 1 27 24 discriminator 3
+ 118 0080 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 119 0082 DB00     		lsls	r3, r3, #3
+ 120              		.loc 1 27 11 discriminator 3
+ 121 0084 5BB2     		sxtb	r3, r3
+ 122 0086 5340     		eors	r3, r3, r2
+ 123 0088 5BB2     		sxtb	r3, r3
+ 124 008a DAB2     		uxtb	r2, r3
+ 125 008c FB68     		ldr	r3, [r7, #12]
+ 126 008e 1A70     		strb	r2, [r3]
+  28:External/CRC/Src/crc-buffer.c **** 		*buffer |= inputBit;
+ 127              		.loc 1 28 11 discriminator 3
+ 128 0090 FB68     		ldr	r3, [r7, #12]
+ 129 0092 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 130 0094 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 131 0096 1343     		orrs	r3, r3, r2
+ 132 0098 DAB2     		uxtb	r2, r3
+ 133 009a FB68     		ldr	r3, [r7, #12]
+ 134 009c 1A70     		strb	r2, [r3]
+ 135              	.LBE3:
+  19:External/CRC/Src/crc-buffer.c **** 	{
+ 136              		.loc 1 19 44 discriminator 3
+ 137 009e FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 138 00a0 0133     		adds	r3, r3, #1
+ 139 00a2 FB77     		strb	r3, [r7, #31]
+ 140              	.L2:
+  19:External/CRC/Src/crc-buffer.c **** 	{
+ 141              		.loc 1 19 24 discriminator 1
+ 142 00a4 FA7F     		ldrb	r2, [r7, #31]	@ zero_extendqisi2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 4
+
+
+  19:External/CRC/Src/crc-buffer.c **** 	{
+ 143              		.loc 1 19 38 discriminator 1
+ 144 00a6 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 145 00a8 DB00     		lsls	r3, r3, #3
+  19:External/CRC/Src/crc-buffer.c **** 	{
+ 146              		.loc 1 19 2 discriminator 1
+ 147 00aa 9A42     		cmp	r2, r3
+ 148 00ac BADB     		blt	.L3
+ 149              	.LBE2:
+  29:External/CRC/Src/crc-buffer.c **** 	}
+  30:External/CRC/Src/crc-buffer.c **** 
+  31:External/CRC/Src/crc-buffer.c **** 	return (*buffer << 1) | 1;
+ 150              		.loc 1 31 10
+ 151 00ae FB68     		ldr	r3, [r7, #12]
+ 152 00b0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 153              		.loc 1 31 18
+ 154 00b2 5B00     		lsls	r3, r3, #1
+ 155              		.loc 1 31 24
+ 156 00b4 5BB2     		sxtb	r3, r3
+ 157 00b6 43F00103 		orr	r3, r3, #1
+ 158 00ba 5BB2     		sxtb	r3, r3
+ 159 00bc DBB2     		uxtb	r3, r3
+  32:External/CRC/Src/crc-buffer.c **** }
+ 160              		.loc 1 32 1
+ 161 00be 1846     		mov	r0, r3
+ 162 00c0 2437     		adds	r7, r7, #36
+ 163              	.LCFI3:
+ 164              		.cfi_def_cfa_offset 4
+ 165 00c2 BD46     		mov	sp, r7
+ 166              	.LCFI4:
+ 167              		.cfi_def_cfa_register 13
+ 168              		@ sp needed
+ 169 00c4 80BC     		pop	{r7}
+ 170              	.LCFI5:
+ 171              		.cfi_restore 7
+ 172              		.cfi_def_cfa_offset 0
+ 173 00c6 7047     		bx	lr
+ 174              		.cfi_endproc
+ 175              	.LFE0:
+ 177              		.section	.text.crc_buffer_calculate_crc_16,"ax",%progbits
+ 178              		.align	1
+ 179              		.global	crc_buffer_calculate_crc_16
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 184              	crc_buffer_calculate_crc_16:
+ 185              	.LFB1:
+  33:External/CRC/Src/crc-buffer.c **** 
+  34:External/CRC/Src/crc-buffer.c **** crc_16_result
+  35:External/CRC/Src/crc-buffer.c **** crc_buffer_calculate_crc_16(crc_buffer_16* buffer, uint8_t* data, const uint16_t data_length)
+  36:External/CRC/Src/crc-buffer.c **** {
+ 186              		.loc 1 36 1
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 32
+ 189              		@ frame_needed = 1, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 191 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 5
+
+
+ 192              	.LCFI6:
+ 193              		.cfi_def_cfa_offset 4
+ 194              		.cfi_offset 7, -4
+ 195 0002 89B0     		sub	sp, sp, #36
+ 196              	.LCFI7:
+ 197              		.cfi_def_cfa_offset 40
+ 198 0004 00AF     		add	r7, sp, #0
+ 199              	.LCFI8:
+ 200              		.cfi_def_cfa_register 7
+ 201 0006 F860     		str	r0, [r7, #12]
+ 202 0008 B960     		str	r1, [r7, #8]
+ 203 000a 1346     		mov	r3, r2
+ 204 000c FB80     		strh	r3, [r7, #6]	@ movhi
+  37:External/CRC/Src/crc-buffer.c **** 	*buffer = 0x0;
+ 205              		.loc 1 37 10
+ 206 000e FB68     		ldr	r3, [r7, #12]
+ 207 0010 0022     		movs	r2, #0
+ 208 0012 1A80     		strh	r2, [r3]	@ movhi
+  38:External/CRC/Src/crc-buffer.c **** 	uint8_t* data_end = data + (data_length - 1);
+ 209              		.loc 1 38 27
+ 210 0014 FB88     		ldrh	r3, [r7, #6]
+ 211 0016 013B     		subs	r3, r3, #1
+ 212              		.loc 1 38 11
+ 213 0018 BA68     		ldr	r2, [r7, #8]
+ 214 001a 1344     		add	r3, r3, r2
+ 215 001c BB61     		str	r3, [r7, #24]
+ 216              	.LBB4:
+  39:External/CRC/Src/crc-buffer.c **** 
+  40:External/CRC/Src/crc-buffer.c **** 	for (uint16_t i = 0; i < data_length * 8; i++)
+ 217              		.loc 1 40 16
+ 218 001e 0023     		movs	r3, #0
+ 219 0020 FB83     		strh	r3, [r7, #30]	@ movhi
+ 220              		.loc 1 40 2
+ 221 0022 42E0     		b	.L6
+ 222              	.L7:
+ 223              	.LBB5:
+  41:External/CRC/Src/crc-buffer.c **** 	{
+  42:External/CRC/Src/crc-buffer.c **** 		bool inputBit = GET_INPUT_BIT(data_end, i);
+ 224              		.loc 1 42 19 discriminator 3
+ 225 0024 FB8B     		ldrh	r3, [r7, #30]
+ 226 0026 DB08     		lsrs	r3, r3, #3
+ 227 0028 9BB2     		uxth	r3, r3
+ 228 002a 5B42     		rsbs	r3, r3, #0
+ 229 002c BA69     		ldr	r2, [r7, #24]
+ 230 002e 1344     		add	r3, r3, r2
+ 231 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 232 0032 1946     		mov	r1, r3
+ 233 0034 FB8B     		ldrh	r3, [r7, #30]
+ 234 0036 DB43     		mvns	r3, r3
+ 235 0038 03F00703 		and	r3, r3, #7
+ 236 003c 0122     		movs	r2, #1
+ 237 003e 02FA03F3 		lsl	r3, r2, r3
+ 238 0042 0B40     		ands	r3, r3, r1
+ 239              		.loc 1 42 8 discriminator 3
+ 240 0044 002B     		cmp	r3, #0
+ 241 0046 14BF     		ite	ne
+ 242 0048 0123     		movne	r3, #1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 6
+
+
+ 243 004a 0023     		moveq	r3, #0
+ 244 004c FB75     		strb	r3, [r7, #23]
+  43:External/CRC/Src/crc-buffer.c **** 		// XOR input bit with the bit evicted from the buffer
+  44:External/CRC/Src/crc-buffer.c **** 		inputBit ^= (bool)(*buffer & (1 << 15));
+ 245              		.loc 1 44 12 discriminator 3
+ 246 004e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 247              		.loc 1 44 22 discriminator 3
+ 248 0050 FA68     		ldr	r2, [r7, #12]
+ 249 0052 1288     		ldrh	r2, [r2]
+ 250              		.loc 1 44 15 discriminator 3
+ 251 0054 12B2     		sxth	r2, r2
+ 252 0056 92B2     		uxth	r2, r2
+ 253 0058 D20B     		lsrs	r2, r2, #15
+ 254 005a D2B2     		uxtb	r2, r2
+ 255              		.loc 1 44 12 discriminator 3
+ 256 005c 5340     		eors	r3, r3, r2
+ 257 005e 002B     		cmp	r3, #0
+ 258 0060 14BF     		ite	ne
+ 259 0062 0123     		movne	r3, #1
+ 260 0064 0023     		moveq	r3, #0
+ 261 0066 FB75     		strb	r3, [r7, #23]
+  45:External/CRC/Src/crc-buffer.c **** 
+  46:External/CRC/Src/crc-buffer.c **** 		*buffer <<= 1;
+ 262              		.loc 1 46 11 discriminator 3
+ 263 0068 FB68     		ldr	r3, [r7, #12]
+ 264 006a 1B88     		ldrh	r3, [r3]
+ 265 006c 5B00     		lsls	r3, r3, #1
+ 266 006e 9AB2     		uxth	r2, r3
+ 267 0070 FB68     		ldr	r3, [r7, #12]
+ 268 0072 1A80     		strh	r2, [r3]	@ movhi
+  47:External/CRC/Src/crc-buffer.c **** 		// According to the documentation, we XOR the 4th position with the input bit
+  48:External/CRC/Src/crc-buffer.c **** 		*buffer ^= (inputBit << 5) | (inputBit << 12);
+ 269              		.loc 1 48 11 discriminator 3
+ 270 0074 FB68     		ldr	r3, [r7, #12]
+ 271 0076 1B88     		ldrh	r3, [r3]
+ 272 0078 1AB2     		sxth	r2, r3
+ 273              		.loc 1 48 24 discriminator 3
+ 274 007a FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 275 007c 5B01     		lsls	r3, r3, #5
+ 276              		.loc 1 48 30 discriminator 3
+ 277 007e 19B2     		sxth	r1, r3
+ 278              		.loc 1 48 42 discriminator 3
+ 279 0080 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 280 0082 1B03     		lsls	r3, r3, #12
+ 281              		.loc 1 48 30 discriminator 3
+ 282 0084 1BB2     		sxth	r3, r3
+ 283 0086 0B43     		orrs	r3, r3, r1
+ 284 0088 1BB2     		sxth	r3, r3
+ 285              		.loc 1 48 11 discriminator 3
+ 286 008a 5340     		eors	r3, r3, r2
+ 287 008c 1BB2     		sxth	r3, r3
+ 288 008e 9AB2     		uxth	r2, r3
+ 289 0090 FB68     		ldr	r3, [r7, #12]
+ 290 0092 1A80     		strh	r2, [r3]	@ movhi
+  49:External/CRC/Src/crc-buffer.c **** 		//*buffer ^= (inputBit << 12);
+  50:External/CRC/Src/crc-buffer.c **** 		*buffer |= inputBit;
+ 291              		.loc 1 50 11 discriminator 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 7
+
+
+ 292 0094 FB68     		ldr	r3, [r7, #12]
+ 293 0096 1A88     		ldrh	r2, [r3]
+ 294 0098 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 295 009a 9BB2     		uxth	r3, r3
+ 296 009c 1343     		orrs	r3, r3, r2
+ 297 009e 9AB2     		uxth	r2, r3
+ 298 00a0 FB68     		ldr	r3, [r7, #12]
+ 299 00a2 1A80     		strh	r2, [r3]	@ movhi
+ 300              	.LBE5:
+  40:External/CRC/Src/crc-buffer.c **** 	{
+ 301              		.loc 1 40 45 discriminator 3
+ 302 00a4 FB8B     		ldrh	r3, [r7, #30]
+ 303 00a6 0133     		adds	r3, r3, #1
+ 304 00a8 FB83     		strh	r3, [r7, #30]	@ movhi
+ 305              	.L6:
+  40:External/CRC/Src/crc-buffer.c **** 	{
+ 306              		.loc 1 40 25 discriminator 1
+ 307 00aa FA8B     		ldrh	r2, [r7, #30]
+  40:External/CRC/Src/crc-buffer.c **** 	{
+ 308              		.loc 1 40 39 discriminator 1
+ 309 00ac FB88     		ldrh	r3, [r7, #6]
+ 310 00ae DB00     		lsls	r3, r3, #3
+  40:External/CRC/Src/crc-buffer.c **** 	{
+ 311              		.loc 1 40 2 discriminator 1
+ 312 00b0 9A42     		cmp	r2, r3
+ 313 00b2 B7DB     		blt	.L7
+ 314              	.LBE4:
+  51:External/CRC/Src/crc-buffer.c **** 	}
+  52:External/CRC/Src/crc-buffer.c **** 
+  53:External/CRC/Src/crc-buffer.c **** 	return (crc_16_result) { *buffer };
+ 315              		.loc 1 53 27
+ 316 00b4 FB68     		ldr	r3, [r7, #12]
+ 317 00b6 1B88     		ldrh	r3, [r3]
+  54:External/CRC/Src/crc-buffer.c **** }
+ 318              		.loc 1 54 1
+ 319 00b8 1846     		mov	r0, r3	@ movhi
+ 320 00ba 2437     		adds	r7, r7, #36
+ 321              	.LCFI9:
+ 322              		.cfi_def_cfa_offset 4
+ 323 00bc BD46     		mov	sp, r7
+ 324              	.LCFI10:
+ 325              		.cfi_def_cfa_register 13
+ 326              		@ sp needed
+ 327 00be 80BC     		pop	{r7}
+ 328              	.LCFI11:
+ 329              		.cfi_restore 7
+ 330              		.cfi_def_cfa_offset 0
+ 331 00c0 7047     		bx	lr
+ 332              		.cfi_endproc
+ 333              	.LFE1:
+ 335              		.text
+ 336              	.Letext0:
+ 337              		.file 2 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 338              		.file 3 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 339              		.file 4 "External/CRC/Inc/crc-buffer.h"
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 crc-buffer.c
+C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s:18     .text.crc_buffer_calculate_crc_7:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s:24     .text.crc_buffer_calculate_crc_7:00000000 crc_buffer_calculate_crc_7
+C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s:178    .text.crc_buffer_calculate_crc_16:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccWCe6Zy.s:184    .text.crc_buffer_calculate_crc_16:00000000 crc_buffer_calculate_crc_16
+
+NO UNDEFINED SYMBOLS

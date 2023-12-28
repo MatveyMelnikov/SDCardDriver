@@ -1,0 +1,515 @@
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f1xx_it.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.NMI_Handler,"ax",%progbits
+  18              		.align	1
+  19              		.global	NMI_Handler
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	NMI_Handler:
+  25              	.LFB65:
+  26              		.file 1 "Core/Src/stm32f1xx_it.c"
+   1:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/stm32f1xx_it.c **** /**
+   3:Core/Src/stm32f1xx_it.c ****   ******************************************************************************
+   4:Core/Src/stm32f1xx_it.c ****   * @file    stm32f1xx_it.c
+   5:Core/Src/stm32f1xx_it.c ****   * @brief   Interrupt Service Routines.
+   6:Core/Src/stm32f1xx_it.c ****   ******************************************************************************
+   7:Core/Src/stm32f1xx_it.c ****   * @attention
+   8:Core/Src/stm32f1xx_it.c ****   *
+   9:Core/Src/stm32f1xx_it.c ****   * Copyright (c) 2023 STMicroelectronics.
+  10:Core/Src/stm32f1xx_it.c ****   * All rights reserved.
+  11:Core/Src/stm32f1xx_it.c ****   *
+  12:Core/Src/stm32f1xx_it.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Core/Src/stm32f1xx_it.c ****   * in the root directory of this software component.
+  14:Core/Src/stm32f1xx_it.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Core/Src/stm32f1xx_it.c ****   *
+  16:Core/Src/stm32f1xx_it.c ****   ******************************************************************************
+  17:Core/Src/stm32f1xx_it.c ****   */
+  18:Core/Src/stm32f1xx_it.c **** /* USER CODE END Header */
+  19:Core/Src/stm32f1xx_it.c **** 
+  20:Core/Src/stm32f1xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/stm32f1xx_it.c **** #include "main.h"
+  22:Core/Src/stm32f1xx_it.c **** #include "stm32f1xx_it.h"
+  23:Core/Src/stm32f1xx_it.c **** /* Private includes ----------------------------------------------------------*/
+  24:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN Includes */
+  25:Core/Src/stm32f1xx_it.c **** /* USER CODE END Includes */
+  26:Core/Src/stm32f1xx_it.c **** 
+  27:Core/Src/stm32f1xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+  28:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN TD */
+  29:Core/Src/stm32f1xx_it.c **** 
+  30:Core/Src/stm32f1xx_it.c **** /* USER CODE END TD */
+  31:Core/Src/stm32f1xx_it.c **** 
+  32:Core/Src/stm32f1xx_it.c **** /* Private define ------------------------------------------------------------*/
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 2
+
+
+  33:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN PD */
+  34:Core/Src/stm32f1xx_it.c **** 
+  35:Core/Src/stm32f1xx_it.c **** /* USER CODE END PD */
+  36:Core/Src/stm32f1xx_it.c **** 
+  37:Core/Src/stm32f1xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  38:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN PM */
+  39:Core/Src/stm32f1xx_it.c **** 
+  40:Core/Src/stm32f1xx_it.c **** /* USER CODE END PM */
+  41:Core/Src/stm32f1xx_it.c **** 
+  42:Core/Src/stm32f1xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  43:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN PV */
+  44:Core/Src/stm32f1xx_it.c **** 
+  45:Core/Src/stm32f1xx_it.c **** /* USER CODE END PV */
+  46:Core/Src/stm32f1xx_it.c **** 
+  47:Core/Src/stm32f1xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  48:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN PFP */
+  49:Core/Src/stm32f1xx_it.c **** 
+  50:Core/Src/stm32f1xx_it.c **** /* USER CODE END PFP */
+  51:Core/Src/stm32f1xx_it.c **** 
+  52:Core/Src/stm32f1xx_it.c **** /* Private user code ---------------------------------------------------------*/
+  53:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN 0 */
+  54:Core/Src/stm32f1xx_it.c **** 
+  55:Core/Src/stm32f1xx_it.c **** /* USER CODE END 0 */
+  56:Core/Src/stm32f1xx_it.c **** 
+  57:Core/Src/stm32f1xx_it.c **** /* External variables --------------------------------------------------------*/
+  58:Core/Src/stm32f1xx_it.c **** 
+  59:Core/Src/stm32f1xx_it.c **** /* USER CODE BEGIN EV */
+  60:Core/Src/stm32f1xx_it.c **** 
+  61:Core/Src/stm32f1xx_it.c **** /* USER CODE END EV */
+  62:Core/Src/stm32f1xx_it.c **** 
+  63:Core/Src/stm32f1xx_it.c **** /******************************************************************************/
+  64:Core/Src/stm32f1xx_it.c **** /*           Cortex-M3 Processor Interruption and Exception Handlers          */
+  65:Core/Src/stm32f1xx_it.c **** /******************************************************************************/
+  66:Core/Src/stm32f1xx_it.c **** /**
+  67:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Non maskable interrupt.
+  68:Core/Src/stm32f1xx_it.c ****   */
+  69:Core/Src/stm32f1xx_it.c **** void NMI_Handler(void)
+  70:Core/Src/stm32f1xx_it.c **** {
+  27              		.loc 1 70 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  39              	.L2:
+  71:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  72:Core/Src/stm32f1xx_it.c **** 
+  73:Core/Src/stm32f1xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
+  74:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  75:Core/Src/stm32f1xx_it.c ****   while (1)
+  40              		.loc 1 75 9 discriminator 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 3
+
+
+  41 0004 FEE7     		b	.L2
+  42              		.cfi_endproc
+  43              	.LFE65:
+  45              		.section	.text.HardFault_Handler,"ax",%progbits
+  46              		.align	1
+  47              		.global	HardFault_Handler
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  52              	HardFault_Handler:
+  53              	.LFB66:
+  76:Core/Src/stm32f1xx_it.c ****   {
+  77:Core/Src/stm32f1xx_it.c ****   }
+  78:Core/Src/stm32f1xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
+  79:Core/Src/stm32f1xx_it.c **** }
+  80:Core/Src/stm32f1xx_it.c **** 
+  81:Core/Src/stm32f1xx_it.c **** /**
+  82:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Hard fault interrupt.
+  83:Core/Src/stm32f1xx_it.c ****   */
+  84:Core/Src/stm32f1xx_it.c **** void HardFault_Handler(void)
+  85:Core/Src/stm32f1xx_it.c **** {
+  54              		.loc 1 85 1
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 1, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59 0000 80B4     		push	{r7}
+  60              	.LCFI2:
+  61              		.cfi_def_cfa_offset 4
+  62              		.cfi_offset 7, -4
+  63 0002 00AF     		add	r7, sp, #0
+  64              	.LCFI3:
+  65              		.cfi_def_cfa_register 7
+  66              	.L4:
+  86:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  87:Core/Src/stm32f1xx_it.c **** 
+  88:Core/Src/stm32f1xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
+  89:Core/Src/stm32f1xx_it.c ****   while (1)
+  67              		.loc 1 89 9 discriminator 1
+  68 0004 FEE7     		b	.L4
+  69              		.cfi_endproc
+  70              	.LFE66:
+  72              		.section	.text.MemManage_Handler,"ax",%progbits
+  73              		.align	1
+  74              		.global	MemManage_Handler
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	MemManage_Handler:
+  80              	.LFB67:
+  90:Core/Src/stm32f1xx_it.c ****   {
+  91:Core/Src/stm32f1xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+  92:Core/Src/stm32f1xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
+  93:Core/Src/stm32f1xx_it.c ****   }
+  94:Core/Src/stm32f1xx_it.c **** }
+  95:Core/Src/stm32f1xx_it.c **** 
+  96:Core/Src/stm32f1xx_it.c **** /**
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 4
+
+
+  97:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Memory management fault.
+  98:Core/Src/stm32f1xx_it.c ****   */
+  99:Core/Src/stm32f1xx_it.c **** void MemManage_Handler(void)
+ 100:Core/Src/stm32f1xx_it.c **** {
+  81              		.loc 1 100 1
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87              	.LCFI4:
+  88              		.cfi_def_cfa_offset 4
+  89              		.cfi_offset 7, -4
+  90 0002 00AF     		add	r7, sp, #0
+  91              	.LCFI5:
+  92              		.cfi_def_cfa_register 7
+  93              	.L6:
+ 101:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+ 102:Core/Src/stm32f1xx_it.c **** 
+ 103:Core/Src/stm32f1xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
+ 104:Core/Src/stm32f1xx_it.c ****   while (1)
+  94              		.loc 1 104 9 discriminator 1
+  95 0004 FEE7     		b	.L6
+  96              		.cfi_endproc
+  97              	.LFE67:
+  99              		.section	.text.BusFault_Handler,"ax",%progbits
+ 100              		.align	1
+ 101              		.global	BusFault_Handler
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 106              	BusFault_Handler:
+ 107              	.LFB68:
+ 105:Core/Src/stm32f1xx_it.c ****   {
+ 106:Core/Src/stm32f1xx_it.c ****     /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+ 107:Core/Src/stm32f1xx_it.c ****     /* USER CODE END W1_MemoryManagement_IRQn 0 */
+ 108:Core/Src/stm32f1xx_it.c ****   }
+ 109:Core/Src/stm32f1xx_it.c **** }
+ 110:Core/Src/stm32f1xx_it.c **** 
+ 111:Core/Src/stm32f1xx_it.c **** /**
+ 112:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Prefetch fault, memory access fault.
+ 113:Core/Src/stm32f1xx_it.c ****   */
+ 114:Core/Src/stm32f1xx_it.c **** void BusFault_Handler(void)
+ 115:Core/Src/stm32f1xx_it.c **** {
+ 108              		.loc 1 115 1
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 0
+ 111              		@ frame_needed = 1, uses_anonymous_args = 0
+ 112              		@ link register save eliminated.
+ 113 0000 80B4     		push	{r7}
+ 114              	.LCFI6:
+ 115              		.cfi_def_cfa_offset 4
+ 116              		.cfi_offset 7, -4
+ 117 0002 00AF     		add	r7, sp, #0
+ 118              	.LCFI7:
+ 119              		.cfi_def_cfa_register 7
+ 120              	.L8:
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 5
+
+
+ 116:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
+ 117:Core/Src/stm32f1xx_it.c **** 
+ 118:Core/Src/stm32f1xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
+ 119:Core/Src/stm32f1xx_it.c ****   while (1)
+ 121              		.loc 1 119 9 discriminator 1
+ 122 0004 FEE7     		b	.L8
+ 123              		.cfi_endproc
+ 124              	.LFE68:
+ 126              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 127              		.align	1
+ 128              		.global	UsageFault_Handler
+ 129              		.syntax unified
+ 130              		.thumb
+ 131              		.thumb_func
+ 133              	UsageFault_Handler:
+ 134              	.LFB69:
+ 120:Core/Src/stm32f1xx_it.c ****   {
+ 121:Core/Src/stm32f1xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+ 122:Core/Src/stm32f1xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
+ 123:Core/Src/stm32f1xx_it.c ****   }
+ 124:Core/Src/stm32f1xx_it.c **** }
+ 125:Core/Src/stm32f1xx_it.c **** 
+ 126:Core/Src/stm32f1xx_it.c **** /**
+ 127:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
+ 128:Core/Src/stm32f1xx_it.c ****   */
+ 129:Core/Src/stm32f1xx_it.c **** void UsageFault_Handler(void)
+ 130:Core/Src/stm32f1xx_it.c **** {
+ 135              		.loc 1 130 1
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 1, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140 0000 80B4     		push	{r7}
+ 141              	.LCFI8:
+ 142              		.cfi_def_cfa_offset 4
+ 143              		.cfi_offset 7, -4
+ 144 0002 00AF     		add	r7, sp, #0
+ 145              	.LCFI9:
+ 146              		.cfi_def_cfa_register 7
+ 147              	.L10:
+ 131:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
+ 132:Core/Src/stm32f1xx_it.c **** 
+ 133:Core/Src/stm32f1xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
+ 134:Core/Src/stm32f1xx_it.c ****   while (1)
+ 148              		.loc 1 134 9 discriminator 1
+ 149 0004 FEE7     		b	.L10
+ 150              		.cfi_endproc
+ 151              	.LFE69:
+ 153              		.section	.text.SVC_Handler,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	SVC_Handler
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 160              	SVC_Handler:
+ 161              	.LFB70:
+ 135:Core/Src/stm32f1xx_it.c ****   {
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 6
+
+
+ 136:Core/Src/stm32f1xx_it.c ****     /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+ 137:Core/Src/stm32f1xx_it.c ****     /* USER CODE END W1_UsageFault_IRQn 0 */
+ 138:Core/Src/stm32f1xx_it.c ****   }
+ 139:Core/Src/stm32f1xx_it.c **** }
+ 140:Core/Src/stm32f1xx_it.c **** 
+ 141:Core/Src/stm32f1xx_it.c **** /**
+ 142:Core/Src/stm32f1xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+ 143:Core/Src/stm32f1xx_it.c ****   */
+ 144:Core/Src/stm32f1xx_it.c **** void SVC_Handler(void)
+ 145:Core/Src/stm32f1xx_it.c **** {
+ 162              		.loc 1 145 1
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 1, uses_anonymous_args = 0
+ 166              		@ link register save eliminated.
+ 167 0000 80B4     		push	{r7}
+ 168              	.LCFI10:
+ 169              		.cfi_def_cfa_offset 4
+ 170              		.cfi_offset 7, -4
+ 171 0002 00AF     		add	r7, sp, #0
+ 172              	.LCFI11:
+ 173              		.cfi_def_cfa_register 7
+ 146:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
+ 147:Core/Src/stm32f1xx_it.c **** 
+ 148:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SVCall_IRQn 0 */
+ 149:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 1 */
+ 150:Core/Src/stm32f1xx_it.c **** 
+ 151:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SVCall_IRQn 1 */
+ 152:Core/Src/stm32f1xx_it.c **** }
+ 174              		.loc 1 152 1
+ 175 0004 00BF     		nop
+ 176 0006 BD46     		mov	sp, r7
+ 177              	.LCFI12:
+ 178              		.cfi_def_cfa_register 13
+ 179              		@ sp needed
+ 180 0008 80BC     		pop	{r7}
+ 181              	.LCFI13:
+ 182              		.cfi_restore 7
+ 183              		.cfi_def_cfa_offset 0
+ 184 000a 7047     		bx	lr
+ 185              		.cfi_endproc
+ 186              	.LFE70:
+ 188              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	DebugMon_Handler
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 195              	DebugMon_Handler:
+ 196              	.LFB71:
+ 153:Core/Src/stm32f1xx_it.c **** 
+ 154:Core/Src/stm32f1xx_it.c **** /**
+ 155:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Debug monitor.
+ 156:Core/Src/stm32f1xx_it.c ****   */
+ 157:Core/Src/stm32f1xx_it.c **** void DebugMon_Handler(void)
+ 158:Core/Src/stm32f1xx_it.c **** {
+ 197              		.loc 1 158 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 7
+
+
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 1, uses_anonymous_args = 0
+ 201              		@ link register save eliminated.
+ 202 0000 80B4     		push	{r7}
+ 203              	.LCFI14:
+ 204              		.cfi_def_cfa_offset 4
+ 205              		.cfi_offset 7, -4
+ 206 0002 00AF     		add	r7, sp, #0
+ 207              	.LCFI15:
+ 208              		.cfi_def_cfa_register 7
+ 159:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+ 160:Core/Src/stm32f1xx_it.c **** 
+ 161:Core/Src/stm32f1xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
+ 162:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+ 163:Core/Src/stm32f1xx_it.c **** 
+ 164:Core/Src/stm32f1xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
+ 165:Core/Src/stm32f1xx_it.c **** }
+ 209              		.loc 1 165 1
+ 210 0004 00BF     		nop
+ 211 0006 BD46     		mov	sp, r7
+ 212              	.LCFI16:
+ 213              		.cfi_def_cfa_register 13
+ 214              		@ sp needed
+ 215 0008 80BC     		pop	{r7}
+ 216              	.LCFI17:
+ 217              		.cfi_restore 7
+ 218              		.cfi_def_cfa_offset 0
+ 219 000a 7047     		bx	lr
+ 220              		.cfi_endproc
+ 221              	.LFE71:
+ 223              		.section	.text.PendSV_Handler,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	PendSV_Handler
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ 230              	PendSV_Handler:
+ 231              	.LFB72:
+ 166:Core/Src/stm32f1xx_it.c **** 
+ 167:Core/Src/stm32f1xx_it.c **** /**
+ 168:Core/Src/stm32f1xx_it.c ****   * @brief This function handles Pendable request for system service.
+ 169:Core/Src/stm32f1xx_it.c ****   */
+ 170:Core/Src/stm32f1xx_it.c **** void PendSV_Handler(void)
+ 171:Core/Src/stm32f1xx_it.c **** {
+ 232              		.loc 1 171 1
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 1, uses_anonymous_args = 0
+ 236              		@ link register save eliminated.
+ 237 0000 80B4     		push	{r7}
+ 238              	.LCFI18:
+ 239              		.cfi_def_cfa_offset 4
+ 240              		.cfi_offset 7, -4
+ 241 0002 00AF     		add	r7, sp, #0
+ 242              	.LCFI19:
+ 243              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 8
+
+
+ 172:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
+ 173:Core/Src/stm32f1xx_it.c **** 
+ 174:Core/Src/stm32f1xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
+ 175:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
+ 176:Core/Src/stm32f1xx_it.c **** 
+ 177:Core/Src/stm32f1xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
+ 178:Core/Src/stm32f1xx_it.c **** }
+ 244              		.loc 1 178 1
+ 245 0004 00BF     		nop
+ 246 0006 BD46     		mov	sp, r7
+ 247              	.LCFI20:
+ 248              		.cfi_def_cfa_register 13
+ 249              		@ sp needed
+ 250 0008 80BC     		pop	{r7}
+ 251              	.LCFI21:
+ 252              		.cfi_restore 7
+ 253              		.cfi_def_cfa_offset 0
+ 254 000a 7047     		bx	lr
+ 255              		.cfi_endproc
+ 256              	.LFE72:
+ 258              		.section	.text.SysTick_Handler,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	SysTick_Handler
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 265              	SysTick_Handler:
+ 266              	.LFB73:
+ 179:Core/Src/stm32f1xx_it.c **** 
+ 180:Core/Src/stm32f1xx_it.c **** /**
+ 181:Core/Src/stm32f1xx_it.c ****   * @brief This function handles System tick timer.
+ 182:Core/Src/stm32f1xx_it.c ****   */
+ 183:Core/Src/stm32f1xx_it.c **** void SysTick_Handler(void)
+ 184:Core/Src/stm32f1xx_it.c **** {
+ 267              		.loc 1 184 1
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 1, uses_anonymous_args = 0
+ 271 0000 80B5     		push	{r7, lr}
+ 272              	.LCFI22:
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 00AF     		add	r7, sp, #0
+ 277              	.LCFI23:
+ 278              		.cfi_def_cfa_register 7
+ 185:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 186:Core/Src/stm32f1xx_it.c **** 
+ 187:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 188:Core/Src/stm32f1xx_it.c ****   HAL_IncTick();
+ 279              		.loc 1 188 3
+ 280 0004 FFF7FEFF 		bl	HAL_IncTick
+ 189:Core/Src/stm32f1xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 190:Core/Src/stm32f1xx_it.c **** 
+ 191:Core/Src/stm32f1xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 192:Core/Src/stm32f1xx_it.c **** }
+ 281              		.loc 1 192 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 9
+
+
+ 282 0008 00BF     		nop
+ 283 000a 80BD     		pop	{r7, pc}
+ 284              		.cfi_endproc
+ 285              	.LFE73:
+ 287              		.text
+ 288              	.Letext0:
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f1xx_it.c
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:24     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:46     .text.HardFault_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:52     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:73     .text.MemManage_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:79     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:100    .text.BusFault_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:106    .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:127    .text.UsageFault_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:133    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:154    .text.SVC_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:160    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:189    .text.DebugMon_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:195    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:224    .text.PendSV_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:230    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:259    .text.SysTick_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccINe6tk.s:265    .text.SysTick_Handler:00000000 SysTick_Handler
+
+UNDEFINED SYMBOLS
+HAL_IncTick
