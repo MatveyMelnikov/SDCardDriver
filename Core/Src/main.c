@@ -55,6 +55,7 @@ HAL_StatusTypeDef receive_byte(uint8_t* data);
 HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size);
 HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size);
 void fast_boot(void);
+HAL_StatusTypeDef wait_sd_response(uint8_t* data);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,7 +115,7 @@ int main(void)
 
   //HAL_StatusTypeDef status = transmit_bytes((uint8_t*)&cmd0, 6);
 
-  while (data[0] != 0x01) // check idle state
+  while (data[0] == IN_IDLE_STATE)
   {
     status |= receive_byte(&data);
   }
@@ -132,8 +133,15 @@ int main(void)
   // status |= receive_byte(&data + 4);
   // status |= receive_byte(&data + 5);
 
-  status |= transmit_bytes((uint8_t*)&cmd8, 6);
-  status |= receive_bytes(&data, 6); // r7
+  //status |= transmit_bytes((uint8_t*)&cmd8, 6);
+
+
+  // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+  // status |= receive_bytes(&data, 5); // r7
+
+  status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+  status |= wait_sd_response(&data);
+  status |= receive_bytes(&data, 5); // r7
 
   DISELECT_CHIP();
   
@@ -288,7 +296,7 @@ HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size)
 
 HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size)
 {
-    HAL_StatusTypeDef status = 0;
+  HAL_StatusTypeDef status = 0;
 
   for (int16_t i = size - 1; i >= 0; i--)
     status += HAL_SPI_Transmit(&hspi2, data + i, 1, 1000);
@@ -305,6 +313,24 @@ void fast_boot(void)
   // Clock occurs only during transmission
   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
     HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
+}
+
+// We are trying to get a byte with the first zero bit.
+// The received byte is written to the argument
+HAL_StatusTypeDef wait_sd_response(uint8_t* data)
+{
+  HAL_StatusTypeDef status = 0;
+  uint32_t captured_tick = HAL_GetTick();
+
+  do
+  {
+    if ((HAL_GetTick() - captured_tick) > 500)
+      return HAL_TIMEOUT;
+
+    status |= receive_byte(&data);
+  } while (data == NULL); // ?
+
+  return status;
 }
 
 /* USER CODE END 4 */

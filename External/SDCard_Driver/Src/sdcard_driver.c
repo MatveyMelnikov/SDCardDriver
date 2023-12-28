@@ -80,7 +80,7 @@ HAL_StatusTypeDef sdcard_reset(SPI_HandleTypeDef *hspi)
 	
 	// check pattern or voltage inconsistency
 	if (!(cmd8_response.echo_back_of_check_pattern == 0x55 &&
-		cmd8_response.voltage_accepted & 0x1))
+    GET_VOLTAGE_FROM_R7(cmd8_response) == 0x1))
 		return HAL_ERROR;
 	
 	activate_sd_card_init_process(hspi); // TODO - check
@@ -133,8 +133,15 @@ sd_card_command get_cmd(uint8_t cmd_num, uint32_t arg)
 	sd_card_command cmd = (sd_card_command) {
 		.start_block = 0x40 | cmd_num,
 	};
-  memcpy((void*)&cmd.argument, (void*)&arg, 4);
-	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd + 1, 5);
+  //memcpy((void*)&cmd.argument, (void*)&arg, 4);
+
+  for (uint8_t i = 0; i < 4; i++) // reverse memcpy
+  {
+    uint8_t shift = i << 3;
+    cmd.argument[3 - i] = (arg & (0xff << shift)) >> shift;
+  }
+
+	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd, 5);
 	
 	return cmd;
 }
