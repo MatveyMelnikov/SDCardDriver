@@ -2,6 +2,7 @@
 #define SDCARD_DRIVER_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "stm32f1xx.h" // If you don't connect it, there will be HAL errors
 #include "stm32f1xx_hal_spi.h"
 
@@ -13,17 +14,17 @@
 
 // Macros --------------------------------------------------------------------
 
-#define SELECT_CHIP() \
+#define SELECT_SD() \
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 
-#define DISELECT_CHIP() \
+#define DISELECT_SD() \
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
 #define GET_VERSION_FROM_R7(r7) \
   ((r7).command_version_plus_reserved & 0xf0) >> 4
 
 #define GET_VOLTAGE_FROM_R7(r7) \
-  (r7).command_version_plus_reserved & 0x0f
+  (r7).voltage_accepted_plus_reserved & 0x0f
 
 // Structs -------------------------------------------------------------------
 
@@ -34,13 +35,14 @@ typedef struct {
 } sd_card_command;
 	
 typedef enum {
+  CLEAR_FLAGS = 0x0,
 	IN_IDLE_STATE = 0x1,
-	ERASE_RESET,
-	ILLEGAL_COMMAND,
-	COM_CRC_ERROR,
-	ERASE_SEQUENCE_ERROR,
-	ADDRESS_ERROR,
-	PARAMETER_ERROR
+	ERASE_RESET = 0x2,
+	ILLEGAL_COMMAND = 0x4,
+	COM_CRC_ERROR = 0x8,
+	ERASE_SEQUENCE_ERROR = 0x10,
+	ADDRESS_ERROR = 0x20,
+	PARAMETER_ERROR = 0x40
 } r1_error_mask;
 
 typedef struct {
@@ -61,19 +63,47 @@ typedef struct {
 	uint8_t echo_back_of_check_pattern;
 } sd_card_r7_response;
 
+// Variables -----------------------------------------------------------------
+
+//extern bool sd_card_is_spi_mode;
+
 // Functions -----------------------------------------------------------------
 
 // CMD 0 - Resets the SD Memory Card
-HAL_StatusTypeDef sdcard_reset(SPI_HandleTypeDef *hspi);
+HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi);
+
+sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg);
+
+HAL_StatusTypeDef sd_card_receive_byte(
+  SPI_HandleTypeDef *hspi, 
+  uint8_t* data
+);
+
+HAL_StatusTypeDef sd_card_receive_bytes(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data,
+  const uint8_t size
+);
+
+HAL_StatusTypeDef sd_card_transmit_bytes(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data,
+  const uint8_t size
+);
+
+//void sd_card_power_on(SPI_HandleTypeDef *hspi);
+
+HAL_StatusTypeDef sd_card_wait_response(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data
+);
 
 // response - can have size > 1!
-HAL_StatusTypeDef receive_cmd_response(
+HAL_StatusTypeDef sd_card_receive_cmd_response(
 	SPI_HandleTypeDef *hspi, 
 	uint8_t* response, 
 	uint8_t response_size, 
 	uint32_t timeout
 );
-
-sd_card_command get_cmd(uint8_t cmd_num, uint32_t arg);
 
 #endif

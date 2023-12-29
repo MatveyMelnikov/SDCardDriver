@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** /** @defgroup RCCEx RCCEx
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @brief RCC Extension HAL module driver.
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 2
 
 
   33:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @{
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @note   Care must be taken when HAL_RCCEx_PeriphCLKConfig() is used to select
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *         the RTC clock source; in this case the Backup domain will be reset in
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *         order to modify the RTC Clock source, as consequence RTC registers (including
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 3
 
 
   90:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *         the backup registers) are set to their reset values.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
   59 001c 0023     		movs	r3, #0
   60 001e FB75     		strb	r3, [r7, #23]
  112:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 4
 
 
  113:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     /* check for RTC Parameters used to output RTCCLK */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  130:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Wait for Backup domain Write protection disable */
  131:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       tickstart = HAL_GetTick();
   98              		.loc 1 131 19
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 5
 
 
   99 0060 FFF7FEFF 		bl	HAL_GetTick
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  138              		.loc 1 144 85 discriminator 1
  139 009a 03F44073 		and	r3, r3, #768
  140              		.loc 1 144 35 discriminator 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 6
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 6
 
 
  141 009e FA68     		ldr	r2, [r7, #12]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  176 00d2 FFF7FEFF 		bl	HAL_GetTick
  177 00d6 0246     		mov	r2, r0
  178              		.loc 1 163 30
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 7
 
 
  179 00d8 3B69     		ldr	r3, [r7, #16]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  177:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   }
  178:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  179:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /*------------------------------ ADC clock Configuration ------------------*/
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 8
 
 
  180:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   if (((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_ADC) == RCC_PERIPHCLK_ADC)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  216:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   }
  217:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  218:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   /* Check if PLL I2S need to be enabled */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 9
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 9
 
 
  219:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   if (pllactive == 1)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  236              		.loc 1 272 22
  237 0136 7B68     		ldr	r3, [r7, #4]
  238 0138 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 10
 
 
  239              		.loc 1 272 46
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  284              	.LFB66:
  284:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** 
  285:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** /**
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 11
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 11
 
 
  286:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   * @brief  Get the PeriphClkInit according to the internal
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  319 0022 7B68     		ldr	r3, [r7, #4]
  320 0024 1B68     		ldr	r3, [r3]
  321 0026 43F00202 		orr	r2, r3, #2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 12
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 12
 
 
  322 002a 7B68     		ldr	r3, [r7, #4]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  344              		.loc 1 337 1
  345 0052 00BF     		nop
  346 0054 1437     		adds	r7, r7, #20
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 13
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 13
 
 
  347              	.LCFI8:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  367:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   @if STM32F107xC
  368:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S2 I2S2 peripheral clock
  369:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S3 I2S3 peripheral clock
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 14
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 14
 
 
  370:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S3 I2S3 peripheral clock
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  398 0012 3B61     		str	r3, [r7, #16]
  400:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #endif /* STM32F102x6 || STM32F102xB || STM32F103x6 || STM32F103xB || STM32F103xE || STM32F103xG */
  401:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****   uint32_t temp_reg = 0U, frequency = 0U;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 15
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 15
 
 
  399              		.loc 1 401 12
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  437:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           }
  438:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           else
  439:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****           {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 16
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 16
 
 
  440:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****             /* HSE used as PLL clock source : PLLCLK = HSE/PREDIV1 * PLLMUL */
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  494:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #if defined(STM32F103xE) || defined(STM32F103xG) || defined(STM32F105xC) || defined(STM32F107xC)
  495:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     case RCC_PERIPHCLK_I2S2:
  496:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****     {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 17
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 17
 
 
  497:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c **** #if defined(STM32F103xE) || defined(STM32F103xG)
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  551:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       /* Check if LSE is ready if RTC clock selection is LSE */
  552:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       if (((temp_reg & RCC_BDCR_RTCSEL) == RCC_RTCCLKSOURCE_LSE) && (HAL_IS_BIT_SET(temp_reg, RCC_B
  553:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 18
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 18
 
 
  554:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         frequency = LSE_VALUE;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  419:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         if ((temp_reg & RCC_CFGR_PLLSRC) != RCC_PLLSOURCE_HSI_DIV2)
  440              		.loc 1 419 16
  441 0056 3B61     		str	r3, [r7, #16]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 19
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 19
 
 
  420:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         {
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  484 009c 03F48003 		and	r3, r3, #4194304
  479:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****         {
  485              		.loc 1 479 12
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 20
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 20
 
 
  486 00a0 B3F5800F 		cmp	r3, #4194304
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  527              		.loc 1 557 27
  528 00e0 FB68     		ldr	r3, [r7, #12]
  529 00e2 03F44073 		and	r3, r3, #768
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 21
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 21
 
 
  557:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  574:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c ****       break;
  572              		.loc 1 574 74
  573 012c 9B0B     		lsrs	r3, r3, #14
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 22
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 22
 
 
  574 012e 03F00303 		and	r3, r3, #3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  618              	.LFE67:
  620              		.section	.rodata.aPLLMULFactorTable.1,"a"
  621              		.align	2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 23
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 23
 
 
  624              	aPLLMULFactorTable.1:
@@ -1339,24 +1339,24 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 1
  638              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
  639              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  640              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s 			page 24
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_rcc_ex.c
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:18     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:24     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:270    .text.HAL_RCCEx_PeriphCLKConfig:00000160 $d
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:277    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:283    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:361    .text.HAL_RCCEx_GetPeriphCLKConfig:0000005c $d
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:366    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:372    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:611    .text.HAL_RCCEx_GetPeriphCLKFreq:00000154 $d
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:624    .rodata.aPLLMULFactorTable.1:00000000 aPLLMULFactorTable.1
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:631    .rodata.aPredivFactorTable.0:00000000 aPredivFactorTable.0
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:621    .rodata.aPLLMULFactorTable.1:00000000 $d
-C:\Users\Matvey\AppData\Local\Temp\ccmnHd2k.s:628    .rodata.aPredivFactorTable.0:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:18     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:24     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:270    .text.HAL_RCCEx_PeriphCLKConfig:00000160 $d
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:277    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:283    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:361    .text.HAL_RCCEx_GetPeriphCLKConfig:0000005c $d
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:366    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:372    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:611    .text.HAL_RCCEx_GetPeriphCLKFreq:00000154 $d
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:624    .rodata.aPLLMULFactorTable.1:00000000 aPLLMULFactorTable.1
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:631    .rodata.aPredivFactorTable.0:00000000 aPredivFactorTable.0
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:621    .rodata.aPLLMULFactorTable.1:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\cczWszeN.s:628    .rodata.aPredivFactorTable.0:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick

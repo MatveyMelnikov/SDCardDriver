@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       (#) Declare a SPI_HandleTypeDef handle structure, for example:
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           SPI_HandleTypeDef  hspi;
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 2
 
 
   33:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       (#)Initialize the SPI low level resources by implementing the HAL_SPI_MspInit() API:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****             (++) MspDeInitCallback     : SPI Msp DeInit callback
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           This function takes as parameters the HAL peripheral handle, the Callback ID
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           and a pointer to the user callback function.
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 3
 
 
   90:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  144:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****        | Process | Transfer mode  |---------------------|----------------------|-------------------
  145:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****        |         |                |  Master  |  Slave   |  Master   |  Slave   |  Master   |  Slave
  146:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****        |===========================================================================================
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 4
 
 
  147:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****        |    T    |     Polling    | Fpclk/2  | Fpclk/2  |    NA     |    NA    |    NA     |   NA  
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  201:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  202:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /** @addtogroup STM32F1xx_HAL_Driver
  203:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @{
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 5
 
 
  204:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  258:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_DMAAbortOnError(DMA_HandleTypeDef *hdma);
  259:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_DMATxAbortCallback(DMA_HandleTypeDef *hdma);
  260:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_DMARxAbortCallback(DMA_HandleTypeDef *hdma);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 6
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 6
 
 
  261:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static HAL_StatusTypeDef SPI_WaitFlagStateUntilTimeout(SPI_HandleTypeDef *hspi, uint32_t Flag, Flag
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  315:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         (++) TIMode
  316:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         (++) CRC Calculation
  317:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         (++) CRC Polynomial if CRC enabled
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 7
 
 
  318:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  348:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   assert_param(IS_SPI_FIRST_BIT(hspi->Init.FirstBit));
  349:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* TI mode is not supported on this device.
  350:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****      TIMode parameter is mandatory equal to SPI_TIMODE_DISABLE */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 8
 
 
  351:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   assert_param(IS_SPI_TIMODE(hspi->Init.TIMode));
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  378:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
  379:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     assert_param(IS_SPI_CRC_POLYNOMIAL(hspi->Init.CRCPolynomial));
  380:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 9
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 9
 
 
  381:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #else
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
   98 0058 7B68     		ldr	r3, [r7, #4]
   99 005a 0222     		movs	r2, #2
  100 005c 83F85120 		strb	r2, [r3, #81]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 10
 
 
  415:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  147 00ce 1A60     		str	r2, [r3]
  423:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****                                   (hspi->Init.Direction & (SPI_CR1_RXONLY | SPI_CR1_BIDIMODE)) |
  424:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****                                   (hspi->Init.DataSize & SPI_CR1_DFF) |
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 11
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 11
 
 
  425:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****                                   (hspi->Init.CLKPolarity & SPI_CR1_CPOL) |
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  174              	.L3:
  453:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** }
  175              		.loc 1 453 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 12
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 12
 
 
  176 0100 1846     		mov	r0, r3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  219 0010 1AE0     		b	.L9
  220              	.L8:
  467:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 13
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 13
 
 
  468:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  495:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  496:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   return HAL_OK;
  248              		.loc 1 496 10
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 14
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 14
 
 
  249 0046 0023     		movs	r3, #0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  513:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** }
  289              		.loc 1 513 1
  290 0008 00BF     		nop
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 15
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 15
 
 
  291 000a 0C37     		adds	r7, r7, #12
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  331              		.loc 1 529 1
  332 0008 00BF     		nop
  333 000a 0C37     		adds	r7, r7, #12
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 16
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 16
 
 
  334              	.LCFI19:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  563:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  564:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       case HAL_SPI_RX_COMPLETE_CB_ID :
  565:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         hspi->RxCpltCallback = pCallback;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 17
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 17
 
 
  566:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         break;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  620:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  621:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       default :
  622:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         /* Update the error code */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 18
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 18
 
 
  623:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_INVALID_CALLBACK);
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  677:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         break;
  678:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  679:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       case HAL_SPI_RX_HALF_COMPLETE_CB_ID :
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 19
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 19
 
 
  680:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         hspi->RxHalfCpltCallback = HAL_SPI_RxHalfCpltCallback;     /* Legacy weak RxHalfCpltCallbac
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  734:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
  735:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Update the error code */
  736:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_INVALID_CALLBACK);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 20
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 20
 
 
  737:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  791:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @retval HAL status
  792:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   */
  793:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 21
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 21
 
 
  794:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  397 0030 FB88     		ldrh	r3, [r7, #6]	@ movhi
  398 0032 FB82     		strh	r3, [r7, #22]	@ movhi
  808:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 22
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 22
 
 
  809:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   if (hspi->State != HAL_SPI_STATE_READY)
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  437 0068 BA68     		ldr	r2, [r7, #8]
  438 006a 1A63     		str	r2, [r3, #48]
  825:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->TxXferSize  = Size;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 23
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 23
 
 
  439              		.loc 1 825 21
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  479 00aa 22F04002 		bic	r2, r2, #64
  480 00ae 1A60     		str	r2, [r3]
  840:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     SPI_1LINE_TX(hspi);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 24
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 24
 
 
  481              		.loc 1 840 5
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  861:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     if ((hspi->Init.Mode == SPI_MODE_SLAVE) || (initial_TxXferCount == 0x01U))
  515              		.loc 1 861 20
  516 00e8 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 25
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 25
 
 
  517 00ea 5B68     		ldr	r3, [r3, #4]
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  561 0128 12D1     		bne	.L25
  872:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       {
  873:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         hspi->Instance->DR = *((uint16_t *)hspi->pTxBuffPtr);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 26
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 26
 
 
  562              		.loc 1 873 48
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  881:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         {
  882:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           errorcode = HAL_TIMEOUT;
  609              		.loc 1 882 21
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 27
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 27
 
 
  610 016e 0323     		movs	r3, #3
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  650 01a2 1A70     		strb	r2, [r3]
  895:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       hspi->pTxBuffPtr += sizeof(uint8_t);
  651              		.loc 1 895 24
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 28
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 28
 
 
  652 01a4 FB68     		ldr	r3, [r7, #12]
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  696 01e4 FB68     		ldr	r3, [r7, #12]
  697 01e6 DB8E     		ldrh	r3, [r3, #54]	@ movhi
  698 01e8 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 29
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 29
 
 
  699              		.loc 1 905 26
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  742 0228 C9D1     		bne	.L36
  743              	.L29:
  915:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 30
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 30
 
 
  916:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       }
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  777              	.L38:
  778              	.LBE2:
  937:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 31
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 31
 
 
  938:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  819              		.thumb
  820              		.thumb_func
  822              	HAL_SPI_Receive:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 32
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 32
 
 
  823              	.LFB70:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  856 0022 FB75     		strb	r3, [r7, #23]
  974:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     goto error;
  857              		.loc 1 974 5
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 33
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 33
 
 
  858 0024 FBE0     		b	.L42
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  986:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
  987:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* Init tickstart for timeout management*/
  988:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   tickstart = HAL_GetTick();
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 34
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 34
 
 
  901              		.loc 1 988 15 is_stmt 1 discriminator 2
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  939              		.loc 1 1004 21
  940 00a4 FB68     		ldr	r3, [r7, #12]
  941 00a6 0022     		movs	r2, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 35
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 35
 
 
  942 00a8 1A63     		str	r2, [r3, #48]
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  975 00de 1B68     		ldr	r3, [r3]
  976 00e0 1A68     		ldr	r2, [r3]
  977 00e2 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 36
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 36
 
 
  978 00e4 1B68     		ldr	r3, [r3]
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1015              		.loc 1 1042 10
  1016 011e 012B     		cmp	r3, #1
  1017 0120 15D1     		bne	.L52
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 37
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 37
 
 
 1043:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1062              	.L53:
  1063              		.loc 1 1052 87 discriminator 3
  1064 0166 3B68     		ldr	r3, [r7]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 38
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 38
 
 
  1065 0168 002B     		cmp	r3, #0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1100              		.loc 1 1069 27
  1101 019a FB68     		ldr	r3, [r7, #12]
  1102 019c 9B6B     		ldr	r3, [r3, #56]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 39
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 39
 
 
  1103              		.loc 1 1069 43
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1147              		.loc 1 1079 23
  1148 01de FB68     		ldr	r3, [r7, #12]
  1149 01e0 0122     		movs	r2, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 40
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 40
 
 
  1150 01e2 83F85120 		strb	r2, [r3, #81]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1120:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
 1121:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_CRC);
 1122:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       errorcode = HAL_TIMEOUT;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 41
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 41
 
 
 1123:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       goto error;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1180 020c 002B     		cmp	r3, #0
  1181 020e 02D0     		beq	.L63
 1159:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 42
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 42
 
 
 1160:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     errorcode = HAL_ERROR;
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1177:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  pRxData pointer to reception data buffer
 1178:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  Size amount of data to be sent and received
 1179:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  Timeout Timeout duration
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 43
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 43
 
 
 1180:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @retval HAL status
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1253 0024 98E1     		b	.L66
  1254              	.L65:
  1255              		.loc 1 1201 3 discriminator 2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 44
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 44
 
 
  1256 0026 FB68     		ldr	r3, [r7, #12]
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1296 006e 6DE1     		b	.L69
  1297              	.L67:
 1216:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 45
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 45
 
 
 1217:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1336 00a8 9A63     		str	r2, [r3, #56]
 1233:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->RxXferCount = Size;
  1337              		.loc 1 1233 21
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 46
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 46
 
 
  1338 00aa FB68     		ldr	r3, [r7, #12]
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1373 00de 402B     		cmp	r3, #64
  1374 00e0 07D0     		beq	.L73
 1253:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 47
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 47
 
 
 1254:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Enable SPI peripheral */
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1417              		.loc 1 1265 11
  1418 0120 FB68     		ldr	r3, [r7, #12]
  1419 0122 DB8E     		ldrh	r3, [r3, #54]	@ movhi
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 48
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 48
 
 
  1420 0124 9BB2     		uxth	r3, r3
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1465 0164 FB68     		ldr	r3, [r7, #12]
  1466 0166 DB8E     		ldrh	r3, [r3, #54]	@ movhi
  1467 0168 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 49
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 49
 
 
  1468              		.loc 1 1274 26
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1505 019c FB68     		ldr	r3, [r7, #12]
  1506 019e 9B6B     		ldr	r3, [r3, #56]
  1507 01a0 9A1C     		adds	r2, r3, #2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 50
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 50
 
 
  1508 01a2 FB68     		ldr	r3, [r7, #12]
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1551              		.loc 1 1267 11
  1552 01e6 002B     		cmp	r3, #0
  1553 01e8 A2D1     		bne	.L80
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 51
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 51
 
 
 1267:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1595 0220 9BB2     		uxth	r3, r3
  1596              		.loc 1 1311 24
  1597 0222 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 52
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 52
 
 
  1598 0224 9AB2     		uxth	r2, r3
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1643 0262 FB68     		ldr	r3, [r7, #12]
  1644 0264 DB8E     		ldrh	r3, [r3, #54]	@ movhi
  1645 0266 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 53
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 53
 
 
  1646              		.loc 1 1320 26
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1683 029c 9B6B     		ldr	r3, [r3, #56]
  1684              		.loc 1 1337 25
  1685 029e 5A1C     		adds	r2, r3, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 54
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 54
 
 
  1686 02a0 FB68     		ldr	r3, [r7, #12]
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1313:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
  1731              		.loc 1 1313 17
  1732 02e4 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 55
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 55
 
 
  1733 02e6 DB8E     		ldrh	r3, [r3, #54]	@ movhi
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1385:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
 1386:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
 1387:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #endif /* USE_SPI_CRC */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 56
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 56
 
 
 1388:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1402:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 1403:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   if (hspi->ErrorCode != HAL_SPI_ERROR_NONE)
  1786              		.loc 1 1403 11
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 57
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 57
 
 
  1787 0334 FB68     		ldr	r3, [r7, #12]
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1416:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 1417:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /**
 1418:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @brief  Transmit an amount of data in non-blocking mode with Interrupt.
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 58
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 58
 
 
 1419:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1868 002a 002B     		cmp	r3, #0
  1869 002c 02D0     		beq	.L96
  1870              		.loc 1 1435 23 discriminator 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 59
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 59
 
 
  1871 002e FB88     		ldrh	r3, [r7, #6]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1909 0064 9A86     		strh	r2, [r3, #52]	@ movhi
 1452:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->TxXferCount = Size;
  1910              		.loc 1 1452 21
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 60
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 60
 
 
  1911 0066 FB68     		ldr	r3, [r7, #12]
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1471:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   if (hspi->Init.Direction == SPI_DIRECTION_1LINE)
  1947              		.loc 1 1471 17
  1948 009a FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 61
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 61
 
 
  1949 009c 9B68     		ldr	r3, [r3, #8]
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  1983              		.loc 1 1491 28
  1984 00da 03F04003 		and	r3, r3, #64
  1985              		.loc 1 1491 6
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 62
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 62
 
 
  1986 00de 402B     		cmp	r3, #64
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2032              		.global	HAL_SPI_Receive_IT
  2033              		.syntax unified
  2034              		.thumb
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 63
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 63
 
 
  2035              		.thumb_func
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2072 0022 7DE0     		b	.L108
  2073              	.L107:
 1519:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 64
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 64
 
 
 1520:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2116              		.loc 1 1531 23 discriminator 1
  2117 006a FB88     		ldrh	r3, [r7, #6]
  2118 006c 002B     		cmp	r3, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 65
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 65
 
 
  2119 006e 02D1     		bne	.L113
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2157 00a4 0022     		movs	r2, #0
  2158 00a6 DA86     		strh	r2, [r3, #54]	@ movhi
 1548:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->TxISR       = NULL;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 66
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 66
 
 
  2159              		.loc 1 1548 21
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2196 00e0 1B68     		ldr	r3, [r3]
  2197 00e2 1A68     		ldr	r2, [r3]
  2198 00e4 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 67
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 67
 
 
  2199 00e6 1B68     		ldr	r3, [r3]
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1588:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
 1589:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 1590:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** error :
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 68
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 68
 
 
  2231              		.loc 1 1590 1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2271              		@ frame_needed = 1, uses_anonymous_args = 0
  2272              		@ link register save eliminated.
  2273 0000 80B4     		push	{r7}
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 69
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 69
 
 
  2274              	.LCFI48:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2313 0038 012B     		cmp	r3, #1
  2314 003a 0DD0     		beq	.L123
  2315              		.loc 1 1621 7 discriminator 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 70
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 70
 
 
  2316 003c 3B69     		ldr	r3, [r7, #16]
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2356 0070 FB68     		ldr	r3, [r7, #12]
  2357 0072 93F85130 		ldrb	r3, [r3, #81]
  2358 0076 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 71
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 71
 
 
  2359              		.loc 1 1635 6
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2398              		.loc 1 1650 6
  2399 00b2 002B     		cmp	r3, #0
  2400 00b4 06D0     		beq	.L129
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 72
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 72
 
 
 1651:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2432 00e4 1B68     		ldr	r3, [r3]
  2433              		.loc 1 1673 28
  2434 00e6 03F04003 		and	r3, r3, #64
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 73
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 73
 
 
  2435              		.loc 1 1673 6
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2479              		.cfi_endproc
  2480              	.LFE74:
  2482              		.section	.text.HAL_SPI_Transmit_DMA,"ax",%progbits
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 74
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 74
 
 
  2483              		.align	1
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2517 001a 01D1     		bne	.L135
  2518              		.loc 1 1704 3 is_stmt 0 discriminator 1
  2519 001c 0223     		movs	r3, #2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 75
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 75
 
 
  2520 001e 97E0     		b	.L136
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2558              		.loc 1 1720 21
  2559 0054 FB68     		ldr	r3, [r7, #12]
  2560 0056 0022     		movs	r2, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 76
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 76
 
 
  2561 0058 5A65     		str	r2, [r3, #84]
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1736:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     __HAL_SPI_DISABLE(hspi);
  2600              		.loc 1 1736 5
  2601 0094 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 77
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 77
 
 
  2602 0096 1B68     		ldr	r3, [r3]
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1758:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->hdmatx->XferAbortCallback = NULL;
  2635              		.loc 1 1758 7
  2636 00cc FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 78
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 78
 
 
  2637 00ce 9B6C     		ldr	r3, [r3, #72]
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1770:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 1771:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* Check if the SPI is already enabled */
 1772:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   if ((hspi->Instance->CR1 & SPI_CR1_SPE) != SPI_CR1_SPE)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 79
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 79
 
 
  2678              		.loc 1 1772 12
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1787:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   return errorcode;
  2718              		.loc 1 1787 10
  2719 014e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 80
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 80
 
 
  2720              	.L136:
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2762              	.LCFI61:
  2763              		.cfi_def_cfa_register 7
  2764 0006 F860     		str	r0, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 81
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 81
 
 
  2765 0008 B960     		str	r1, [r7, #8]
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1821:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     return HAL_SPI_TransmitReceive_DMA(hspi, pData, pData, Size);
  2800              		.loc 1 1821 12
  2801 003e FB88     		ldrh	r3, [r7, #6]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 82
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 82
 
 
  2802 0040 BA68     		ldr	r2, [r7, #8]
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2842 007e FB68     		ldr	r3, [r7, #12]
  2843 0080 0022     		movs	r2, #0
  2844 0082 5A65     		str	r2, [r3, #84]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 83
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 83
 
 
 1836:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->pRxBuffPtr  = (uint8_t *)pData;
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2884 00c0 1B68     		ldr	r3, [r3]
  2885 00c2 22F04002 		bic	r2, r2, #64
  2886 00c6 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 84
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 84
 
 
 1851:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     SPI_1LINE_RX(hspi);
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2919 00f6 5A63     		str	r2, [r3, #52]
 1873:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 1874:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* Enable the Rx DMA Stream/Channel  */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 85
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 85
 
 
 1875:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   if (HAL_OK != HAL_DMA_Start_IT(hspi->hdmarx, (uint32_t)&hspi->Instance->DR, (uint32_t)hspi->pRxBu
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  2960              		.loc 1 1886 22
  2961 0130 1B68     		ldr	r3, [r3]
  2962              		.loc 1 1886 28
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 86
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 86
 
 
  2963 0132 03F04003 		and	r3, r3, #64
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3001 0174 1846     		mov	r0, r3
  3002 0176 1837     		adds	r7, r7, #24
  3003              	.LCFI62:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 87
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 87
 
 
  3004              		.cfi_def_cfa_offset 8
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3046 000c 7B80     		strh	r3, [r7, #2]	@ movhi
 1917:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   uint32_t             tmp_mode;
 1918:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   HAL_SPI_StateTypeDef tmp_state;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 88
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 88
 
 
 1919:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   HAL_StatusTypeDef errorcode = HAL_OK;
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3083 0048 002B     		cmp	r3, #0
  3084 004a 02D1     		bne	.L163
  3085              		.loc 1 1936 90 discriminator 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 89
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 89
 
 
  3086 004c BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3125 0080 83F85120 		strb	r2, [r3, #81]
  3126              	.L167:
 1952:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 90
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 90
 
 
 1953:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 1971:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     SPI_RESET_CRC(hspi);
 1972:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
 1973:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #endif /* USE_SPI_CRC */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 91
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 91
 
 
 1974:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3200              		.loc 1 1990 35
  3201 00ec 404A     		ldr	r2, .L173+16
  3202 00ee 1A63     		str	r2, [r3, #48]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 92
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 92
 
 
 1991:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2003:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     goto error;
  3243              		.loc 1 2003 5
  3244 012a 50E0     		b	.L164
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 93
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 93
 
 
  3245              	.L170:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3285 0164 1946     		mov	r1, r3
  3286              		.loc 1 2017 91
  3287 0166 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 94
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 94
 
 
  3288 0168 1B68     		ldr	r3, [r3]
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3326 019e FB68     		ldr	r3, [r7, #12]
  3327 01a0 1B68     		ldr	r3, [r3]
  3328 01a2 1A68     		ldr	r2, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 95
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 95
 
 
  3329 01a4 FB68     		ldr	r3, [r7, #12]
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3371 01e0 00000000 		.word	SPI_DMAHalfReceiveCplt
  3372 01e4 00000000 		.word	SPI_DMAReceiveCplt
  3373 01e8 00000000 		.word	SPI_DMAHalfTransmitReceiveCplt
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 96
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 96
 
 
  3374 01ec 00000000 		.word	SPI_DMATransmitReceiveCplt
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3407              		.loc 1 2066 61
  3408 000c 6A4B     		ldr	r3, .L193
  3409 000e 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 97
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 97
 
 
  3410 0010 6A4A     		ldr	r2, .L193+4
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3449 0050 5B6D     		ldr	r3, [r3, #84]
  3450 0052 43F04002 		orr	r2, r3, #64
  3451 0056 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 98
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 98
 
 
  3452 0058 5A65     		str	r2, [r3, #84]
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2098:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_ABORT);
  3490              		.loc 1 2098 9
  3491 008c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 99
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 99
 
 
  3492 008e 5B6D     		ldr	r3, [r3, #84]
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3529              		.loc 1 2115 11
  3530 00c6 7B68     		ldr	r3, [r7, #4]
  3531 00c8 9B6C     		ldr	r3, [r3, #72]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 100
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 100
 
 
  3532              		.loc 1 2115 39
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3569              		.loc 1 2132 11
  3570 0106 09E0     		b	.L184
  3571              	.L186:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 101
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 101
 
 
 2133:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         }
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3608 013a 7B68     		ldr	r3, [r7, #4]
  3609 013c DB6C     		ldr	r3, [r3, #76]
  3610 013e 1846     		mov	r0, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 102
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 102
 
 
  3611 0140 FFF7FEFF 		bl	HAL_DMA_Abort
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3648 017e 5B6D     		ldr	r3, [r3, #84]
  3649              		.loc 1 2167 6
  3650 0180 402B     		cmp	r3, #64
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 103
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 103
 
 
  3651 0182 02D1     		bne	.L190
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3687 01b4 BD46     		mov	sp, r7
  3688              	.LCFI73:
  3689              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 104
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 104
 
 
  3690              		@ sp needed
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2205:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   uint32_t abortcplt ;
 2206:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __IO uint32_t count;
 2207:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __IO uint32_t resetcount;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 105
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 105
 
 
 2208:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3767              	.L199:
 2222:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Wait HAL_SPI_STATE_ABORT state */
 2223:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     do
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 106
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 106
 
 
 2224:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3807 0084 7B68     		ldr	r3, [r7, #4]
  3808 0086 544A     		ldr	r2, .L216+12
  3809 0088 1A64     		str	r2, [r3, #64]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 107
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 107
 
 
  3810              	.L203:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3846 00ba 0FD0     		beq	.L204
 2257:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
 2258:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Set DMA Abort Complete callback if UART DMA Tx request if enabled.
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 108
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 108
 
 
 2259:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****        Otherwise, set it to NULL */
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2276:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       hspi->hdmarx->XferAbortCallback = SPI_DMARxAbortCallback;
  3884              		.loc 1 2276 11
  3885 00f2 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 109
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 109
 
 
  3886 00f4 DB6C     		ldr	r3, [r3, #76]
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3923 012a 7B68     		ldr	r3, [r7, #4]
  3924 012c 9B6C     		ldr	r3, [r3, #72]
  3925              		.loc 1 2293 41
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 110
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 110
 
 
  3926 012e 0022     		movs	r2, #0
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3962 0164 7B68     		ldr	r3, [r7, #4]
  3963 0166 DB6C     		ldr	r3, [r3, #76]
  3964              		.loc 1 2311 41
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 111
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 111
 
 
  3965 0168 0022     		movs	r2, #0
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  3999              	.L213:
 2332:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
 2333:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     else
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 112
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 112
 
 
 2334:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4033              		.cfi_def_cfa_offset 8
  4034 01c8 BD46     		mov	sp, r7
  4035              	.LCFI78:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 113
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 113
 
 
  4036              		.cfi_def_cfa_register 13
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4081              		.loc 1 2365 3 is_stmt 0 discriminator 1
  4082 0012 0223     		movs	r3, #2
  4083 0014 10E0     		b	.L220
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 114
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 114
 
 
  4084              	.L219:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2376:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /**
 2377:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @brief  Resume the DMA Transfer.
 2378:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 115
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 115
 
 
 2379:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   *               the configuration information for the specified SPI module.
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2392:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 2393:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   return HAL_OK;
  4171              		.loc 1 2393 10 discriminator 2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 116
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 116
 
 
  4172 0036 0023     		movs	r3, #0
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4217 0008 0023     		movs	r3, #0
  4218 000a FB73     		strb	r3, [r7, #15]
 2405:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* The Lock is not implemented on this API to allow the user application
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 117
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 117
 
 
 2406:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****      to call the HAL SPI API under callbacks HAL_SPI_TxCpltCallback() or HAL_SPI_RxCpltCallback() o
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4255 0046 0346     		mov	r3, r0
  4256              		.loc 1 2423 8
  4257 0048 002B     		cmp	r3, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 118
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 118
 
 
  4258 004a 07D0     		beq	.L226
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4303              	HAL_SPI_IRQHandler:
  4304              	.LFB83:
 2435:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 119
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 119
 
 
 2436:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /**
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4344 002a 002B     		cmp	r3, #0
  4345 002c 0AD0     		beq	.L229
  4346              		.loc 1 2449 60
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 120
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 120
 
 
  4347 002e FB69     		ldr	r3, [r7, #28]
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4387              		.loc 1 2463 9
  4388 0066 BB69     		ldr	r3, [r7, #24]
  4389 0068 5B09     		lsrs	r3, r3, #5
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 121
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 121
 
 
  4390 006a 03F00103 		and	r3, r3, #1
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4435 00ba DB68     		ldr	r3, [r3, #12]
  4436 00bc 7B61     		str	r3, [r7, #20]
  4437 00be 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 122
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 122
 
 
  4438 00c0 1B68     		ldr	r3, [r3]
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4479 00fe 7B68     		ldr	r3, [r7, #4]
  4480 0100 1B68     		ldr	r3, [r3]
  4481 0102 9B68     		ldr	r3, [r3, #8]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 123
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 123
 
 
  4482 0104 FB60     		str	r3, [r7, #12]
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2498:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       {
 2499:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         CLEAR_BIT(hspi->Instance->CR2, (SPI_CR2_TXDMAEN | SPI_CR2_RXDMAEN));
  4524              		.loc 1 2499 9
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 124
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 124
 
 
  4525 014c 7B68     		ldr	r3, [r7, #4]
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4565 018e 16D0     		beq	.L242
 2514:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         {
 2515:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           /* Set the SPI DMA Abort callback :
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 125
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 125
 
 
 2516:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           will lead to call HAL_SPI_ErrorCallback() at end of DMA abort procedure */
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4599              		.loc 1 2534 5
  4600 01c0 00BF     		nop
  4601              	.L228:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 126
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 126
 
 
 2535:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2550:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****             the HAL_SPI_TxCpltCallback should be implemented in the user file
 2551:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****    */
 2552:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 127
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 127
 
 
  4643              		.loc 1 2552 1
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2567:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****    */
 2568:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** }
  4685              		.loc 1 2568 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 128
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 128
 
 
  4686 0008 00BF     		nop
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2584:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** }
  4727              		.loc 1 2584 1
  4728 0008 00BF     		nop
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 129
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 129
 
 
  4729 000a 0C37     		adds	r7, r7, #12
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4769              		.loc 1 2600 1
  4770 0008 00BF     		nop
  4771 000a 0C37     		adds	r7, r7, #12
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 130
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 130
 
 
  4772              	.LCFI122:
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4812 0008 00BF     		nop
  4813 000a 0C37     		adds	r7, r7, #12
  4814              	.LCFI128:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 131
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 131
 
 
  4815              		.cfi_def_cfa_offset 4
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4855 000a 0C37     		adds	r7, r7, #12
  4856              	.LCFI134:
  4857              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 132
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 132
 
 
  4858 000c BD46     		mov	sp, r7
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4895              		.loc 1 2651 1
  4896 0008 00BF     		nop
  4897 000a 0C37     		adds	r7, r7, #12
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 133
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 133
 
 
  4898              	.LCFI140:
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4939 000a 0C37     		adds	r7, r7, #12
  4940              	.LCFI146:
  4941              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 134
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 134
 
 
  4942 000c BD46     		mov	sp, r7
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  4970              		.cfi_def_cfa_offset 4
  4971              		.cfi_offset 7, -4
  4972 0002 83B0     		sub	sp, sp, #12
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 135
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 135
 
 
  4973              	.LCFI150:
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5017              		.cfi_offset 7, -4
  5018 0002 83B0     		sub	sp, sp, #12
  5019              	.LCFI156:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 136
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 136
 
 
  5020              		.cfi_def_cfa_offset 16
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2730:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_DMATransmitCplt(DMA_HandleTypeDef *hdma)
 2731:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** {
  5053              		.loc 1 2731 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 137
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 137
 
 
  5054              		.cfi_startproc
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5094              		.loc 1 2745 5
  5095 0032 7B69     		ldr	r3, [r7, #20]
  5096 0034 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 138
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 138
 
 
  5097 0036 5A68     		ldr	r2, [r3, #4]
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2758:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 2759:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     hspi->TxXferCount = 0U;
  5139              		.loc 1 2759 23
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 139
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 139
 
 
  5140 007c 7B69     		ldr	r3, [r7, #20]
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5175              		.section	.text.SPI_DMAReceiveCplt,"ax",%progbits
  5176              		.align	1
  5177              		.syntax unified
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 140
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 140
 
 
  5178              		.thumb
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5213              		.loc 1 2799 6
  5214 001e 202B     		cmp	r3, #32
  5215 0020 3BD0     		beq	.L263
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 141
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 141
 
 
 2800:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5244 0054 07E0     		b	.L265
  5245              	.L264:
 2826:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 142
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 142
 
 
 2827:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     else
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2850:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 2851:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         /* Reset CRC Calculation */
 2852:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         SPI_RESET_CRC(hspi);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 143
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 143
 
 
 2853:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       }
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5306              		.align	1
  5307              		.syntax unified
  5308              		.thumb
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 144
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 144
 
 
  5309              		.thumb_func
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5344 001e 202B     		cmp	r3, #32
  5345 0020 2FD0     		beq	.L269
 2899:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 145
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 145
 
 
 2900:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Disable ERR interrupt */
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5373 0052 5A68     		ldr	r2, [r3, #4]
  5374 0054 FB68     		ldr	r3, [r7, #12]
  5375 0056 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 146
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 146
 
 
  5376 0058 22F00302 		bic	r2, r2, #3
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 2958:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #endif /* USE_HAL_SPI_REGISTER_CALLBACKS */
 2959:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       return;
  5399              		.loc 1 2959 7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 147
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 147
 
 
  5400 0080 02E0     		b	.L268
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5438 0004 00AF     		add	r7, sp, #0
  5439              	.LCFI178:
  5440              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 148
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 148
 
 
  5441 0006 7860     		str	r0, [r7, #4]
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5479 0002 84B0     		sub	sp, sp, #16
  5480              	.LCFI182:
  5481              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 149
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 149
 
 
  5482 0004 00AF     		add	r7, sp, #0
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5520              		.cfi_def_cfa_offset 8
  5521              		.cfi_offset 7, -8
  5522              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 150
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 150
 
 
  5523 0002 84B0     		sub	sp, sp, #16
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5561              		@ frame_needed = 1, uses_anonymous_args = 0
  5562 0000 80B5     		push	{r7, lr}
  5563              	.LCFI191:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 151
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 151
 
 
  5564              		.cfi_def_cfa_offset 8
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5604 003c BD46     		mov	sp, r7
  5605              	.LCFI195:
  5606              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 152
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 152
 
 
  5607              		@ sp needed
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3061:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->ErrorCallback(hspi);
 3062:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #else
 3063:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   HAL_SPI_ErrorCallback(hspi);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 153
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 153
 
 
  5648              		.loc 1 3063 3
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5690 000a 5B6A     		ldr	r3, [r3, #36]
  5691 000c 7B61     		str	r3, [r7, #20]
 3078:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __IO uint32_t count;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 154
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 154
 
 
 3079:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3093:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
 3094:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     count--;
  5732              		.loc 1 3094 10
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 155
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 155
 
 
  5733 004e 3B69     		ldr	r3, [r7, #16]
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5770              		.loc 1 3111 11
  5771 0080 7B69     		ldr	r3, [r7, #20]
  5772 0082 5B6D     		ldr	r3, [r3, #84]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 156
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 156
 
 
  5773              		.loc 1 3111 6
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5808 00b6 1837     		adds	r7, r7, #24
  5809              	.LCFI204:
  5810              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 157
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 157
 
 
  5811 00b8 BD46     		mov	sp, r7
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5852              		.loc 1 3144 3
  5853 000e FB68     		ldr	r3, [r7, #12]
  5854 0010 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 158
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 158
 
 
  5855 0012 1A68     		ldr	r2, [r3]
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5895              		.loc 1 3158 6
  5896 005c 002B     		cmp	r3, #0
  5897 005e 04D0     		beq	.L289
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 159
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 159
 
 
 3159:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  5932 008c DB68     		ldr	r3, [r3, #12]
  5933 008e BB60     		str	r3, [r7, #8]
  5934 0090 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 160
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 160
 
 
  5935 0092 1B68     		ldr	r3, [r3]
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3197:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_2linesRxISR_8BIT(struct __SPI_HandleTypeDef *hspi)
 3198:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** {
  5972              		.loc 1 3198 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 161
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 161
 
 
  5973              		.cfi_startproc
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6020 0036 9BB2     		uxth	r3, r3
  6021              		.loc 1 3205 6
  6022 0038 002B     		cmp	r3, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 162
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 162
 
 
  6023 003a 0FD1     		bne	.L295
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6060              		.thumb_func
  6062              	SPI_2linesTxISR_8BIT:
  6063              	.LFB105:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 163
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 163
 
 
 3224:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3262:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   *(__IO uint8_t *)&hspi->Instance->DR = (*hspi->pTxBuffPtr);
  6080              		.loc 1 3262 48
  6081 0008 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 164
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 164
 
 
  6082 000a 1A6B     		ldr	r2, [r3, #48]
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6117 003a 1B68     		ldr	r3, [r3]
  6118 003c 5A68     		ldr	r2, [r3, #4]
  6119 003e 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 165
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 165
 
 
  6120 0040 1B68     		ldr	r3, [r3]
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6160              	.LCFI221:
  6161              		.cfi_def_cfa_offset 8
  6162              		.cfi_offset 7, -8
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 166
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 166
 
 
  6163              		.cfi_offset 14, -4
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3310:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
 3311:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #endif /* USE_SPI_CRC */
 3312:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 167
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 167
 
 
 3313:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Disable RXNE interrupt */
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3329:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   */
 3330:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_2linesRxISR_16BITCRC(struct __SPI_HandleTypeDef *hspi)
 3331:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 168
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 168
 
 
 3332:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __IO uint32_t tmpreg = 0U;
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6274 0018 9A1C     		adds	r2, r3, #2
  6275 001a 7B68     		ldr	r3, [r7, #4]
  6276 001c 1A63     		str	r2, [r3, #48]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 169
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 169
 
 
 3357:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->TxXferCount--;
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6309 0050 7868     		ldr	r0, [r7, #4]
  6310 0052 FFF7FEFF 		bl	SPI_CloseRxTx_ISR
  6311              	.L304:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 170
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 170
 
 
 3379:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6333              		.loc 1 3413 1
  6334              		.cfi_startproc
  6335              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 171
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 171
 
 
  6336              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3426:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   {
 3427:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     /* Workaround to force CRCNEXT bit to zero in case of CRCNEXT is not reset automatically by har
 3428:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     CLEAR_BIT(hspi->Instance->CR1, SPI_CR1_CRCNEXT);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 172
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 172
 
 
 3429:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3453:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** static void SPI_RxISR_16BITCRC(struct __SPI_HandleTypeDef *hspi)
 3454:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** {
 3455:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __IO uint32_t tmpreg = 0U;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 173
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 173
 
 
 3456:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6441 001a 9A1C     		adds	r2, r3, #2
  6442 001c 7B68     		ldr	r3, [r7, #4]
  6443 001e 9A63     		str	r2, [r3, #56]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 174
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 174
 
 
 3479:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->RxXferCount--;
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6469 0042 BD46     		mov	sp, r7
  6470              	.LCFI240:
  6471              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 175
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 175
 
 
  6472              		@ sp needed
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6517 001a 5A1C     		adds	r2, r3, #1
  6518 001c 7B68     		ldr	r3, [r7, #4]
  6519 001e 1A63     		str	r2, [r3, #48]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 176
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 176
 
 
 3519:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->TxXferCount--;
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3534:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /**
 3535:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @brief  Handle the data 16-bit transmit in Interrupt mode.
 3536:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 177
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 177
 
 
 3537:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   *               the configuration information for SPI module.
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6604 002e DB8E     		ldrh	r3, [r3, #54]	@ movhi
  6605 0030 9BB2     		uxth	r3, r3
  6606              		.loc 1 3547 6
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 178
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 178
 
 
  6607 0032 002B     		cmp	r3, #0
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6638 0000 80B5     		push	{r7, lr}
  6639              	.LCFI251:
  6640              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 179
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 179
 
 
  6641              		.cfi_offset 7, -8
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6681              		.loc 1 3586 8
  6682 0038 3B68     		ldr	r3, [r7]
  6683 003a B3F1FF3F 		cmp	r3, #-1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 180
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 180
 
 
  6684 003e 50D0     		beq	.L318
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6726              	.L322:
 3599:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****         {
 3600:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           /* Disable SPI peripheral */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 181
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 181
 
 
 3601:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****           __HAL_SPI_DISABLE(hspi);
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6766              		.loc 1 3615 16
  6767 00ce 0323     		movs	r3, #3
  6768 00d0 17E0     		b	.L324
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 182
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 182
 
 
  6769              	.L320:
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6807 0102 1846     		mov	r0, r3
  6808 0104 2037     		adds	r7, r7, #32
  6809              	.LCFI254:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 183
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 183
 
 
  6810              		.cfi_def_cfa_offset 8
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6854 0014 11D1     		bne	.L330
  6855              		.loc 1 3639 59 discriminator 1
  6856 0016 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 184
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 184
 
 
  6857 0018 9B68     		ldr	r3, [r3, #8]
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3650:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     {
 3651:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_FLAG);
  6901              		.loc 1 3651 7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 185
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 185
 
 
  6902 0064 FB68     		ldr	r3, [r7, #12]
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6942              	.LCFI260:
  6943              		.cfi_def_cfa_register 13
  6944              		@ sp needed
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 186
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 186
 
 
  6945 00a2 80BD     		pop	{r7, pc}
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  6987              		.loc 1 3679 5
  6988 0022 FB68     		ldr	r3, [r7, #12]
  6989 0024 5B6D     		ldr	r3, [r3, #84]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 187
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 187
 
 
  6990 0026 43F02002 		orr	r2, r3, #32
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7033 0004 00AF     		add	r7, sp, #0
  7034              	.LCFI268:
  7035              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 188
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 188
 
 
  7036 0006 7860     		str	r0, [r7, #4]
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3709:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     }
 3710:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****     count--;
  7074              		.loc 1 3710 10
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 189
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 189
 
 
  7075 0046 3B69     		ldr	r3, [r7, #16]
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7117 0086 DB68     		ldr	r3, [r3, #12]
  7118 0088 FB60     		str	r3, [r7, #12]
  7119 008a 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 190
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 190
 
 
  7120 008c 1B68     		ldr	r3, [r3]
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7139              		.loc 1 3757 21
  7140 00a8 7B68     		ldr	r3, [r7, #4]
  7141 00aa 0122     		movs	r2, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 191
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 191
 
 
  7142 00ac 83F85120 		strb	r2, [r3, #81]
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7161 00ca 0122     		movs	r2, #1
  7162 00cc 83F85120 		strb	r2, [r3, #81]
 3783:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #endif /* USE_HAL_SPI_REGISTER_CALLBACKS */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 192
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 192
 
 
  7163              		.loc 1 3783 7
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3800:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   __HAL_SPI_DISABLE_IT(hspi, (SPI_IT_RXNE | SPI_IT_ERR));
  7209              		.loc 1 3800 3
  7210 0008 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 193
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 193
 
 
  7211 000a 1B68     		ldr	r3, [r3]
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7254              	.L353:
  7255              	.LBE13:
 3812:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 194
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 194
 
 
 3813:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   hspi->State = HAL_SPI_STATE_READY;
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3854:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #if (USE_HAL_SPI_REGISTER_CALLBACKS == 1U)
 3855:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       hspi->ErrorCallback(hspi);
 3856:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** #else
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 195
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 195
 
 
 3857:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****       HAL_SPI_ErrorCallback(hspi);
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7308              		.cfi_def_cfa_offset 32
  7309 0004 00AF     		add	r7, sp, #0
  7310              	.LCFI278:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 196
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 196
 
 
  7311              		.cfi_def_cfa_register 7
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7349              		.loc 1 3888 27
  7350 0040 9B68     		ldr	r3, [r3, #8]
  7351              		.loc 1 3888 32
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 197
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 197
 
 
  7352 0042 03F00203 		and	r3, r3, #2
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7392 0084 1B68     		ldr	r3, [r3]
  7393 0086 DB68     		ldr	r3, [r3, #12]
  7394 0088 FB60     		str	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 198
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 198
 
 
  7395 008a 7B68     		ldr	r3, [r7, #4]
@@ -11878,7 +11878,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7426              		.cfi_def_cfa_offset 8
  7427 00b6 BD46     		mov	sp, r7
  7428              	.LCFI280:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 199
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 199
 
 
  7429              		.cfi_def_cfa_register 13
@@ -11938,7 +11938,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7474 0018 6422     		movs	r2, #100
  7475 001a 02FB03F3 		mul	r3, r2, r3
  7476              		.loc 1 3935 17
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 200
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 200
 
 
  7477 001e BB60     		str	r3, [r7, #8]
@@ -11998,7 +11998,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
 3951:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   /* Disable TXEIE, RXNEIE and ERRIE(mode fault event, overrun error, TI frame error) interrupts */
 3952:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   CLEAR_BIT(hspi->Instance->CR2, (SPI_CR2_TXEIE | SPI_CR2_RXNEIE | SPI_CR2_ERRIE));
  7516              		.loc 1 3952 3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 201
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 201
 
 
  7517 0058 7B68     		ldr	r3, [r7, #4]
@@ -12058,7 +12058,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7565              	.LFB119:
 3961:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** 
 3962:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c **** /**
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 202
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 202
 
 
 3963:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c ****   * @brief  Handle abort a Tx or Rx/Tx transaction.
@@ -12118,7 +12118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7605              	.LCFI290:
  7606              		.cfi_def_cfa_offset 4
  7607 0034 BD46     		mov	sp, r7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 203
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 203
 
 
  7608              	.LCFI291:
@@ -12141,141 +12141,141 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 1
  7626              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  7627              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
  7628              		.file 9 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 204
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 204
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_spi.c
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:18     .text.HAL_SPI_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:24     .text.HAL_SPI_Init:00000000 HAL_SPI_Init
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:271    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:189    .text.HAL_SPI_DeInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:195    .text.HAL_SPI_DeInit:00000000 HAL_SPI_DeInit
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:313    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:265    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:307    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:349    .text.HAL_SPI_Transmit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:355    .text.HAL_SPI_Transmit:00000000 HAL_SPI_Transmit
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6955   .text.SPI_EndRxTxTransaction:00000000 SPI_EndRxTxTransaction
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:816    .text.HAL_SPI_Receive:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:822    .text.HAL_SPI_Receive:00000000 HAL_SPI_Receive
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:1219   .text.HAL_SPI_TransmitReceive:00000000 HAL_SPI_TransmitReceive
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6829   .text.SPI_EndRxTransaction:00000000 SPI_EndRxTransaction
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:1213   .text.HAL_SPI_TransmitReceive:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:1823   .text.HAL_SPI_Transmit_IT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:1829   .text.HAL_SPI_Transmit_IT:00000000 HAL_SPI_Transmit_IT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2025   .text.HAL_SPI_Transmit_IT:0000010c $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6559   .text.SPI_TxISR_16BIT:00000000 SPI_TxISR_16BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6483   .text.SPI_TxISR_8BIT:00000000 SPI_TxISR_8BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2031   .text.HAL_SPI_Receive_IT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2037   .text.HAL_SPI_Receive_IT:00000000 HAL_SPI_Receive_IT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2266   .text.HAL_SPI_TransmitReceive_IT:00000000 HAL_SPI_TransmitReceive_IT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2254   .text.HAL_SPI_Receive_IT:00000134 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6408   .text.SPI_RxISR_16BIT:00000000 SPI_RxISR_16BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6331   .text.SPI_RxISR_8BIT:00000000 SPI_RxISR_8BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2260   .text.HAL_SPI_TransmitReceive_IT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2475   .text.HAL_SPI_TransmitReceive_IT:00000118 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6153   .text.SPI_2linesRxISR_16BIT:00000000 SPI_2linesRxISR_16BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6243   .text.SPI_2linesTxISR_16BIT:00000000 SPI_2linesTxISR_16BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5970   .text.SPI_2linesRxISR_8BIT:00000000 SPI_2linesRxISR_8BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6062   .text.SPI_2linesTxISR_8BIT:00000000 SPI_2linesTxISR_8BIT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2483   .text.HAL_SPI_Transmit_DMA:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2489   .text.HAL_SPI_Transmit_DMA:00000000 HAL_SPI_Transmit_DMA
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2734   .text.HAL_SPI_Transmit_DMA:00000158 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5424   .text.SPI_DMAHalfTransmitCplt:00000000 SPI_DMAHalfTransmitCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5051   .text.SPI_DMATransmitCplt:00000000 SPI_DMATransmitCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5556   .text.SPI_DMAError:00000000 SPI_DMAError
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2741   .text.HAL_SPI_Receive_DMA:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:2747   .text.HAL_SPI_Receive_DMA:00000000 HAL_SPI_Receive_DMA
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3026   .text.HAL_SPI_TransmitReceive_DMA:00000000 HAL_SPI_TransmitReceive_DMA
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3013   .text.HAL_SPI_Receive_DMA:0000017c $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5468   .text.SPI_DMAHalfReceiveCplt:00000000 SPI_DMAHalfReceiveCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5181   .text.SPI_DMAReceiveCplt:00000000 SPI_DMAReceiveCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3020   .text.HAL_SPI_TransmitReceive_DMA:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3371   .text.HAL_SPI_TransmitReceive_DMA:000001e0 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5512   .text.SPI_DMAHalfTransmitReceiveCplt:00000000 SPI_DMAHalfTransmitReceiveCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5311   .text.SPI_DMATransmitReceiveCplt:00000000 SPI_DMATransmitReceiveCplt
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3380   .text.HAL_SPI_Abort:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3386   .text.HAL_SPI_Abort:00000000 HAL_SPI_Abort
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3695   .text.HAL_SPI_Abort:000001b8 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7564   .text.SPI_AbortTx_ISR:00000000 SPI_AbortTx_ISR
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7446   .text.SPI_AbortRx_ISR:00000000 SPI_AbortRx_ISR
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3703   .text.HAL_SPI_Abort_IT:00000000 $t
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 205
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:18     .text.HAL_SPI_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:24     .text.HAL_SPI_Init:00000000 HAL_SPI_Init
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:271    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:189    .text.HAL_SPI_DeInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:195    .text.HAL_SPI_DeInit:00000000 HAL_SPI_DeInit
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:313    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:265    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:307    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:349    .text.HAL_SPI_Transmit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:355    .text.HAL_SPI_Transmit:00000000 HAL_SPI_Transmit
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6955   .text.SPI_EndRxTxTransaction:00000000 SPI_EndRxTxTransaction
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:816    .text.HAL_SPI_Receive:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:822    .text.HAL_SPI_Receive:00000000 HAL_SPI_Receive
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:1219   .text.HAL_SPI_TransmitReceive:00000000 HAL_SPI_TransmitReceive
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6829   .text.SPI_EndRxTransaction:00000000 SPI_EndRxTransaction
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:1213   .text.HAL_SPI_TransmitReceive:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:1823   .text.HAL_SPI_Transmit_IT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:1829   .text.HAL_SPI_Transmit_IT:00000000 HAL_SPI_Transmit_IT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2025   .text.HAL_SPI_Transmit_IT:0000010c $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6559   .text.SPI_TxISR_16BIT:00000000 SPI_TxISR_16BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6483   .text.SPI_TxISR_8BIT:00000000 SPI_TxISR_8BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2031   .text.HAL_SPI_Receive_IT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2037   .text.HAL_SPI_Receive_IT:00000000 HAL_SPI_Receive_IT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2266   .text.HAL_SPI_TransmitReceive_IT:00000000 HAL_SPI_TransmitReceive_IT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2254   .text.HAL_SPI_Receive_IT:00000134 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6408   .text.SPI_RxISR_16BIT:00000000 SPI_RxISR_16BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6331   .text.SPI_RxISR_8BIT:00000000 SPI_RxISR_8BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2260   .text.HAL_SPI_TransmitReceive_IT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2475   .text.HAL_SPI_TransmitReceive_IT:00000118 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6153   .text.SPI_2linesRxISR_16BIT:00000000 SPI_2linesRxISR_16BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6243   .text.SPI_2linesTxISR_16BIT:00000000 SPI_2linesTxISR_16BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5970   .text.SPI_2linesRxISR_8BIT:00000000 SPI_2linesRxISR_8BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6062   .text.SPI_2linesTxISR_8BIT:00000000 SPI_2linesTxISR_8BIT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2483   .text.HAL_SPI_Transmit_DMA:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2489   .text.HAL_SPI_Transmit_DMA:00000000 HAL_SPI_Transmit_DMA
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2734   .text.HAL_SPI_Transmit_DMA:00000158 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5424   .text.SPI_DMAHalfTransmitCplt:00000000 SPI_DMAHalfTransmitCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5051   .text.SPI_DMATransmitCplt:00000000 SPI_DMATransmitCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5556   .text.SPI_DMAError:00000000 SPI_DMAError
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2741   .text.HAL_SPI_Receive_DMA:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:2747   .text.HAL_SPI_Receive_DMA:00000000 HAL_SPI_Receive_DMA
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3026   .text.HAL_SPI_TransmitReceive_DMA:00000000 HAL_SPI_TransmitReceive_DMA
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3013   .text.HAL_SPI_Receive_DMA:0000017c $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5468   .text.SPI_DMAHalfReceiveCplt:00000000 SPI_DMAHalfReceiveCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5181   .text.SPI_DMAReceiveCplt:00000000 SPI_DMAReceiveCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3020   .text.HAL_SPI_TransmitReceive_DMA:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3371   .text.HAL_SPI_TransmitReceive_DMA:000001e0 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5512   .text.SPI_DMAHalfTransmitReceiveCplt:00000000 SPI_DMAHalfTransmitReceiveCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5311   .text.SPI_DMATransmitReceiveCplt:00000000 SPI_DMATransmitReceiveCplt
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3380   .text.HAL_SPI_Abort:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3386   .text.HAL_SPI_Abort:00000000 HAL_SPI_Abort
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3695   .text.HAL_SPI_Abort:000001b8 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7564   .text.SPI_AbortTx_ISR:00000000 SPI_AbortTx_ISR
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7446   .text.SPI_AbortRx_ISR:00000000 SPI_AbortRx_ISR
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3703   .text.HAL_SPI_Abort_IT:00000000 $t
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 205
 
 
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:3709   .text.HAL_SPI_Abort_IT:00000000 HAL_SPI_Abort_IT
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4919   .text.HAL_SPI_AbortCpltCallback:00000000 HAL_SPI_AbortCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4042   .text.HAL_SPI_Abort_IT:000001cc $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5670   .text.SPI_DMATxAbortCallback:00000000 SPI_DMATxAbortCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5830   .text.SPI_DMARxAbortCallback:00000000 SPI_DMARxAbortCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4052   .text.HAL_SPI_DMAPause:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4058   .text.HAL_SPI_DMAPause:00000000 HAL_SPI_DMAPause
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4122   .text.HAL_SPI_DMAResume:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4128   .text.HAL_SPI_DMAResume:00000000 HAL_SPI_DMAResume
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4192   .text.HAL_SPI_DMAStop:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4198   .text.HAL_SPI_DMAStop:00000000 HAL_SPI_DMAStop
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4297   .text.HAL_SPI_IRQHandler:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4303   .text.HAL_SPI_IRQHandler:00000000 HAL_SPI_IRQHandler
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4877   .text.HAL_SPI_ErrorCallback:00000000 HAL_SPI_ErrorCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4614   .text.HAL_SPI_IRQHandler:000001c8 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5618   .text.SPI_DMAAbortOnError:00000000 SPI_DMAAbortOnError
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4619   .text.HAL_SPI_TxCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4625   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4661   .text.HAL_SPI_RxCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4667   .text.HAL_SPI_RxCpltCallback:00000000 HAL_SPI_RxCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4703   .text.HAL_SPI_TxRxCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4709   .text.HAL_SPI_TxRxCpltCallback:00000000 HAL_SPI_TxRxCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4745   .text.HAL_SPI_TxHalfCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4751   .text.HAL_SPI_TxHalfCpltCallback:00000000 HAL_SPI_TxHalfCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4787   .text.HAL_SPI_RxHalfCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4793   .text.HAL_SPI_RxHalfCpltCallback:00000000 HAL_SPI_RxHalfCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4829   .text.HAL_SPI_TxRxHalfCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4835   .text.HAL_SPI_TxRxHalfCpltCallback:00000000 HAL_SPI_TxRxHalfCpltCallback
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4871   .text.HAL_SPI_ErrorCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4913   .text.HAL_SPI_AbortCpltCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4955   .text.HAL_SPI_GetState:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:4961   .text.HAL_SPI_GetState:00000000 HAL_SPI_GetState
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5001   .text.HAL_SPI_GetError:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5007   .text.HAL_SPI_GetError:00000000 HAL_SPI_GetError
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5046   .text.SPI_DMATransmitCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5176   .text.SPI_DMAReceiveCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5306   .text.SPI_DMATransmitReceiveCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5419   .text.SPI_DMAHalfTransmitCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5463   .text.SPI_DMAHalfReceiveCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5507   .text.SPI_DMAHalfTransmitReceiveCplt:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5551   .text.SPI_DMAError:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5613   .text.SPI_DMAAbortOnError:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5665   .text.SPI_DMATxAbortCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5819   .text.SPI_DMATxAbortCallback:000000bc $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5825   .text.SPI_DMARxAbortCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:5965   .text.SPI_2linesRxISR_8BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7019   .text.SPI_CloseRxTx_ISR:00000000 SPI_CloseRxTx_ISR
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6057   .text.SPI_2linesTxISR_8BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6148   .text.SPI_2linesRxISR_16BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6238   .text.SPI_2linesTxISR_16BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6326   .text.SPI_RxISR_8BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7191   .text.SPI_CloseRx_ISR:00000000 SPI_CloseRx_ISR
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6403   .text.SPI_RxISR_16BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6478   .text.SPI_TxISR_8BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7295   .text.SPI_CloseTx_ISR:00000000 SPI_CloseTx_ISR
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6554   .text.SPI_TxISR_16BIT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6627   .text.SPI_WaitFlagStateUntilTimeout:00000000 $t
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s 			page 206
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:3709   .text.HAL_SPI_Abort_IT:00000000 HAL_SPI_Abort_IT
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4919   .text.HAL_SPI_AbortCpltCallback:00000000 HAL_SPI_AbortCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4042   .text.HAL_SPI_Abort_IT:000001cc $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5670   .text.SPI_DMATxAbortCallback:00000000 SPI_DMATxAbortCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5830   .text.SPI_DMARxAbortCallback:00000000 SPI_DMARxAbortCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4052   .text.HAL_SPI_DMAPause:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4058   .text.HAL_SPI_DMAPause:00000000 HAL_SPI_DMAPause
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4122   .text.HAL_SPI_DMAResume:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4128   .text.HAL_SPI_DMAResume:00000000 HAL_SPI_DMAResume
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4192   .text.HAL_SPI_DMAStop:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4198   .text.HAL_SPI_DMAStop:00000000 HAL_SPI_DMAStop
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4297   .text.HAL_SPI_IRQHandler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4303   .text.HAL_SPI_IRQHandler:00000000 HAL_SPI_IRQHandler
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4877   .text.HAL_SPI_ErrorCallback:00000000 HAL_SPI_ErrorCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4614   .text.HAL_SPI_IRQHandler:000001c8 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5618   .text.SPI_DMAAbortOnError:00000000 SPI_DMAAbortOnError
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4619   .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4625   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4661   .text.HAL_SPI_RxCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4667   .text.HAL_SPI_RxCpltCallback:00000000 HAL_SPI_RxCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4703   .text.HAL_SPI_TxRxCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4709   .text.HAL_SPI_TxRxCpltCallback:00000000 HAL_SPI_TxRxCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4745   .text.HAL_SPI_TxHalfCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4751   .text.HAL_SPI_TxHalfCpltCallback:00000000 HAL_SPI_TxHalfCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4787   .text.HAL_SPI_RxHalfCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4793   .text.HAL_SPI_RxHalfCpltCallback:00000000 HAL_SPI_RxHalfCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4829   .text.HAL_SPI_TxRxHalfCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4835   .text.HAL_SPI_TxRxHalfCpltCallback:00000000 HAL_SPI_TxRxHalfCpltCallback
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4871   .text.HAL_SPI_ErrorCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4913   .text.HAL_SPI_AbortCpltCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4955   .text.HAL_SPI_GetState:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:4961   .text.HAL_SPI_GetState:00000000 HAL_SPI_GetState
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5001   .text.HAL_SPI_GetError:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5007   .text.HAL_SPI_GetError:00000000 HAL_SPI_GetError
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5046   .text.SPI_DMATransmitCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5176   .text.SPI_DMAReceiveCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5306   .text.SPI_DMATransmitReceiveCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5419   .text.SPI_DMAHalfTransmitCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5463   .text.SPI_DMAHalfReceiveCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5507   .text.SPI_DMAHalfTransmitReceiveCplt:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5551   .text.SPI_DMAError:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5613   .text.SPI_DMAAbortOnError:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5665   .text.SPI_DMATxAbortCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5819   .text.SPI_DMATxAbortCallback:000000bc $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5825   .text.SPI_DMARxAbortCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:5965   .text.SPI_2linesRxISR_8BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7019   .text.SPI_CloseRxTx_ISR:00000000 SPI_CloseRxTx_ISR
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6057   .text.SPI_2linesTxISR_8BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6148   .text.SPI_2linesRxISR_16BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6238   .text.SPI_2linesTxISR_16BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6326   .text.SPI_RxISR_8BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7191   .text.SPI_CloseRx_ISR:00000000 SPI_CloseRx_ISR
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6403   .text.SPI_RxISR_16BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6478   .text.SPI_TxISR_8BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7295   .text.SPI_CloseTx_ISR:00000000 SPI_CloseTx_ISR
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6554   .text.SPI_TxISR_16BIT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6627   .text.SPI_WaitFlagStateUntilTimeout:00000000 $t
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s 			page 206
 
 
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6632   .text.SPI_WaitFlagStateUntilTimeout:00000000 SPI_WaitFlagStateUntilTimeout
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6819   .text.SPI_WaitFlagStateUntilTimeout:0000010c $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6824   .text.SPI_EndRxTransaction:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:6950   .text.SPI_EndRxTxTransaction:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7014   .text.SPI_CloseRxTx_ISR:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7180   .text.SPI_CloseRxTx_ISR:000000e0 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7186   .text.SPI_CloseRx_ISR:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7290   .text.SPI_CloseTx_ISR:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7435   .text.SPI_CloseTx_ISR:000000bc $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7441   .text.SPI_AbortRx_ISR:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7553   .text.SPI_AbortRx_ISR:00000084 $d
-C:\Users\Matvey\AppData\Local\Temp\ccf8E5QD.s:7559   .text.SPI_AbortTx_ISR:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6632   .text.SPI_WaitFlagStateUntilTimeout:00000000 SPI_WaitFlagStateUntilTimeout
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6819   .text.SPI_WaitFlagStateUntilTimeout:0000010c $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6824   .text.SPI_EndRxTransaction:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:6950   .text.SPI_EndRxTxTransaction:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7014   .text.SPI_CloseRxTx_ISR:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7180   .text.SPI_CloseRxTx_ISR:000000e0 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7186   .text.SPI_CloseRx_ISR:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7290   .text.SPI_CloseTx_ISR:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7435   .text.SPI_CloseTx_ISR:000000bc $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7441   .text.SPI_AbortRx_ISR:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7553   .text.SPI_AbortRx_ISR:00000084 $d
+C:\Users\Matvey\AppData\Local\Temp\ccTilGgb.s:7559   .text.SPI_AbortTx_ISR:00000000 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

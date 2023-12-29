@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
   30:Core/Src/stm32f1xx_hal_msp.c **** 
   31:Core/Src/stm32f1xx_hal_msp.c **** /* USER CODE END TD */
   32:Core/Src/stm32f1xx_hal_msp.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 2
 
 
   33:Core/Src/stm32f1xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
   43              		.loc 1 70 3
   44 0006 154B     		ldr	r3, .L2
   45 0008 9B69     		ldr	r3, [r3, #24]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 3
 
 
   46 000a 144A     		ldr	r2, .L2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
   88 0056 BD46     		mov	sp, r7
   89              	.LCFI4:
   90              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 4
 
 
   91              		@ sp needed
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
   93:Core/Src/stm32f1xx_hal_msp.c ****   if(hspi->Instance==SPI2)
  137              		.loc 1 93 10
  138 0016 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 5
 
 
  139 0018 1B68     		ldr	r3, [r3]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
  177 005a 0323     		movs	r3, #3
  178 005c FB61     		str	r3, [r7, #28]
  110:Core/Src/stm32f1xx_hal_msp.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 6
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 6
 
 
  179              		.loc 1 110 5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
  222              		.thumb
  223              		.thumb_func
  225              	HAL_SPI_MspDeInit:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 7
 
 
  226              	.LFB67:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
  257 001e 4FF46041 		mov	r1, #57344
  258 0022 0548     		ldr	r0, .L12+8
  259 0024 FFF7FEFF 		bl	HAL_GPIO_DeInit
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 8
 
 
  260              	.L11:
@@ -456,20 +456,20 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 1
  286              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  287              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  288              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s 			page 9
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_msp.c
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:18     .text.HAL_MspInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:24     .text.HAL_MspInit:00000000 HAL_MspInit
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:100    .text.HAL_MspInit:0000005c $d
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:106    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:112    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:212    .text.HAL_SPI_MspInit:0000008c $d
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:219    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:225    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\Matvey\AppData\Local\Temp\ccJL6Mmj.s:274    .text.HAL_SPI_MspDeInit:00000030 $d
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:18     .text.HAL_MspInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:24     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:100    .text.HAL_MspInit:0000005c $d
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:106    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:112    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:212    .text.HAL_SPI_MspInit:0000008c $d
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:219    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:225    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\Matvey\AppData\Local\Temp\ccigrm14.s:274    .text.HAL_SPI_MspDeInit:00000030 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init

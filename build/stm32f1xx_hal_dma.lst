@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****                    
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      -@-   In Memory-to-Memory transfer mode, Circular mode is not allowed.
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      *** Polling mode IO operation ***
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 2
 
 
   33:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****      =================================
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @{
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 3
 
 
   90:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** /** @defgroup DMA DMA
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
   27              		.loc 1 143 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 4
 
 
   30              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  174:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA2;
  175:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
  176:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** #else
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 5
 
 
  177:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   /* DMA1 */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
   90              		.loc 1 194 21
   91 0050 7B68     		ldr	r3, [r7, #4]
   92 0052 5A68     		ldr	r2, [r3, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 6
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 6
 
 
  195:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  134 0086 7B68     		ldr	r3, [r7, #4]
  135 0088 0022     		movs	r2, #0
  136 008a 9A63     		str	r2, [r3, #56]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 7
 
 
  204:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  217:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @retval HAL status
  218:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
  219:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 8
 
 
  220:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  236:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   /* Reset DMA Channel Number of Data to Transfer register */
  237:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   hdma->Instance->CNDTR = 0U;
  218              		.loc 1 237 7
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 9
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 9
 
 
  219 002a 7B68     		ldr	r3, [r7, #4]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  249 0054 9A00     		lsls	r2, r3, #2
  250              		.loc 1 261 22
  251 0056 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 10
 
 
  252 0058 1A64     		str	r2, [r3, #64]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  289 008e 7B68     		ldr	r3, [r7, #4]
  290 0090 0022     		movs	r2, #0
  291 0092 83F82120 		strb	r2, [r3, #33]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 11
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 11
 
 
  279:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  296:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****  ===============================================================================
  297:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     [..]  This section provides functions allowing to:
  298:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       (+) Configure the source, destination address and data length and Start DMA transfer
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 12
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 12
 
 
  299:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       (+) Configure the source, destination address and data length and
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  357 001a 01D1     		bne	.L12
  358              		.loc 1 326 3 is_stmt 0 discriminator 1
  359 001c 0223     		movs	r3, #2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 13
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 13
 
 
  360 001e 2EE0     		b	.L13
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  399 0064 FB68     		ldr	r3, [r7, #12]
  400 0066 1B68     		ldr	r3, [r3]
  401 0068 42F00102 		orr	r2, r2, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 14
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 14
 
 
  402 006c 1A60     		str	r2, [r3]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  362:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** {
  438              		.loc 1 362 1
  439              		.cfi_startproc
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 15
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 15
 
 
  440              		@ args = 0, pretend = 0, frame = 24
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  482 0036 0222     		movs	r2, #2
  483 0038 83F82120 		strb	r2, [r3, #33]
  375:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NONE;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 16
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 16
 
 
  484              		.loc 1 375 21
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  521 007c 1A68     		ldr	r2, [r3]
  522 007e FB68     		ldr	r3, [r7, #12]
  523 0080 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 17
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 17
 
 
  524 0082 22F00402 		bic	r2, r2, #4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  563              		.cfi_def_cfa_register 13
  564              		@ sp needed
  565 00be 80BD     		pop	{r7, pc}
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 18
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 18
 
 
  566              		.cfi_endproc
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  607 001c 9A63     		str	r2, [r3, #56]
  423:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     
  424:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Process Unlocked */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 19
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 19
 
 
  425:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     __HAL_UNLOCK(hdma);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  644 005a 7B68     		ldr	r3, [r7, #4]
  645 005c 0122     		movs	r2, #1
  646 005e 83F82120 		strb	r2, [r3, #33]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 20
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 20
 
 
  443:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  688              		.cfi_offset 14, -4
  689 0002 84B0     		sub	sp, sp, #16
  690              	.LCFI29:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 21
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 21
 
 
  691              		.cfi_def_cfa_offset 24
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  729 003e 22F00102 		bic	r2, r2, #1
  730 0042 1A60     		str	r2, [r3]
  474:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 22
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 22
 
 
  475:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Clear all flags */
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  783              		.loc 1 476 5 discriminator 6
  784 0098 4FF48073 		mov	r3, #256
  785 009c 02E0     		b	.L40
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 23
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 23
 
 
  786              	.L30:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  825              		.cfi_def_cfa_offset 8
  826 00ce BD46     		mov	sp, r7
  827              	.LCFI32:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 24
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 24
 
 
  828              		.cfi_def_cfa_register 13
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  871              		.loc 1 504 12
  872 000c 0023     		movs	r3, #0
  873 000e 3B61     		str	r3, [r7, #16]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 25
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 25
 
 
  505:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  522:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   if(CompleteLevel == HAL_DMA_FULL_TRANSFER)
  911              		.loc 1 522 5
  912 0048 BB68     		ldr	r3, [r7, #8]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 26
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 26
 
 
  913 004a 002B     		cmp	r3, #0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  964 009c 4FF40053 		mov	r3, #8192
  965 00a0 05E0     		b	.L60
  966              	.L51:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 27
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 27
 
 
  967              		.loc 1 525 12 discriminator 6
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1016 00ea 9342     		cmp	r3, r2
  1017 00ec 02D1     		bne	.L67
  1018              		.loc 1 530 12 discriminator 11
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 28
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 28
 
 
  1019 00ee 4FF48003 		mov	r3, #4194304
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1065 012e 5249     		ldr	r1, .L116+4
  1066 0130 8B42     		cmp	r3, r1
  1067 0132 22D0     		beq	.L76
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 29
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 29
 
 
  1068              		.loc 1 538 9 discriminator 3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1122 0182 002B     		cmp	r3, #0
  1123 0184 17D0     		beq	.L87
  539:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 30
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 30
 
 
  540:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       /* When a DMA transfer error occurs */
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1158 01be 7B68     		ldr	r3, [r7, #4]
  1159 01c0 002B     		cmp	r3, #0
  1160 01c2 07D0     		beq	.L88
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 31
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 31
 
 
  1161              		.loc 1 559 31 discriminator 1
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  575:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   if(CompleteLevel == HAL_DMA_FULL_TRANSFER)
  1198              		.loc 1 575 5
  1199 0200 BB68     		ldr	r3, [r7, #8]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 32
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 32
 
 
  1200 0202 002B     		cmp	r3, #0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1251 0254 4FF40053 		mov	r3, #8192
  1252 0258 05E0     		b	.L102
  1253              	.L93:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 33
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 33
 
 
  1254              		.loc 1 578 5 discriminator 6
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1299 02a8 194A     		ldr	r2, .L118+8
  1300 02aa 9342     		cmp	r3, r2
  1301 02ac 1AD0     		beq	.L106
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 34
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 34
 
 
  1302              		.loc 1 587 5 discriminator 5
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1352 02f4 FB68     		ldr	r3, [r7, #12]
  1353 02f6 0022     		movs	r2, #0
  1354 02f8 83F82020 		strb	r2, [r3, #32]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 35
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 35
 
 
  592:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1399 0002 84B0     		sub	sp, sp, #16
  1400              	.LCFI39:
  1401              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 36
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 36
 
 
  1402 0004 00AF     		add	r7, sp, #0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  614:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****       __HAL_DMA_DISABLE_IT(hdma, DMA_IT_HT);
  1446              		.loc 1 614 7
  1447 0040 7B68     		ldr	r3, [r7, #4]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 37
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 37
 
 
  1448 0042 1B68     		ldr	r3, [r3]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1499              		.loc 1 617 5 discriminator 10
  1500 0098 4FF48023 		mov	r3, #262144
  1501 009c 08E0     		b	.L134
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 38
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 38
 
 
  1502              	.L126:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1542 00ce 9A40     		lsls	r2, r2, r3
  1543              		.loc 1 630 22
  1544 00d0 FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 39
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 39
 
 
  1545 00d2 1340     		ands	r3, r3, r2
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1588 0118 9342     		cmp	r3, r2
  1589 011a 22D0     		beq	.L140
  1590              		.loc 1 641 7 discriminator 3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 40
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 40
 
 
  1591 011c 7B68     		ldr	r3, [r7, #4]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  643:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     /* Process Unlocked */
  644:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     __HAL_UNLOCK(hdma);
  1644              		.loc 1 644 5 is_stmt 1 discriminator 24
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 41
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 41
 
 
  1645 016c 7B68     		ldr	r3, [r7, #4]
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1683 01a0 7B68     		ldr	r3, [r7, #4]
  1684 01a2 1B68     		ldr	r3, [r3]
  1685 01a4 1A68     		ldr	r2, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 42
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 42
 
 
  1686 01a6 7B68     		ldr	r3, [r7, #4]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1723 01e2 7868     		ldr	r0, [r7, #4]
  1724 01e4 9847     		blx	r3
  1725              	.LVL3:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 43
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 43
 
 
  1726              	.L136:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1765              		@ args = 0, pretend = 0, frame = 24
  1766              		@ frame_needed = 1, uses_anonymous_args = 0
  1767              		@ link register save eliminated.
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 44
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 44
 
 
  1768 0000 80B4     		push	{r7}
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1814 0044 59000000 		.word	.L164+1
  1815 0048 61000000 		.word	.L163+1
  1816 004c 69000000 		.word	.L161+1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 45
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 45
 
 
  1817              		.p2align 1
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1851 0074 01E0     		b	.L167
  1852              	.L159:
  722:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 46
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 46
 
 
  723:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   }
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  742:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */              
  743:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_CallbackIDTypeDef Cal
  744:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 47
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 47
 
 
  1890              		.loc 1 744 1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1936 003a 52F823F0 		ldr	pc, [r2, r3, lsl #2]
  1937 003e 00BF     		.p2align 2
  1938              	.L174:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 48
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 48
 
 
  1939 0040 55000000 		.word	.L178+1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  1974              		.loc 1 771 30
  1975 0074 7B68     		ldr	r3, [r7, #4]
  1976 0076 0022     		movs	r2, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 49
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 49
 
 
  1977 0078 9A62     		str	r2, [r3, #40]
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  2011 00a2 1846     		mov	r0, r3
  2012 00a4 1437     		adds	r7, r7, #20
  2013              	.LCFI52:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 50
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 50
 
 
  2014              		.cfi_def_cfa_offset 4
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  2041 0000 80B4     		push	{r7}
  2042              	.LCFI55:
  2043              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 51
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 51
 
 
  2044              		.cfi_offset 7, -4
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  2088              	.LCFI61:
  2089              		.cfi_def_cfa_offset 4
  2090              		.cfi_offset 7, -4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 52
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 52
 
 
  2091 0002 83B0     		sub	sp, sp, #12
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  854:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @param  DataLength: The length of data to be transferred from source to destination
  855:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   * @retval HAL status
  856:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****   */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 53
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 53
 
 
  857:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c **** static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  869:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c ****     hdma->Instance->CPAR = DstAddress;
  2168              		.loc 1 869 9
  2169 002e FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 54
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 54
 
 
  2170 0030 1B68     		ldr	r3, [r3]
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  2206              	.LCFI72:
  2207              		.cfi_restore 7
  2208              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 55
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 55
 
 
  2209 0058 7047     		bx	lr
@@ -3252,48 +3252,48 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 1
  2218              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
  2219              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  2220              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s 			page 56
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s 			page 56
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_dma.c
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:18     .text.HAL_DMA_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:24     .text.HAL_DMA_Init:00000000 HAL_DMA_Init
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:165    .text.HAL_DMA_Init:000000a8 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:172    .text.HAL_DMA_DeInit:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:178    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:316    .text.HAL_DMA_DeInit:000000ac $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:323    .text.HAL_DMA_Start:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:329    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2124   .text.DMA_SetConfig:00000000 DMA_SetConfig
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:430    .text.HAL_DMA_Start_IT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:436    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:570    .text.HAL_DMA_Abort:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:576    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:672    .text.HAL_DMA_Abort_IT:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:678    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:834    .text.HAL_DMA_Abort_IT:000000d4 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:845    .text.HAL_DMA_PollForTransfer:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:851    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1276   .text.HAL_DMA_PollForTransfer:00000274 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1285   .text.HAL_DMA_PollForTransfer:00000290 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1371   .text.HAL_DMA_PollForTransfer:00000308 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1382   .text.HAL_DMA_IRQHandler:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1388   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1744   .text.HAL_DMA_IRQHandler:000001f0 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1755   .text.HAL_DMA_RegisterCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1761   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1813   .text.HAL_DMA_RegisterCallback:00000040 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1817   .text.HAL_DMA_RegisterCallback:00000050 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1882   .text.HAL_DMA_UnRegisterCallback:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1888   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1939   .text.HAL_DMA_UnRegisterCallback:00000040 $d
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:1944   .text.HAL_DMA_UnRegisterCallback:00000054 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2028   .text.HAL_DMA_GetState:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2034   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2074   .text.HAL_DMA_GetError:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2080   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
-C:\Users\Matvey\AppData\Local\Temp\ccGzSPSE.s:2119   .text.DMA_SetConfig:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:18     .text.HAL_DMA_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:24     .text.HAL_DMA_Init:00000000 HAL_DMA_Init
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:165    .text.HAL_DMA_Init:000000a8 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:172    .text.HAL_DMA_DeInit:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:178    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:316    .text.HAL_DMA_DeInit:000000ac $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:323    .text.HAL_DMA_Start:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:329    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2124   .text.DMA_SetConfig:00000000 DMA_SetConfig
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:430    .text.HAL_DMA_Start_IT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:436    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:570    .text.HAL_DMA_Abort:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:576    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:672    .text.HAL_DMA_Abort_IT:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:678    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:834    .text.HAL_DMA_Abort_IT:000000d4 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:845    .text.HAL_DMA_PollForTransfer:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:851    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1276   .text.HAL_DMA_PollForTransfer:00000274 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1285   .text.HAL_DMA_PollForTransfer:00000290 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1371   .text.HAL_DMA_PollForTransfer:00000308 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1382   .text.HAL_DMA_IRQHandler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1388   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1744   .text.HAL_DMA_IRQHandler:000001f0 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1755   .text.HAL_DMA_RegisterCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1761   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1813   .text.HAL_DMA_RegisterCallback:00000040 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1817   .text.HAL_DMA_RegisterCallback:00000050 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1882   .text.HAL_DMA_UnRegisterCallback:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1888   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1939   .text.HAL_DMA_UnRegisterCallback:00000040 $d
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:1944   .text.HAL_DMA_UnRegisterCallback:00000054 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2028   .text.HAL_DMA_GetState:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2034   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2074   .text.HAL_DMA_GetError:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2080   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
+C:\Users\Matvey\AppData\Local\Temp\ccNdm1a6.s:2119   .text.DMA_SetConfig:00000000 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

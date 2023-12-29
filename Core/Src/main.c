@@ -51,11 +51,11 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
-HAL_StatusTypeDef receive_byte(uint8_t* data);
-HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size);
-HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size);
-void fast_boot(void);
-HAL_StatusTypeDef wait_sd_response(uint8_t* data);
+// HAL_StatusTypeDef receive_byte(uint8_t* data);
+// HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size);
+// HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size);
+// void fast_boot(void);
+// HAL_StatusTypeDef wait_sd_response(uint8_t* data);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,52 +98,50 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //sdcard_reset(&hspi2);
+  // sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
+	// sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
+  // uint8_t cmd0_response = 0;
+  // sd_card_r7_response cmd8_response = { 0 };
+  // uint8_t data[6] = { 0 };
 
-  sd_card_command cmd0 = get_cmd(0, 0x0);
-	sd_card_command cmd8 = get_cmd(8, (1 << 8) | 0x55);
-  uint8_t cmd0_response = 0;
-  sd_card_r7_response cmd8_response = { 0 };
-  uint8_t data[6] = { 0 };
+  // fast_boot();
 
-  fast_boot();
+  // SELECT_SD();
+	// HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
+	// // //status |= HAL_SPI_TransmitReceive(&hspi2, &cmd0_response, 1, HAL_MAX_DELAY);
+  // // status |= receive_byte(&data);
 
-  SELECT_CHIP();
-	HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
-	// //status |= HAL_SPI_TransmitReceive(&hspi2, &cmd0_response, 1, HAL_MAX_DELAY);
-  // status |= receive_byte(&data);
+  // //HAL_StatusTypeDef status = transmit_bytes((uint8_t*)&cmd0, 6);
 
-  //HAL_StatusTypeDef status = transmit_bytes((uint8_t*)&cmd0, 6);
+  // while (data[0] == IN_IDLE_STATE)
+  // {
+  //   status |= receive_byte(&data);
+  // }
 
-  while (data[0] == IN_IDLE_STATE)
-  {
-    status |= receive_byte(&data);
-  }
+  // DISELECT_SD();
 
-  DISELECT_CHIP();
+  // SELECT_SD();
+	// // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+	// // //status |= receive_cmd_response(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
+  // // //status |= HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
+  // // status |= receive_byte(&data);
+  // // status |= receive_byte(&data + 1);
+  // // status |= receive_byte(&data + 2);
+  // // status |= receive_byte(&data + 3);
+  // // status |= receive_byte(&data + 4);
+  // // status |= receive_byte(&data + 5);
 
-  SELECT_CHIP();
-	// status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-	// //status |= receive_cmd_response(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
-  // //status |= HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
-  // status |= receive_byte(&data);
-  // status |= receive_byte(&data + 1);
-  // status |= receive_byte(&data + 2);
-  // status |= receive_byte(&data + 3);
-  // status |= receive_byte(&data + 4);
-  // status |= receive_byte(&data + 5);
+  // //status |= transmit_bytes((uint8_t*)&cmd8, 6);
 
-  //status |= transmit_bytes((uint8_t*)&cmd8, 6);
 
+  // // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+  // // status |= receive_bytes(&data, 5); // r7
 
   // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+  // status |= wait_sd_response(&data);
   // status |= receive_bytes(&data, 5); // r7
 
-  status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-  status |= wait_sd_response(&data);
-  status |= receive_bytes(&data, 5); // r7
-
-  DISELECT_CHIP();
+  // DISELECT_SD();
   
 
 /*
@@ -152,6 +150,7 @@ int main(void)
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
   */
 
+  sd_card_reset(&hspi2);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -270,68 +269,61 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-HAL_StatusTypeDef receive_byte(uint8_t* data)
-{
-  uint8_t dummy_data = 0xff;
-  // uint32_t captured_tick = HAL_GetTick();
+// HAL_StatusTypeDef receive_byte(uint8_t* data)
+// {
+//   uint8_t dummy_data = 0xff;
 
-  // while (HAL_SPI_GetState(&hspi2) != HAL_SPI_STATE_READY)
-  // {
-  //   if (HAL_GetTick() - captured_tick > 1000)
-  //     return HAL_TIMEOUT;
-  // }
+//   return HAL_SPI_TransmitReceive(&hspi2, &dummy_data, data, 1, 1000);
+// }
 
-  return HAL_SPI_TransmitReceive(&hspi2, &dummy_data, data, 1, 1000);
-}
+// HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size)
+// {
+//   HAL_StatusTypeDef status = 0;
 
-HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size)
-{
-  HAL_StatusTypeDef status = 0;
-
-  for (uint8_t i = 0; i < size; i++)
-    status += receive_byte(data + i);
+//   for (uint8_t i = 0; i < size; i++)
+//     status += receive_byte(data + i);
   
-  return status;
-}
+//   return status;
+// }
 
-HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size)
-{
-  HAL_StatusTypeDef status = 0;
+// HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size)
+// {
+//   HAL_StatusTypeDef status = 0;
 
-  for (int16_t i = size - 1; i >= 0; i--)
-    status += HAL_SPI_Transmit(&hspi2, data + i, 1, 1000);
+//   for (int16_t i = size - 1; i >= 0; i--)
+//     status += HAL_SPI_Transmit(&hspi2, data + i, 1, 1000);
   
-  return status;
-}
+//   return status;
+// }
 
-void fast_boot(void)
-{
-  uint8_t dummy_data = 0xff;
+// void fast_boot(void)
+// {
+//   uint8_t dummy_data = 0xff;
 
-  DISELECT_CHIP();
+//   DISELECT_SD();
 
-  // Clock occurs only during transmission
-  for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
-    HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
-}
+//   // Clock occurs only during transmission
+//   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
+//     HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
+// }
 
-// We are trying to get a byte with the first zero bit.
-// The received byte is written to the argument
-HAL_StatusTypeDef wait_sd_response(uint8_t* data)
-{
-  HAL_StatusTypeDef status = 0;
-  uint32_t captured_tick = HAL_GetTick();
+// // We are trying to get a byte with the first zero bit.
+// // The received byte is written to the argument
+// HAL_StatusTypeDef wait_sd_response(uint8_t* data)
+// {
+//   HAL_StatusTypeDef status = 0;
+//   uint32_t captured_tick = HAL_GetTick();
 
-  do
-  {
-    if ((HAL_GetTick() - captured_tick) > 500)
-      return HAL_TIMEOUT;
+//   do
+//   {
+//     if ((HAL_GetTick() - captured_tick) > 500)
+//       return HAL_TIMEOUT;
 
-    status |= receive_byte(&data);
-  } while (data == NULL); // ?
+//     status |= receive_byte(&data);
+//   } while (data == NULL); // ?
 
-  return status;
-}
+//   return status;
+// }
 
 /* USER CODE END 4 */
 
