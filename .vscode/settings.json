@@ -1,7 +1,8 @@
 {
   "files.associations": {
     "sdcard_driver.h": "c",
-    "crc-buffer.h": "c"
+    "crc-buffer.h": "c",
+    "stm32f1xx_hal_spi.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": false
 }

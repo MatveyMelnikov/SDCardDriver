@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   21:Core/Src/main.c **** 
   22:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
   23:Core/Src/main.c **** /* USER CODE BEGIN Includes */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 2
 
 
   24:Core/Src/main.c **** #include "sdcard_driver.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   40              		.cfi_def_cfa_offset 8
   41              		.cfi_offset 7, -8
   42              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 3
 
 
   43 0002 00AF     		add	r7, sp, #0
@@ -161,68 +161,15 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   98:Core/Src/main.c **** 
   99:Core/Src/main.c ****   /* Infinite loop */
  100:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
- 101:Core/Src/main.c ****   // sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
- 102:Core/Src/main.c **** 	// sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
- 103:Core/Src/main.c ****   // uint8_t cmd0_response = 0;
- 104:Core/Src/main.c ****   // sd_card_r7_response cmd8_response = { 0 };
- 105:Core/Src/main.c ****   // uint8_t data[6] = { 0 };
- 106:Core/Src/main.c **** 
- 107:Core/Src/main.c ****   // fast_boot();
- 108:Core/Src/main.c **** 
- 109:Core/Src/main.c ****   // SELECT_SD();
- 110:Core/Src/main.c **** 	// HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
- 111:Core/Src/main.c **** 	// // //status |= HAL_SPI_TransmitReceive(&hspi2, &cmd0_response, 1, HAL_MAX_DELAY);
- 112:Core/Src/main.c ****   // // status |= receive_byte(&data);
- 113:Core/Src/main.c **** 
- 114:Core/Src/main.c ****   // //HAL_StatusTypeDef status = transmit_bytes((uint8_t*)&cmd0, 6);
- 115:Core/Src/main.c **** 
- 116:Core/Src/main.c ****   // while (data[0] == IN_IDLE_STATE)
- 117:Core/Src/main.c ****   // {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 4
-
-
- 118:Core/Src/main.c ****   //   status |= receive_byte(&data);
- 119:Core/Src/main.c ****   // }
- 120:Core/Src/main.c **** 
- 121:Core/Src/main.c ****   // DISELECT_SD();
- 122:Core/Src/main.c **** 
- 123:Core/Src/main.c ****   // SELECT_SD();
- 124:Core/Src/main.c **** 	// // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
- 125:Core/Src/main.c **** 	// // //status |= receive_cmd_response(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
- 126:Core/Src/main.c ****   // // //status |= HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
- 127:Core/Src/main.c ****   // // status |= receive_byte(&data);
- 128:Core/Src/main.c ****   // // status |= receive_byte(&data + 1);
- 129:Core/Src/main.c ****   // // status |= receive_byte(&data + 2);
- 130:Core/Src/main.c ****   // // status |= receive_byte(&data + 3);
- 131:Core/Src/main.c ****   // // status |= receive_byte(&data + 4);
- 132:Core/Src/main.c ****   // // status |= receive_byte(&data + 5);
- 133:Core/Src/main.c **** 
- 134:Core/Src/main.c ****   // //status |= transmit_bytes((uint8_t*)&cmd8, 6);
- 135:Core/Src/main.c **** 
- 136:Core/Src/main.c **** 
- 137:Core/Src/main.c ****   // // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
- 138:Core/Src/main.c ****   // // status |= receive_bytes(&data, 5); // r7
- 139:Core/Src/main.c **** 
- 140:Core/Src/main.c ****   // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
- 141:Core/Src/main.c ****   // status |= wait_sd_response(&data);
- 142:Core/Src/main.c ****   // status |= receive_bytes(&data, 5); // r7
- 143:Core/Src/main.c **** 
- 144:Core/Src/main.c ****   // DISELECT_SD();
- 145:Core/Src/main.c ****   
- 146:Core/Src/main.c **** 
- 147:Core/Src/main.c **** /*
- 148:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
- 149:Core/Src/main.c ****   HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd0, buffer, 6, HAL_MAX_DELAY);
- 150:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
- 151:Core/Src/main.c ****   */
- 152:Core/Src/main.c **** 
- 153:Core/Src/main.c ****   sd_card_reset(&hspi2);
-  54              		.loc 1 153 3
+ 101:Core/Src/main.c **** 
+ 102:Core/Src/main.c ****   sd_card_reset(&hspi2);
+  54              		.loc 1 102 3
   55 0014 0148     		ldr	r0, .L3
   56 0016 FFF7FEFF 		bl	sd_card_reset
   57              	.L2:
- 154:Core/Src/main.c ****   while (1)
-  58              		.loc 1 154 9 discriminator 1
+ 103:Core/Src/main.c ****   
+ 104:Core/Src/main.c ****   while (1)
+  58              		.loc 1 104 9 discriminator 1
   59 001a FEE7     		b	.L2
   60              	.L4:
   61              		.align	2
@@ -231,6 +178,9 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   64              		.cfi_endproc
   65              	.LFE65:
   67              		.section	.text.SystemClock_Config,"ax",%progbits
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 4
+
+
   68              		.align	1
   69              		.global	SystemClock_Config
   70              		.syntax unified
@@ -238,24 +188,21 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   72              		.thumb_func
   74              	SystemClock_Config:
   75              	.LFB66:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 5
-
-
- 155:Core/Src/main.c ****   {
- 156:Core/Src/main.c ****     /* USER CODE END WHILE */
- 157:Core/Src/main.c **** 
- 158:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
- 159:Core/Src/main.c ****   }
- 160:Core/Src/main.c ****   /* USER CODE END 3 */
- 161:Core/Src/main.c **** }
- 162:Core/Src/main.c **** 
- 163:Core/Src/main.c **** /**
- 164:Core/Src/main.c ****   * @brief System Clock Configuration
- 165:Core/Src/main.c ****   * @retval None
- 166:Core/Src/main.c ****   */
- 167:Core/Src/main.c **** void SystemClock_Config(void)
- 168:Core/Src/main.c **** {
-  76              		.loc 1 168 1
+ 105:Core/Src/main.c ****   {
+ 106:Core/Src/main.c ****     /* USER CODE END WHILE */
+ 107:Core/Src/main.c **** 
+ 108:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
+ 109:Core/Src/main.c ****   }
+ 110:Core/Src/main.c ****   /* USER CODE END 3 */
+ 111:Core/Src/main.c **** }
+ 112:Core/Src/main.c **** 
+ 113:Core/Src/main.c **** /**
+ 114:Core/Src/main.c ****   * @brief System Clock Configuration
+ 115:Core/Src/main.c ****   * @retval None
+ 116:Core/Src/main.c ****   */
+ 117:Core/Src/main.c **** void SystemClock_Config(void)
+ 118:Core/Src/main.c **** {
+  76              		.loc 1 118 1
   77              		.cfi_startproc
   78              		@ args = 0, pretend = 0, frame = 64
   79              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -270,15 +217,15 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   88 0004 00AF     		add	r7, sp, #0
   89              	.LCFI4:
   90              		.cfi_def_cfa_register 7
- 169:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  91              		.loc 1 169 22
+ 119:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  91              		.loc 1 119 22
   92 0006 07F11803 		add	r3, r7, #24
   93 000a 2822     		movs	r2, #40
   94 000c 0021     		movs	r1, #0
   95 000e 1846     		mov	r0, r3
   96 0010 FFF7FEFF 		bl	memset
- 170:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  97              		.loc 1 170 22
+ 120:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  97              		.loc 1 120 22
   98 0014 3B1D     		adds	r3, r7, #4
   99 0016 0022     		movs	r2, #0
  100 0018 1A60     		str	r2, [r3]
@@ -286,102 +233,102 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  102 001c 9A60     		str	r2, [r3, #8]
  103 001e DA60     		str	r2, [r3, #12]
  104 0020 1A61     		str	r2, [r3, #16]
- 171:Core/Src/main.c **** 
- 172:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 173:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 174:Core/Src/main.c ****   */
- 175:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
- 105              		.loc 1 175 36
+ 121:Core/Src/main.c **** 
+ 122:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 123:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 124:Core/Src/main.c ****   */
+ 125:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 5
+
+
+ 105              		.loc 1 125 36
  106 0022 0123     		movs	r3, #1
  107 0024 BB61     		str	r3, [r7, #24]
- 176:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 108              		.loc 1 176 30
+ 126:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 108              		.loc 1 126 30
  109 0026 4FF48033 		mov	r3, #65536
  110 002a FB61     		str	r3, [r7, #28]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 6
-
-
- 177:Core/Src/main.c ****   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
- 111              		.loc 1 177 36
+ 127:Core/Src/main.c ****   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+ 111              		.loc 1 127 36
  112 002c 0023     		movs	r3, #0
  113 002e 3B62     		str	r3, [r7, #32]
- 178:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 114              		.loc 1 178 30
+ 128:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 114              		.loc 1 128 30
  115 0030 0123     		movs	r3, #1
  116 0032 BB62     		str	r3, [r7, #40]
- 179:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 117              		.loc 1 179 34
+ 129:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 117              		.loc 1 129 34
  118 0034 0223     		movs	r3, #2
  119 0036 7B63     		str	r3, [r7, #52]
- 180:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 120              		.loc 1 180 35
+ 130:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 120              		.loc 1 130 35
  121 0038 4FF48033 		mov	r3, #65536
  122 003c BB63     		str	r3, [r7, #56]
- 181:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
- 123              		.loc 1 181 32
+ 131:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+ 123              		.loc 1 131 32
  124 003e 4FF4E013 		mov	r3, #1835008
  125 0042 FB63     		str	r3, [r7, #60]
- 182:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 126              		.loc 1 182 7
+ 132:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 126              		.loc 1 132 7
  127 0044 07F11803 		add	r3, r7, #24
  128 0048 1846     		mov	r0, r3
  129 004a FFF7FEFF 		bl	HAL_RCC_OscConfig
  130 004e 0346     		mov	r3, r0
- 131              		.loc 1 182 6
+ 131              		.loc 1 132 6
  132 0050 002B     		cmp	r3, #0
  133 0052 01D0     		beq	.L6
- 183:Core/Src/main.c ****   {
- 184:Core/Src/main.c ****     Error_Handler();
- 134              		.loc 1 184 5
+ 133:Core/Src/main.c ****   {
+ 134:Core/Src/main.c ****     Error_Handler();
+ 134              		.loc 1 134 5
  135 0054 FFF7FEFF 		bl	Error_Handler
  136              	.L6:
- 185:Core/Src/main.c ****   }
- 186:Core/Src/main.c **** 
- 187:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 188:Core/Src/main.c ****   */
- 189:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 137              		.loc 1 189 31
+ 135:Core/Src/main.c ****   }
+ 136:Core/Src/main.c **** 
+ 137:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 138:Core/Src/main.c ****   */
+ 139:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 137              		.loc 1 139 31
  138 0058 0F23     		movs	r3, #15
  139 005a 7B60     		str	r3, [r7, #4]
- 190:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 191:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 140              		.loc 1 191 34
+ 140:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 141:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 140              		.loc 1 141 34
  141 005c 0223     		movs	r3, #2
  142 005e BB60     		str	r3, [r7, #8]
- 192:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 143              		.loc 1 192 35
+ 142:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 143              		.loc 1 142 35
  144 0060 0023     		movs	r3, #0
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 6
+
+
  145 0062 FB60     		str	r3, [r7, #12]
- 193:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
- 146              		.loc 1 193 36
+ 143:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 146              		.loc 1 143 36
  147 0064 4FF48063 		mov	r3, #1024
  148 0068 3B61     		str	r3, [r7, #16]
- 194:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 149              		.loc 1 194 36
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 7
-
-
+ 144:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 149              		.loc 1 144 36
  150 006a 0023     		movs	r3, #0
  151 006c 7B61     		str	r3, [r7, #20]
- 195:Core/Src/main.c **** 
- 196:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
- 152              		.loc 1 196 7
+ 145:Core/Src/main.c **** 
+ 146:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 152              		.loc 1 146 7
  153 006e 3B1D     		adds	r3, r7, #4
  154 0070 0221     		movs	r1, #2
  155 0072 1846     		mov	r0, r3
  156 0074 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  157 0078 0346     		mov	r3, r0
- 158              		.loc 1 196 6
+ 158              		.loc 1 146 6
  159 007a 002B     		cmp	r3, #0
  160 007c 01D0     		beq	.L8
- 197:Core/Src/main.c ****   {
- 198:Core/Src/main.c ****     Error_Handler();
- 161              		.loc 1 198 5
+ 147:Core/Src/main.c ****   {
+ 148:Core/Src/main.c ****     Error_Handler();
+ 161              		.loc 1 148 5
  162 007e FFF7FEFF 		bl	Error_Handler
  163              	.L8:
- 199:Core/Src/main.c ****   }
- 200:Core/Src/main.c **** }
- 164              		.loc 1 200 1
+ 149:Core/Src/main.c ****   }
+ 150:Core/Src/main.c **** }
+ 164              		.loc 1 150 1
  165 0082 00BF     		nop
  166 0084 4037     		adds	r7, r7, #64
  167              	.LCFI5:
@@ -400,17 +347,20 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  181              		.thumb_func
  183              	MX_SPI2_Init:
  184              	.LFB67:
- 201:Core/Src/main.c **** 
- 202:Core/Src/main.c **** /**
- 203:Core/Src/main.c ****   * @brief SPI2 Initialization Function
- 204:Core/Src/main.c ****   * @param None
- 205:Core/Src/main.c ****   * @retval None
- 206:Core/Src/main.c ****   */
- 207:Core/Src/main.c **** static void MX_SPI2_Init(void)
- 208:Core/Src/main.c **** {
- 185              		.loc 1 208 1
+ 151:Core/Src/main.c **** 
+ 152:Core/Src/main.c **** /**
+ 153:Core/Src/main.c ****   * @brief SPI2 Initialization Function
+ 154:Core/Src/main.c ****   * @param None
+ 155:Core/Src/main.c ****   * @retval None
+ 156:Core/Src/main.c ****   */
+ 157:Core/Src/main.c **** static void MX_SPI2_Init(void)
+ 158:Core/Src/main.c **** {
+ 185              		.loc 1 158 1
  186              		.cfi_startproc
  187              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 7
+
+
  188              		@ frame_needed = 1, uses_anonymous_args = 0
  189 0000 80B5     		push	{r7, lr}
  190              	.LCFI7:
@@ -418,103 +368,100 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  192              		.cfi_offset 7, -8
  193              		.cfi_offset 14, -4
  194 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 8
-
-
  195              	.LCFI8:
  196              		.cfi_def_cfa_register 7
- 209:Core/Src/main.c **** 
- 210:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 0 */
- 211:Core/Src/main.c **** 
- 212:Core/Src/main.c ****   /* USER CODE END SPI2_Init 0 */
- 213:Core/Src/main.c **** 
- 214:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 1 */
- 215:Core/Src/main.c **** 
- 216:Core/Src/main.c ****   /* USER CODE END SPI2_Init 1 */
- 217:Core/Src/main.c ****   /* SPI2 parameter configuration*/
- 218:Core/Src/main.c ****   hspi2.Instance = SPI2;
- 197              		.loc 1 218 18
+ 159:Core/Src/main.c **** 
+ 160:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 0 */
+ 161:Core/Src/main.c **** 
+ 162:Core/Src/main.c ****   /* USER CODE END SPI2_Init 0 */
+ 163:Core/Src/main.c **** 
+ 164:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 1 */
+ 165:Core/Src/main.c **** 
+ 166:Core/Src/main.c ****   /* USER CODE END SPI2_Init 1 */
+ 167:Core/Src/main.c ****   /* SPI2 parameter configuration*/
+ 168:Core/Src/main.c ****   hspi2.Instance = SPI2;
+ 197              		.loc 1 168 18
  198 0004 174B     		ldr	r3, .L12
  199 0006 184A     		ldr	r2, .L12+4
  200 0008 1A60     		str	r2, [r3]
- 219:Core/Src/main.c ****   hspi2.Init.Mode = SPI_MODE_MASTER;
- 201              		.loc 1 219 19
+ 169:Core/Src/main.c ****   hspi2.Init.Mode = SPI_MODE_MASTER;
+ 201              		.loc 1 169 19
  202 000a 164B     		ldr	r3, .L12
  203 000c 4FF48272 		mov	r2, #260
  204 0010 5A60     		str	r2, [r3, #4]
- 220:Core/Src/main.c ****   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
- 205              		.loc 1 220 24
+ 170:Core/Src/main.c ****   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+ 205              		.loc 1 170 24
  206 0012 144B     		ldr	r3, .L12
  207 0014 0022     		movs	r2, #0
  208 0016 9A60     		str	r2, [r3, #8]
- 221:Core/Src/main.c ****   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
- 209              		.loc 1 221 23
+ 171:Core/Src/main.c ****   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+ 209              		.loc 1 171 23
  210 0018 124B     		ldr	r3, .L12
  211 001a 0022     		movs	r2, #0
  212 001c DA60     		str	r2, [r3, #12]
- 222:Core/Src/main.c ****   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
- 213              		.loc 1 222 26
+ 172:Core/Src/main.c ****   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 213              		.loc 1 172 26
  214 001e 114B     		ldr	r3, .L12
  215 0020 0022     		movs	r2, #0
  216 0022 1A61     		str	r2, [r3, #16]
- 223:Core/Src/main.c ****   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
- 217              		.loc 1 223 23
+ 173:Core/Src/main.c ****   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 217              		.loc 1 173 23
  218 0024 0F4B     		ldr	r3, .L12
  219 0026 0022     		movs	r2, #0
  220 0028 5A61     		str	r2, [r3, #20]
- 224:Core/Src/main.c ****   hspi2.Init.NSS = SPI_NSS_SOFT;
- 221              		.loc 1 224 18
+ 174:Core/Src/main.c ****   hspi2.Init.NSS = SPI_NSS_SOFT;
+ 221              		.loc 1 174 18
  222 002a 0E4B     		ldr	r3, .L12
  223 002c 4FF40072 		mov	r2, #512
  224 0030 9A61     		str	r2, [r3, #24]
- 225:Core/Src/main.c ****   hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
- 225              		.loc 1 225 32
+ 175:Core/Src/main.c ****   hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+ 225              		.loc 1 175 32
  226 0032 0C4B     		ldr	r3, .L12
  227 0034 1822     		movs	r2, #24
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 8
+
+
  228 0036 DA61     		str	r2, [r3, #28]
- 226:Core/Src/main.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 229              		.loc 1 226 23
+ 176:Core/Src/main.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 229              		.loc 1 176 23
  230 0038 0A4B     		ldr	r3, .L12
  231 003a 0022     		movs	r2, #0
  232 003c 1A62     		str	r2, [r3, #32]
- 227:Core/Src/main.c ****   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 9
-
-
- 233              		.loc 1 227 21
+ 177:Core/Src/main.c ****   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+ 233              		.loc 1 177 21
  234 003e 094B     		ldr	r3, .L12
  235 0040 0022     		movs	r2, #0
  236 0042 5A62     		str	r2, [r3, #36]
- 228:Core/Src/main.c ****   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 237              		.loc 1 228 29
+ 178:Core/Src/main.c ****   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 237              		.loc 1 178 29
  238 0044 074B     		ldr	r3, .L12
  239 0046 0022     		movs	r2, #0
  240 0048 9A62     		str	r2, [r3, #40]
- 229:Core/Src/main.c ****   hspi2.Init.CRCPolynomial = 10;
- 241              		.loc 1 229 28
+ 179:Core/Src/main.c ****   hspi2.Init.CRCPolynomial = 10;
+ 241              		.loc 1 179 28
  242 004a 064B     		ldr	r3, .L12
  243 004c 0A22     		movs	r2, #10
  244 004e DA62     		str	r2, [r3, #44]
- 230:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi2) != HAL_OK)
- 245              		.loc 1 230 7
+ 180:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi2) != HAL_OK)
+ 245              		.loc 1 180 7
  246 0050 0448     		ldr	r0, .L12
  247 0052 FFF7FEFF 		bl	HAL_SPI_Init
  248 0056 0346     		mov	r3, r0
- 249              		.loc 1 230 6
+ 249              		.loc 1 180 6
  250 0058 002B     		cmp	r3, #0
  251 005a 01D0     		beq	.L11
- 231:Core/Src/main.c ****   {
- 232:Core/Src/main.c ****     Error_Handler();
- 252              		.loc 1 232 5
+ 181:Core/Src/main.c ****   {
+ 182:Core/Src/main.c ****     Error_Handler();
+ 252              		.loc 1 182 5
  253 005c FFF7FEFF 		bl	Error_Handler
  254              	.L11:
- 233:Core/Src/main.c ****   }
- 234:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 2 */
- 235:Core/Src/main.c **** 
- 236:Core/Src/main.c ****   /* USER CODE END SPI2_Init 2 */
- 237:Core/Src/main.c **** 
- 238:Core/Src/main.c **** }
- 255              		.loc 1 238 1
+ 183:Core/Src/main.c ****   }
+ 184:Core/Src/main.c ****   /* USER CODE BEGIN SPI2_Init 2 */
+ 185:Core/Src/main.c **** 
+ 186:Core/Src/main.c ****   /* USER CODE END SPI2_Init 2 */
+ 187:Core/Src/main.c **** 
+ 188:Core/Src/main.c **** }
+ 255              		.loc 1 188 1
  256 0060 00BF     		nop
  257 0062 80BD     		pop	{r7, pc}
  258              	.L13:
@@ -531,18 +478,18 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  270              		.thumb_func
  272              	MX_GPIO_Init:
  273              	.LFB68:
- 239:Core/Src/main.c **** 
- 240:Core/Src/main.c **** /**
- 241:Core/Src/main.c ****   * @brief GPIO Initialization Function
- 242:Core/Src/main.c ****   * @param None
- 243:Core/Src/main.c ****   * @retval None
- 244:Core/Src/main.c ****   */
- 245:Core/Src/main.c **** static void MX_GPIO_Init(void)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 9
 
 
- 246:Core/Src/main.c **** {
- 274              		.loc 1 246 1
+ 189:Core/Src/main.c **** 
+ 190:Core/Src/main.c **** /**
+ 191:Core/Src/main.c ****   * @brief GPIO Initialization Function
+ 192:Core/Src/main.c ****   * @param None
+ 193:Core/Src/main.c ****   * @retval None
+ 194:Core/Src/main.c ****   */
+ 195:Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 196:Core/Src/main.c **** {
+ 274              		.loc 1 196 1
  275              		.cfi_startproc
  276              		@ args = 0, pretend = 0, frame = 32
  277              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -557,8 +504,8 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  286 0004 00AF     		add	r7, sp, #0
  287              	.LCFI11:
  288              		.cfi_def_cfa_register 7
- 247:Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
- 289              		.loc 1 247 20
+ 197:Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 289              		.loc 1 197 20
  290 0006 07F11003 		add	r3, r7, #16
  291 000a 0022     		movs	r2, #0
  292 000c 1A60     		str	r2, [r3]
@@ -566,12 +513,12 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  294 0010 9A60     		str	r2, [r3, #8]
  295 0012 DA60     		str	r2, [r3, #12]
  296              	.LBB4:
- 248:Core/Src/main.c **** /* USER CODE BEGIN MX_GPIO_Init_1 */
- 249:Core/Src/main.c **** /* USER CODE END MX_GPIO_Init_1 */
- 250:Core/Src/main.c **** 
- 251:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
- 252:Core/Src/main.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
- 297              		.loc 1 252 3
+ 198:Core/Src/main.c **** /* USER CODE BEGIN MX_GPIO_Init_1 */
+ 199:Core/Src/main.c **** /* USER CODE END MX_GPIO_Init_1 */
+ 200:Core/Src/main.c **** 
+ 201:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 202:Core/Src/main.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
+ 297              		.loc 1 202 3
  298 0014 1E4B     		ldr	r3, .L15
  299 0016 9B69     		ldr	r3, [r3, #24]
  300 0018 1D4A     		ldr	r2, .L15
@@ -584,13 +531,16 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  307 002a FB68     		ldr	r3, [r7, #12]
  308              	.LBE4:
  309              	.LBB5:
- 253:Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
- 310              		.loc 1 253 3
+ 203:Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 310              		.loc 1 203 3
  311 002c 184B     		ldr	r3, .L15
  312 002e 9B69     		ldr	r3, [r3, #24]
  313 0030 174A     		ldr	r2, .L15
  314 0032 43F00803 		orr	r3, r3, #8
  315 0036 9361     		str	r3, [r2, #24]
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 10
+
+
  316 0038 154B     		ldr	r3, .L15
  317 003a 9B69     		ldr	r3, [r3, #24]
  318 003c 03F00803 		and	r3, r3, #8
@@ -598,11 +548,8 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  320 0042 BB68     		ldr	r3, [r7, #8]
  321              	.LBE5:
  322              	.LBB6:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 11
-
-
- 254:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
- 323              		.loc 1 254 3
+ 204:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 323              		.loc 1 204 3
  324 0044 124B     		ldr	r3, .L15
  325 0046 9B69     		ldr	r3, [r3, #24]
  326 0048 114A     		ldr	r2, .L15
@@ -614,43 +561,46 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  332 0058 7B60     		str	r3, [r7, #4]
  333 005a 7B68     		ldr	r3, [r7, #4]
  334              	.LBE6:
- 255:Core/Src/main.c **** 
- 256:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
- 257:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
- 335              		.loc 1 257 3
+ 205:Core/Src/main.c **** 
+ 206:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 207:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+ 335              		.loc 1 207 3
  336 005c 0122     		movs	r2, #1
  337 005e 4FF48051 		mov	r1, #4096
  338 0062 0C48     		ldr	r0, .L15+4
  339 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 258:Core/Src/main.c **** 
- 259:Core/Src/main.c ****   /*Configure GPIO pin : PB12 */
- 260:Core/Src/main.c ****   GPIO_InitStruct.Pin = GPIO_PIN_12;
- 340              		.loc 1 260 23
+ 208:Core/Src/main.c **** 
+ 209:Core/Src/main.c ****   /*Configure GPIO pin : PB12 */
+ 210:Core/Src/main.c ****   GPIO_InitStruct.Pin = GPIO_PIN_12;
+ 340              		.loc 1 210 23
  341 0068 4FF48053 		mov	r3, #4096
  342 006c 3B61     		str	r3, [r7, #16]
- 261:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 343              		.loc 1 261 24
+ 211:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 343              		.loc 1 211 24
  344 006e 0123     		movs	r3, #1
  345 0070 7B61     		str	r3, [r7, #20]
- 262:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
- 346              		.loc 1 262 24
+ 212:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 346              		.loc 1 212 24
  347 0072 0123     		movs	r3, #1
  348 0074 BB61     		str	r3, [r7, #24]
- 263:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 349              		.loc 1 263 25
+ 213:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 349              		.loc 1 213 25
  350 0076 0223     		movs	r3, #2
  351 0078 FB61     		str	r3, [r7, #28]
- 264:Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
- 352              		.loc 1 264 3
+ 214:Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 352              		.loc 1 214 3
  353 007a 07F11003 		add	r3, r7, #16
  354 007e 1946     		mov	r1, r3
  355 0080 0448     		ldr	r0, .L15+4
  356 0082 FFF7FEFF 		bl	HAL_GPIO_Init
- 265:Core/Src/main.c **** 
- 266:Core/Src/main.c **** /* USER CODE BEGIN MX_GPIO_Init_2 */
- 267:Core/Src/main.c **** /* USER CODE END MX_GPIO_Init_2 */
- 268:Core/Src/main.c **** }
- 357              		.loc 1 268 1
+ 215:Core/Src/main.c **** 
+ 216:Core/Src/main.c **** /* USER CODE BEGIN MX_GPIO_Init_2 */
+ 217:Core/Src/main.c **** /* USER CODE END MX_GPIO_Init_2 */
+ 218:Core/Src/main.c **** }
+ 357              		.loc 1 218 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 11
+
+
  358 0086 00BF     		nop
  359 0088 2037     		adds	r7, r7, #32
  360              	.LCFI12:
@@ -658,9 +608,6 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  362 008a BD46     		mov	sp, r7
  363              	.LCFI13:
  364              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 12
-
-
  365              		@ sp needed
  366 008c 80BD     		pop	{r7, pc}
  367              	.L16:
@@ -678,77 +625,77 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  380              		.thumb_func
  382              	Error_Handler:
  383              	.LFB69:
- 269:Core/Src/main.c **** 
- 270:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 219:Core/Src/main.c **** 
+ 220:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 221:Core/Src/main.c **** 
+ 222:Core/Src/main.c **** // HAL_StatusTypeDef receive_byte(uint8_t* data)
+ 223:Core/Src/main.c **** // {
+ 224:Core/Src/main.c **** //   uint8_t dummy_data = 0xff;
+ 225:Core/Src/main.c **** 
+ 226:Core/Src/main.c **** //   return HAL_SPI_TransmitReceive(&hspi2, &dummy_data, data, 1, 1000);
+ 227:Core/Src/main.c **** // }
+ 228:Core/Src/main.c **** 
+ 229:Core/Src/main.c **** // HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size)
+ 230:Core/Src/main.c **** // {
+ 231:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
+ 232:Core/Src/main.c **** 
+ 233:Core/Src/main.c **** //   for (uint8_t i = 0; i < size; i++)
+ 234:Core/Src/main.c **** //     status += receive_byte(data + i);
+ 235:Core/Src/main.c ****   
+ 236:Core/Src/main.c **** //   return status;
+ 237:Core/Src/main.c **** // }
+ 238:Core/Src/main.c **** 
+ 239:Core/Src/main.c **** // HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size)
+ 240:Core/Src/main.c **** // {
+ 241:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
+ 242:Core/Src/main.c **** 
+ 243:Core/Src/main.c **** //   for (int16_t i = size - 1; i >= 0; i--)
+ 244:Core/Src/main.c **** //     status += HAL_SPI_Transmit(&hspi2, data + i, 1, 1000);
+ 245:Core/Src/main.c ****   
+ 246:Core/Src/main.c **** //   return status;
+ 247:Core/Src/main.c **** // }
+ 248:Core/Src/main.c **** 
+ 249:Core/Src/main.c **** // void fast_boot(void)
+ 250:Core/Src/main.c **** // {
+ 251:Core/Src/main.c **** //   uint8_t dummy_data = 0xff;
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 12
+
+
+ 252:Core/Src/main.c **** 
+ 253:Core/Src/main.c **** //   DISELECT_SD();
+ 254:Core/Src/main.c **** 
+ 255:Core/Src/main.c **** //   // Clock occurs only during transmission
+ 256:Core/Src/main.c **** //   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
+ 257:Core/Src/main.c **** //     HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
+ 258:Core/Src/main.c **** // }
+ 259:Core/Src/main.c **** 
+ 260:Core/Src/main.c **** // // We are trying to get a byte with the first zero bit.
+ 261:Core/Src/main.c **** // // The received byte is written to the argument
+ 262:Core/Src/main.c **** // HAL_StatusTypeDef wait_sd_response(uint8_t* data)
+ 263:Core/Src/main.c **** // {
+ 264:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
+ 265:Core/Src/main.c **** //   uint32_t captured_tick = HAL_GetTick();
+ 266:Core/Src/main.c **** 
+ 267:Core/Src/main.c **** //   do
+ 268:Core/Src/main.c **** //   {
+ 269:Core/Src/main.c **** //     if ((HAL_GetTick() - captured_tick) > 500)
+ 270:Core/Src/main.c **** //       return HAL_TIMEOUT;
  271:Core/Src/main.c **** 
- 272:Core/Src/main.c **** // HAL_StatusTypeDef receive_byte(uint8_t* data)
- 273:Core/Src/main.c **** // {
- 274:Core/Src/main.c **** //   uint8_t dummy_data = 0xff;
- 275:Core/Src/main.c **** 
- 276:Core/Src/main.c **** //   return HAL_SPI_TransmitReceive(&hspi2, &dummy_data, data, 1, 1000);
- 277:Core/Src/main.c **** // }
- 278:Core/Src/main.c **** 
- 279:Core/Src/main.c **** // HAL_StatusTypeDef receive_bytes(uint8_t* data, const uint8_t size)
- 280:Core/Src/main.c **** // {
- 281:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
- 282:Core/Src/main.c **** 
- 283:Core/Src/main.c **** //   for (uint8_t i = 0; i < size; i++)
- 284:Core/Src/main.c **** //     status += receive_byte(data + i);
- 285:Core/Src/main.c ****   
- 286:Core/Src/main.c **** //   return status;
- 287:Core/Src/main.c **** // }
- 288:Core/Src/main.c **** 
- 289:Core/Src/main.c **** // HAL_StatusTypeDef transmit_bytes(const uint8_t* data, const uint8_t size)
- 290:Core/Src/main.c **** // {
- 291:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
- 292:Core/Src/main.c **** 
- 293:Core/Src/main.c **** //   for (int16_t i = size - 1; i >= 0; i--)
- 294:Core/Src/main.c **** //     status += HAL_SPI_Transmit(&hspi2, data + i, 1, 1000);
- 295:Core/Src/main.c ****   
- 296:Core/Src/main.c **** //   return status;
- 297:Core/Src/main.c **** // }
- 298:Core/Src/main.c **** 
- 299:Core/Src/main.c **** // void fast_boot(void)
- 300:Core/Src/main.c **** // {
- 301:Core/Src/main.c **** //   uint8_t dummy_data = 0xff;
- 302:Core/Src/main.c **** 
- 303:Core/Src/main.c **** //   DISELECT_SD();
- 304:Core/Src/main.c **** 
- 305:Core/Src/main.c **** //   // Clock occurs only during transmission
- 306:Core/Src/main.c **** //   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
- 307:Core/Src/main.c **** //     HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
- 308:Core/Src/main.c **** // }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 13
-
-
- 309:Core/Src/main.c **** 
- 310:Core/Src/main.c **** // // We are trying to get a byte with the first zero bit.
- 311:Core/Src/main.c **** // // The received byte is written to the argument
- 312:Core/Src/main.c **** // HAL_StatusTypeDef wait_sd_response(uint8_t* data)
- 313:Core/Src/main.c **** // {
- 314:Core/Src/main.c **** //   HAL_StatusTypeDef status = 0;
- 315:Core/Src/main.c **** //   uint32_t captured_tick = HAL_GetTick();
- 316:Core/Src/main.c **** 
- 317:Core/Src/main.c **** //   do
- 318:Core/Src/main.c **** //   {
- 319:Core/Src/main.c **** //     if ((HAL_GetTick() - captured_tick) > 500)
- 320:Core/Src/main.c **** //       return HAL_TIMEOUT;
- 321:Core/Src/main.c **** 
- 322:Core/Src/main.c **** //     status |= receive_byte(&data);
- 323:Core/Src/main.c **** //   } while (data == NULL); // ?
- 324:Core/Src/main.c **** 
- 325:Core/Src/main.c **** //   return status;
- 326:Core/Src/main.c **** // }
- 327:Core/Src/main.c **** 
- 328:Core/Src/main.c **** /* USER CODE END 4 */
- 329:Core/Src/main.c **** 
- 330:Core/Src/main.c **** /**
- 331:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 332:Core/Src/main.c ****   * @retval None
- 333:Core/Src/main.c ****   */
- 334:Core/Src/main.c **** void Error_Handler(void)
- 335:Core/Src/main.c **** {
- 384              		.loc 1 335 1
+ 272:Core/Src/main.c **** //     status |= receive_byte(&data);
+ 273:Core/Src/main.c **** //   } while (data == NULL); // ?
+ 274:Core/Src/main.c **** 
+ 275:Core/Src/main.c **** //   return status;
+ 276:Core/Src/main.c **** // }
+ 277:Core/Src/main.c **** 
+ 278:Core/Src/main.c **** /* USER CODE END 4 */
+ 279:Core/Src/main.c **** 
+ 280:Core/Src/main.c **** /**
+ 281:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 282:Core/Src/main.c ****   * @retval None
+ 283:Core/Src/main.c ****   */
+ 284:Core/Src/main.c **** void Error_Handler(void)
+ 285:Core/Src/main.c **** {
+ 384              		.loc 1 285 1
  385              		.cfi_startproc
  386              		@ args = 0, pretend = 0, frame = 0
  387              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -771,6 +718,9 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
    6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
    8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 13
+
+
    9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
@@ -778,9 +728,6 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 14
-
-
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
@@ -831,6 +778,9 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
   65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 14
+
+
   66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
@@ -838,9 +788,6 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 15
-
-
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
   75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
@@ -891,6 +838,9 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
  121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 15
+
+
  123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
@@ -898,9 +848,6 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 16
-
-
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -927,11 +874,11 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  408              	.L18:
  409              	.LBE8:
  410              	.LBE7:
- 336:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 337:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 338:Core/Src/main.c ****   __disable_irq();
- 339:Core/Src/main.c ****   while (1)
- 411              		.loc 1 339 9 discriminator 1
+ 286:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 287:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 288:Core/Src/main.c ****   __disable_irq();
+ 289:Core/Src/main.c ****   while (1)
+ 411              		.loc 1 289 9 discriminator 1
  412 0008 FEE7     		b	.L18
  413              		.cfi_endproc
  414              	.LFE69:
@@ -946,26 +893,26 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
  424              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  425              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  426              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 17
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:22     .bss.hspi2:00000000 hspi2
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:19     .bss.hspi2:00000000 $d
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:25     .text.main:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:31     .text.main:00000000 main
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:74     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:272    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:183    .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:63     .text.main:0000001c $d
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:68     .text.SystemClock_Config:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:382    .text.Error_Handler:00000000 Error_Handler
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:178    .text.MX_SPI2_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:261    .text.MX_SPI2_Init:00000064 $d
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:267    .text.MX_GPIO_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:370    .text.MX_GPIO_Init:00000090 $d
-C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:376    .text.Error_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:22     .bss.hspi2:00000000 hspi2
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:19     .bss.hspi2:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:25     .text.main:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:31     .text.main:00000000 main
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:74     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:272    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:183    .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:63     .text.main:0000001c $d
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:68     .text.SystemClock_Config:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:382    .text.Error_Handler:00000000 Error_Handler
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:178    .text.MX_SPI2_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:261    .text.MX_SPI2_Init:00000064 $d
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:267    .text.MX_GPIO_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:370    .text.MX_GPIO_Init:00000090 $d
+C:\Users\Matvey\AppData\Local\Temp\ccCdWQjc.s:376    .text.Error_Handler:00000000 $t
 
 UNDEFINED SYMBOLS
 HAL_Init

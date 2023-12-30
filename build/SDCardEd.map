@@ -679,7 +679,7 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
                 0x08000000                g_pfnVectors
                 0x0800010c                . = ALIGN (0x4)
 
-.text           0x0800010c     0x21fc
+.text           0x0800010c     0x223c
                 0x0800010c                . = ALIGN (0x4)
  *(.text)
  .text          0x0800010c       0x40 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
@@ -797,167 +797,167 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
                 0x08001a0a                SystemInit
  *fill*         0x08001a16        0x2 
  .text.sd_card_power_on
-                0x08001a18       0x48 build/sdcard_driver.o
+                0x08001a18       0x54 build/sdcard_driver.o
                 0x08001a18                sd_card_power_on
  .text.sd_card_enter_spi_mode
-                0x08001a60       0xbc build/sdcard_driver.o
-                0x08001a60                sd_card_enter_spi_mode
+                0x08001a6c       0xc4 build/sdcard_driver.o
+                0x08001a6c                sd_card_enter_spi_mode
  .text.sd_card_v1_init_process
-                0x08001b1c      0x18c build/sdcard_driver.o
-                0x08001b1c                sd_card_v1_init_process
+                0x08001b30      0x1ac build/sdcard_driver.o
+                0x08001b30                sd_card_v1_init_process
  .text.sd_card_v2_init_process
-                0x08001ca8      0x1f8 build/sdcard_driver.o
-                0x08001ca8                sd_card_v2_init_process
+                0x08001cdc      0x204 build/sdcard_driver.o
+                0x08001cdc                sd_card_v2_init_process
  .text.sd_card_reset
-                0x08001ea0       0xec build/sdcard_driver.o
-                0x08001ea0                sd_card_reset
+                0x08001ee0       0xec build/sdcard_driver.o
+                0x08001ee0                sd_card_reset
  .text.sd_card_get_cmd
-                0x08001f8c       0x9c build/sdcard_driver.o
-                0x08001f8c                sd_card_get_cmd
+                0x08001fcc       0x9c build/sdcard_driver.o
+                0x08001fcc                sd_card_get_cmd
  .text.sd_card_receive_byte
-                0x08002028       0x2c build/sdcard_driver.o
-                0x08002028                sd_card_receive_byte
+                0x08002068       0x2c build/sdcard_driver.o
+                0x08002068                sd_card_receive_byte
  .text.sd_card_receive_bytes
-                0x08002054       0x48 build/sdcard_driver.o
-                0x08002054                sd_card_receive_bytes
+                0x08002094       0x48 build/sdcard_driver.o
+                0x08002094                sd_card_receive_bytes
  .text.sd_card_wait_response
-                0x0800209c       0x4a build/sdcard_driver.o
-                0x0800209c                sd_card_wait_response
+                0x080020dc       0x4a build/sdcard_driver.o
+                0x080020dc                sd_card_wait_response
  .text.sd_card_receive_cmd_response
-                0x080020e6       0x8c build/sdcard_driver.o
-                0x080020e6                sd_card_receive_cmd_response
+                0x08002126       0x8c build/sdcard_driver.o
+                0x08002126                sd_card_receive_cmd_response
  .text.crc_buffer_calculate_crc_7
-                0x08002172       0xbe build/crc-buffer.o
-                0x08002172                crc_buffer_calculate_crc_7
+                0x080021b2       0xbe build/crc-buffer.o
+                0x080021b2                crc_buffer_calculate_crc_7
  .text.Reset_Handler
-                0x08002230       0x48 build/startup_stm32f103xb.o
-                0x08002230                Reset_Handler
+                0x08002270       0x48 build/startup_stm32f103xb.o
+                0x08002270                Reset_Handler
  .text.Default_Handler
-                0x08002278        0x2 build/startup_stm32f103xb.o
-                0x08002278                RTC_Alarm_IRQHandler
-                0x08002278                EXTI2_IRQHandler
-                0x08002278                TIM1_CC_IRQHandler
-                0x08002278                PVD_IRQHandler
-                0x08002278                EXTI3_IRQHandler
-                0x08002278                EXTI0_IRQHandler
-                0x08002278                I2C2_EV_IRQHandler
-                0x08002278                ADC1_2_IRQHandler
-                0x08002278                SPI1_IRQHandler
-                0x08002278                TAMPER_IRQHandler
-                0x08002278                DMA1_Channel4_IRQHandler
-                0x08002278                USART3_IRQHandler
-                0x08002278                RTC_IRQHandler
-                0x08002278                DMA1_Channel7_IRQHandler
-                0x08002278                CAN1_RX1_IRQHandler
-                0x08002278                TIM4_IRQHandler
-                0x08002278                I2C1_EV_IRQHandler
-                0x08002278                DMA1_Channel6_IRQHandler
-                0x08002278                TIM3_IRQHandler
-                0x08002278                RCC_IRQHandler
-                0x08002278                TIM1_TRG_COM_IRQHandler
-                0x08002278                DMA1_Channel1_IRQHandler
-                0x08002278                Default_Handler
-                0x08002278                EXTI15_10_IRQHandler
-                0x08002278                EXTI9_5_IRQHandler
-                0x08002278                SPI2_IRQHandler
-                0x08002278                DMA1_Channel5_IRQHandler
-                0x08002278                EXTI4_IRQHandler
-                0x08002278                USB_LP_CAN1_RX0_IRQHandler
-                0x08002278                USB_HP_CAN1_TX_IRQHandler
-                0x08002278                DMA1_Channel3_IRQHandler
-                0x08002278                TIM1_UP_IRQHandler
-                0x08002278                WWDG_IRQHandler
-                0x08002278                TIM2_IRQHandler
-                0x08002278                TIM1_BRK_IRQHandler
-                0x08002278                EXTI1_IRQHandler
-                0x08002278                USART2_IRQHandler
-                0x08002278                I2C2_ER_IRQHandler
-                0x08002278                DMA1_Channel2_IRQHandler
-                0x08002278                CAN1_SCE_IRQHandler
-                0x08002278                FLASH_IRQHandler
-                0x08002278                USART1_IRQHandler
-                0x08002278                I2C1_ER_IRQHandler
-                0x08002278                USBWakeUp_IRQHandler
- *fill*         0x0800227a        0x2 
+                0x080022b8        0x2 build/startup_stm32f103xb.o
+                0x080022b8                RTC_Alarm_IRQHandler
+                0x080022b8                EXTI2_IRQHandler
+                0x080022b8                TIM1_CC_IRQHandler
+                0x080022b8                PVD_IRQHandler
+                0x080022b8                EXTI3_IRQHandler
+                0x080022b8                EXTI0_IRQHandler
+                0x080022b8                I2C2_EV_IRQHandler
+                0x080022b8                ADC1_2_IRQHandler
+                0x080022b8                SPI1_IRQHandler
+                0x080022b8                TAMPER_IRQHandler
+                0x080022b8                DMA1_Channel4_IRQHandler
+                0x080022b8                USART3_IRQHandler
+                0x080022b8                RTC_IRQHandler
+                0x080022b8                DMA1_Channel7_IRQHandler
+                0x080022b8                CAN1_RX1_IRQHandler
+                0x080022b8                TIM4_IRQHandler
+                0x080022b8                I2C1_EV_IRQHandler
+                0x080022b8                DMA1_Channel6_IRQHandler
+                0x080022b8                TIM3_IRQHandler
+                0x080022b8                RCC_IRQHandler
+                0x080022b8                TIM1_TRG_COM_IRQHandler
+                0x080022b8                DMA1_Channel1_IRQHandler
+                0x080022b8                Default_Handler
+                0x080022b8                EXTI15_10_IRQHandler
+                0x080022b8                EXTI9_5_IRQHandler
+                0x080022b8                SPI2_IRQHandler
+                0x080022b8                DMA1_Channel5_IRQHandler
+                0x080022b8                EXTI4_IRQHandler
+                0x080022b8                USB_LP_CAN1_RX0_IRQHandler
+                0x080022b8                USB_HP_CAN1_TX_IRQHandler
+                0x080022b8                DMA1_Channel3_IRQHandler
+                0x080022b8                TIM1_UP_IRQHandler
+                0x080022b8                WWDG_IRQHandler
+                0x080022b8                TIM2_IRQHandler
+                0x080022b8                TIM1_BRK_IRQHandler
+                0x080022b8                EXTI1_IRQHandler
+                0x080022b8                USART2_IRQHandler
+                0x080022b8                I2C2_ER_IRQHandler
+                0x080022b8                DMA1_Channel2_IRQHandler
+                0x080022b8                CAN1_SCE_IRQHandler
+                0x080022b8                FLASH_IRQHandler
+                0x080022b8                USART1_IRQHandler
+                0x080022b8                I2C1_ER_IRQHandler
+                0x080022b8                USBWakeUp_IRQHandler
+ *fill*         0x080022ba        0x2 
  .text.__libc_init_array
-                0x0800227c       0x48 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
-                0x0800227c                __libc_init_array
- .text.memcpy   0x080022c4       0x1c d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
-                0x080022c4                memcpy
- .text.memset   0x080022e0       0x10 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
-                0x080022e0                memset
+                0x080022bc       0x48 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-init.o)
+                0x080022bc                __libc_init_array
+ .text.memcpy   0x08002304       0x1c d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x08002304                memcpy
+ .text.memset   0x08002320       0x10 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
+                0x08002320                memset
  *(.glue_7)
- .glue_7        0x080022f0        0x0 linker stubs
+ .glue_7        0x08002330        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080022f0        0x0 linker stubs
+ .glue_7t       0x08002330        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x080022f0        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x08002330        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x080022f0        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x080022f0                _init
- .init          0x080022f4        0x8 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x08002330        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x08002330                _init
+ .init          0x08002334        0x8 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x080022fc        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x080022fc                _fini
- .fini          0x08002300        0x8 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
-                0x08002308                . = ALIGN (0x4)
-                0x08002308                _etext = .
+ .fini          0x0800233c        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x0800233c                _fini
+ .fini          0x08002340        0x8 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+                0x08002348                . = ALIGN (0x4)
+                0x08002348                _etext = .
 
-.vfp11_veneer   0x08002308        0x0
- .vfp11_veneer  0x08002308        0x0 linker stubs
+.vfp11_veneer   0x08002348        0x0
+ .vfp11_veneer  0x08002348        0x0 linker stubs
 
-.v4_bx          0x08002308        0x0
- .v4_bx         0x08002308        0x0 linker stubs
+.v4_bx          0x08002348        0x0
+ .v4_bx         0x08002348        0x0 linker stubs
 
-.iplt           0x08002308        0x0
- .iplt          0x08002308        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x08002348        0x0
+ .iplt          0x08002348        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x08002308       0x24
-                0x08002308                . = ALIGN (0x4)
+.rodata         0x08002348       0x24
+                0x08002348                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.aPLLMULFactorTable.1
-                0x08002308       0x10 build/stm32f1xx_hal_rcc.o
+                0x08002348       0x10 build/stm32f1xx_hal_rcc.o
  .rodata.aPredivFactorTable.0
-                0x08002318        0x2 build/stm32f1xx_hal_rcc.o
- *fill*         0x0800231a        0x2 
+                0x08002358        0x2 build/stm32f1xx_hal_rcc.o
+ *fill*         0x0800235a        0x2 
  .rodata.AHBPrescTable
-                0x0800231c       0x10 build/system_stm32f1xx.o
-                0x0800231c                AHBPrescTable
-                0x0800232c                . = ALIGN (0x4)
+                0x0800235c       0x10 build/system_stm32f1xx.o
+                0x0800235c                AHBPrescTable
+                0x0800236c                . = ALIGN (0x4)
 
-.rel.dyn        0x0800232c        0x0
- .rel.iplt      0x0800232c        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x0800236c        0x0
+ .rel.iplt      0x0800236c        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0800232c        0x0
-                0x0800232c                __exidx_start = .
+.ARM            0x0800236c        0x0
+                0x0800236c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0800232c                __exidx_end = .
+                0x0800236c                __exidx_end = .
 
-.preinit_array  0x0800232c        0x0
-                0x0800232c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800236c        0x0
+                0x0800236c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800232c                PROVIDE (__preinit_array_end = .)
+                0x0800236c                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0800232c        0x4
-                0x0800232c                PROVIDE (__init_array_start = .)
+.init_array     0x0800236c        0x4
+                0x0800236c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0800232c        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x08002330                PROVIDE (__init_array_end = .)
+ .init_array    0x0800236c        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x08002370                PROVIDE (__init_array_end = .)
 
-.fini_array     0x08002330        0x4
+.fini_array     0x08002370        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08002330        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x08002370        0x4 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x08002334                _sidata = LOADADDR (.data)
+                0x08002374                _sidata = LOADADDR (.data)
 
-.data           0x20000000        0xc load address 0x08002334
+.data           0x20000000        0xc load address 0x08002374
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -975,11 +975,11 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
                 0x2000000c                . = ALIGN (0x4)
                 0x2000000c                _edata = .
 
-.igot.plt       0x2000000c        0x0 load address 0x08002340
+.igot.plt       0x2000000c        0x0 load address 0x08002380
  .igot.plt      0x2000000c        0x0 d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
                 0x2000000c                . = ALIGN (0x4)
 
-.bss            0x2000000c       0x7c load address 0x08002340
+.bss            0x2000000c       0x7c load address 0x08002380
                 0x2000000c                _sbss = .
                 0x2000000c                __bss_start__ = _sbss
  *(.bss)
@@ -1000,7 +1000,7 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
                 0x20000088                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000088      0x600 load address 0x08002340
+                0x20000088      0x600 load address 0x08002380
                 0x20000088                . = ALIGN (0x8)
                 [!provide]                PROVIDE (end = .)
                 [!provide]                PROVIDE (_end = .)
@@ -1060,7 +1060,7 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
 LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x00000000     0x614a
+.debug_info     0x00000000     0x614d
  .debug_info    0x00000000      0xa32 build/main.o
  .debug_info    0x00000a32      0x146 build/stm32f1xx_it.o
  .debug_info    0x00000b78      0x90b build/stm32f1xx_hal_msp.o
@@ -1070,9 +1070,9 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
  .debug_info    0x00003c5a      0x67d build/stm32f1xx_hal_gpio.o
  .debug_info    0x000042d7      0xbf5 build/stm32f1xx_hal_cortex.o
  .debug_info    0x00004ecc      0x261 build/system_stm32f1xx.o
- .debug_info    0x0000512d      0xde9 build/sdcard_driver.o
- .debug_info    0x00005f16      0x212 build/crc-buffer.o
- .debug_info    0x00006128       0x22 build/startup_stm32f103xb.o
+ .debug_info    0x0000512d      0xdec build/sdcard_driver.o
+ .debug_info    0x00005f19      0x212 build/crc-buffer.o
+ .debug_info    0x0000612b       0x22 build/startup_stm32f103xb.o
 
 .debug_abbrev   0x00000000     0x12ea
  .debug_abbrev  0x00000000      0x1e0 build/main.o
@@ -1141,19 +1141,19 @@ LOAD d:/portable programs/stm32-my-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/
  .debug_ranges  0x00000560       0x18 build/crc-buffer.o
  .debug_ranges  0x00000578       0x20 build/startup_stm32f103xb.o
 
-.debug_line     0x00000000     0x41b4
- .debug_line    0x00000000      0x32d build/main.o
- .debug_line    0x0000032d      0x106 build/stm32f1xx_it.o
- .debug_line    0x00000433      0x24a build/stm32f1xx_hal_msp.o
- .debug_line    0x0000067d     0x1739 build/stm32f1xx_hal_spi.o
- .debug_line    0x00001db6      0x4b2 build/stm32f1xx_hal.o
- .debug_line    0x00002268      0x8f2 build/stm32f1xx_hal_rcc.o
- .debug_line    0x00002b5a      0x516 build/stm32f1xx_hal_gpio.o
- .debug_line    0x00003070      0x648 build/stm32f1xx_hal_cortex.o
- .debug_line    0x000036b8      0x225 build/system_stm32f1xx.o
- .debug_line    0x000038dd      0x5e9 build/sdcard_driver.o
- .debug_line    0x00003ec6      0x27a build/crc-buffer.o
- .debug_line    0x00004140       0x74 build/startup_stm32f103xb.o
+.debug_line     0x00000000     0x417d
+ .debug_line    0x00000000      0x32b build/main.o
+ .debug_line    0x0000032b      0x106 build/stm32f1xx_it.o
+ .debug_line    0x00000431      0x24a build/stm32f1xx_hal_msp.o
+ .debug_line    0x0000067b     0x1739 build/stm32f1xx_hal_spi.o
+ .debug_line    0x00001db4      0x4b2 build/stm32f1xx_hal.o
+ .debug_line    0x00002266      0x8f2 build/stm32f1xx_hal_rcc.o
+ .debug_line    0x00002b58      0x516 build/stm32f1xx_hal_gpio.o
+ .debug_line    0x0000306e      0x648 build/stm32f1xx_hal_cortex.o
+ .debug_line    0x000036b6      0x225 build/system_stm32f1xx.o
+ .debug_line    0x000038db      0x5b4 build/sdcard_driver.o
+ .debug_line    0x00003e8f      0x27a build/crc-buffer.o
+ .debug_line    0x00004109       0x74 build/startup_stm32f103xb.o
 
 .debug_str      0x00000000     0x1f40
  .debug_str     0x00000000      0x6e8 build/main.o

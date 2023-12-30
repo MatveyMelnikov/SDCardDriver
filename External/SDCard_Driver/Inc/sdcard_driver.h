@@ -26,10 +26,10 @@
 #define GET_VOLTAGE_FROM_R7(r7) \
   ((r7).voltage_accepted_plus_reserved & 0x0f)
 
-#define SEND_CMD(hspi, cmd, response) \
+#define SEND_CMD(hspi, cmd, response, status) \
   SELECT_SD(); \
-	status |= HAL_SPI_Transmit((hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
-	status |= sd_card_receive_cmd_response( \
+	(status) |= HAL_SPI_Transmit((hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
+	(status) |= sd_card_receive_cmd_response( \
     (hspi), (uint8_t*)&(response), sizeof(response), HAL_MAX_DELAY \
   ); \
   DISELECT_SD();
