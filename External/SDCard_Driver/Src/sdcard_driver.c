@@ -2,11 +2,11 @@
 #include <string.h>
 #include "crc-buffer.h"
 
+sd_card_status sd_status = { 0 };
+
 // To IDLE state
 void sd_card_power_on(SPI_HandleTypeDef *hspi)
 {
-  sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
-  sd_card_r1_response cmd0_response = 0;
   uint8_t dummy_data = 0xff;
 
   DISELECT_SD();
@@ -29,7 +29,9 @@ HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
   sd_card_power_on(hspi);
 
   SELECT_SD();
-	HAL_StatusTypeDef status = HAL_SPI_Transmit(hspi, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
+	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY
+  );
 
 	status |= sd_card_receive_byte(hspi, &cmd0_response);
 
@@ -41,99 +43,179 @@ HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
   if (status == HAL_OK)
     sd_card_is_spi_mode = true;
 
+  sd_status.version = 1;
+  sd_status.capacity = STANDART;
+
   return status;
 }
 
 HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
 {
+  // Reads OCR to get supported voltage
+  sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
+  sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
+  sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
+
+  sd_card_r3_response cmd58_response = { 0 };
+  sd_card_r1_response cmd55_response = { 0 };
+	sd_card_r1_response acmd41_response = { 0 };
+
+  SELECT_SD();
+	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY
+  );
+	status |= sd_card_receive_cmd_response(
+    hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+  );
+  DISELECT_SD();
+	
+	// Check voltage. The card must support 2.7-3.6V
+  // MSB. Second byte is 23 - 16 bits of OCR
+  // Third byte starts with 15 bit oof OCR
+	if (!((cmd58_response.ocr_register_content[1] & 0x1f) &&
+    (cmd58_response.ocr_register_content[2] & 0x80)))
+    return HAL_ERROR;
+
+  uint32_t tickstart = HAL_GetTick();
+	
+	while (true)
+	{
+    SELECT_SD();
+		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
+		status |= sd_card_receive_cmd_response(
+      hspi, (uint8_t*)&cmd55_response, 5, HAL_MAX_DELAY
+    );
+    DISELECT_SD();
+
+    SELECT_SD();
+		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
+		status |= sd_card_receive_cmd_response(
+      hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY
+    );
+    DISELECT_SD();
+		
+		if (acmd41_response == 0x0)
+			break;
+    if (acmd41_response & ILLEGAL_COMMAND)
+			return HAL_ERROR;
+    // Card initialization shall be completed within 1 second 
+    // from the first ACMD41
+    if (HAL_GetTick() - tickstart > 1000)
+      return HAL_TIMEOUT;
+	}
+
   return HAL_OK;
 }
 
-HAL_StatusTypeDef sd_card_v2_init_process(SPI_HandleTypeDef *hspi)
+HAL_StatusTypeDef sd_card_v2_init_process(
+  SPI_HandleTypeDef* hspi
+)
 {
-	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0); // Reads OCR to get supported voltage
+  // Reads OCR to get supported voltage
+	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
 	sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
 	sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
 	
 	sd_card_r3_response cmd58_response = { 0 };
 	sd_card_r1_response cmd55_response = { 0 };
 	sd_card_r1_response acmd41_response = { 0 };
-	
+
   SELECT_SD();
-	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY);
-	sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
+	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY
+  );
+	status |= sd_card_receive_cmd_response(
+    hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+  );
   DISELECT_SD();
 	
-	// TODO: check response r3 - voltage
-	
+	// Check voltage. The card must support 2.7-3.6V
+  // MSB. Second byte is 23 - 16 bits of OCR
+  // Third byte starts with 15 bit oof OCR
+	if (!((cmd58_response.ocr_register_content[1] & 0x1f) &&
+    (cmd58_response.ocr_register_content[2] & 0x80)))
+    return HAL_ERROR;
+
 	uint32_t tickstart = HAL_GetTick();
 	
-	// Тут идет цикл. Мы дожидаемся, пока карта проинициализируется
-	do
+	while (true)
 	{
     SELECT_SD();
-		HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
-		sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
+		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
+		status |= sd_card_receive_cmd_response(
+      hspi, (uint8_t*)&cmd55_response, 5, HAL_MAX_DELAY
+    );
     DISELECT_SD();
-		
+
     SELECT_SD();
-		HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
-		sd_card_receive_cmd_response(hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY);
+		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
+		status |= sd_card_receive_cmd_response(
+      hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY
+    );
     DISELECT_SD();
 		
-		if (acmd41_response)
+		if (acmd41_response == 0x0)
 			break;
-		if (acmd41_response & ILLEGAL_COMMAND)
-			return HAL_ERROR;
-	} while (HAL_GetTick() - tickstart < 10000); // example timeout value (TODO)
+    // Card initialization shall be completed within 1 second 
+    // from the first ACMD41
+    if (HAL_GetTick() - tickstart > 1000)
+      return HAL_TIMEOUT;
+	}
+
+  // Read OCR
+  SELECT_SD();
+	status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY);
+	status |= sd_card_receive_cmd_response(
+    hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+  );
+  DISELECT_SD();
+
+  if (cmd58_response.ocr_register_content[0] & 0x40) // Check CCS
+    sd_status.capacity = STANDART;
+  else
+    sd_status.capacity = HIGH_OR_EXTENDED;
+  sd_status.version = 2;
 	
-	return HAL_OK;
+	return status;
 }
 
 HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
 {
 	// 2.7-3.6V and check pattern
 	sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
-	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
-	
 	sd_card_r7_response cmd8_response = { 0 };
-	sd_card_r3_response cmd58_response = { 0 };
 
   HAL_StatusTypeDef status = sd_card_enter_spi_mode(hspi);
   sd_card_enter_spi_mode(hspi);
 	
-	// TODO: check r1 errors
   SELECT_SD();
 	status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-	status |= sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
+	status |= sd_card_receive_cmd_response(
+    hspi, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY
+  );
   DISELECT_SD();
+  //SEND_CMD(hspi, cmd8, cmd8_response);
 
 	if (status)
-		return status;
-	// TODO: check r7. if illegal command - cmd 58
+		goto end_of_initialization;
 	
-	// Разделение на ветки по версиям sd карты. Всего их - 3
-	
-	// illegal command => version 2.0 or later sd card
+	// Illegal command hence version 1.0 sd card
 	if (cmd8_response.high_order_part & ILLEGAL_COMMAND)
-		return sd_card_v1_init_process(hspi); // plus goto?
+  {
+		status |= sd_card_v1_init_process(hspi);
+    goto end_of_initialization;
+  }
 
-	// check pattern or voltage inconsistency
+  // Check pattern or voltage inconsistency
 	if (!(cmd8_response.echo_back_of_check_pattern == 0x55 &&
     GET_VOLTAGE_FROM_R7(cmd8_response) == 0x1))
 		return HAL_ERROR;
 	
-	sd_card_v2_init_process(hspi); // TODO - check
-	
-	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY); // Read OCR
-	sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
-	
-	//if (cmd58_response.ocr_register_content & (1 << 30)) // CCS - card capacity status
-		// version 2.0 or later, high capacity or extended capacity
-	//else
-		// version 2.0 or later, standart capacity
-	
-	return HAL_OK;
+	status |= sd_card_v2_init_process(hspi);
+
+end_of_initialization:
+  sd_status.error_in_initialization = (bool)status;
+	return status;
 }
 
 sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
@@ -142,9 +224,8 @@ sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
 	sd_card_command cmd = (sd_card_command) {
 		.start_block = 0x40 | cmd_num,
 	};
-  //memcpy((void*)&cmd.argument, (void*)&arg, 4);
 
-  for (uint8_t i = 0; i < 4; i++) // reverse memcpy
+  for (uint8_t i = 0; i < 4; i++) // Reverse memcpy
   {
     uint8_t shift = i << 3;
     cmd.argument[3 - i] = (arg & (0xff << shift)) >> shift;

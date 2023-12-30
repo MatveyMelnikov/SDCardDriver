@@ -21,10 +21,18 @@
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
 #define GET_VERSION_FROM_R7(r7) \
-  ((r7).command_version_plus_reserved & 0xf0) >> 4
+  (((r7).command_version_plus_reserved & 0xf0) >> 4)
 
 #define GET_VOLTAGE_FROM_R7(r7) \
-  (r7).voltage_accepted_plus_reserved & 0x0f
+  ((r7).voltage_accepted_plus_reserved & 0x0f)
+
+#define SEND_CMD(hspi, cmd, response) \
+  SELECT_SD(); \
+	status |= HAL_SPI_Transmit((hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
+	status |= sd_card_receive_cmd_response( \
+    (hspi), (uint8_t*)&(response), sizeof(response), HAL_MAX_DELAY \
+  ); \
+  DISELECT_SD();
 
 // Structs -------------------------------------------------------------------
 
@@ -63,9 +71,20 @@ typedef struct {
 	uint8_t echo_back_of_check_pattern;
 } sd_card_r7_response;
 
+typedef enum {
+  STANDART = 0x0,
+  HIGH_OR_EXTENDED
+} sd_card_capacity;
+
+typedef struct {
+  uint8_t version;
+  sd_card_capacity capacity;
+  bool error_in_initialization;
+} sd_card_status;
+
 // Variables -----------------------------------------------------------------
 
-//extern bool sd_card_is_spi_mode;
+extern sd_card_status sd_status;
 
 // Functions -----------------------------------------------------------------
 

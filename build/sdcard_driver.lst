@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -17,1368 +17,1850 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.sd_card_power_on,"ax",%progbits
-  18              		.align	1
-  19              		.global	sd_card_power_on
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	sd_card_power_on:
-  25              	.LFB65:
-  26              		.file 1 "External/SDCard_Driver/Src/sdcard_driver.c"
+  17              		.global	sd_status
+  18              		.section	.bss.sd_status,"aw",%nobits
+  19              		.align	2
+  22              	sd_status:
+  23 0000 000000   		.space	3
+  24              		.section	.text.sd_card_power_on,"ax",%progbits
+  25              		.align	1
+  26              		.global	sd_card_power_on
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  31              	sd_card_power_on:
+  32              	.LFB65:
+  33              		.file 1 "External/SDCard_Driver/Src/sdcard_driver.c"
    1:External/SDCard_Driver/Src/sdcard_driver.c **** #include "sdcard_driver.h"
    2:External/SDCard_Driver/Src/sdcard_driver.c **** #include <string.h>
    3:External/SDCard_Driver/Src/sdcard_driver.c **** #include "crc-buffer.h"
    4:External/SDCard_Driver/Src/sdcard_driver.c **** 
-   5:External/SDCard_Driver/Src/sdcard_driver.c **** // To IDLE state
-   6:External/SDCard_Driver/Src/sdcard_driver.c **** void sd_card_power_on(SPI_HandleTypeDef *hspi)
-   7:External/SDCard_Driver/Src/sdcard_driver.c **** {
-  27              		.loc 1 7 1
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 24
-  30              		@ frame_needed = 1, uses_anonymous_args = 0
-  31 0000 80B5     		push	{r7, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 7, -8
-  35              		.cfi_offset 14, -4
-  36 0002 86B0     		sub	sp, sp, #24
-  37              	.LCFI1:
-  38              		.cfi_def_cfa_offset 32
-  39 0004 00AF     		add	r7, sp, #0
-  40              	.LCFI2:
-  41              		.cfi_def_cfa_register 7
-  42 0006 7860     		str	r0, [r7, #4]
-   8:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
-  43              		.loc 1 8 26
-  44 0008 07F11003 		add	r3, r7, #16
-  45 000c 0022     		movs	r2, #0
-  46 000e 0021     		movs	r1, #0
-  47 0010 1846     		mov	r0, r3
-  48 0012 FFF7FEFF 		bl	sd_card_get_cmd
-   9:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_r1_response cmd0_response = 0;
-  49              		.loc 1 9 23
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 2
-
-
-  50 0016 0023     		movs	r3, #0
-  51 0018 BB75     		strb	r3, [r7, #22]
+   5:External/SDCard_Driver/Src/sdcard_driver.c **** sd_card_status sd_status = { 0 };
+   6:External/SDCard_Driver/Src/sdcard_driver.c **** 
+   7:External/SDCard_Driver/Src/sdcard_driver.c **** // To IDLE state
+   8:External/SDCard_Driver/Src/sdcard_driver.c **** void sd_card_power_on(SPI_HandleTypeDef *hspi)
+   9:External/SDCard_Driver/Src/sdcard_driver.c **** {
+  34              		.loc 1 9 1
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 16
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 84B0     		sub	sp, sp, #16
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_offset 24
+  46 0004 00AF     		add	r7, sp, #0
+  47              	.LCFI2:
+  48              		.cfi_def_cfa_register 7
+  49 0006 7860     		str	r0, [r7, #4]
   10:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t dummy_data = 0xff;
-  52              		.loc 1 10 11
-  53 001a FF23     		movs	r3, #255
-  54 001c FB73     		strb	r3, [r7, #15]
+  50              		.loc 1 10 11
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 2
+
+
+  51 0008 FF23     		movs	r3, #255
+  52 000a BB73     		strb	r3, [r7, #14]
   11:External/SDCard_Driver/Src/sdcard_driver.c **** 
   12:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
-  55              		.loc 1 12 3
-  56 001e 0122     		movs	r2, #1
-  57 0020 4FF48051 		mov	r1, #4096
-  58 0024 0C48     		ldr	r0, .L4
-  59 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  60              	.LBB2:
+  53              		.loc 1 12 3
+  54 000c 0122     		movs	r2, #1
+  55 000e 4FF48051 		mov	r1, #4096
+  56 0012 0C48     		ldr	r0, .L4
+  57 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  58              	.LBB2:
   13:External/SDCard_Driver/Src/sdcard_driver.c **** 
   14:External/SDCard_Driver/Src/sdcard_driver.c ****   // Clock occurs only during transmission
   15:External/SDCard_Driver/Src/sdcard_driver.c ****   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
-  61              		.loc 1 15 16
-  62 002a 0023     		movs	r3, #0
-  63 002c FB75     		strb	r3, [r7, #23]
-  64              		.loc 1 15 3
-  65 002e 0AE0     		b	.L2
-  66              	.L3:
+  59              		.loc 1 15 16
+  60 0018 0023     		movs	r3, #0
+  61 001a FB73     		strb	r3, [r7, #15]
+  62              		.loc 1 15 3
+  63 001c 0AE0     		b	.L2
+  64              	.L3:
   16:External/SDCard_Driver/Src/sdcard_driver.c ****     HAL_SPI_Transmit(hspi, &dummy_data, 1, 500);
-  67              		.loc 1 16 5 discriminator 3
-  68 0030 07F10F01 		add	r1, r7, #15
-  69 0034 4FF4FA73 		mov	r3, #500
-  70 0038 0122     		movs	r2, #1
-  71 003a 7868     		ldr	r0, [r7, #4]
-  72 003c FFF7FEFF 		bl	HAL_SPI_Transmit
+  65              		.loc 1 16 5 discriminator 3
+  66 001e 07F10E01 		add	r1, r7, #14
+  67 0022 4FF4FA73 		mov	r3, #500
+  68 0026 0122     		movs	r2, #1
+  69 0028 7868     		ldr	r0, [r7, #4]
+  70 002a FFF7FEFF 		bl	HAL_SPI_Transmit
   15:External/SDCard_Driver/Src/sdcard_driver.c ****     HAL_SPI_Transmit(hspi, &dummy_data, 1, 500);
-  73              		.loc 1 15 32 discriminator 3
-  74 0040 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
-  75 0042 0133     		adds	r3, r3, #1
-  76 0044 FB75     		strb	r3, [r7, #23]
-  77              	.L2:
+  71              		.loc 1 15 32 discriminator 3
+  72 002e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  73 0030 0133     		adds	r3, r3, #1
+  74 0032 FB73     		strb	r3, [r7, #15]
+  75              	.L2:
   15:External/SDCard_Driver/Src/sdcard_driver.c ****     HAL_SPI_Transmit(hspi, &dummy_data, 1, 500);
-  78              		.loc 1 15 3 discriminator 1
-  79 0046 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
-  80 0048 092B     		cmp	r3, #9
-  81 004a F1D9     		bls	.L3
-  82              	.LBE2:
+  76              		.loc 1 15 3 discriminator 1
+  77 0034 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  78 0036 092B     		cmp	r3, #9
+  79 0038 F1D9     		bls	.L3
+  80              	.LBE2:
   17:External/SDCard_Driver/Src/sdcard_driver.c **** }
-  83              		.loc 1 17 1
-  84 004c 00BF     		nop
-  85 004e 00BF     		nop
-  86 0050 1837     		adds	r7, r7, #24
-  87              	.LCFI3:
-  88              		.cfi_def_cfa_offset 8
-  89 0052 BD46     		mov	sp, r7
-  90              	.LCFI4:
-  91              		.cfi_def_cfa_register 13
-  92              		@ sp needed
-  93 0054 80BD     		pop	{r7, pc}
-  94              	.L5:
-  95 0056 00BF     		.align	2
-  96              	.L4:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 3
+  81              		.loc 1 17 1
+  82 003a 00BF     		nop
+  83 003c 00BF     		nop
+  84 003e 1037     		adds	r7, r7, #16
+  85              	.LCFI3:
+  86              		.cfi_def_cfa_offset 8
+  87 0040 BD46     		mov	sp, r7
+  88              	.LCFI4:
+  89              		.cfi_def_cfa_register 13
+  90              		@ sp needed
+  91 0042 80BD     		pop	{r7, pc}
+  92              	.L5:
+  93              		.align	2
+  94              	.L4:
+  95 0044 000C0140 		.word	1073810432
+  96              		.cfi_endproc
+  97              	.LFE65:
+  99              		.section	.text.sd_card_enter_spi_mode,"ax",%progbits
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 3
 
 
-  97 0058 000C0140 		.word	1073810432
-  98              		.cfi_endproc
-  99              	.LFE65:
- 101              		.section	.text.sd_card_enter_spi_mode,"ax",%progbits
- 102              		.align	1
- 103              		.global	sd_card_enter_spi_mode
- 104              		.syntax unified
- 105              		.thumb
- 106              		.thumb_func
- 108              	sd_card_enter_spi_mode:
- 109              	.LFB66:
+ 100              		.align	1
+ 101              		.global	sd_card_enter_spi_mode
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 106              	sd_card_enter_spi_mode:
+ 107              	.LFB66:
   18:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  19:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
-  20:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 110              		.loc 1 20 1
- 111              		.cfi_startproc
- 112              		@ args = 0, pretend = 0, frame = 24
- 113              		@ frame_needed = 1, uses_anonymous_args = 0
- 114 0000 80B5     		push	{r7, lr}
- 115              	.LCFI5:
- 116              		.cfi_def_cfa_offset 8
- 117              		.cfi_offset 7, -8
- 118              		.cfi_offset 14, -4
- 119 0002 86B0     		sub	sp, sp, #24
- 120              	.LCFI6:
- 121              		.cfi_def_cfa_offset 32
- 122 0004 00AF     		add	r7, sp, #0
- 123              	.LCFI7:
- 124              		.cfi_def_cfa_register 7
- 125 0006 7860     		str	r0, [r7, #4]
-  21:External/SDCard_Driver/Src/sdcard_driver.c ****   static bool sd_card_is_spi_mode = false;
-  22:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
- 126              		.loc 1 22 26
- 127 0008 07F11003 		add	r3, r7, #16
- 128 000c 0022     		movs	r2, #0
- 129 000e 0021     		movs	r1, #0
- 130 0010 1846     		mov	r0, r3
- 131 0012 FFF7FEFF 		bl	sd_card_get_cmd
-  23:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_r1_response cmd0_response = 0;
- 132              		.loc 1 23 23
- 133 0016 0023     		movs	r3, #0
- 134 0018 FB73     		strb	r3, [r7, #15]
-  24:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  25:External/SDCard_Driver/Src/sdcard_driver.c ****   if (sd_card_is_spi_mode)
- 135              		.loc 1 25 7
- 136 001a 224B     		ldr	r3, .L13
- 137 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 138              		.loc 1 25 6
- 139 001e 002B     		cmp	r3, #0
- 140 0020 01D0     		beq	.L7
-  26:External/SDCard_Driver/Src/sdcard_driver.c ****     return HAL_OK;
- 141              		.loc 1 26 12
- 142 0022 0023     		movs	r3, #0
- 143 0024 39E0     		b	.L12
- 144              	.L7:
-  27:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  28:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_power_on(hspi);
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 4
+  19:External/SDCard_Driver/Src/sdcard_driver.c **** // Should be called only once after power up SD card!
+  20:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
+  21:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 108              		.loc 1 21 1
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 24
+ 111              		@ frame_needed = 1, uses_anonymous_args = 0
+ 112 0000 80B5     		push	{r7, lr}
+ 113              	.LCFI5:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 86B0     		sub	sp, sp, #24
+ 118              	.LCFI6:
+ 119              		.cfi_def_cfa_offset 32
+ 120 0004 00AF     		add	r7, sp, #0
+ 121              	.LCFI7:
+ 122              		.cfi_def_cfa_register 7
+ 123 0006 7860     		str	r0, [r7, #4]
+  22:External/SDCard_Driver/Src/sdcard_driver.c ****   static bool sd_card_is_spi_mode = false;
+  23:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
+ 124              		.loc 1 23 26
+ 125 0008 07F11003 		add	r3, r7, #16
+ 126 000c 0022     		movs	r2, #0
+ 127 000e 0021     		movs	r1, #0
+ 128 0010 1846     		mov	r0, r3
+ 129 0012 FFF7FEFF 		bl	sd_card_get_cmd
+  24:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_r1_response cmd0_response = 0;
+ 130              		.loc 1 24 23
+ 131 0016 0023     		movs	r3, #0
+ 132 0018 FB73     		strb	r3, [r7, #15]
+  25:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  26:External/SDCard_Driver/Src/sdcard_driver.c ****   if (sd_card_is_spi_mode)
+ 133              		.loc 1 26 7
+ 134 001a 254B     		ldr	r3, .L13
+ 135 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 136              		.loc 1 26 6
+ 137 001e 002B     		cmp	r3, #0
+ 138 0020 01D0     		beq	.L7
+  27:External/SDCard_Driver/Src/sdcard_driver.c ****     return HAL_OK;
+ 139              		.loc 1 27 12
+ 140 0022 0023     		movs	r3, #0
+ 141 0024 3FE0     		b	.L12
+ 142              	.L7:
+  28:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  29:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_power_on(hspi);
+ 143              		.loc 1 29 3
+ 144 0026 7868     		ldr	r0, [r7, #4]
+ 145 0028 FFF7FEFF 		bl	sd_card_power_on
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 4
 
 
- 145              		.loc 1 28 3
- 146 0026 7868     		ldr	r0, [r7, #4]
- 147 0028 FFF7FEFF 		bl	sd_card_power_on
-  29:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  30:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
- 148              		.loc 1 30 3
- 149 002c 0022     		movs	r2, #0
- 150 002e 4FF48051 		mov	r1, #4096
- 151 0032 1D48     		ldr	r0, .L13+4
- 152 0034 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  31:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_StatusTypeDef status = HAL_SPI_Transmit(hspi, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
- 153              		.loc 1 31 29
- 154 0038 07F11001 		add	r1, r7, #16
- 155 003c 4FF0FF33 		mov	r3, #-1
- 156 0040 0622     		movs	r2, #6
- 157 0042 7868     		ldr	r0, [r7, #4]
- 158 0044 FFF7FEFF 		bl	HAL_SPI_Transmit
- 159 0048 0346     		mov	r3, r0
- 160 004a FB75     		strb	r3, [r7, #23]
-  32:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  33:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_byte(hspi, &cmd0_response);
- 161              		.loc 1 33 12
- 162 004c 07F10F03 		add	r3, r7, #15
- 163 0050 1946     		mov	r1, r3
- 164 0052 7868     		ldr	r0, [r7, #4]
- 165 0054 FFF7FEFF 		bl	sd_card_receive_byte
- 166 0058 0346     		mov	r3, r0
- 167 005a 1A46     		mov	r2, r3
- 168              		.loc 1 33 9
- 169 005c FB7D     		ldrb	r3, [r7, #23]
- 170 005e 1343     		orrs	r3, r3, r2
- 171 0060 FB75     		strb	r3, [r7, #23]
-  34:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  35:External/SDCard_Driver/Src/sdcard_driver.c ****   while (cmd0_response != IN_IDLE_STATE)
- 172              		.loc 1 35 9
- 173 0062 0AE0     		b	.L9
- 174              	.L10:
-  36:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
- 175              		.loc 1 36 15
- 176 0064 07F10F03 		add	r3, r7, #15
- 177 0068 1946     		mov	r1, r3
- 178 006a 7868     		ldr	r0, [r7, #4]
- 179 006c FFF7FEFF 		bl	sd_card_receive_byte
- 180 0070 0346     		mov	r3, r0
- 181 0072 1A46     		mov	r2, r3
- 182              		.loc 1 36 12
- 183 0074 FB7D     		ldrb	r3, [r7, #23]
- 184 0076 1343     		orrs	r3, r3, r2
- 185 0078 FB75     		strb	r3, [r7, #23]
- 186              	.L9:
-  35:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
- 187              		.loc 1 35 24
- 188 007a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
-  35:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
- 189              		.loc 1 35 9
- 190 007c 012B     		cmp	r3, #1
- 191 007e F1D1     		bne	.L10
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 5
-
-
+  30:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  31:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
+ 146              		.loc 1 31 3
+ 147 002c 0022     		movs	r2, #0
+ 148 002e 4FF48051 		mov	r1, #4096
+ 149 0032 2048     		ldr	r0, .L13+4
+ 150 0034 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  32:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+ 151              		.loc 1 32 29
+ 152 0038 07F11001 		add	r1, r7, #16
+ 153 003c 4FF0FF33 		mov	r3, #-1
+ 154 0040 0622     		movs	r2, #6
+ 155 0042 7868     		ldr	r0, [r7, #4]
+ 156 0044 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 157 0048 0346     		mov	r3, r0
+ 158 004a FB75     		strb	r3, [r7, #23]
+  33:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY
+  34:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+  35:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  36:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_byte(hspi, &cmd0_response);
+ 159              		.loc 1 36 12
+ 160 004c 07F10F03 		add	r3, r7, #15
+ 161 0050 1946     		mov	r1, r3
+ 162 0052 7868     		ldr	r0, [r7, #4]
+ 163 0054 FFF7FEFF 		bl	sd_card_receive_byte
+ 164 0058 0346     		mov	r3, r0
+ 165 005a 1A46     		mov	r2, r3
+ 166              		.loc 1 36 9
+ 167 005c FB7D     		ldrb	r3, [r7, #23]
+ 168 005e 1343     		orrs	r3, r3, r2
+ 169 0060 FB75     		strb	r3, [r7, #23]
   37:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  38:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
- 192              		.loc 1 38 3
- 193 0080 0122     		movs	r2, #1
- 194 0082 4FF48051 		mov	r1, #4096
- 195 0086 0848     		ldr	r0, .L13+4
- 196 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  39:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  40:External/SDCard_Driver/Src/sdcard_driver.c ****   if (status == HAL_OK)
- 197              		.loc 1 40 6
- 198 008c FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 199 008e 002B     		cmp	r3, #0
- 200 0090 02D1     		bne	.L11
-  41:External/SDCard_Driver/Src/sdcard_driver.c ****     sd_card_is_spi_mode = true;
- 201              		.loc 1 41 25
- 202 0092 044B     		ldr	r3, .L13
- 203 0094 0122     		movs	r2, #1
- 204 0096 1A70     		strb	r2, [r3]
- 205              	.L11:
+  38:External/SDCard_Driver/Src/sdcard_driver.c ****   while (cmd0_response != IN_IDLE_STATE)
+ 170              		.loc 1 38 9
+ 171 0062 0AE0     		b	.L9
+ 172              	.L10:
+  39:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
+ 173              		.loc 1 39 15
+ 174 0064 07F10F03 		add	r3, r7, #15
+ 175 0068 1946     		mov	r1, r3
+ 176 006a 7868     		ldr	r0, [r7, #4]
+ 177 006c FFF7FEFF 		bl	sd_card_receive_byte
+ 178 0070 0346     		mov	r3, r0
+ 179 0072 1A46     		mov	r2, r3
+ 180              		.loc 1 39 12
+ 181 0074 FB7D     		ldrb	r3, [r7, #23]
+ 182 0076 1343     		orrs	r3, r3, r2
+ 183 0078 FB75     		strb	r3, [r7, #23]
+ 184              	.L9:
+  38:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
+ 185              		.loc 1 38 24
+ 186 007a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  38:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, &cmd0_response);
+ 187              		.loc 1 38 9
+ 188 007c 012B     		cmp	r3, #1
+ 189 007e F1D1     		bne	.L10
+  40:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 5
+
+
+  41:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
+ 190              		.loc 1 41 3
+ 191 0080 0122     		movs	r2, #1
+ 192 0082 4FF48051 		mov	r1, #4096
+ 193 0086 0B48     		ldr	r0, .L13+4
+ 194 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
   42:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  43:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
- 206              		.loc 1 43 10
- 207 0098 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 208              	.L12:
-  44:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 209              		.loc 1 44 1 discriminator 1
- 210 009a 1846     		mov	r0, r3
- 211 009c 1837     		adds	r7, r7, #24
- 212              	.LCFI8:
- 213              		.cfi_def_cfa_offset 8
- 214 009e BD46     		mov	sp, r7
- 215              	.LCFI9:
- 216              		.cfi_def_cfa_register 13
- 217              		@ sp needed
- 218 00a0 80BD     		pop	{r7, pc}
- 219              	.L14:
- 220 00a2 00BF     		.align	2
- 221              	.L13:
- 222 00a4 00000000 		.word	sd_card_is_spi_mode.0
- 223 00a8 000C0140 		.word	1073810432
- 224              		.cfi_endproc
- 225              	.LFE66:
- 227              		.section	.text.activate_sd_card_init_process,"ax",%progbits
- 228              		.align	1
- 229              		.global	activate_sd_card_init_process
- 230              		.syntax unified
- 231              		.thumb
- 232              		.thumb_func
- 234              	activate_sd_card_init_process:
- 235              	.LFB67:
+  43:External/SDCard_Driver/Src/sdcard_driver.c ****   if (status == HAL_OK)
+ 195              		.loc 1 43 6
+ 196 008c FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 197 008e 002B     		cmp	r3, #0
+ 198 0090 02D1     		bne	.L11
+  44:External/SDCard_Driver/Src/sdcard_driver.c ****     sd_card_is_spi_mode = true;
+ 199              		.loc 1 44 25
+ 200 0092 074B     		ldr	r3, .L13
+ 201 0094 0122     		movs	r2, #1
+ 202 0096 1A70     		strb	r2, [r3]
+ 203              	.L11:
   45:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  46:External/SDCard_Driver/Src/sdcard_driver.c **** // Почему активация?
-  47:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef activate_sd_card_init_process(SPI_HandleTypeDef *hspi)
-  48:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 236              		.loc 1 48 1
- 237              		.cfi_startproc
- 238              		@ args = 0, pretend = 0, frame = 56
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 6
+  46:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_status.version = 1;
+ 204              		.loc 1 46 21
+ 205 0098 074B     		ldr	r3, .L13+8
+ 206 009a 0122     		movs	r2, #1
+ 207 009c 1A70     		strb	r2, [r3]
+  47:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_status.capacity = STANDART;
+ 208              		.loc 1 47 22
+ 209 009e 064B     		ldr	r3, .L13+8
+ 210 00a0 0022     		movs	r2, #0
+ 211 00a2 5A70     		strb	r2, [r3, #1]
+  48:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  49:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
+ 212              		.loc 1 49 10
+ 213 00a4 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 214              	.L12:
+  50:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 215              		.loc 1 50 1 discriminator 1
+ 216 00a6 1846     		mov	r0, r3
+ 217 00a8 1837     		adds	r7, r7, #24
+ 218              	.LCFI8:
+ 219              		.cfi_def_cfa_offset 8
+ 220 00aa BD46     		mov	sp, r7
+ 221              	.LCFI9:
+ 222              		.cfi_def_cfa_register 13
+ 223              		@ sp needed
+ 224 00ac 80BD     		pop	{r7, pc}
+ 225              	.L14:
+ 226 00ae 00BF     		.align	2
+ 227              	.L13:
+ 228 00b0 00000000 		.word	sd_card_is_spi_mode.0
+ 229 00b4 000C0140 		.word	1073810432
+ 230 00b8 00000000 		.word	sd_status
+ 231              		.cfi_endproc
+ 232              	.LFE66:
+ 234              		.section	.text.sd_card_v1_init_process,"ax",%progbits
+ 235              		.align	1
+ 236              		.global	sd_card_v1_init_process
+ 237              		.syntax unified
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 6
 
 
- 239              		@ frame_needed = 1, uses_anonymous_args = 0
- 240 0000 80B5     		push	{r7, lr}
- 241              	.LCFI10:
- 242              		.cfi_def_cfa_offset 8
- 243              		.cfi_offset 7, -8
- 244              		.cfi_offset 14, -4
- 245 0002 8EB0     		sub	sp, sp, #56
- 246              	.LCFI11:
- 247              		.cfi_def_cfa_offset 64
- 248 0004 00AF     		add	r7, sp, #0
- 249              	.LCFI12:
- 250              		.cfi_def_cfa_register 7
- 251 0006 7860     		str	r0, [r7, #4]
-  49:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0); // Reads OCR to get supported voltage
- 252              		.loc 1 49 26
- 253 0008 07F12803 		add	r3, r7, #40
- 254 000c 0022     		movs	r2, #0
- 255 000e 3A21     		movs	r1, #58
- 256 0010 1846     		mov	r0, r3
- 257 0012 FFF7FEFF 		bl	sd_card_get_cmd
-  50:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
- 258              		.loc 1 50 26
- 259 0016 07F12003 		add	r3, r7, #32
- 260 001a 0022     		movs	r2, #0
- 261 001c 3721     		movs	r1, #55
- 262 001e 1846     		mov	r0, r3
- 263 0020 FFF7FEFF 		bl	sd_card_get_cmd
-  51:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
- 264              		.loc 1 51 27
- 265 0024 07F11803 		add	r3, r7, #24
- 266 0028 0022     		movs	r2, #0
- 267 002a 2921     		movs	r1, #41
- 268 002c 1846     		mov	r0, r3
- 269 002e FFF7FEFF 		bl	sd_card_get_cmd
-  52:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  53:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r3_response cmd58_response = { 0 };
- 270              		.loc 1 53 22
- 271 0032 07F11003 		add	r3, r7, #16
- 272 0036 0022     		movs	r2, #0
- 273 0038 1A60     		str	r2, [r3]
- 274 003a 1A71     		strb	r2, [r3, #4]
-  54:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response cmd55_response = { 0 };
- 275              		.loc 1 54 22
- 276 003c 0023     		movs	r3, #0
- 277 003e 87F83730 		strb	r3, [r7, #55]
-  55:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response acmd41_response = { 0 };
- 278              		.loc 1 55 22
- 279 0042 0023     		movs	r3, #0
- 280 0044 FB73     		strb	r3, [r7, #15]
-  56:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  57:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY);
- 281              		.loc 1 57 2
- 282 0046 07F12801 		add	r1, r7, #40
- 283 004a 4FF0FF33 		mov	r3, #-1
- 284 004e 0622     		movs	r2, #6
- 285 0050 7868     		ldr	r0, [r7, #4]
- 286 0052 FFF7FEFF 		bl	HAL_SPI_Transmit
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 7
+ 238              		.thumb
+ 239              		.thumb_func
+ 241              	sd_card_v1_init_process:
+ 242              	.LFB67:
+  51:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  52:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
+  53:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 243              		.loc 1 53 1
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 56
+ 246              		@ frame_needed = 1, uses_anonymous_args = 0
+ 247 0000 80B5     		push	{r7, lr}
+ 248              	.LCFI10:
+ 249              		.cfi_def_cfa_offset 8
+ 250              		.cfi_offset 7, -8
+ 251              		.cfi_offset 14, -4
+ 252 0002 8EB0     		sub	sp, sp, #56
+ 253              	.LCFI11:
+ 254              		.cfi_def_cfa_offset 64
+ 255 0004 00AF     		add	r7, sp, #0
+ 256              	.LCFI12:
+ 257              		.cfi_def_cfa_register 7
+ 258 0006 7860     		str	r0, [r7, #4]
+  54:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command cmd58 = sd_card_get_cmd(58, 0x0); // Reads OCR to get supported voltage
+ 259              		.loc 1 54 27
+ 260 0008 07F12803 		add	r3, r7, #40
+ 261 000c 0022     		movs	r2, #0
+ 262 000e 3A21     		movs	r1, #58
+ 263 0010 1846     		mov	r0, r3
+ 264 0012 FFF7FEFF 		bl	sd_card_get_cmd
+  55:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
+ 265              		.loc 1 55 27
+ 266 0016 07F12003 		add	r3, r7, #32
+ 267 001a 0022     		movs	r2, #0
+ 268 001c 3721     		movs	r1, #55
+ 269 001e 1846     		mov	r0, r3
+ 270 0020 FFF7FEFF 		bl	sd_card_get_cmd
+  56:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
+ 271              		.loc 1 56 28
+ 272 0024 07F11803 		add	r3, r7, #24
+ 273 0028 0022     		movs	r2, #0
+ 274 002a 2921     		movs	r1, #41
+ 275 002c 1846     		mov	r0, r3
+ 276 002e FFF7FEFF 		bl	sd_card_get_cmd
+  57:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  58:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_r3_response cmd58_response = { 0 };
+ 277              		.loc 1 58 23
+ 278 0032 07F11003 		add	r3, r7, #16
+ 279 0036 0022     		movs	r2, #0
+ 280 0038 1A60     		str	r2, [r3]
+ 281 003a 1A71     		strb	r2, [r3, #4]
+  59:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_r1_response cmd55_response = { 0 };
+ 282              		.loc 1 59 23
+ 283 003c 0023     		movs	r3, #0
+ 284 003e FB73     		strb	r3, [r7, #15]
+  60:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response acmd41_response = { 0 };
+ 285              		.loc 1 60 22
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 7
 
 
-  58:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
- 287              		.loc 1 58 2
- 288 0056 07F11001 		add	r1, r7, #16
- 289 005a 4FF0FF33 		mov	r3, #-1
- 290 005e 0522     		movs	r2, #5
- 291 0060 7868     		ldr	r0, [r7, #4]
- 292 0062 FFF7FEFF 		bl	sd_card_receive_cmd_response
-  59:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  60:External/SDCard_Driver/Src/sdcard_driver.c **** 	// TODO: check response r3 - voltage
-  61:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  62:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint32_t tickstart = HAL_GetTick();
- 293              		.loc 1 62 23
- 294 0066 FFF7FEFF 		bl	HAL_GetTick
- 295 006a 3863     		str	r0, [r7, #48]
- 296              	.L20:
-  63:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  64:External/SDCard_Driver/Src/sdcard_driver.c **** 	// Тут идет цикл. Мы дожидаемся, пока карта проинициали
-  65:External/SDCard_Driver/Src/sdcard_driver.c **** 	do
-  66:External/SDCard_Driver/Src/sdcard_driver.c **** 	{
-  67:External/SDCard_Driver/Src/sdcard_driver.c **** 		HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
- 297              		.loc 1 67 3
- 298 006c 07F12001 		add	r1, r7, #32
- 299 0070 4FF0FF33 		mov	r3, #-1
- 300 0074 0622     		movs	r2, #6
- 301 0076 7868     		ldr	r0, [r7, #4]
- 302 0078 FFF7FEFF 		bl	HAL_SPI_Transmit
-  68:External/SDCard_Driver/Src/sdcard_driver.c **** 		sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
- 303              		.loc 1 68 3
- 304 007c 07F11001 		add	r1, r7, #16
- 305 0080 4FF0FF33 		mov	r3, #-1
- 306 0084 0522     		movs	r2, #5
- 307 0086 7868     		ldr	r0, [r7, #4]
- 308 0088 FFF7FEFF 		bl	sd_card_receive_cmd_response
-  69:External/SDCard_Driver/Src/sdcard_driver.c **** 		
-  70:External/SDCard_Driver/Src/sdcard_driver.c **** 		HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
- 309              		.loc 1 70 3
- 310 008c 07F11801 		add	r1, r7, #24
- 311 0090 4FF0FF33 		mov	r3, #-1
- 312 0094 0622     		movs	r2, #6
- 313 0096 7868     		ldr	r0, [r7, #4]
- 314 0098 FFF7FEFF 		bl	HAL_SPI_Transmit
-  71:External/SDCard_Driver/Src/sdcard_driver.c **** 		sd_card_receive_cmd_response(hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY);
- 315              		.loc 1 71 3
- 316 009c 07F10F01 		add	r1, r7, #15
- 317 00a0 4FF0FF33 		mov	r3, #-1
- 318 00a4 0522     		movs	r2, #5
- 319 00a6 7868     		ldr	r0, [r7, #4]
- 320 00a8 FFF7FEFF 		bl	sd_card_receive_cmd_response
-  72:External/SDCard_Driver/Src/sdcard_driver.c **** 		
-  73:External/SDCard_Driver/Src/sdcard_driver.c **** 		if (acmd41_response)
- 321              		.loc 1 73 7
- 322 00ac FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 323              		.loc 1 73 6
- 324 00ae 002B     		cmp	r3, #0
- 325 00b0 10D1     		bne	.L22
-  74:External/SDCard_Driver/Src/sdcard_driver.c **** 			break;
-  75:External/SDCard_Driver/Src/sdcard_driver.c **** 		if (acmd41_response & ILLEGAL_COMMAND)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 8
+ 286 0040 0023     		movs	r3, #0
+ 287 0042 BB73     		strb	r3, [r7, #14]
+  61:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  62:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
+ 288              		.loc 1 62 3
+ 289 0044 0022     		movs	r2, #0
+ 290 0046 4FF48051 		mov	r1, #4096
+ 291 004a 4F48     		ldr	r0, .L27
+ 292 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  63:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+ 293              		.loc 1 63 29
+ 294 0050 07F12801 		add	r1, r7, #40
+ 295 0054 4FF0FF33 		mov	r3, #-1
+ 296 0058 0622     		movs	r2, #6
+ 297 005a 7868     		ldr	r0, [r7, #4]
+ 298 005c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 299 0060 0346     		mov	r3, r0
+ 300 0062 87F83730 		strb	r3, [r7, #55]
+  64:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY
+  65:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+  66:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_cmd_response(
+ 301              		.loc 1 66 12
+ 302 0066 07F11001 		add	r1, r7, #16
+ 303 006a 4FF0FF33 		mov	r3, #-1
+ 304 006e 0522     		movs	r2, #5
+ 305 0070 7868     		ldr	r0, [r7, #4]
+ 306 0072 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 307 0076 0346     		mov	r3, r0
+ 308 0078 1A46     		mov	r2, r3
+ 309              		.loc 1 66 9
+ 310 007a 97F83730 		ldrb	r3, [r7, #55]
+ 311 007e 1343     		orrs	r3, r3, r2
+ 312 0080 87F83730 		strb	r3, [r7, #55]
+  67:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+  68:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+  69:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
+ 313              		.loc 1 69 3
+ 314 0084 0122     		movs	r2, #1
+ 315 0086 4FF48051 		mov	r1, #4096
+ 316 008a 3F48     		ldr	r0, .L27
+ 317 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  70:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+  71:External/SDCard_Driver/Src/sdcard_driver.c **** 	// Check voltage. The card must support 2.7-3.6V
+  72:External/SDCard_Driver/Src/sdcard_driver.c ****   // MSB. Second byte is 23 - 16 bits of OCR
+  73:External/SDCard_Driver/Src/sdcard_driver.c ****   // Third byte starts with 15 bit oof OCR
+  74:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (!((cmd58_response.ocr_register_content[1] & 0x1f) &&
+ 318              		.loc 1 74 44
+ 319 0090 BB7C     		ldrb	r3, [r7, #18]	@ zero_extendqisi2
+ 320              		.loc 1 74 48
+ 321 0092 03F01F03 		and	r3, r3, #31
+ 322              		.loc 1 74 5
+ 323 0096 002B     		cmp	r3, #0
+ 324 0098 03D0     		beq	.L16
+  75:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ 325              		.loc 1 75 41 discriminator 1
+ 326 009a FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+  74:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 8
 
 
- 326              		.loc 1 75 23
- 327 00b2 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 328 00b4 03F00403 		and	r3, r3, #4
- 329              		.loc 1 75 6
- 330 00b8 002B     		cmp	r3, #0
- 331 00ba 01D0     		beq	.L18
-  76:External/SDCard_Driver/Src/sdcard_driver.c **** 			return HAL_ERROR;
- 332              		.loc 1 76 11
- 333 00bc 0123     		movs	r3, #1
- 334 00be 0BE0     		b	.L21
- 335              	.L18:
-  77:External/SDCard_Driver/Src/sdcard_driver.c **** 	} while (HAL_GetTick() - tickstart < 10000); // example timeout value (TODO)
- 336              		.loc 1 77 11
- 337 00c0 FFF7FEFF 		bl	HAL_GetTick
- 338 00c4 0246     		mov	r2, r0
- 339              		.loc 1 77 25
- 340 00c6 3B6B     		ldr	r3, [r7, #48]
- 341 00c8 D31A     		subs	r3, r2, r3
- 342              		.loc 1 77 2
- 343 00ca 42F20F72 		movw	r2, #9999
- 344 00ce 9342     		cmp	r3, r2
- 345 00d0 CCD9     		bls	.L20
- 346 00d2 00E0     		b	.L17
- 347              	.L22:
-  74:External/SDCard_Driver/Src/sdcard_driver.c **** 			break;
- 348              		.loc 1 74 4
- 349 00d4 00BF     		nop
- 350              	.L17:
-  78:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  79:External/SDCard_Driver/Src/sdcard_driver.c **** 	return HAL_OK;
- 351              		.loc 1 79 9
- 352 00d6 0023     		movs	r3, #0
- 353              	.L21:
-  80:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 354              		.loc 1 80 1 discriminator 1
- 355 00d8 1846     		mov	r0, r3
- 356 00da 3837     		adds	r7, r7, #56
- 357              	.LCFI13:
- 358              		.cfi_def_cfa_offset 8
- 359 00dc BD46     		mov	sp, r7
- 360              	.LCFI14:
- 361              		.cfi_def_cfa_register 13
- 362              		@ sp needed
- 363 00de 80BD     		pop	{r7, pc}
- 364              		.cfi_endproc
- 365              	.LFE67:
- 367              		.section	.text.sd_card_reset,"ax",%progbits
- 368              		.align	1
- 369              		.global	sd_card_reset
- 370              		.syntax unified
- 371              		.thumb
- 372              		.thumb_func
- 374              	sd_card_reset:
- 375              	.LFB68:
-  81:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  82:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
-  83:External/SDCard_Driver/Src/sdcard_driver.c **** {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 9
+ 327              		.loc 1 74 56 discriminator 1
+ 328 009c 5BB2     		sxtb	r3, r3
+  74:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ 329              		.loc 1 74 6 discriminator 1
+ 330 009e 002B     		cmp	r3, #0
+ 331 00a0 01DB     		blt	.L17
+ 332              	.L16:
+  76:External/SDCard_Driver/Src/sdcard_driver.c ****     return HAL_ERROR;
+ 333              		.loc 1 76 12
+ 334 00a2 0123     		movs	r3, #1
+ 335 00a4 6CE0     		b	.L24
+ 336              	.L17:
+  77:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  78:External/SDCard_Driver/Src/sdcard_driver.c ****   uint32_t tickstart = HAL_GetTick();
+ 337              		.loc 1 78 24
+ 338 00a6 FFF7FEFF 		bl	HAL_GetTick
+ 339 00aa 3863     		str	r0, [r7, #48]
+ 340              	.L23:
+  79:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+  80:External/SDCard_Driver/Src/sdcard_driver.c **** 	while (true)
+  81:External/SDCard_Driver/Src/sdcard_driver.c **** 	{
+  82:External/SDCard_Driver/Src/sdcard_driver.c ****     SELECT_SD();
+ 341              		.loc 1 82 5
+ 342 00ac 0022     		movs	r2, #0
+ 343 00ae 4FF48051 		mov	r1, #4096
+ 344 00b2 3548     		ldr	r0, .L27
+ 345 00b4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  83:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
+ 346              		.loc 1 83 13
+ 347 00b8 07F12001 		add	r1, r7, #32
+ 348 00bc 4FF0FF33 		mov	r3, #-1
+ 349 00c0 0622     		movs	r2, #6
+ 350 00c2 7868     		ldr	r0, [r7, #4]
+ 351 00c4 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 352 00c8 0346     		mov	r3, r0
+ 353 00ca 1A46     		mov	r2, r3
+ 354              		.loc 1 83 10
+ 355 00cc 97F83730 		ldrb	r3, [r7, #55]
+ 356 00d0 1343     		orrs	r3, r3, r2
+ 357 00d2 87F83730 		strb	r3, [r7, #55]
+  84:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= sd_card_receive_cmd_response(
+ 358              		.loc 1 84 13
+ 359 00d6 07F10F01 		add	r1, r7, #15
+ 360 00da 4FF0FF33 		mov	r3, #-1
+ 361 00de 0522     		movs	r2, #5
+ 362 00e0 7868     		ldr	r0, [r7, #4]
+ 363 00e2 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 364 00e6 0346     		mov	r3, r0
+ 365 00e8 1A46     		mov	r2, r3
+ 366              		.loc 1 84 10
+ 367 00ea 97F83730 		ldrb	r3, [r7, #55]
+ 368 00ee 1343     		orrs	r3, r3, r2
+ 369 00f0 87F83730 		strb	r3, [r7, #55]
+  85:External/SDCard_Driver/Src/sdcard_driver.c ****       hspi, (uint8_t*)&cmd55_response, 5, HAL_MAX_DELAY
+  86:External/SDCard_Driver/Src/sdcard_driver.c ****     );
+  87:External/SDCard_Driver/Src/sdcard_driver.c ****     DISELECT_SD();
+ 370              		.loc 1 87 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 9
 
 
- 376              		.loc 1 83 1
- 377              		.cfi_startproc
- 378              		@ args = 0, pretend = 0, frame = 40
- 379              		@ frame_needed = 1, uses_anonymous_args = 0
- 380 0000 80B5     		push	{r7, lr}
- 381              	.LCFI15:
- 382              		.cfi_def_cfa_offset 8
- 383              		.cfi_offset 7, -8
- 384              		.cfi_offset 14, -4
- 385 0002 8AB0     		sub	sp, sp, #40
- 386              	.LCFI16:
- 387              		.cfi_def_cfa_offset 48
- 388 0004 00AF     		add	r7, sp, #0
- 389              	.LCFI17:
- 390              		.cfi_def_cfa_register 7
- 391 0006 7860     		str	r0, [r7, #4]
-  84:External/SDCard_Driver/Src/sdcard_driver.c **** 	// 2.7-3.6V and check pattern
-  85:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
- 392              		.loc 1 85 25
- 393 0008 07F12003 		add	r3, r7, #32
- 394 000c 40F25512 		movw	r2, #341
- 395 0010 0821     		movs	r1, #8
- 396 0012 1846     		mov	r0, r3
- 397 0014 FFF7FEFF 		bl	sd_card_get_cmd
-  86:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
- 398              		.loc 1 86 26
- 399 0018 07F11803 		add	r3, r7, #24
- 400 001c 0022     		movs	r2, #0
- 401 001e 3A21     		movs	r1, #58
- 402 0020 1846     		mov	r0, r3
- 403 0022 FFF7FEFF 		bl	sd_card_get_cmd
-  87:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  88:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r7_response cmd8_response = { 0 };
- 404              		.loc 1 88 22
- 405 0026 07F11003 		add	r3, r7, #16
- 406 002a 0022     		movs	r2, #0
- 407 002c 1A60     		str	r2, [r3]
- 408 002e 1A71     		strb	r2, [r3, #4]
-  89:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r3_response cmd58_response = { 0 };
- 409              		.loc 1 89 22
- 410 0030 07F10803 		add	r3, r7, #8
- 411 0034 0022     		movs	r2, #0
- 412 0036 1A60     		str	r2, [r3]
- 413 0038 1A71     		strb	r2, [r3, #4]
-  90:External/SDCard_Driver/Src/sdcard_driver.c **** 
-  91:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = sd_card_enter_spi_mode(hspi);
- 414              		.loc 1 91 30
- 415 003a 7868     		ldr	r0, [r7, #4]
- 416 003c FFF7FEFF 		bl	sd_card_enter_spi_mode
- 417 0040 0346     		mov	r3, r0
- 418 0042 87F82730 		strb	r3, [r7, #39]
-  92:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_enter_spi_mode(hspi);
- 419              		.loc 1 92 3
- 420 0046 7868     		ldr	r0, [r7, #4]
- 421 0048 FFF7FEFF 		bl	sd_card_enter_spi_mode
-  93:External/SDCard_Driver/Src/sdcard_driver.c **** 	
-  94:External/SDCard_Driver/Src/sdcard_driver.c **** 	// TODO: check r1 errors
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 10
+ 371 00f4 0122     		movs	r2, #1
+ 372 00f6 4FF48051 		mov	r1, #4096
+ 373 00fa 2348     		ldr	r0, .L27
+ 374 00fc FFF7FEFF 		bl	HAL_GPIO_WritePin
+  88:External/SDCard_Driver/Src/sdcard_driver.c **** 
+  89:External/SDCard_Driver/Src/sdcard_driver.c ****     SELECT_SD();
+ 375              		.loc 1 89 5
+ 376 0100 0022     		movs	r2, #0
+ 377 0102 4FF48051 		mov	r1, #4096
+ 378 0106 2048     		ldr	r0, .L27
+ 379 0108 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  90:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
+ 380              		.loc 1 90 13
+ 381 010c 07F11801 		add	r1, r7, #24
+ 382 0110 4FF0FF33 		mov	r3, #-1
+ 383 0114 0622     		movs	r2, #6
+ 384 0116 7868     		ldr	r0, [r7, #4]
+ 385 0118 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 386 011c 0346     		mov	r3, r0
+ 387 011e 1A46     		mov	r2, r3
+ 388              		.loc 1 90 10
+ 389 0120 97F83730 		ldrb	r3, [r7, #55]
+ 390 0124 1343     		orrs	r3, r3, r2
+ 391 0126 87F83730 		strb	r3, [r7, #55]
+  91:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= sd_card_receive_cmd_response(
+ 392              		.loc 1 91 13
+ 393 012a 07F10E01 		add	r1, r7, #14
+ 394 012e 4FF0FF33 		mov	r3, #-1
+ 395 0132 0522     		movs	r2, #5
+ 396 0134 7868     		ldr	r0, [r7, #4]
+ 397 0136 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 398 013a 0346     		mov	r3, r0
+ 399 013c 1A46     		mov	r2, r3
+ 400              		.loc 1 91 10
+ 401 013e 97F83730 		ldrb	r3, [r7, #55]
+ 402 0142 1343     		orrs	r3, r3, r2
+ 403 0144 87F83730 		strb	r3, [r7, #55]
+  92:External/SDCard_Driver/Src/sdcard_driver.c ****       hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY
+  93:External/SDCard_Driver/Src/sdcard_driver.c ****     );
+  94:External/SDCard_Driver/Src/sdcard_driver.c ****     DISELECT_SD();
+ 404              		.loc 1 94 5
+ 405 0148 0122     		movs	r2, #1
+ 406 014a 4FF48051 		mov	r1, #4096
+ 407 014e 0E48     		ldr	r0, .L27
+ 408 0150 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  95:External/SDCard_Driver/Src/sdcard_driver.c **** 		
+  96:External/SDCard_Driver/Src/sdcard_driver.c **** 		if (acmd41_response == 0x0)
+ 409              		.loc 1 96 23
+ 410 0154 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 411              		.loc 1 96 6
+ 412 0156 002B     		cmp	r3, #0
+ 413 0158 10D0     		beq	.L26
+  97:External/SDCard_Driver/Src/sdcard_driver.c **** 			break;
+  98:External/SDCard_Driver/Src/sdcard_driver.c ****     if (acmd41_response & ILLEGAL_COMMAND)
+ 414              		.loc 1 98 25
+ 415 015a BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 416 015c 03F00403 		and	r3, r3, #4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 10
 
 
-  95:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
- 422              		.loc 1 95 3
- 423 004c 0022     		movs	r2, #0
- 424 004e 4FF48051 		mov	r1, #4096
- 425 0052 2F48     		ldr	r0, .L30
- 426 0054 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  96:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
- 427              		.loc 1 96 12
- 428 0058 07F12001 		add	r1, r7, #32
- 429 005c 4FF0FF33 		mov	r3, #-1
- 430 0060 0622     		movs	r2, #6
- 431 0062 7868     		ldr	r0, [r7, #4]
- 432 0064 FFF7FEFF 		bl	HAL_SPI_Transmit
- 433 0068 0346     		mov	r3, r0
- 434 006a 1A46     		mov	r2, r3
- 435              		.loc 1 96 9
- 436 006c 97F82730 		ldrb	r3, [r7, #39]
- 437 0070 1343     		orrs	r3, r3, r2
- 438 0072 87F82730 		strb	r3, [r7, #39]
-  97:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
- 439              		.loc 1 97 12
- 440 0076 07F11001 		add	r1, r7, #16
- 441 007a 4FF0FF33 		mov	r3, #-1
- 442 007e 0522     		movs	r2, #5
- 443 0080 7868     		ldr	r0, [r7, #4]
- 444 0082 FFF7FEFF 		bl	sd_card_receive_cmd_response
- 445 0086 0346     		mov	r3, r0
- 446 0088 1A46     		mov	r2, r3
- 447              		.loc 1 97 9
- 448 008a 97F82730 		ldrb	r3, [r7, #39]
- 449 008e 1343     		orrs	r3, r3, r2
- 450 0090 87F82730 		strb	r3, [r7, #39]
-  98:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
- 451              		.loc 1 98 3
- 452 0094 0122     		movs	r2, #1
- 453 0096 4FF48051 		mov	r1, #4096
- 454 009a 1D48     		ldr	r0, .L30
- 455 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
-  99:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 100:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (status)
- 456              		.loc 1 100 5
- 457 00a0 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 458 00a4 002B     		cmp	r3, #0
- 459 00a6 02D0     		beq	.L24
- 101:External/SDCard_Driver/Src/sdcard_driver.c **** 		return status;
- 460              		.loc 1 101 10
- 461 00a8 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 462 00ac 2BE0     		b	.L29
- 463              	.L24:
- 102:External/SDCard_Driver/Src/sdcard_driver.c **** 	// TODO: check r7. if illegal command - cmd 58
- 103:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 104:External/SDCard_Driver/Src/sdcard_driver.c **** 	// Разделение на ветки по версиям sd карты. Всего их - 3
- 105:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 106:External/SDCard_Driver/Src/sdcard_driver.c **** 	// illegal command => version 2.0 or later sd card
- 107:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (cmd8_response.high_order_part & ILLEGAL_COMMAND)
- 464              		.loc 1 107 19
- 465 00ae 3B7C     		ldrb	r3, [r7, #16]	@ zero_extendqisi2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 11
+ 417              		.loc 1 98 8
+ 418 0160 002B     		cmp	r3, #0
+ 419 0162 01D0     		beq	.L21
+  99:External/SDCard_Driver/Src/sdcard_driver.c **** 			return HAL_ERROR;
+ 420              		.loc 1 99 11
+ 421 0164 0123     		movs	r3, #1
+ 422 0166 0BE0     		b	.L24
+ 423              	.L21:
+ 100:External/SDCard_Driver/Src/sdcard_driver.c ****     // Card initialization shall be completed within 1 second 
+ 101:External/SDCard_Driver/Src/sdcard_driver.c ****     // from the first ACMD41
+ 102:External/SDCard_Driver/Src/sdcard_driver.c ****     if (HAL_GetTick() - tickstart > 1000)
+ 424              		.loc 1 102 9
+ 425 0168 FFF7FEFF 		bl	HAL_GetTick
+ 426 016c 0246     		mov	r2, r0
+ 427              		.loc 1 102 23
+ 428 016e 3B6B     		ldr	r3, [r7, #48]
+ 429 0170 D31A     		subs	r3, r2, r3
+ 430              		.loc 1 102 8
+ 431 0172 B3F57A7F 		cmp	r3, #1000
+ 432 0176 99D9     		bls	.L23
+ 103:External/SDCard_Driver/Src/sdcard_driver.c ****       return HAL_TIMEOUT;
+ 433              		.loc 1 103 14
+ 434 0178 0323     		movs	r3, #3
+ 435 017a 01E0     		b	.L24
+ 436              	.L26:
+  97:External/SDCard_Driver/Src/sdcard_driver.c ****     if (acmd41_response & ILLEGAL_COMMAND)
+ 437              		.loc 1 97 4
+ 438 017c 00BF     		nop
+ 104:External/SDCard_Driver/Src/sdcard_driver.c **** 	}
+ 105:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 106:External/SDCard_Driver/Src/sdcard_driver.c ****   return HAL_OK;
+ 439              		.loc 1 106 10
+ 440 017e 0023     		movs	r3, #0
+ 441              	.L24:
+ 107:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 442              		.loc 1 107 1 discriminator 1
+ 443 0180 1846     		mov	r0, r3
+ 444 0182 3837     		adds	r7, r7, #56
+ 445              	.LCFI13:
+ 446              		.cfi_def_cfa_offset 8
+ 447 0184 BD46     		mov	sp, r7
+ 448              	.LCFI14:
+ 449              		.cfi_def_cfa_register 13
+ 450              		@ sp needed
+ 451 0186 80BD     		pop	{r7, pc}
+ 452              	.L28:
+ 453              		.align	2
+ 454              	.L27:
+ 455 0188 000C0140 		.word	1073810432
+ 456              		.cfi_endproc
+ 457              	.LFE67:
+ 459              		.section	.text.sd_card_v2_init_process,"ax",%progbits
+ 460              		.align	1
+ 461              		.global	sd_card_v2_init_process
+ 462              		.syntax unified
+ 463              		.thumb
+ 464              		.thumb_func
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 11
 
 
- 466              		.loc 1 107 36
- 467 00b0 03F00403 		and	r3, r3, #4
- 468              		.loc 1 107 5
- 469 00b4 002B     		cmp	r3, #0
- 470 00b6 04D0     		beq	.L26
- 108:External/SDCard_Driver/Src/sdcard_driver.c **** 		return activate_sd_card_init_process(hspi); // plus goto?
- 471              		.loc 1 108 10
- 472 00b8 7868     		ldr	r0, [r7, #4]
- 473 00ba FFF7FEFF 		bl	activate_sd_card_init_process
- 474 00be 0346     		mov	r3, r0
- 475 00c0 21E0     		b	.L29
- 476              	.L26:
- 109:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 110:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t volt = GET_VOLTAGE_FROM_R7(cmd8_response);
- 477              		.loc 1 110 18
- 478 00c2 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
- 479              		.loc 1 110 11
- 480 00c4 03F00F03 		and	r3, r3, #15
- 481 00c8 87F82630 		strb	r3, [r7, #38]
- 111:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 112:External/SDCard_Driver/Src/sdcard_driver.c **** 	// check pattern or voltage inconsistency
- 113:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (!(cmd8_response.echo_back_of_check_pattern == 0x55 &&
- 482              		.loc 1 113 21
- 483 00cc 3B7D     		ldrb	r3, [r7, #20]	@ zero_extendqisi2
- 484              		.loc 1 113 5
- 485 00ce 552B     		cmp	r3, #85
- 486 00d0 03D1     		bne	.L27
- 487              		.loc 1 113 6 discriminator 1
- 488 00d2 97F82630 		ldrb	r3, [r7, #38]	@ zero_extendqisi2
- 489 00d6 012B     		cmp	r3, #1
- 490 00d8 01D0     		beq	.L28
- 491              	.L27:
- 114:External/SDCard_Driver/Src/sdcard_driver.c ****     //GET_VOLTAGE_FROM_R7(cmd8_response) == 0x1))
- 115:External/SDCard_Driver/Src/sdcard_driver.c ****     volt == 0x1))
- 116:External/SDCard_Driver/Src/sdcard_driver.c **** 		return HAL_ERROR;
- 492              		.loc 1 116 10
- 493 00da 0123     		movs	r3, #1
- 494 00dc 13E0     		b	.L29
- 495              	.L28:
+ 466              	sd_card_v2_init_process:
+ 467              	.LFB68:
+ 108:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 109:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_v2_init_process(
+ 110:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef* hspi
+ 111:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 112:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 468              		.loc 1 112 1
+ 469              		.cfi_startproc
+ 470              		@ args = 0, pretend = 0, frame = 56
+ 471              		@ frame_needed = 1, uses_anonymous_args = 0
+ 472 0000 80B5     		push	{r7, lr}
+ 473              	.LCFI15:
+ 474              		.cfi_def_cfa_offset 8
+ 475              		.cfi_offset 7, -8
+ 476              		.cfi_offset 14, -4
+ 477 0002 8EB0     		sub	sp, sp, #56
+ 478              	.LCFI16:
+ 479              		.cfi_def_cfa_offset 64
+ 480 0004 00AF     		add	r7, sp, #0
+ 481              	.LCFI17:
+ 482              		.cfi_def_cfa_register 7
+ 483 0006 7860     		str	r0, [r7, #4]
+ 113:External/SDCard_Driver/Src/sdcard_driver.c ****   // Reads OCR to get supported voltage
+ 114:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
+ 484              		.loc 1 114 26
+ 485 0008 07F12803 		add	r3, r7, #40
+ 486 000c 0022     		movs	r2, #0
+ 487 000e 3A21     		movs	r1, #58
+ 488 0010 1846     		mov	r0, r3
+ 489 0012 FFF7FEFF 		bl	sd_card_get_cmd
+ 115:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
+ 490              		.loc 1 115 26
+ 491 0016 07F12003 		add	r3, r7, #32
+ 492 001a 0022     		movs	r2, #0
+ 493 001c 3721     		movs	r1, #55
+ 494 001e 1846     		mov	r0, r3
+ 495 0020 FFF7FEFF 		bl	sd_card_get_cmd
+ 116:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
+ 496              		.loc 1 116 27
+ 497 0024 07F11803 		add	r3, r7, #24
+ 498 0028 0022     		movs	r2, #0
+ 499 002a 2921     		movs	r1, #41
+ 500 002c 1846     		mov	r0, r3
+ 501 002e FFF7FEFF 		bl	sd_card_get_cmd
  117:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 118:External/SDCard_Driver/Src/sdcard_driver.c **** 	activate_sd_card_init_process(hspi); // TODO - check
- 496              		.loc 1 118 2
- 497 00de 7868     		ldr	r0, [r7, #4]
- 498 00e0 FFF7FEFF 		bl	activate_sd_card_init_process
- 119:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 120:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY); // Read OCR
- 499              		.loc 1 120 2
- 500 00e4 07F11801 		add	r1, r7, #24
- 501 00e8 4FF0FF33 		mov	r3, #-1
- 502 00ec 0622     		movs	r2, #6
- 503 00ee 7868     		ldr	r0, [r7, #4]
- 504 00f0 FFF7FEFF 		bl	HAL_SPI_Transmit
- 121:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_receive_cmd_response(hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY);
- 505              		.loc 1 121 2
- 506 00f4 07F10801 		add	r1, r7, #8
- 507 00f8 4FF0FF33 		mov	r3, #-1
- 508 00fc 0522     		movs	r2, #5
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 12
+ 118:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r3_response cmd58_response = { 0 };
+ 502              		.loc 1 118 22
+ 503 0032 07F11003 		add	r3, r7, #16
+ 504 0036 0022     		movs	r2, #0
+ 505 0038 1A60     		str	r2, [r3]
+ 506 003a 1A71     		strb	r2, [r3, #4]
+ 119:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response cmd55_response = { 0 };
+ 507              		.loc 1 119 22
+ 508 003c 0023     		movs	r3, #0
+ 509 003e FB73     		strb	r3, [r7, #15]
+ 120:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response acmd41_response = { 0 };
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 12
 
 
- 509 00fe 7868     		ldr	r0, [r7, #4]
- 510 0100 FFF7FEFF 		bl	sd_card_receive_cmd_response
- 122:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 123:External/SDCard_Driver/Src/sdcard_driver.c **** 	//if (cmd58_response.ocr_register_content & (1 << 30)) // CCS - card capacity status
- 124:External/SDCard_Driver/Src/sdcard_driver.c **** 		// version 2.0 or later, high capacity or extended capacity
- 125:External/SDCard_Driver/Src/sdcard_driver.c **** 	//else
- 126:External/SDCard_Driver/Src/sdcard_driver.c **** 		// version 2.0 or later, standart capacity
- 127:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 128:External/SDCard_Driver/Src/sdcard_driver.c **** 	return HAL_OK;
- 511              		.loc 1 128 9
- 512 0104 0023     		movs	r3, #0
- 513              	.L29:
- 129:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 514              		.loc 1 129 1 discriminator 1
- 515 0106 1846     		mov	r0, r3
- 516 0108 2837     		adds	r7, r7, #40
- 517              	.LCFI18:
- 518              		.cfi_def_cfa_offset 8
- 519 010a BD46     		mov	sp, r7
- 520              	.LCFI19:
- 521              		.cfi_def_cfa_register 13
- 522              		@ sp needed
- 523 010c 80BD     		pop	{r7, pc}
- 524              	.L31:
- 525 010e 00BF     		.align	2
- 526              	.L30:
- 527 0110 000C0140 		.word	1073810432
- 528              		.cfi_endproc
- 529              	.LFE68:
- 531              		.section	.text.sd_card_get_cmd,"ax",%progbits
- 532              		.align	1
- 533              		.global	sd_card_get_cmd
- 534              		.syntax unified
- 535              		.thumb
- 536              		.thumb_func
- 538              	sd_card_get_cmd:
- 539              	.LFB69:
- 130:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 131:External/SDCard_Driver/Src/sdcard_driver.c **** sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
- 132:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 540              		.loc 1 132 1
- 541              		.cfi_startproc
- 542              		@ args = 0, pretend = 0, frame = 40
- 543              		@ frame_needed = 1, uses_anonymous_args = 0
- 544 0000 80B5     		push	{r7, lr}
- 545              	.LCFI20:
- 546              		.cfi_def_cfa_offset 8
- 547              		.cfi_offset 7, -8
- 548              		.cfi_offset 14, -4
- 549 0002 8AB0     		sub	sp, sp, #40
- 550              	.LCFI21:
- 551              		.cfi_def_cfa_offset 48
- 552 0004 00AF     		add	r7, sp, #0
- 553              	.LCFI22:
- 554              		.cfi_def_cfa_register 7
- 555 0006 F860     		str	r0, [r7, #12]
- 556 0008 0B46     		mov	r3, r1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 13
+ 510              		.loc 1 120 22
+ 511 0040 0023     		movs	r3, #0
+ 512 0042 BB73     		strb	r3, [r7, #14]
+ 121:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 122:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
+ 513              		.loc 1 122 3
+ 514 0044 0022     		movs	r2, #0
+ 515 0046 4FF48051 		mov	r1, #4096
+ 516 004a 6948     		ldr	r0, .L42
+ 517 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 123:External/SDCard_Driver/Src/sdcard_driver.c **** 	HAL_StatusTypeDef status = HAL_SPI_Transmit(
+ 518              		.loc 1 123 29
+ 519 0050 07F12801 		add	r1, r7, #40
+ 520 0054 4FF0FF33 		mov	r3, #-1
+ 521 0058 0622     		movs	r2, #6
+ 522 005a 7868     		ldr	r0, [r7, #4]
+ 523 005c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 524 0060 0346     		mov	r3, r0
+ 525 0062 87F83730 		strb	r3, [r7, #55]
+ 124:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY
+ 125:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+ 126:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_cmd_response(
+ 526              		.loc 1 126 12
+ 527 0066 07F11001 		add	r1, r7, #16
+ 528 006a 4FF0FF33 		mov	r3, #-1
+ 529 006e 0522     		movs	r2, #5
+ 530 0070 7868     		ldr	r0, [r7, #4]
+ 531 0072 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 532 0076 0346     		mov	r3, r0
+ 533 0078 1A46     		mov	r2, r3
+ 534              		.loc 1 126 9
+ 535 007a 97F83730 		ldrb	r3, [r7, #55]
+ 536 007e 1343     		orrs	r3, r3, r2
+ 537 0080 87F83730 		strb	r3, [r7, #55]
+ 127:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+ 128:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+ 129:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
+ 538              		.loc 1 129 3
+ 539 0084 0122     		movs	r2, #1
+ 540 0086 4FF48051 		mov	r1, #4096
+ 541 008a 5948     		ldr	r0, .L42
+ 542 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 130:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 131:External/SDCard_Driver/Src/sdcard_driver.c **** 	// Check voltage. The card must support 2.7-3.6V
+ 132:External/SDCard_Driver/Src/sdcard_driver.c ****   // MSB. Second byte is 23 - 16 bits of OCR
+ 133:External/SDCard_Driver/Src/sdcard_driver.c ****   // Third byte starts with 15 bit oof OCR
+ 134:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (!((cmd58_response.ocr_register_content[1] & 0x1f) &&
+ 543              		.loc 1 134 44
+ 544 0090 BB7C     		ldrb	r3, [r7, #18]	@ zero_extendqisi2
+ 545              		.loc 1 134 48
+ 546 0092 03F01F03 		and	r3, r3, #31
+ 547              		.loc 1 134 5
+ 548 0096 002B     		cmp	r3, #0
+ 549 0098 03D0     		beq	.L30
+ 135:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ 550              		.loc 1 135 41 discriminator 1
+ 551 009a FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 13
 
 
- 557 000a 7A60     		str	r2, [r7, #4]
- 558 000c FB72     		strb	r3, [r7, #11]
- 133:External/SDCard_Driver/Src/sdcard_driver.c **** 	crc_buffer_7 crc_buffer;
- 134:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd = (sd_card_command) {
- 559              		.loc 1 134 18
- 560 000e 07F11C03 		add	r3, r7, #28
- 561 0012 0022     		movs	r2, #0
- 562 0014 1A60     		str	r2, [r3]
- 563 0016 9A80     		strh	r2, [r3, #4]	@ movhi
- 564 0018 FB7A     		ldrb	r3, [r7, #11]
- 565 001a 43F04003 		orr	r3, r3, #64
- 566 001e DBB2     		uxtb	r3, r3
- 567 0020 3B77     		strb	r3, [r7, #28]
- 568              	.LBB3:
- 135:External/SDCard_Driver/Src/sdcard_driver.c **** 		.start_block = 0x40 | cmd_num,
- 136:External/SDCard_Driver/Src/sdcard_driver.c **** 	};
- 137:External/SDCard_Driver/Src/sdcard_driver.c ****   //memcpy((void*)&cmd.argument, (void*)&arg, 4);
- 138:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 139:External/SDCard_Driver/Src/sdcard_driver.c ****   for (uint8_t i = 0; i < 4; i++) // reverse memcpy
- 569              		.loc 1 139 16
- 570 0022 0023     		movs	r3, #0
- 571 0024 87F82730 		strb	r3, [r7, #39]
- 572              		.loc 1 139 3
- 573 0028 1DE0     		b	.L33
- 574              	.L34:
- 575              	.LBB4:
- 140:External/SDCard_Driver/Src/sdcard_driver.c ****   {
- 141:External/SDCard_Driver/Src/sdcard_driver.c ****     uint8_t shift = i << 3;
- 576              		.loc 1 141 13 discriminator 3
- 577 002a 97F82730 		ldrb	r3, [r7, #39]
- 578 002e DB00     		lsls	r3, r3, #3
- 579 0030 87F82630 		strb	r3, [r7, #38]
- 142:External/SDCard_Driver/Src/sdcard_driver.c ****     cmd.argument[3 - i] = (arg & (0xff << shift)) >> shift;
- 580              		.loc 1 142 40 discriminator 3
- 581 0034 97F82630 		ldrb	r3, [r7, #38]	@ zero_extendqisi2
- 582 0038 FF22     		movs	r2, #255
- 583 003a 02FA03F3 		lsl	r3, r2, r3
- 584 003e 1A46     		mov	r2, r3
- 585              		.loc 1 142 32 discriminator 3
- 586 0040 7B68     		ldr	r3, [r7, #4]
- 587 0042 1A40     		ands	r2, r2, r3
- 588              		.loc 1 142 51 discriminator 3
- 589 0044 97F82630 		ldrb	r3, [r7, #38]	@ zero_extendqisi2
- 590 0048 DA40     		lsrs	r2, r2, r3
- 591              		.loc 1 142 20 discriminator 3
- 592 004a 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 593 004e C3F10303 		rsb	r3, r3, #3
- 594              		.loc 1 142 25 discriminator 3
- 595 0052 D2B2     		uxtb	r2, r2
- 596 0054 2833     		adds	r3, r3, #40
- 597 0056 3B44     		add	r3, r3, r7
- 598 0058 03F80B2C 		strb	r2, [r3, #-11]
- 599              	.LBE4:
- 139:External/SDCard_Driver/Src/sdcard_driver.c ****   {
- 600              		.loc 1 139 31 discriminator 3
- 601 005c 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 602 0060 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 14
+ 134:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ 552              		.loc 1 134 56 discriminator 1
+ 553 009c 5BB2     		sxtb	r3, r3
+ 134:External/SDCard_Driver/Src/sdcard_driver.c ****     (cmd58_response.ocr_register_content[2] & 0x80)))
+ 554              		.loc 1 134 6 discriminator 1
+ 555 009e 002B     		cmp	r3, #0
+ 556 00a0 01DB     		blt	.L31
+ 557              	.L30:
+ 136:External/SDCard_Driver/Src/sdcard_driver.c ****     return HAL_ERROR;
+ 558              		.loc 1 136 12
+ 559 00a2 0123     		movs	r3, #1
+ 560 00a4 9FE0     		b	.L39
+ 561              	.L31:
+ 137:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 138:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint32_t tickstart = HAL_GetTick();
+ 562              		.loc 1 138 23
+ 563 00a6 FFF7FEFF 		bl	HAL_GetTick
+ 564 00aa 3863     		str	r0, [r7, #48]
+ 565              	.L36:
+ 139:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 140:External/SDCard_Driver/Src/sdcard_driver.c **** 	while (true)
+ 141:External/SDCard_Driver/Src/sdcard_driver.c **** 	{
+ 142:External/SDCard_Driver/Src/sdcard_driver.c ****     SELECT_SD();
+ 566              		.loc 1 142 5
+ 567 00ac 0022     		movs	r2, #0
+ 568 00ae 4FF48051 		mov	r1, #4096
+ 569 00b2 4F48     		ldr	r0, .L42
+ 570 00b4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 143:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd55, 6, HAL_MAX_DELAY);
+ 571              		.loc 1 143 13
+ 572 00b8 07F12001 		add	r1, r7, #32
+ 573 00bc 4FF0FF33 		mov	r3, #-1
+ 574 00c0 0622     		movs	r2, #6
+ 575 00c2 7868     		ldr	r0, [r7, #4]
+ 576 00c4 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 577 00c8 0346     		mov	r3, r0
+ 578 00ca 1A46     		mov	r2, r3
+ 579              		.loc 1 143 10
+ 580 00cc 97F83730 		ldrb	r3, [r7, #55]
+ 581 00d0 1343     		orrs	r3, r3, r2
+ 582 00d2 87F83730 		strb	r3, [r7, #55]
+ 144:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= sd_card_receive_cmd_response(
+ 583              		.loc 1 144 13
+ 584 00d6 07F10F01 		add	r1, r7, #15
+ 585 00da 4FF0FF33 		mov	r3, #-1
+ 586 00de 0522     		movs	r2, #5
+ 587 00e0 7868     		ldr	r0, [r7, #4]
+ 588 00e2 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 589 00e6 0346     		mov	r3, r0
+ 590 00e8 1A46     		mov	r2, r3
+ 591              		.loc 1 144 10
+ 592 00ea 97F83730 		ldrb	r3, [r7, #55]
+ 593 00ee 1343     		orrs	r3, r3, r2
+ 594 00f0 87F83730 		strb	r3, [r7, #55]
+ 145:External/SDCard_Driver/Src/sdcard_driver.c ****       hspi, (uint8_t*)&cmd55_response, 5, HAL_MAX_DELAY
+ 146:External/SDCard_Driver/Src/sdcard_driver.c ****     );
+ 147:External/SDCard_Driver/Src/sdcard_driver.c ****     DISELECT_SD();
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 14
 
 
- 603 0062 87F82730 		strb	r3, [r7, #39]
- 604              	.L33:
- 139:External/SDCard_Driver/Src/sdcard_driver.c ****   {
- 605              		.loc 1 139 3 discriminator 1
- 606 0066 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 607 006a 032B     		cmp	r3, #3
- 608 006c DDD9     		bls	.L34
- 609              	.LBE3:
- 143:External/SDCard_Driver/Src/sdcard_driver.c ****   }
- 144:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 145:External/SDCard_Driver/Src/sdcard_driver.c **** 	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd, 5);
- 610              		.loc 1 145 18
- 611 006e 07F11C01 		add	r1, r7, #28
- 612 0072 07F12503 		add	r3, r7, #37
- 613 0076 0522     		movs	r2, #5
- 614 0078 1846     		mov	r0, r3
- 615 007a FFF7FEFF 		bl	crc_buffer_calculate_crc_7
- 616 007e 0346     		mov	r3, r0
- 617              		.loc 1 145 16
- 618 0080 87F82130 		strb	r3, [r7, #33]
- 146:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 147:External/SDCard_Driver/Src/sdcard_driver.c **** 	return cmd;
- 619              		.loc 1 147 9
- 620 0084 FB68     		ldr	r3, [r7, #12]
- 621 0086 1A46     		mov	r2, r3
- 622 0088 07F11C03 		add	r3, r7, #28
- 623 008c 1868     		ldr	r0, [r3]
- 624 008e 1060     		str	r0, [r2]	@ unaligned
- 625 0090 9B88     		ldrh	r3, [r3, #4]	@ unaligned
- 626 0092 9380     		strh	r3, [r2, #4]	@ unaligned
- 148:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 627              		.loc 1 148 1
- 628 0094 F868     		ldr	r0, [r7, #12]
- 629 0096 2837     		adds	r7, r7, #40
- 630              	.LCFI23:
- 631              		.cfi_def_cfa_offset 8
- 632 0098 BD46     		mov	sp, r7
- 633              	.LCFI24:
- 634              		.cfi_def_cfa_register 13
- 635              		@ sp needed
- 636 009a 80BD     		pop	{r7, pc}
- 637              		.cfi_endproc
- 638              	.LFE69:
- 640              		.section	.text.sd_card_receive_byte,"ax",%progbits
- 641              		.align	1
- 642              		.global	sd_card_receive_byte
- 643              		.syntax unified
- 644              		.thumb
- 645              		.thumb_func
- 647              	sd_card_receive_byte:
- 648              	.LFB70:
- 149:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 150:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_byte(
- 151:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi, 
- 152:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data
- 153:External/SDCard_Driver/Src/sdcard_driver.c **** )
- 154:External/SDCard_Driver/Src/sdcard_driver.c **** {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 15
+ 595              		.loc 1 147 5
+ 596 00f4 0122     		movs	r2, #1
+ 597 00f6 4FF48051 		mov	r1, #4096
+ 598 00fa 3D48     		ldr	r0, .L42
+ 599 00fc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 148:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 149:External/SDCard_Driver/Src/sdcard_driver.c ****     SELECT_SD();
+ 600              		.loc 1 149 5
+ 601 0100 0022     		movs	r2, #0
+ 602 0102 4FF48051 		mov	r1, #4096
+ 603 0106 3A48     		ldr	r0, .L42
+ 604 0108 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 150:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= HAL_SPI_Transmit(hspi, (uint8_t*)&acmd41, 6, HAL_MAX_DELAY);
+ 605              		.loc 1 150 13
+ 606 010c 07F11801 		add	r1, r7, #24
+ 607 0110 4FF0FF33 		mov	r3, #-1
+ 608 0114 0622     		movs	r2, #6
+ 609 0116 7868     		ldr	r0, [r7, #4]
+ 610 0118 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 611 011c 0346     		mov	r3, r0
+ 612 011e 1A46     		mov	r2, r3
+ 613              		.loc 1 150 10
+ 614 0120 97F83730 		ldrb	r3, [r7, #55]
+ 615 0124 1343     		orrs	r3, r3, r2
+ 616 0126 87F83730 		strb	r3, [r7, #55]
+ 151:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= sd_card_receive_cmd_response(
+ 617              		.loc 1 151 13
+ 618 012a 07F10E01 		add	r1, r7, #14
+ 619 012e 4FF0FF33 		mov	r3, #-1
+ 620 0132 0522     		movs	r2, #5
+ 621 0134 7868     		ldr	r0, [r7, #4]
+ 622 0136 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 623 013a 0346     		mov	r3, r0
+ 624 013c 1A46     		mov	r2, r3
+ 625              		.loc 1 151 10
+ 626 013e 97F83730 		ldrb	r3, [r7, #55]
+ 627 0142 1343     		orrs	r3, r3, r2
+ 628 0144 87F83730 		strb	r3, [r7, #55]
+ 152:External/SDCard_Driver/Src/sdcard_driver.c ****       hspi, (uint8_t*)&acmd41_response, 5, HAL_MAX_DELAY
+ 153:External/SDCard_Driver/Src/sdcard_driver.c ****     );
+ 154:External/SDCard_Driver/Src/sdcard_driver.c ****     DISELECT_SD();
+ 629              		.loc 1 154 5
+ 630 0148 0122     		movs	r2, #1
+ 631 014a 4FF48051 		mov	r1, #4096
+ 632 014e 2848     		ldr	r0, .L42
+ 633 0150 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 155:External/SDCard_Driver/Src/sdcard_driver.c **** 		
+ 156:External/SDCard_Driver/Src/sdcard_driver.c **** 		if (acmd41_response == 0x0)
+ 634              		.loc 1 156 23
+ 635 0154 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 636              		.loc 1 156 6
+ 637 0156 002B     		cmp	r3, #0
+ 638 0158 09D0     		beq	.L41
+ 157:External/SDCard_Driver/Src/sdcard_driver.c **** 			break;
+ 158:External/SDCard_Driver/Src/sdcard_driver.c ****     // Card initialization shall be completed within 1 second 
+ 159:External/SDCard_Driver/Src/sdcard_driver.c ****     // from the first ACMD41
+ 160:External/SDCard_Driver/Src/sdcard_driver.c ****     if (HAL_GetTick() - tickstart > 1000)
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 15
 
 
- 649              		.loc 1 154 1
- 650              		.cfi_startproc
- 651              		@ args = 0, pretend = 0, frame = 16
- 652              		@ frame_needed = 1, uses_anonymous_args = 0
- 653 0000 80B5     		push	{r7, lr}
- 654              	.LCFI25:
- 655              		.cfi_def_cfa_offset 8
- 656              		.cfi_offset 7, -8
- 657              		.cfi_offset 14, -4
- 658 0002 86B0     		sub	sp, sp, #24
- 659              	.LCFI26:
- 660              		.cfi_def_cfa_offset 32
- 661 0004 02AF     		add	r7, sp, #8
- 662              	.LCFI27:
- 663              		.cfi_def_cfa 7, 24
- 664 0006 7860     		str	r0, [r7, #4]
- 665 0008 3960     		str	r1, [r7]
- 155:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t dummy_data = 0xff;
- 666              		.loc 1 155 11
- 667 000a FF23     		movs	r3, #255
- 668 000c FB73     		strb	r3, [r7, #15]
- 156:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 157:External/SDCard_Driver/Src/sdcard_driver.c ****   return HAL_SPI_TransmitReceive(hspi, &dummy_data, data, 1, 1000);
- 669              		.loc 1 157 10
- 670 000e 07F10F01 		add	r1, r7, #15
- 671 0012 4FF47A73 		mov	r3, #1000
- 672 0016 0093     		str	r3, [sp]
- 673 0018 0123     		movs	r3, #1
- 674 001a 3A68     		ldr	r2, [r7]
- 675 001c 7868     		ldr	r0, [r7, #4]
- 676 001e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
- 677 0022 0346     		mov	r3, r0
- 158:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 678              		.loc 1 158 1
- 679 0024 1846     		mov	r0, r3
- 680 0026 1037     		adds	r7, r7, #16
- 681              	.LCFI28:
- 682              		.cfi_def_cfa_offset 8
- 683 0028 BD46     		mov	sp, r7
- 684              	.LCFI29:
- 685              		.cfi_def_cfa_register 13
- 686              		@ sp needed
- 687 002a 80BD     		pop	{r7, pc}
- 688              		.cfi_endproc
- 689              	.LFE70:
- 691              		.section	.text.sd_card_receive_bytes,"ax",%progbits
- 692              		.align	1
- 693              		.global	sd_card_receive_bytes
- 694              		.syntax unified
- 695              		.thumb
- 696              		.thumb_func
- 698              	sd_card_receive_bytes:
- 699              	.LFB71:
- 159:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 160:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_bytes(
- 161:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
- 162:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data,
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 16
+ 639              		.loc 1 160 9
+ 640 015a FFF7FEFF 		bl	HAL_GetTick
+ 641 015e 0246     		mov	r2, r0
+ 642              		.loc 1 160 23
+ 643 0160 3B6B     		ldr	r3, [r7, #48]
+ 644 0162 D31A     		subs	r3, r2, r3
+ 645              		.loc 1 160 8
+ 646 0164 B3F57A7F 		cmp	r3, #1000
+ 647 0168 A0D9     		bls	.L36
+ 161:External/SDCard_Driver/Src/sdcard_driver.c ****       return HAL_TIMEOUT;
+ 648              		.loc 1 161 14
+ 649 016a 0323     		movs	r3, #3
+ 650 016c 3BE0     		b	.L39
+ 651              	.L41:
+ 157:External/SDCard_Driver/Src/sdcard_driver.c **** 			break;
+ 652              		.loc 1 157 4
+ 653 016e 00BF     		nop
+ 162:External/SDCard_Driver/Src/sdcard_driver.c **** 	}
+ 163:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 164:External/SDCard_Driver/Src/sdcard_driver.c ****   // Read OCR
+ 165:External/SDCard_Driver/Src/sdcard_driver.c ****   SELECT_SD();
+ 654              		.loc 1 165 3
+ 655 0170 0022     		movs	r2, #0
+ 656 0172 4FF48051 		mov	r1, #4096
+ 657 0176 1E48     		ldr	r0, .L42
+ 658 0178 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 166:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY);
+ 659              		.loc 1 166 12
+ 660 017c 07F12801 		add	r1, r7, #40
+ 661 0180 4FF0FF33 		mov	r3, #-1
+ 662 0184 0622     		movs	r2, #6
+ 663 0186 7868     		ldr	r0, [r7, #4]
+ 664 0188 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 665 018c 0346     		mov	r3, r0
+ 666 018e 1A46     		mov	r2, r3
+ 667              		.loc 1 166 9
+ 668 0190 97F83730 		ldrb	r3, [r7, #55]
+ 669 0194 1343     		orrs	r3, r3, r2
+ 670 0196 87F83730 		strb	r3, [r7, #55]
+ 167:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_cmd_response(
+ 671              		.loc 1 167 12
+ 672 019a 07F11001 		add	r1, r7, #16
+ 673 019e 4FF0FF33 		mov	r3, #-1
+ 674 01a2 0522     		movs	r2, #5
+ 675 01a4 7868     		ldr	r0, [r7, #4]
+ 676 01a6 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 677 01aa 0346     		mov	r3, r0
+ 678 01ac 1A46     		mov	r2, r3
+ 679              		.loc 1 167 9
+ 680 01ae 97F83730 		ldrb	r3, [r7, #55]
+ 681 01b2 1343     		orrs	r3, r3, r2
+ 682 01b4 87F83730 		strb	r3, [r7, #55]
+ 168:External/SDCard_Driver/Src/sdcard_driver.c ****     hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
+ 169:External/SDCard_Driver/Src/sdcard_driver.c ****   );
+ 170:External/SDCard_Driver/Src/sdcard_driver.c ****   DISELECT_SD();
+ 683              		.loc 1 170 3
+ 684 01b8 0122     		movs	r2, #1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 16
 
 
- 163:External/SDCard_Driver/Src/sdcard_driver.c ****   const uint8_t size
- 164:External/SDCard_Driver/Src/sdcard_driver.c **** )
- 165:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 700              		.loc 1 165 1
- 701              		.cfi_startproc
- 702              		@ args = 0, pretend = 0, frame = 24
- 703              		@ frame_needed = 1, uses_anonymous_args = 0
- 704 0000 80B5     		push	{r7, lr}
- 705              	.LCFI30:
- 706              		.cfi_def_cfa_offset 8
- 707              		.cfi_offset 7, -8
- 708              		.cfi_offset 14, -4
- 709 0002 86B0     		sub	sp, sp, #24
- 710              	.LCFI31:
- 711              		.cfi_def_cfa_offset 32
- 712 0004 00AF     		add	r7, sp, #0
- 713              	.LCFI32:
- 714              		.cfi_def_cfa_register 7
- 715 0006 F860     		str	r0, [r7, #12]
- 716 0008 B960     		str	r1, [r7, #8]
- 717 000a 1346     		mov	r3, r2
- 718 000c FB71     		strb	r3, [r7, #7]
- 166:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
- 719              		.loc 1 166 21
- 720 000e 0023     		movs	r3, #0
- 721 0010 FB75     		strb	r3, [r7, #23]
- 722              	.LBB5:
- 167:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 168:External/SDCard_Driver/Src/sdcard_driver.c ****   for (uint8_t i = 0; i < size; i++)
- 723              		.loc 1 168 16
- 724 0012 0023     		movs	r3, #0
- 725 0014 BB75     		strb	r3, [r7, #22]
- 726              		.loc 1 168 3
- 727 0016 0EE0     		b	.L39
- 728              	.L40:
- 169:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
- 729              		.loc 1 169 15 discriminator 3
- 730 0018 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
- 731 001a BA68     		ldr	r2, [r7, #8]
- 732 001c 1344     		add	r3, r3, r2
- 733 001e 1946     		mov	r1, r3
- 734 0020 F868     		ldr	r0, [r7, #12]
- 735 0022 FFF7FEFF 		bl	sd_card_receive_byte
- 736 0026 0346     		mov	r3, r0
- 737 0028 1A46     		mov	r2, r3
- 738              		.loc 1 169 12 discriminator 3
- 739 002a FB7D     		ldrb	r3, [r7, #23]
- 740 002c 1344     		add	r3, r3, r2
- 741 002e FB75     		strb	r3, [r7, #23]
- 168:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
- 742              		.loc 1 168 34 discriminator 3
- 743 0030 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
- 744 0032 0133     		adds	r3, r3, #1
- 745 0034 BB75     		strb	r3, [r7, #22]
- 746              	.L39:
- 168:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
- 747              		.loc 1 168 3 discriminator 1
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 17
+ 685 01ba 4FF48051 		mov	r1, #4096
+ 686 01be 0C48     		ldr	r0, .L42
+ 687 01c0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 171:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 172:External/SDCard_Driver/Src/sdcard_driver.c ****   if (cmd58_response.ocr_register_content[0] & 0x40) // Check CCS
+ 688              		.loc 1 172 42
+ 689 01c4 7B7C     		ldrb	r3, [r7, #17]	@ zero_extendqisi2
+ 690              		.loc 1 172 46
+ 691 01c6 03F04003 		and	r3, r3, #64
+ 692              		.loc 1 172 6
+ 693 01ca 002B     		cmp	r3, #0
+ 694 01cc 03D0     		beq	.L37
+ 173:External/SDCard_Driver/Src/sdcard_driver.c ****     sd_status.capacity = STANDART;
+ 695              		.loc 1 173 24
+ 696 01ce 094B     		ldr	r3, .L42+4
+ 697 01d0 0022     		movs	r2, #0
+ 698 01d2 5A70     		strb	r2, [r3, #1]
+ 699 01d4 02E0     		b	.L38
+ 700              	.L37:
+ 174:External/SDCard_Driver/Src/sdcard_driver.c ****   else
+ 175:External/SDCard_Driver/Src/sdcard_driver.c ****     sd_status.capacity = HIGH_OR_EXTENDED;
+ 701              		.loc 1 175 24
+ 702 01d6 074B     		ldr	r3, .L42+4
+ 703 01d8 0122     		movs	r2, #1
+ 704 01da 5A70     		strb	r2, [r3, #1]
+ 705              	.L38:
+ 176:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_status.version = 2;
+ 706              		.loc 1 176 21
+ 707 01dc 054B     		ldr	r3, .L42+4
+ 708 01de 0222     		movs	r2, #2
+ 709 01e0 1A70     		strb	r2, [r3]
+ 177:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 178:External/SDCard_Driver/Src/sdcard_driver.c **** 	return status;
+ 710              		.loc 1 178 9
+ 711 01e2 97F83730 		ldrb	r3, [r7, #55]	@ zero_extendqisi2
+ 712              	.L39:
+ 179:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 713              		.loc 1 179 1 discriminator 1
+ 714 01e6 1846     		mov	r0, r3
+ 715 01e8 3837     		adds	r7, r7, #56
+ 716              	.LCFI18:
+ 717              		.cfi_def_cfa_offset 8
+ 718 01ea BD46     		mov	sp, r7
+ 719              	.LCFI19:
+ 720              		.cfi_def_cfa_register 13
+ 721              		@ sp needed
+ 722 01ec 80BD     		pop	{r7, pc}
+ 723              	.L43:
+ 724 01ee 00BF     		.align	2
+ 725              	.L42:
+ 726 01f0 000C0140 		.word	1073810432
+ 727 01f4 00000000 		.word	sd_status
+ 728              		.cfi_endproc
+ 729              	.LFE68:
+ 731              		.section	.text.sd_card_reset,"ax",%progbits
+ 732              		.align	1
+ 733              		.global	sd_card_reset
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 17
 
 
- 748 0036 BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
- 749 0038 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 750 003a 9A42     		cmp	r2, r3
- 751 003c ECD3     		bcc	.L40
- 752              	.LBE5:
- 170:External/SDCard_Driver/Src/sdcard_driver.c ****   
- 171:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
- 753              		.loc 1 171 10
- 754 003e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 172:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 755              		.loc 1 172 1
- 756 0040 1846     		mov	r0, r3
- 757 0042 1837     		adds	r7, r7, #24
- 758              	.LCFI33:
- 759              		.cfi_def_cfa_offset 8
- 760 0044 BD46     		mov	sp, r7
- 761              	.LCFI34:
- 762              		.cfi_def_cfa_register 13
- 763              		@ sp needed
- 764 0046 80BD     		pop	{r7, pc}
- 765              		.cfi_endproc
- 766              	.LFE71:
- 768              		.section	.text.sd_card_transmit_bytes,"ax",%progbits
- 769              		.align	1
- 770              		.global	sd_card_transmit_bytes
- 771              		.syntax unified
- 772              		.thumb
- 773              		.thumb_func
- 775              	sd_card_transmit_bytes:
- 776              	.LFB72:
- 173:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 174:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_transmit_bytes(
- 175:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
- 176:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data,
- 177:External/SDCard_Driver/Src/sdcard_driver.c ****   const uint8_t size
- 178:External/SDCard_Driver/Src/sdcard_driver.c **** )
- 179:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 777              		.loc 1 179 1
- 778              		.cfi_startproc
- 779              		@ args = 0, pretend = 0, frame = 24
- 780              		@ frame_needed = 1, uses_anonymous_args = 0
- 781 0000 80B5     		push	{r7, lr}
- 782              	.LCFI35:
- 783              		.cfi_def_cfa_offset 8
- 784              		.cfi_offset 7, -8
- 785              		.cfi_offset 14, -4
- 786 0002 86B0     		sub	sp, sp, #24
- 787              	.LCFI36:
- 788              		.cfi_def_cfa_offset 32
- 789 0004 00AF     		add	r7, sp, #0
- 790              	.LCFI37:
- 791              		.cfi_def_cfa_register 7
- 792 0006 F860     		str	r0, [r7, #12]
- 793 0008 B960     		str	r1, [r7, #8]
- 794 000a 1346     		mov	r3, r2
- 795 000c FB71     		strb	r3, [r7, #7]
- 180:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 18
+ 734              		.syntax unified
+ 735              		.thumb
+ 736              		.thumb_func
+ 738              	sd_card_reset:
+ 739              	.LFB69:
+ 180:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 181:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
+ 182:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 740              		.loc 1 182 1
+ 741              		.cfi_startproc
+ 742              		@ args = 0, pretend = 0, frame = 24
+ 743              		@ frame_needed = 1, uses_anonymous_args = 0
+ 744 0000 80B5     		push	{r7, lr}
+ 745              	.LCFI20:
+ 746              		.cfi_def_cfa_offset 8
+ 747              		.cfi_offset 7, -8
+ 748              		.cfi_offset 14, -4
+ 749 0002 86B0     		sub	sp, sp, #24
+ 750              	.LCFI21:
+ 751              		.cfi_def_cfa_offset 32
+ 752 0004 00AF     		add	r7, sp, #0
+ 753              	.LCFI22:
+ 754              		.cfi_def_cfa_register 7
+ 755 0006 7860     		str	r0, [r7, #4]
+ 183:External/SDCard_Driver/Src/sdcard_driver.c **** 	// 2.7-3.6V and check pattern
+ 184:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
+ 756              		.loc 1 184 25
+ 757 0008 07F11003 		add	r3, r7, #16
+ 758 000c 40F25512 		movw	r2, #341
+ 759 0010 0821     		movs	r1, #8
+ 760 0012 1846     		mov	r0, r3
+ 761 0014 FFF7FEFF 		bl	sd_card_get_cmd
+ 185:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r7_response cmd8_response = { 0 };
+ 762              		.loc 1 185 22
+ 763 0018 07F10803 		add	r3, r7, #8
+ 764 001c 0022     		movs	r2, #0
+ 765 001e 1A60     		str	r2, [r3]
+ 766 0020 1A71     		strb	r2, [r3, #4]
+ 186:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 187:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = sd_card_enter_spi_mode(hspi);
+ 767              		.loc 1 187 30
+ 768 0022 7868     		ldr	r0, [r7, #4]
+ 769 0024 FFF7FEFF 		bl	sd_card_enter_spi_mode
+ 770 0028 0346     		mov	r3, r0
+ 771 002a FB75     		strb	r3, [r7, #23]
+ 188:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_card_enter_spi_mode(hspi);
+ 772              		.loc 1 188 3
+ 773 002c 7868     		ldr	r0, [r7, #4]
+ 774 002e FFF7FEFF 		bl	sd_card_enter_spi_mode
+ 189:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 190:External/SDCard_Driver/Src/sdcard_driver.c ****   // SELECT_SD();
+ 191:External/SDCard_Driver/Src/sdcard_driver.c **** 	// status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
+ 192:External/SDCard_Driver/Src/sdcard_driver.c **** 	// status |= sd_card_receive_cmd_response(
+ 193:External/SDCard_Driver/Src/sdcard_driver.c ****   //   hspi, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY
+ 194:External/SDCard_Driver/Src/sdcard_driver.c ****   // );
+ 195:External/SDCard_Driver/Src/sdcard_driver.c ****   // DISELECT_SD();
+ 196:External/SDCard_Driver/Src/sdcard_driver.c ****   SEND_CMD(hspi, cmd8, cmd8_response);
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 18
 
 
- 796              		.loc 1 180 21
- 797 000e 0023     		movs	r3, #0
- 798 0010 FB75     		strb	r3, [r7, #23]
- 799              	.LBB6:
- 181:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 182:External/SDCard_Driver/Src/sdcard_driver.c ****   for (int16_t i = size - 1; i >= 0; i--)
- 800              		.loc 1 182 25
- 801 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 802 0014 9BB2     		uxth	r3, r3
- 803 0016 013B     		subs	r3, r3, #1
- 804 0018 9BB2     		uxth	r3, r3
- 805              		.loc 1 182 16
- 806 001a BB82     		strh	r3, [r7, #20]	@ movhi
- 807              		.loc 1 182 3
- 808 001c 14E0     		b	.L43
- 809              	.L44:
- 183:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
- 810              		.loc 1 183 15 discriminator 3
- 811 001e B7F91430 		ldrsh	r3, [r7, #20]
- 812 0022 BA68     		ldr	r2, [r7, #8]
- 813 0024 D118     		adds	r1, r2, r3
- 814 0026 4FF47A73 		mov	r3, #1000
- 815 002a 0122     		movs	r2, #1
- 816 002c F868     		ldr	r0, [r7, #12]
- 817 002e FFF7FEFF 		bl	HAL_SPI_Transmit
- 818 0032 0346     		mov	r3, r0
- 819 0034 1A46     		mov	r2, r3
- 820              		.loc 1 183 12 discriminator 3
- 821 0036 FB7D     		ldrb	r3, [r7, #23]
- 822 0038 1344     		add	r3, r3, r2
- 823 003a FB75     		strb	r3, [r7, #23]
- 182:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
- 824              		.loc 1 182 39 discriminator 3
- 825 003c B7F91430 		ldrsh	r3, [r7, #20]
- 826 0040 9BB2     		uxth	r3, r3
- 827 0042 013B     		subs	r3, r3, #1
- 828 0044 9BB2     		uxth	r3, r3
- 829 0046 BB82     		strh	r3, [r7, #20]	@ movhi
- 830              	.L43:
- 182:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
- 831              		.loc 1 182 3 discriminator 1
- 832 0048 B7F91430 		ldrsh	r3, [r7, #20]
- 833 004c 002B     		cmp	r3, #0
- 834 004e E6DA     		bge	.L44
- 835              	.LBE6:
- 184:External/SDCard_Driver/Src/sdcard_driver.c ****   
- 185:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
- 836              		.loc 1 185 10
- 837 0050 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 186:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 838              		.loc 1 186 1
- 839 0052 1846     		mov	r0, r3
- 840 0054 1837     		adds	r7, r7, #24
- 841              	.LCFI38:
- 842              		.cfi_def_cfa_offset 8
- 843 0056 BD46     		mov	sp, r7
- 844              	.LCFI39:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 19
-
-
- 845              		.cfi_def_cfa_register 13
- 846              		@ sp needed
- 847 0058 80BD     		pop	{r7, pc}
- 848              		.cfi_endproc
- 849              	.LFE72:
- 851              		.section	.text.sd_card_wait_response,"ax",%progbits
- 852              		.align	1
- 853              		.global	sd_card_wait_response
- 854              		.syntax unified
- 855              		.thumb
- 856              		.thumb_func
- 858              	sd_card_wait_response:
- 859              	.LFB73:
- 187:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 188:External/SDCard_Driver/Src/sdcard_driver.c **** // We are trying to get a non-zero byte.
- 189:External/SDCard_Driver/Src/sdcard_driver.c **** // The received byte is written to the argument
- 190:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_wait_response(
- 191:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
- 192:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data
- 193:External/SDCard_Driver/Src/sdcard_driver.c **** )
- 194:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 860              		.loc 1 194 1
- 861              		.cfi_startproc
- 862              		@ args = 0, pretend = 0, frame = 16
- 863              		@ frame_needed = 1, uses_anonymous_args = 0
- 864 0000 80B5     		push	{r7, lr}
- 865              	.LCFI40:
- 866              		.cfi_def_cfa_offset 8
- 867              		.cfi_offset 7, -8
- 868              		.cfi_offset 14, -4
- 869 0002 84B0     		sub	sp, sp, #16
- 870              	.LCFI41:
- 871              		.cfi_def_cfa_offset 24
- 872 0004 00AF     		add	r7, sp, #0
- 873              	.LCFI42:
- 874              		.cfi_def_cfa_register 7
- 875 0006 7860     		str	r0, [r7, #4]
- 876 0008 3960     		str	r1, [r7]
- 195:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
- 877              		.loc 1 195 21
- 878 000a 0023     		movs	r3, #0
- 879 000c FB73     		strb	r3, [r7, #15]
- 196:External/SDCard_Driver/Src/sdcard_driver.c ****   uint32_t captured_tick = HAL_GetTick();
- 880              		.loc 1 196 28
- 881 000e FFF7FEFF 		bl	HAL_GetTick
- 882 0012 B860     		str	r0, [r7, #8]
- 883              	.L49:
+ 775              		.loc 1 196 3
+ 776 0032 0022     		movs	r2, #0
+ 777 0034 4FF48051 		mov	r1, #4096
+ 778 0038 2A48     		ldr	r0, .L53
+ 779 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 780 003e 07F11001 		add	r1, r7, #16
+ 781 0042 4FF0FF33 		mov	r3, #-1
+ 782 0046 0622     		movs	r2, #6
+ 783 0048 7868     		ldr	r0, [r7, #4]
+ 784 004a FFF7FEFF 		bl	HAL_SPI_Transmit
+ 785 004e 0346     		mov	r3, r0
+ 786 0050 1A46     		mov	r2, r3
+ 787 0052 FB7D     		ldrb	r3, [r7, #23]
+ 788 0054 1343     		orrs	r3, r3, r2
+ 789 0056 FB75     		strb	r3, [r7, #23]
+ 790 0058 07F10801 		add	r1, r7, #8
+ 791 005c 4FF0FF33 		mov	r3, #-1
+ 792 0060 0522     		movs	r2, #5
+ 793 0062 7868     		ldr	r0, [r7, #4]
+ 794 0064 FFF7FEFF 		bl	sd_card_receive_cmd_response
+ 795 0068 0346     		mov	r3, r0
+ 796 006a 1A46     		mov	r2, r3
+ 797 006c FB7D     		ldrb	r3, [r7, #23]
+ 798 006e 1343     		orrs	r3, r3, r2
+ 799 0070 FB75     		strb	r3, [r7, #23]
+ 800 0072 0122     		movs	r2, #1
+ 801 0074 4FF48051 		mov	r1, #4096
+ 802 0078 1A48     		ldr	r0, .L53
+ 803 007a FFF7FEFF 		bl	HAL_GPIO_WritePin
  197:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 198:External/SDCard_Driver/Src/sdcard_driver.c ****   do
- 199:External/SDCard_Driver/Src/sdcard_driver.c ****   {
- 200:External/SDCard_Driver/Src/sdcard_driver.c ****     if ((HAL_GetTick() - captured_tick) > 500)
- 884              		.loc 1 200 10
- 885 0014 FFF7FEFF 		bl	HAL_GetTick
- 886 0018 0246     		mov	r2, r0
- 887              		.loc 1 200 24
- 888 001a BB68     		ldr	r3, [r7, #8]
- 889 001c D31A     		subs	r3, r2, r3
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 20
+ 198:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (status)
+ 804              		.loc 1 198 5
+ 805 007e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 806 0080 002B     		cmp	r3, #0
+ 807 0082 20D1     		bne	.L52
+ 199:External/SDCard_Driver/Src/sdcard_driver.c **** 		goto end_of_initialization;
+ 200:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 201:External/SDCard_Driver/Src/sdcard_driver.c **** 	// Illegal command hence version 1.0 sd card
+ 202:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (cmd8_response.high_order_part & ILLEGAL_COMMAND)
+ 808              		.loc 1 202 19
+ 809 0084 3B7A     		ldrb	r3, [r7, #8]	@ zero_extendqisi2
+ 810              		.loc 1 202 36
+ 811 0086 03F00403 		and	r3, r3, #4
+ 812              		.loc 1 202 5
+ 813 008a 002B     		cmp	r3, #0
+ 814 008c 08D0     		beq	.L47
+ 203:External/SDCard_Driver/Src/sdcard_driver.c ****   {
+ 204:External/SDCard_Driver/Src/sdcard_driver.c **** 		status |= sd_card_v1_init_process(hspi);
+ 815              		.loc 1 204 13
+ 816 008e 7868     		ldr	r0, [r7, #4]
+ 817 0090 FFF7FEFF 		bl	sd_card_v1_init_process
+ 818 0094 0346     		mov	r3, r0
+ 819 0096 1A46     		mov	r2, r3
+ 820              		.loc 1 204 10
+ 821 0098 FB7D     		ldrb	r3, [r7, #23]
+ 822 009a 1343     		orrs	r3, r3, r2
+ 823 009c FB75     		strb	r3, [r7, #23]
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 19
 
 
- 890              		.loc 1 200 8
- 891 001e B3F5FA7F 		cmp	r3, #500
- 892 0022 01D9     		bls	.L47
- 201:External/SDCard_Driver/Src/sdcard_driver.c ****       return HAL_TIMEOUT;
- 893              		.loc 1 201 14
- 894 0024 0323     		movs	r3, #3
- 895 0026 0CE0     		b	.L48
- 896              	.L47:
- 202:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 203:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, data);
- 897              		.loc 1 203 15
- 898 0028 3968     		ldr	r1, [r7]
- 899 002a 7868     		ldr	r0, [r7, #4]
- 900 002c FFF7FEFF 		bl	sd_card_receive_byte
- 901 0030 0346     		mov	r3, r0
- 902 0032 1A46     		mov	r2, r3
- 903              		.loc 1 203 12
- 904 0034 FB7B     		ldrb	r3, [r7, #15]
- 905 0036 1343     		orrs	r3, r3, r2
- 906 0038 FB73     		strb	r3, [r7, #15]
- 204:External/SDCard_Driver/Src/sdcard_driver.c ****   } while (data == NULL);
- 907              		.loc 1 204 3
- 908 003a 3B68     		ldr	r3, [r7]
- 909 003c 002B     		cmp	r3, #0
- 910 003e E9D0     		beq	.L49
- 205:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 206:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
- 911              		.loc 1 206 10
- 912 0040 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 913              	.L48:
- 207:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 914              		.loc 1 207 1
- 915 0042 1846     		mov	r0, r3
- 916 0044 1037     		adds	r7, r7, #16
- 917              	.LCFI43:
- 918              		.cfi_def_cfa_offset 8
- 919 0046 BD46     		mov	sp, r7
- 920              	.LCFI44:
- 921              		.cfi_def_cfa_register 13
- 922              		@ sp needed
- 923 0048 80BD     		pop	{r7, pc}
- 924              		.cfi_endproc
- 925              	.LFE73:
- 927              		.section	.text.sd_card_receive_cmd_response,"ax",%progbits
- 928              		.align	1
- 929              		.global	sd_card_receive_cmd_response
- 930              		.syntax unified
- 931              		.thumb
- 932              		.thumb_func
- 934              	sd_card_receive_cmd_response:
- 935              	.LFB74:
- 208:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 209:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_cmd_response(
- 210:External/SDCard_Driver/Src/sdcard_driver.c **** 	SPI_HandleTypeDef *hspi, 
- 211:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t* response, 
- 212:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t response_size, 
- 213:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint32_t timeout
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 21
+ 205:External/SDCard_Driver/Src/sdcard_driver.c ****     goto end_of_initialization;
+ 824              		.loc 1 205 5
+ 825 009e 13E0     		b	.L46
+ 826              	.L47:
+ 206:External/SDCard_Driver/Src/sdcard_driver.c ****   }
+ 207:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 208:External/SDCard_Driver/Src/sdcard_driver.c ****   // Check pattern or voltage inconsistency
+ 209:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (!(cmd8_response.echo_back_of_check_pattern == 0x55 &&
+ 827              		.loc 1 209 21
+ 828 00a0 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 829              		.loc 1 209 5
+ 830 00a2 552B     		cmp	r3, #85
+ 831 00a4 04D1     		bne	.L48
+ 210:External/SDCard_Driver/Src/sdcard_driver.c ****     GET_VOLTAGE_FROM_R7(cmd8_response) == 0x1))
+ 832              		.loc 1 210 5 discriminator 1
+ 833 00a6 FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 834 00a8 03F00F03 		and	r3, r3, #15
+ 209:External/SDCard_Driver/Src/sdcard_driver.c ****     GET_VOLTAGE_FROM_R7(cmd8_response) == 0x1))
+ 835              		.loc 1 209 6 discriminator 1
+ 836 00ac 012B     		cmp	r3, #1
+ 837 00ae 01D0     		beq	.L49
+ 838              	.L48:
+ 211:External/SDCard_Driver/Src/sdcard_driver.c **** 		return HAL_ERROR;
+ 839              		.loc 1 211 10
+ 840 00b0 0123     		movs	r3, #1
+ 841 00b2 12E0     		b	.L51
+ 842              	.L49:
+ 212:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 213:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_v2_init_process(hspi);
+ 843              		.loc 1 213 12
+ 844 00b4 7868     		ldr	r0, [r7, #4]
+ 845 00b6 FFF7FEFF 		bl	sd_card_v2_init_process
+ 846 00ba 0346     		mov	r3, r0
+ 847 00bc 1A46     		mov	r2, r3
+ 848              		.loc 1 213 9
+ 849 00be FB7D     		ldrb	r3, [r7, #23]
+ 850 00c0 1343     		orrs	r3, r3, r2
+ 851 00c2 FB75     		strb	r3, [r7, #23]
+ 852 00c4 00E0     		b	.L46
+ 853              	.L52:
+ 199:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 854              		.loc 1 199 3
+ 855 00c6 00BF     		nop
+ 856              	.L46:
+ 214:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 215:External/SDCard_Driver/Src/sdcard_driver.c **** end_of_initialization:
+ 216:External/SDCard_Driver/Src/sdcard_driver.c ****   sd_status.error_in_initialization = (bool)status;
+ 857              		.loc 1 216 39
+ 858 00c8 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 859 00ca 002B     		cmp	r3, #0
+ 860 00cc 14BF     		ite	ne
+ 861 00ce 0123     		movne	r3, #1
+ 862 00d0 0023     		moveq	r3, #0
+ 863 00d2 DAB2     		uxtb	r2, r3
+ 864              		.loc 1 216 37
+ 865 00d4 044B     		ldr	r3, .L53+4
+ 866 00d6 9A70     		strb	r2, [r3, #2]
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 20
 
 
- 214:External/SDCard_Driver/Src/sdcard_driver.c **** )
- 215:External/SDCard_Driver/Src/sdcard_driver.c **** {
- 936              		.loc 1 215 1
- 937              		.cfi_startproc
- 938              		@ args = 0, pretend = 0, frame = 24
- 939              		@ frame_needed = 1, uses_anonymous_args = 0
- 940 0000 80B5     		push	{r7, lr}
- 941              	.LCFI45:
- 942              		.cfi_def_cfa_offset 8
- 943              		.cfi_offset 7, -8
- 944              		.cfi_offset 14, -4
- 945 0002 86B0     		sub	sp, sp, #24
- 946              	.LCFI46:
- 947              		.cfi_def_cfa_offset 32
- 948 0004 00AF     		add	r7, sp, #0
- 949              	.LCFI47:
- 950              		.cfi_def_cfa_register 7
- 951 0006 F860     		str	r0, [r7, #12]
- 952 0008 B960     		str	r1, [r7, #8]
- 953 000a 3B60     		str	r3, [r7]
- 954 000c 1346     		mov	r3, r2
- 955 000e FB71     		strb	r3, [r7, #7]
- 216:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response r1 = 0;
- 956              		.loc 1 216 22
- 957 0010 0023     		movs	r3, #0
- 958 0012 BB75     		strb	r3, [r7, #22]
- 217:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t buffer[4] = { 0 }; // Max length of cmd response - 5 bytes
- 959              		.loc 1 217 10
- 960 0014 0023     		movs	r3, #0
- 961 0016 3B61     		str	r3, [r7, #16]
- 218:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 219:External/SDCard_Driver/Src/sdcard_driver.c **** 	// First we receive the first byte - r1
- 220:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = sd_card_wait_response(hspi, buffer);
- 962              		.loc 1 220 30
- 963 0018 07F11003 		add	r3, r7, #16
- 964 001c 1946     		mov	r1, r3
- 965 001e F868     		ldr	r0, [r7, #12]
- 966 0020 FFF7FEFF 		bl	sd_card_wait_response
- 967 0024 0346     		mov	r3, r0
- 968 0026 FB75     		strb	r3, [r7, #23]
- 221:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_byte(hspi, &r1);
- 969              		.loc 1 221 12
- 970 0028 07F11603 		add	r3, r7, #22
- 971 002c 1946     		mov	r1, r3
- 972 002e F868     		ldr	r0, [r7, #12]
- 973 0030 FFF7FEFF 		bl	sd_card_receive_byte
- 974 0034 0346     		mov	r3, r0
- 975 0036 1A46     		mov	r2, r3
- 976              		.loc 1 221 9
- 977 0038 FB7D     		ldrb	r3, [r7, #23]
- 978 003a 1343     		orrs	r3, r3, r2
- 979 003c FB75     		strb	r3, [r7, #23]
- 222:External/SDCard_Driver/Src/sdcard_driver.c **** 	*response = r1;
- 980              		.loc 1 222 12
- 981 003e BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
- 982 0040 BB68     		ldr	r3, [r7, #8]
- 983 0042 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 22
+ 217:External/SDCard_Driver/Src/sdcard_driver.c **** 	return status;
+ 867              		.loc 1 217 9
+ 868 00d8 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 869              	.L51:
+ 218:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 870              		.loc 1 218 1 discriminator 1
+ 871 00da 1846     		mov	r0, r3
+ 872 00dc 1837     		adds	r7, r7, #24
+ 873              	.LCFI23:
+ 874              		.cfi_def_cfa_offset 8
+ 875 00de BD46     		mov	sp, r7
+ 876              	.LCFI24:
+ 877              		.cfi_def_cfa_register 13
+ 878              		@ sp needed
+ 879 00e0 80BD     		pop	{r7, pc}
+ 880              	.L54:
+ 881 00e2 00BF     		.align	2
+ 882              	.L53:
+ 883 00e4 000C0140 		.word	1073810432
+ 884 00e8 00000000 		.word	sd_status
+ 885              		.cfi_endproc
+ 886              	.LFE69:
+ 888              		.section	.text.sd_card_get_cmd,"ax",%progbits
+ 889              		.align	1
+ 890              		.global	sd_card_get_cmd
+ 891              		.syntax unified
+ 892              		.thumb
+ 893              		.thumb_func
+ 895              	sd_card_get_cmd:
+ 896              	.LFB70:
+ 219:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 220:External/SDCard_Driver/Src/sdcard_driver.c **** sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
+ 221:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 897              		.loc 1 221 1
+ 898              		.cfi_startproc
+ 899              		@ args = 0, pretend = 0, frame = 40
+ 900              		@ frame_needed = 1, uses_anonymous_args = 0
+ 901 0000 80B5     		push	{r7, lr}
+ 902              	.LCFI25:
+ 903              		.cfi_def_cfa_offset 8
+ 904              		.cfi_offset 7, -8
+ 905              		.cfi_offset 14, -4
+ 906 0002 8AB0     		sub	sp, sp, #40
+ 907              	.LCFI26:
+ 908              		.cfi_def_cfa_offset 48
+ 909 0004 00AF     		add	r7, sp, #0
+ 910              	.LCFI27:
+ 911              		.cfi_def_cfa_register 7
+ 912 0006 F860     		str	r0, [r7, #12]
+ 913 0008 0B46     		mov	r3, r1
+ 914 000a 7A60     		str	r2, [r7, #4]
+ 915 000c FB72     		strb	r3, [r7, #11]
+ 222:External/SDCard_Driver/Src/sdcard_driver.c **** 	crc_buffer_7 crc_buffer;
+ 223:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_command cmd = (sd_card_command) {
+ 916              		.loc 1 223 18
+ 917 000e 07F11C03 		add	r3, r7, #28
+ 918 0012 0022     		movs	r2, #0
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 21
 
 
- 223:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 224:External/SDCard_Driver/Src/sdcard_driver.c **** 	// if (r1 || status)
- 225:External/SDCard_Driver/Src/sdcard_driver.c **** 	// 	return HAL_ERROR;
+ 919 0014 1A60     		str	r2, [r3]
+ 920 0016 9A80     		strh	r2, [r3, #4]	@ movhi
+ 921 0018 FB7A     		ldrb	r3, [r7, #11]
+ 922 001a 43F04003 		orr	r3, r3, #64
+ 923 001e DBB2     		uxtb	r3, r3
+ 924 0020 3B77     		strb	r3, [r7, #28]
+ 925              	.LBB3:
+ 224:External/SDCard_Driver/Src/sdcard_driver.c **** 		.start_block = 0x40 | cmd_num,
+ 225:External/SDCard_Driver/Src/sdcard_driver.c **** 	};
  226:External/SDCard_Driver/Src/sdcard_driver.c **** 
- 227:External/SDCard_Driver/Src/sdcard_driver.c ****   if (status)
- 984              		.loc 1 227 6
- 985 0044 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 986 0046 002B     		cmp	r3, #0
- 987 0048 01D0     		beq	.L51
- 228:External/SDCard_Driver/Src/sdcard_driver.c **** 		return status;
- 988              		.loc 1 228 10
- 989 004a FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 990 004c 18E0     		b	.L54
- 991              	.L51:
- 229:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 230:External/SDCard_Driver/Src/sdcard_driver.c **** 	// If there are no errors, then we can continue to receive data
- 231:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (response_size > 1)
- 992              		.loc 1 231 5
- 993 004e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 994 0050 012B     		cmp	r3, #1
- 995 0052 14D9     		bls	.L53
- 232:External/SDCard_Driver/Src/sdcard_driver.c **** 	{
- 233:External/SDCard_Driver/Src/sdcard_driver.c **** 		// status = HAL_SPI_Receive(
- 234:External/SDCard_Driver/Src/sdcard_driver.c **** 		// 	hspi, (uint8_t*)buffer, response_size - 1, timeout
- 235:External/SDCard_Driver/Src/sdcard_driver.c **** 		// );
- 236:External/SDCard_Driver/Src/sdcard_driver.c ****     status = sd_card_receive_bytes(
- 996              		.loc 1 236 14
- 997 0054 FB79     		ldrb	r3, [r7, #7]
- 998 0056 013B     		subs	r3, r3, #1
- 999 0058 DAB2     		uxtb	r2, r3
- 1000 005a 07F11003 		add	r3, r7, #16
- 1001 005e 1946     		mov	r1, r3
- 1002 0060 F868     		ldr	r0, [r7, #12]
- 1003 0062 FFF7FEFF 		bl	sd_card_receive_bytes
- 1004 0066 0346     		mov	r3, r0
- 1005 0068 FB75     		strb	r3, [r7, #23]
- 237:External/SDCard_Driver/Src/sdcard_driver.c **** 			hspi, (uint8_t*)buffer, response_size - 1
- 238:External/SDCard_Driver/Src/sdcard_driver.c **** 		);
- 239:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 240:External/SDCard_Driver/Src/sdcard_driver.c **** 		memcpy(response + 1, buffer, response_size - 1);
- 1006              		.loc 1 240 19
- 1007 006a BB68     		ldr	r3, [r7, #8]
- 1008 006c 581C     		adds	r0, r3, #1
- 1009              		.loc 1 240 46
- 1010 006e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 1011 0070 013B     		subs	r3, r3, #1
- 1012              		.loc 1 240 3
- 1013 0072 1A46     		mov	r2, r3
- 1014 0074 07F11003 		add	r3, r7, #16
- 1015 0078 1946     		mov	r1, r3
- 1016 007a FFF7FEFF 		bl	memcpy
- 1017              	.L53:
- 241:External/SDCard_Driver/Src/sdcard_driver.c **** 	}
- 242:External/SDCard_Driver/Src/sdcard_driver.c **** 	
- 243:External/SDCard_Driver/Src/sdcard_driver.c **** 	return status;
- 1018              		.loc 1 243 9
- 1019 007e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 23
+ 227:External/SDCard_Driver/Src/sdcard_driver.c ****   for (uint8_t i = 0; i < 4; i++) // Reverse memcpy
+ 926              		.loc 1 227 16
+ 927 0022 0023     		movs	r3, #0
+ 928 0024 87F82730 		strb	r3, [r7, #39]
+ 929              		.loc 1 227 3
+ 930 0028 1DE0     		b	.L56
+ 931              	.L57:
+ 932              	.LBB4:
+ 228:External/SDCard_Driver/Src/sdcard_driver.c ****   {
+ 229:External/SDCard_Driver/Src/sdcard_driver.c ****     uint8_t shift = i << 3;
+ 933              		.loc 1 229 13 discriminator 3
+ 934 002a 97F82730 		ldrb	r3, [r7, #39]
+ 935 002e DB00     		lsls	r3, r3, #3
+ 936 0030 87F82630 		strb	r3, [r7, #38]
+ 230:External/SDCard_Driver/Src/sdcard_driver.c ****     cmd.argument[3 - i] = (arg & (0xff << shift)) >> shift;
+ 937              		.loc 1 230 40 discriminator 3
+ 938 0034 97F82630 		ldrb	r3, [r7, #38]	@ zero_extendqisi2
+ 939 0038 FF22     		movs	r2, #255
+ 940 003a 02FA03F3 		lsl	r3, r2, r3
+ 941 003e 1A46     		mov	r2, r3
+ 942              		.loc 1 230 32 discriminator 3
+ 943 0040 7B68     		ldr	r3, [r7, #4]
+ 944 0042 1A40     		ands	r2, r2, r3
+ 945              		.loc 1 230 51 discriminator 3
+ 946 0044 97F82630 		ldrb	r3, [r7, #38]	@ zero_extendqisi2
+ 947 0048 DA40     		lsrs	r2, r2, r3
+ 948              		.loc 1 230 20 discriminator 3
+ 949 004a 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
+ 950 004e C3F10303 		rsb	r3, r3, #3
+ 951              		.loc 1 230 25 discriminator 3
+ 952 0052 D2B2     		uxtb	r2, r2
+ 953 0054 2833     		adds	r3, r3, #40
+ 954 0056 3B44     		add	r3, r3, r7
+ 955 0058 03F80B2C 		strb	r2, [r3, #-11]
+ 956              	.LBE4:
+ 227:External/SDCard_Driver/Src/sdcard_driver.c ****   {
+ 957              		.loc 1 227 31 discriminator 3
+ 958 005c 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
+ 959 0060 0133     		adds	r3, r3, #1
+ 960 0062 87F82730 		strb	r3, [r7, #39]
+ 961              	.L56:
+ 227:External/SDCard_Driver/Src/sdcard_driver.c ****   {
+ 962              		.loc 1 227 3 discriminator 1
+ 963 0066 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
+ 964 006a 032B     		cmp	r3, #3
+ 965 006c DDD9     		bls	.L57
+ 966              	.LBE3:
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 22
 
 
- 1020              	.L54:
- 244:External/SDCard_Driver/Src/sdcard_driver.c **** }
- 1021              		.loc 1 244 1 discriminator 1
- 1022 0080 1846     		mov	r0, r3
- 1023 0082 1837     		adds	r7, r7, #24
- 1024              	.LCFI48:
- 1025              		.cfi_def_cfa_offset 8
- 1026 0084 BD46     		mov	sp, r7
- 1027              	.LCFI49:
- 1028              		.cfi_def_cfa_register 13
- 1029              		@ sp needed
- 1030 0086 80BD     		pop	{r7, pc}
- 1031              		.cfi_endproc
- 1032              	.LFE74:
- 1034              		.section	.bss.sd_card_is_spi_mode.0,"aw",%nobits
- 1037              	sd_card_is_spi_mode.0:
- 1038 0000 00       		.space	1
- 1039              		.text
- 1040              	.Letext0:
- 1041              		.file 2 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
- 1042              		.file 3 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
- 1043              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 1044              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 1045              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 1046              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 1047              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
- 1048              		.file 9 "External/SDCard_Driver/Inc/sdcard_driver.h"
- 1049              		.file 10 "External/CRC/Inc/crc-buffer.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s 			page 24
+ 231:External/SDCard_Driver/Src/sdcard_driver.c ****   }
+ 232:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 233:External/SDCard_Driver/Src/sdcard_driver.c **** 	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd, 5);
+ 967              		.loc 1 233 18
+ 968 006e 07F11C01 		add	r1, r7, #28
+ 969 0072 07F12503 		add	r3, r7, #37
+ 970 0076 0522     		movs	r2, #5
+ 971 0078 1846     		mov	r0, r3
+ 972 007a FFF7FEFF 		bl	crc_buffer_calculate_crc_7
+ 973 007e 0346     		mov	r3, r0
+ 974              		.loc 1 233 16
+ 975 0080 87F82130 		strb	r3, [r7, #33]
+ 234:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 235:External/SDCard_Driver/Src/sdcard_driver.c **** 	return cmd;
+ 976              		.loc 1 235 9
+ 977 0084 FB68     		ldr	r3, [r7, #12]
+ 978 0086 1A46     		mov	r2, r3
+ 979 0088 07F11C03 		add	r3, r7, #28
+ 980 008c 1868     		ldr	r0, [r3]
+ 981 008e 1060     		str	r0, [r2]	@ unaligned
+ 982 0090 9B88     		ldrh	r3, [r3, #4]	@ unaligned
+ 983 0092 9380     		strh	r3, [r2, #4]	@ unaligned
+ 236:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 984              		.loc 1 236 1
+ 985 0094 F868     		ldr	r0, [r7, #12]
+ 986 0096 2837     		adds	r7, r7, #40
+ 987              	.LCFI28:
+ 988              		.cfi_def_cfa_offset 8
+ 989 0098 BD46     		mov	sp, r7
+ 990              	.LCFI29:
+ 991              		.cfi_def_cfa_register 13
+ 992              		@ sp needed
+ 993 009a 80BD     		pop	{r7, pc}
+ 994              		.cfi_endproc
+ 995              	.LFE70:
+ 997              		.section	.text.sd_card_receive_byte,"ax",%progbits
+ 998              		.align	1
+ 999              		.global	sd_card_receive_byte
+ 1000              		.syntax unified
+ 1001              		.thumb
+ 1002              		.thumb_func
+ 1004              	sd_card_receive_byte:
+ 1005              	.LFB71:
+ 237:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 238:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_byte(
+ 239:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi, 
+ 240:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data
+ 241:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 242:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 1006              		.loc 1 242 1
+ 1007              		.cfi_startproc
+ 1008              		@ args = 0, pretend = 0, frame = 16
+ 1009              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1010 0000 80B5     		push	{r7, lr}
+ 1011              	.LCFI30:
+ 1012              		.cfi_def_cfa_offset 8
+ 1013              		.cfi_offset 7, -8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 23
+
+
+ 1014              		.cfi_offset 14, -4
+ 1015 0002 86B0     		sub	sp, sp, #24
+ 1016              	.LCFI31:
+ 1017              		.cfi_def_cfa_offset 32
+ 1018 0004 02AF     		add	r7, sp, #8
+ 1019              	.LCFI32:
+ 1020              		.cfi_def_cfa 7, 24
+ 1021 0006 7860     		str	r0, [r7, #4]
+ 1022 0008 3960     		str	r1, [r7]
+ 243:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t dummy_data = 0xff;
+ 1023              		.loc 1 243 11
+ 1024 000a FF23     		movs	r3, #255
+ 1025 000c FB73     		strb	r3, [r7, #15]
+ 244:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 245:External/SDCard_Driver/Src/sdcard_driver.c ****   return HAL_SPI_TransmitReceive(hspi, &dummy_data, data, 1, 1000);
+ 1026              		.loc 1 245 10
+ 1027 000e 07F10F01 		add	r1, r7, #15
+ 1028 0012 4FF47A73 		mov	r3, #1000
+ 1029 0016 0093     		str	r3, [sp]
+ 1030 0018 0123     		movs	r3, #1
+ 1031 001a 3A68     		ldr	r2, [r7]
+ 1032 001c 7868     		ldr	r0, [r7, #4]
+ 1033 001e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 1034 0022 0346     		mov	r3, r0
+ 246:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 1035              		.loc 1 246 1
+ 1036 0024 1846     		mov	r0, r3
+ 1037 0026 1037     		adds	r7, r7, #16
+ 1038              	.LCFI33:
+ 1039              		.cfi_def_cfa_offset 8
+ 1040 0028 BD46     		mov	sp, r7
+ 1041              	.LCFI34:
+ 1042              		.cfi_def_cfa_register 13
+ 1043              		@ sp needed
+ 1044 002a 80BD     		pop	{r7, pc}
+ 1045              		.cfi_endproc
+ 1046              	.LFE71:
+ 1048              		.section	.text.sd_card_receive_bytes,"ax",%progbits
+ 1049              		.align	1
+ 1050              		.global	sd_card_receive_bytes
+ 1051              		.syntax unified
+ 1052              		.thumb
+ 1053              		.thumb_func
+ 1055              	sd_card_receive_bytes:
+ 1056              	.LFB72:
+ 247:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 248:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_bytes(
+ 249:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
+ 250:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data,
+ 251:External/SDCard_Driver/Src/sdcard_driver.c ****   const uint8_t size
+ 252:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 253:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 1057              		.loc 1 253 1
+ 1058              		.cfi_startproc
+ 1059              		@ args = 0, pretend = 0, frame = 24
+ 1060              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1061 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 24
+
+
+ 1062              	.LCFI35:
+ 1063              		.cfi_def_cfa_offset 8
+ 1064              		.cfi_offset 7, -8
+ 1065              		.cfi_offset 14, -4
+ 1066 0002 86B0     		sub	sp, sp, #24
+ 1067              	.LCFI36:
+ 1068              		.cfi_def_cfa_offset 32
+ 1069 0004 00AF     		add	r7, sp, #0
+ 1070              	.LCFI37:
+ 1071              		.cfi_def_cfa_register 7
+ 1072 0006 F860     		str	r0, [r7, #12]
+ 1073 0008 B960     		str	r1, [r7, #8]
+ 1074 000a 1346     		mov	r3, r2
+ 1075 000c FB71     		strb	r3, [r7, #7]
+ 254:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
+ 1076              		.loc 1 254 21
+ 1077 000e 0023     		movs	r3, #0
+ 1078 0010 FB75     		strb	r3, [r7, #23]
+ 1079              	.LBB5:
+ 255:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 256:External/SDCard_Driver/Src/sdcard_driver.c ****   for (uint8_t i = 0; i < size; i++)
+ 1080              		.loc 1 256 16
+ 1081 0012 0023     		movs	r3, #0
+ 1082 0014 BB75     		strb	r3, [r7, #22]
+ 1083              		.loc 1 256 3
+ 1084 0016 0EE0     		b	.L62
+ 1085              	.L63:
+ 257:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
+ 1086              		.loc 1 257 15 discriminator 3
+ 1087 0018 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 1088 001a BA68     		ldr	r2, [r7, #8]
+ 1089 001c 1344     		add	r3, r3, r2
+ 1090 001e 1946     		mov	r1, r3
+ 1091 0020 F868     		ldr	r0, [r7, #12]
+ 1092 0022 FFF7FEFF 		bl	sd_card_receive_byte
+ 1093 0026 0346     		mov	r3, r0
+ 1094 0028 1A46     		mov	r2, r3
+ 1095              		.loc 1 257 12 discriminator 3
+ 1096 002a FB7D     		ldrb	r3, [r7, #23]
+ 1097 002c 1344     		add	r3, r3, r2
+ 1098 002e FB75     		strb	r3, [r7, #23]
+ 256:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
+ 1099              		.loc 1 256 34 discriminator 3
+ 1100 0030 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 1101 0032 0133     		adds	r3, r3, #1
+ 1102 0034 BB75     		strb	r3, [r7, #22]
+ 1103              	.L62:
+ 256:External/SDCard_Driver/Src/sdcard_driver.c ****     status += sd_card_receive_byte(hspi, data + i);
+ 1104              		.loc 1 256 3 discriminator 1
+ 1105 0036 BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 1106 0038 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1107 003a 9A42     		cmp	r2, r3
+ 1108 003c ECD3     		bcc	.L63
+ 1109              	.LBE5:
+ 258:External/SDCard_Driver/Src/sdcard_driver.c ****   
+ 259:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
+ 1110              		.loc 1 259 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 25
+
+
+ 1111 003e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 260:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 1112              		.loc 1 260 1
+ 1113 0040 1846     		mov	r0, r3
+ 1114 0042 1837     		adds	r7, r7, #24
+ 1115              	.LCFI38:
+ 1116              		.cfi_def_cfa_offset 8
+ 1117 0044 BD46     		mov	sp, r7
+ 1118              	.LCFI39:
+ 1119              		.cfi_def_cfa_register 13
+ 1120              		@ sp needed
+ 1121 0046 80BD     		pop	{r7, pc}
+ 1122              		.cfi_endproc
+ 1123              	.LFE72:
+ 1125              		.section	.text.sd_card_transmit_bytes,"ax",%progbits
+ 1126              		.align	1
+ 1127              		.global	sd_card_transmit_bytes
+ 1128              		.syntax unified
+ 1129              		.thumb
+ 1130              		.thumb_func
+ 1132              	sd_card_transmit_bytes:
+ 1133              	.LFB73:
+ 261:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 262:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_transmit_bytes(
+ 263:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
+ 264:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data,
+ 265:External/SDCard_Driver/Src/sdcard_driver.c ****   const uint8_t size
+ 266:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 267:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 1134              		.loc 1 267 1
+ 1135              		.cfi_startproc
+ 1136              		@ args = 0, pretend = 0, frame = 24
+ 1137              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1138 0000 80B5     		push	{r7, lr}
+ 1139              	.LCFI40:
+ 1140              		.cfi_def_cfa_offset 8
+ 1141              		.cfi_offset 7, -8
+ 1142              		.cfi_offset 14, -4
+ 1143 0002 86B0     		sub	sp, sp, #24
+ 1144              	.LCFI41:
+ 1145              		.cfi_def_cfa_offset 32
+ 1146 0004 00AF     		add	r7, sp, #0
+ 1147              	.LCFI42:
+ 1148              		.cfi_def_cfa_register 7
+ 1149 0006 F860     		str	r0, [r7, #12]
+ 1150 0008 B960     		str	r1, [r7, #8]
+ 1151 000a 1346     		mov	r3, r2
+ 1152 000c FB71     		strb	r3, [r7, #7]
+ 268:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
+ 1153              		.loc 1 268 21
+ 1154 000e 0023     		movs	r3, #0
+ 1155 0010 FB75     		strb	r3, [r7, #23]
+ 1156              	.LBB6:
+ 269:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 270:External/SDCard_Driver/Src/sdcard_driver.c ****   for (int16_t i = size - 1; i >= 0; i--)
+ 1157              		.loc 1 270 25
+ 1158 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 26
+
+
+ 1159 0014 9BB2     		uxth	r3, r3
+ 1160 0016 013B     		subs	r3, r3, #1
+ 1161 0018 9BB2     		uxth	r3, r3
+ 1162              		.loc 1 270 16
+ 1163 001a BB82     		strh	r3, [r7, #20]	@ movhi
+ 1164              		.loc 1 270 3
+ 1165 001c 14E0     		b	.L66
+ 1166              	.L67:
+ 271:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
+ 1167              		.loc 1 271 15 discriminator 3
+ 1168 001e B7F91430 		ldrsh	r3, [r7, #20]
+ 1169 0022 BA68     		ldr	r2, [r7, #8]
+ 1170 0024 D118     		adds	r1, r2, r3
+ 1171 0026 4FF47A73 		mov	r3, #1000
+ 1172 002a 0122     		movs	r2, #1
+ 1173 002c F868     		ldr	r0, [r7, #12]
+ 1174 002e FFF7FEFF 		bl	HAL_SPI_Transmit
+ 1175 0032 0346     		mov	r3, r0
+ 1176 0034 1A46     		mov	r2, r3
+ 1177              		.loc 1 271 12 discriminator 3
+ 1178 0036 FB7D     		ldrb	r3, [r7, #23]
+ 1179 0038 1344     		add	r3, r3, r2
+ 1180 003a FB75     		strb	r3, [r7, #23]
+ 270:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
+ 1181              		.loc 1 270 39 discriminator 3
+ 1182 003c B7F91430 		ldrsh	r3, [r7, #20]
+ 1183 0040 9BB2     		uxth	r3, r3
+ 1184 0042 013B     		subs	r3, r3, #1
+ 1185 0044 9BB2     		uxth	r3, r3
+ 1186 0046 BB82     		strh	r3, [r7, #20]	@ movhi
+ 1187              	.L66:
+ 270:External/SDCard_Driver/Src/sdcard_driver.c ****     status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
+ 1188              		.loc 1 270 3 discriminator 1
+ 1189 0048 B7F91430 		ldrsh	r3, [r7, #20]
+ 1190 004c 002B     		cmp	r3, #0
+ 1191 004e E6DA     		bge	.L67
+ 1192              	.LBE6:
+ 272:External/SDCard_Driver/Src/sdcard_driver.c ****   
+ 273:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
+ 1193              		.loc 1 273 10
+ 1194 0050 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 274:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 1195              		.loc 1 274 1
+ 1196 0052 1846     		mov	r0, r3
+ 1197 0054 1837     		adds	r7, r7, #24
+ 1198              	.LCFI43:
+ 1199              		.cfi_def_cfa_offset 8
+ 1200 0056 BD46     		mov	sp, r7
+ 1201              	.LCFI44:
+ 1202              		.cfi_def_cfa_register 13
+ 1203              		@ sp needed
+ 1204 0058 80BD     		pop	{r7, pc}
+ 1205              		.cfi_endproc
+ 1206              	.LFE73:
+ 1208              		.section	.text.sd_card_wait_response,"ax",%progbits
+ 1209              		.align	1
+ 1210              		.global	sd_card_wait_response
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 27
+
+
+ 1211              		.syntax unified
+ 1212              		.thumb
+ 1213              		.thumb_func
+ 1215              	sd_card_wait_response:
+ 1216              	.LFB74:
+ 275:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 276:External/SDCard_Driver/Src/sdcard_driver.c **** // We are trying to get a non-zero byte.
+ 277:External/SDCard_Driver/Src/sdcard_driver.c **** // The received byte is written to the argument
+ 278:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_wait_response(
+ 279:External/SDCard_Driver/Src/sdcard_driver.c ****   SPI_HandleTypeDef *hspi,
+ 280:External/SDCard_Driver/Src/sdcard_driver.c ****   uint8_t* data
+ 281:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 282:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 1217              		.loc 1 282 1
+ 1218              		.cfi_startproc
+ 1219              		@ args = 0, pretend = 0, frame = 16
+ 1220              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1221 0000 80B5     		push	{r7, lr}
+ 1222              	.LCFI45:
+ 1223              		.cfi_def_cfa_offset 8
+ 1224              		.cfi_offset 7, -8
+ 1225              		.cfi_offset 14, -4
+ 1226 0002 84B0     		sub	sp, sp, #16
+ 1227              	.LCFI46:
+ 1228              		.cfi_def_cfa_offset 24
+ 1229 0004 00AF     		add	r7, sp, #0
+ 1230              	.LCFI47:
+ 1231              		.cfi_def_cfa_register 7
+ 1232 0006 7860     		str	r0, [r7, #4]
+ 1233 0008 3960     		str	r1, [r7]
+ 283:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = 0;
+ 1234              		.loc 1 283 21
+ 1235 000a 0023     		movs	r3, #0
+ 1236 000c FB73     		strb	r3, [r7, #15]
+ 284:External/SDCard_Driver/Src/sdcard_driver.c ****   uint32_t captured_tick = HAL_GetTick();
+ 1237              		.loc 1 284 28
+ 1238 000e FFF7FEFF 		bl	HAL_GetTick
+ 1239 0012 B860     		str	r0, [r7, #8]
+ 1240              	.L72:
+ 285:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 286:External/SDCard_Driver/Src/sdcard_driver.c ****   do
+ 287:External/SDCard_Driver/Src/sdcard_driver.c ****   {
+ 288:External/SDCard_Driver/Src/sdcard_driver.c ****     if ((HAL_GetTick() - captured_tick) > 500)
+ 1241              		.loc 1 288 10
+ 1242 0014 FFF7FEFF 		bl	HAL_GetTick
+ 1243 0018 0246     		mov	r2, r0
+ 1244              		.loc 1 288 24
+ 1245 001a BB68     		ldr	r3, [r7, #8]
+ 1246 001c D31A     		subs	r3, r2, r3
+ 1247              		.loc 1 288 8
+ 1248 001e B3F5FA7F 		cmp	r3, #500
+ 1249 0022 01D9     		bls	.L70
+ 289:External/SDCard_Driver/Src/sdcard_driver.c ****       return HAL_TIMEOUT;
+ 1250              		.loc 1 289 14
+ 1251 0024 0323     		movs	r3, #3
+ 1252 0026 0CE0     		b	.L71
+ 1253              	.L70:
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 28
+
+
+ 290:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 291:External/SDCard_Driver/Src/sdcard_driver.c ****     status |= sd_card_receive_byte(hspi, data);
+ 1254              		.loc 1 291 15
+ 1255 0028 3968     		ldr	r1, [r7]
+ 1256 002a 7868     		ldr	r0, [r7, #4]
+ 1257 002c FFF7FEFF 		bl	sd_card_receive_byte
+ 1258 0030 0346     		mov	r3, r0
+ 1259 0032 1A46     		mov	r2, r3
+ 1260              		.loc 1 291 12
+ 1261 0034 FB7B     		ldrb	r3, [r7, #15]
+ 1262 0036 1343     		orrs	r3, r3, r2
+ 1263 0038 FB73     		strb	r3, [r7, #15]
+ 292:External/SDCard_Driver/Src/sdcard_driver.c ****   } while (data == NULL);
+ 1264              		.loc 1 292 3
+ 1265 003a 3B68     		ldr	r3, [r7]
+ 1266 003c 002B     		cmp	r3, #0
+ 1267 003e E9D0     		beq	.L72
+ 293:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 294:External/SDCard_Driver/Src/sdcard_driver.c ****   return status;
+ 1268              		.loc 1 294 10
+ 1269 0040 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1270              	.L71:
+ 295:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 1271              		.loc 1 295 1
+ 1272 0042 1846     		mov	r0, r3
+ 1273 0044 1037     		adds	r7, r7, #16
+ 1274              	.LCFI48:
+ 1275              		.cfi_def_cfa_offset 8
+ 1276 0046 BD46     		mov	sp, r7
+ 1277              	.LCFI49:
+ 1278              		.cfi_def_cfa_register 13
+ 1279              		@ sp needed
+ 1280 0048 80BD     		pop	{r7, pc}
+ 1281              		.cfi_endproc
+ 1282              	.LFE74:
+ 1284              		.section	.text.sd_card_receive_cmd_response,"ax",%progbits
+ 1285              		.align	1
+ 1286              		.global	sd_card_receive_cmd_response
+ 1287              		.syntax unified
+ 1288              		.thumb
+ 1289              		.thumb_func
+ 1291              	sd_card_receive_cmd_response:
+ 1292              	.LFB75:
+ 296:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ 297:External/SDCard_Driver/Src/sdcard_driver.c **** HAL_StatusTypeDef sd_card_receive_cmd_response(
+ 298:External/SDCard_Driver/Src/sdcard_driver.c **** 	SPI_HandleTypeDef *hspi, 
+ 299:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t* response, 
+ 300:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t response_size, 
+ 301:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint32_t timeout
+ 302:External/SDCard_Driver/Src/sdcard_driver.c **** )
+ 303:External/SDCard_Driver/Src/sdcard_driver.c **** {
+ 1293              		.loc 1 303 1
+ 1294              		.cfi_startproc
+ 1295              		@ args = 0, pretend = 0, frame = 24
+ 1296              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1297 0000 80B5     		push	{r7, lr}
+ 1298              	.LCFI50:
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 29
+
+
+ 1299              		.cfi_def_cfa_offset 8
+ 1300              		.cfi_offset 7, -8
+ 1301              		.cfi_offset 14, -4
+ 1302 0002 86B0     		sub	sp, sp, #24
+ 1303              	.LCFI51:
+ 1304              		.cfi_def_cfa_offset 32
+ 1305 0004 00AF     		add	r7, sp, #0
+ 1306              	.LCFI52:
+ 1307              		.cfi_def_cfa_register 7
+ 1308 0006 F860     		str	r0, [r7, #12]
+ 1309 0008 B960     		str	r1, [r7, #8]
+ 1310 000a 3B60     		str	r3, [r7]
+ 1311 000c 1346     		mov	r3, r2
+ 1312 000e FB71     		strb	r3, [r7, #7]
+ 304:External/SDCard_Driver/Src/sdcard_driver.c **** 	sd_card_r1_response r1 = 0;
+ 1313              		.loc 1 304 22
+ 1314 0010 0023     		movs	r3, #0
+ 1315 0012 BB75     		strb	r3, [r7, #22]
+ 305:External/SDCard_Driver/Src/sdcard_driver.c ****   // Max length of cmd response - 5 bytes 
+ 306:External/SDCard_Driver/Src/sdcard_driver.c ****   // (excluding starting r1)
+ 307:External/SDCard_Driver/Src/sdcard_driver.c **** 	uint8_t buffer[5] = { 0 };
+ 1316              		.loc 1 307 10
+ 1317 0014 0023     		movs	r3, #0
+ 1318 0016 3B61     		str	r3, [r7, #16]
+ 1319 0018 0023     		movs	r3, #0
+ 1320 001a 3B75     		strb	r3, [r7, #20]
+ 308:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 309:External/SDCard_Driver/Src/sdcard_driver.c **** 	// First we receive the first byte - r1
+ 310:External/SDCard_Driver/Src/sdcard_driver.c ****   HAL_StatusTypeDef status = sd_card_wait_response(hspi, buffer);
+ 1321              		.loc 1 310 30
+ 1322 001c 07F11003 		add	r3, r7, #16
+ 1323 0020 1946     		mov	r1, r3
+ 1324 0022 F868     		ldr	r0, [r7, #12]
+ 1325 0024 FFF7FEFF 		bl	sd_card_wait_response
+ 1326 0028 0346     		mov	r3, r0
+ 1327 002a FB75     		strb	r3, [r7, #23]
+ 311:External/SDCard_Driver/Src/sdcard_driver.c **** 	status |= sd_card_receive_byte(hspi, &r1);
+ 1328              		.loc 1 311 12
+ 1329 002c 07F11603 		add	r3, r7, #22
+ 1330 0030 1946     		mov	r1, r3
+ 1331 0032 F868     		ldr	r0, [r7, #12]
+ 1332 0034 FFF7FEFF 		bl	sd_card_receive_byte
+ 1333 0038 0346     		mov	r3, r0
+ 1334 003a 1A46     		mov	r2, r3
+ 1335              		.loc 1 311 9
+ 1336 003c FB7D     		ldrb	r3, [r7, #23]
+ 1337 003e 1343     		orrs	r3, r3, r2
+ 1338 0040 FB75     		strb	r3, [r7, #23]
+ 312:External/SDCard_Driver/Src/sdcard_driver.c **** 	*response = r1;
+ 1339              		.loc 1 312 12
+ 1340 0042 BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 1341 0044 BB68     		ldr	r3, [r7, #8]
+ 1342 0046 1A70     		strb	r2, [r3]
+ 313:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 314:External/SDCard_Driver/Src/sdcard_driver.c **** 	// if (r1 || status)
+ 315:External/SDCard_Driver/Src/sdcard_driver.c **** 	// 	return HAL_ERROR;
+ 316:External/SDCard_Driver/Src/sdcard_driver.c **** 
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 30
+
+
+ 317:External/SDCard_Driver/Src/sdcard_driver.c ****   if (status)
+ 1343              		.loc 1 317 6
+ 1344 0048 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1345 004a 002B     		cmp	r3, #0
+ 1346 004c 01D0     		beq	.L74
+ 318:External/SDCard_Driver/Src/sdcard_driver.c **** 		return status;
+ 1347              		.loc 1 318 10
+ 1348 004e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1349 0050 18E0     		b	.L77
+ 1350              	.L74:
+ 319:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 320:External/SDCard_Driver/Src/sdcard_driver.c **** 	// If there are no errors, then we can continue to receive data
+ 321:External/SDCard_Driver/Src/sdcard_driver.c **** 	if (response_size > 1)
+ 1351              		.loc 1 321 5
+ 1352 0052 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1353 0054 012B     		cmp	r3, #1
+ 1354 0056 14D9     		bls	.L76
+ 322:External/SDCard_Driver/Src/sdcard_driver.c **** 	{
+ 323:External/SDCard_Driver/Src/sdcard_driver.c **** 		// status = HAL_SPI_Receive(
+ 324:External/SDCard_Driver/Src/sdcard_driver.c **** 		// 	hspi, (uint8_t*)buffer, response_size - 1, timeout
+ 325:External/SDCard_Driver/Src/sdcard_driver.c **** 		// );
+ 326:External/SDCard_Driver/Src/sdcard_driver.c ****     status = sd_card_receive_bytes(
+ 1355              		.loc 1 326 14
+ 1356 0058 FB79     		ldrb	r3, [r7, #7]
+ 1357 005a 013B     		subs	r3, r3, #1
+ 1358 005c DAB2     		uxtb	r2, r3
+ 1359 005e 07F11003 		add	r3, r7, #16
+ 1360 0062 1946     		mov	r1, r3
+ 1361 0064 F868     		ldr	r0, [r7, #12]
+ 1362 0066 FFF7FEFF 		bl	sd_card_receive_bytes
+ 1363 006a 0346     		mov	r3, r0
+ 1364 006c FB75     		strb	r3, [r7, #23]
+ 327:External/SDCard_Driver/Src/sdcard_driver.c **** 			hspi, (uint8_t*)buffer, response_size - 1
+ 328:External/SDCard_Driver/Src/sdcard_driver.c **** 		);
+ 329:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 330:External/SDCard_Driver/Src/sdcard_driver.c **** 		memcpy(response + 1, buffer, response_size - 1);
+ 1365              		.loc 1 330 19
+ 1366 006e BB68     		ldr	r3, [r7, #8]
+ 1367 0070 581C     		adds	r0, r3, #1
+ 1368              		.loc 1 330 46
+ 1369 0072 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1370 0074 013B     		subs	r3, r3, #1
+ 1371              		.loc 1 330 3
+ 1372 0076 1A46     		mov	r2, r3
+ 1373 0078 07F11003 		add	r3, r7, #16
+ 1374 007c 1946     		mov	r1, r3
+ 1375 007e FFF7FEFF 		bl	memcpy
+ 1376              	.L76:
+ 331:External/SDCard_Driver/Src/sdcard_driver.c **** 	}
+ 332:External/SDCard_Driver/Src/sdcard_driver.c **** 	
+ 333:External/SDCard_Driver/Src/sdcard_driver.c **** 	return status;
+ 1377              		.loc 1 333 9
+ 1378 0082 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1379              	.L77:
+ 334:External/SDCard_Driver/Src/sdcard_driver.c **** }
+ 1380              		.loc 1 334 1 discriminator 1
+ 1381 0084 1846     		mov	r0, r3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 31
+
+
+ 1382 0086 1837     		adds	r7, r7, #24
+ 1383              	.LCFI53:
+ 1384              		.cfi_def_cfa_offset 8
+ 1385 0088 BD46     		mov	sp, r7
+ 1386              	.LCFI54:
+ 1387              		.cfi_def_cfa_register 13
+ 1388              		@ sp needed
+ 1389 008a 80BD     		pop	{r7, pc}
+ 1390              		.cfi_endproc
+ 1391              	.LFE75:
+ 1393              		.section	.bss.sd_card_is_spi_mode.0,"aw",%nobits
+ 1396              	sd_card_is_spi_mode.0:
+ 1397 0000 00       		.space	1
+ 1398              		.text
+ 1399              	.Letext0:
+ 1400              		.file 2 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 1401              		.file 3 "d:\\portable programs\\stm32-my-toolchain\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 1402              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1403              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1404              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 1405              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1406              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
+ 1407              		.file 9 "External/SDCard_Driver/Inc/sdcard_driver.h"
+ 1408              		.file 10 "External/CRC/Inc/crc-buffer.h"
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sdcard_driver.c
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:18     .text.sd_card_power_on:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:24     .text.sd_card_power_on:00000000 sd_card_power_on
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:538    .text.sd_card_get_cmd:00000000 sd_card_get_cmd
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:97     .text.sd_card_power_on:00000058 $d
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:102    .text.sd_card_enter_spi_mode:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:108    .text.sd_card_enter_spi_mode:00000000 sd_card_enter_spi_mode
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:647    .text.sd_card_receive_byte:00000000 sd_card_receive_byte
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:222    .text.sd_card_enter_spi_mode:000000a4 $d
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:1037   .bss.sd_card_is_spi_mode.0:00000000 sd_card_is_spi_mode.0
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:228    .text.activate_sd_card_init_process:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:234    .text.activate_sd_card_init_process:00000000 activate_sd_card_init_process
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:934    .text.sd_card_receive_cmd_response:00000000 sd_card_receive_cmd_response
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:368    .text.sd_card_reset:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:374    .text.sd_card_reset:00000000 sd_card_reset
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:527    .text.sd_card_reset:00000110 $d
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:532    .text.sd_card_get_cmd:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:641    .text.sd_card_receive_byte:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:692    .text.sd_card_receive_bytes:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:698    .text.sd_card_receive_bytes:00000000 sd_card_receive_bytes
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:769    .text.sd_card_transmit_bytes:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:775    .text.sd_card_transmit_bytes:00000000 sd_card_transmit_bytes
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:852    .text.sd_card_wait_response:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:858    .text.sd_card_wait_response:00000000 sd_card_wait_response
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:928    .text.sd_card_receive_cmd_response:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccsfw1cg.s:1038   .bss.sd_card_is_spi_mode.0:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:22     .bss.sd_status:00000000 sd_status
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:19     .bss.sd_status:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:25     .text.sd_card_power_on:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:31     .text.sd_card_power_on:00000000 sd_card_power_on
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:95     .text.sd_card_power_on:00000044 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:100    .text.sd_card_enter_spi_mode:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:106    .text.sd_card_enter_spi_mode:00000000 sd_card_enter_spi_mode
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:895    .text.sd_card_get_cmd:00000000 sd_card_get_cmd
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1004   .text.sd_card_receive_byte:00000000 sd_card_receive_byte
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:228    .text.sd_card_enter_spi_mode:000000b0 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1396   .bss.sd_card_is_spi_mode.0:00000000 sd_card_is_spi_mode.0
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:235    .text.sd_card_v1_init_process:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:241    .text.sd_card_v1_init_process:00000000 sd_card_v1_init_process
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1291   .text.sd_card_receive_cmd_response:00000000 sd_card_receive_cmd_response
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:455    .text.sd_card_v1_init_process:00000188 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:460    .text.sd_card_v2_init_process:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:466    .text.sd_card_v2_init_process:00000000 sd_card_v2_init_process
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:726    .text.sd_card_v2_init_process:000001f0 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:732    .text.sd_card_reset:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:738    .text.sd_card_reset:00000000 sd_card_reset
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:883    .text.sd_card_reset:000000e4 $d
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:889    .text.sd_card_get_cmd:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:998    .text.sd_card_receive_byte:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1049   .text.sd_card_receive_bytes:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1055   .text.sd_card_receive_bytes:00000000 sd_card_receive_bytes
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1126   .text.sd_card_transmit_bytes:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1132   .text.sd_card_transmit_bytes:00000000 sd_card_transmit_bytes
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1209   .text.sd_card_wait_response:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1215   .text.sd_card_wait_response:00000000 sd_card_wait_response
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1285   .text.sd_card_receive_cmd_response:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\ccPwJQEN.s:1397   .bss.sd_card_is_spi_mode.0:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

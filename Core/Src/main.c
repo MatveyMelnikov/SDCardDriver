@@ -98,59 +98,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  // sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
-	// sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
-  // uint8_t cmd0_response = 0;
-  // sd_card_r7_response cmd8_response = { 0 };
-  // uint8_t data[6] = { 0 };
-
-  // fast_boot();
-
-  // SELECT_SD();
-	// HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY);
-	// // //status |= HAL_SPI_TransmitReceive(&hspi2, &cmd0_response, 1, HAL_MAX_DELAY);
-  // // status |= receive_byte(&data);
-
-  // //HAL_StatusTypeDef status = transmit_bytes((uint8_t*)&cmd0, 6);
-
-  // while (data[0] == IN_IDLE_STATE)
-  // {
-  //   status |= receive_byte(&data);
-  // }
-
-  // DISELECT_SD();
-
-  // SELECT_SD();
-	// // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-	// // //status |= receive_cmd_response(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
-  // // //status |= HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd8_response, 5, HAL_MAX_DELAY);
-  // // status |= receive_byte(&data);
-  // // status |= receive_byte(&data + 1);
-  // // status |= receive_byte(&data + 2);
-  // // status |= receive_byte(&data + 3);
-  // // status |= receive_byte(&data + 4);
-  // // status |= receive_byte(&data + 5);
-
-  // //status |= transmit_bytes((uint8_t*)&cmd8, 6);
-
-
-  // // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-  // // status |= receive_bytes(&data, 5); // r7
-
-  // status |= HAL_SPI_Transmit(&hspi2, (uint8_t*)&cmd8, 6, HAL_MAX_DELAY);
-  // status |= wait_sd_response(&data);
-  // status |= receive_bytes(&data, 5); // r7
-
-  // DISELECT_SD();
-  
-
-/*
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-  HAL_SPI_TransmitReceive(&hspi2, (uint8_t*)&cmd0, buffer, 6, HAL_MAX_DELAY);
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
-  */
 
   sd_card_reset(&hspi2);
+  
   while (1)
   {
     /* USER CODE END WHILE */

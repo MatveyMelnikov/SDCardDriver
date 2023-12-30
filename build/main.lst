@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
   21:Core/Src/main.c **** 
   22:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
   23:Core/Src/main.c **** /* USER CODE BEGIN Includes */
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 2
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 2
 
 
   24:Core/Src/main.c **** #include "sdcard_driver.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
   40              		.cfi_def_cfa_offset 8
   41              		.cfi_offset 7, -8
   42              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 3
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 3
 
 
   43 0002 00AF     		add	r7, sp, #0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  115:Core/Src/main.c **** 
  116:Core/Src/main.c ****   // while (data[0] == IN_IDLE_STATE)
  117:Core/Src/main.c ****   // {
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 4
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 4
 
 
  118:Core/Src/main.c ****   //   status |= receive_byte(&data);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
   72              		.thumb_func
   74              	SystemClock_Config:
   75              	.LFB66:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 5
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 5
 
 
  155:Core/Src/main.c ****   {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  108              		.loc 1 176 30
  109 0026 4FF48033 		mov	r3, #65536
  110 002a FB61     		str	r3, [r7, #28]
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 6
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 6
 
 
  177:Core/Src/main.c ****   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  148 0068 3B61     		str	r3, [r7, #16]
  194:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
  149              		.loc 1 194 36
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 7
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 7
 
 
  150 006a 0023     		movs	r3, #0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  192              		.cfi_offset 7, -8
  193              		.cfi_offset 14, -4
  194 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 8
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 8
 
 
  195              	.LCFI8:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  231 003a 0022     		movs	r2, #0
  232 003c 1A62     		str	r2, [r3, #32]
  227:Core/Src/main.c ****   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 9
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 9
 
 
  233              		.loc 1 227 21
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  243:Core/Src/main.c ****   * @retval None
  244:Core/Src/main.c ****   */
  245:Core/Src/main.c **** static void MX_GPIO_Init(void)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 10
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 10
 
 
  246:Core/Src/main.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  320 0042 BB68     		ldr	r3, [r7, #8]
  321              	.LBE5:
  322              	.LBB6:
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 11
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 11
 
 
  254:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  362 008a BD46     		mov	sp, r7
  363              	.LCFI13:
  364              		.cfi_def_cfa_register 13
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 12
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 12
 
 
  365              		@ sp needed
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  306:Core/Src/main.c **** //   for (uint8_t i = 0; i < 10; i++) // Need at least 74 ticks
  307:Core/Src/main.c **** //     HAL_SPI_Transmit(&hspi2, &dummy_data, 1, 1);
  308:Core/Src/main.c **** // }
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 13
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 13
 
 
  309:Core/Src/main.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 14
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 14
 
 
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 15
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 15
 
 
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 16
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 16
 
 
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -946,26 +946,26 @@ ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 1
  424              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  425              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  426              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
-ARM GAS  C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s 			page 17
+ARM GAS  C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:22     .bss.hspi2:00000000 hspi2
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:19     .bss.hspi2:00000000 $d
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:25     .text.main:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:31     .text.main:00000000 main
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:74     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:272    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:183    .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:63     .text.main:0000001c $d
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:68     .text.SystemClock_Config:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:382    .text.Error_Handler:00000000 Error_Handler
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:178    .text.MX_SPI2_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:261    .text.MX_SPI2_Init:00000064 $d
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:267    .text.MX_GPIO_Init:00000000 $t
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:370    .text.MX_GPIO_Init:00000090 $d
-C:\Users\Matvey\AppData\Local\Temp\ccbNPMrL.s:376    .text.Error_Handler:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:22     .bss.hspi2:00000000 hspi2
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:19     .bss.hspi2:00000000 $d
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:25     .text.main:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:31     .text.main:00000000 main
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:74     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:272    .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:183    .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:63     .text.main:0000001c $d
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:68     .text.SystemClock_Config:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:382    .text.Error_Handler:00000000 Error_Handler
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:178    .text.MX_SPI2_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:261    .text.MX_SPI2_Init:00000064 $d
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:267    .text.MX_GPIO_Init:00000000 $t
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:370    .text.MX_GPIO_Init:00000090 $d
+C:\Users\Matvey\AppData\Local\Temp\cc56yqvA.s:376    .text.Error_Handler:00000000 $t
 
 UNDEFINED SYMBOLS
 HAL_Init
