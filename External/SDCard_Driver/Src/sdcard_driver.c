@@ -2,10 +2,52 @@
 #include <string.h>
 #include "crc-buffer.h"
 
+// Variables -----------------------------------------------------------------
+
 sd_card_status sd_status = { 0 };
 
+// Static functions ----------------------------------------------------------
+
+static HAL_StatusTypeDef sd_card_receive_byte(
+  SPI_HandleTypeDef *hspi, 
+  uint8_t* data
+)
+{
+  uint8_t dummy_data = 0xff;
+
+  return HAL_SPI_TransmitReceive(hspi, &dummy_data, data, 1, 1000);
+}
+
+static HAL_StatusTypeDef sd_card_receive_bytes(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data,
+  const uint8_t size
+)
+{
+  HAL_StatusTypeDef status = 0;
+
+  for (uint8_t i = 0; i < size; i++)
+    status += sd_card_receive_byte(hspi, data + i);
+  
+  return status;
+}
+
+static HAL_StatusTypeDef sd_card_transmit_bytes(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data,
+  const uint8_t size
+)
+{
+  HAL_StatusTypeDef status = 0;
+
+  for (int16_t i = size - 1; i >= 0; i--)
+    status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
+  
+  return status;
+}
+
 // To IDLE state
-void sd_card_power_on(SPI_HandleTypeDef *hspi)
+static void sd_card_power_on(SPI_HandleTypeDef *hspi)
 {
   uint8_t dummy_data = 0xff;
 
@@ -18,7 +60,7 @@ void sd_card_power_on(SPI_HandleTypeDef *hspi)
   sd_card_receive_byte(hspi, &dummy_data); // Just in case, we get the result
 }
 
-HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
+static HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
 {
   static bool sd_card_is_spi_mode = false;
   sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
@@ -51,7 +93,7 @@ HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
   return status;
 }
 
-HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
+static HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
 {
   // Reads OCR to get supported voltage
   sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
@@ -93,7 +135,7 @@ HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
   return HAL_OK;
 }
 
-HAL_StatusTypeDef sd_card_v2_init_process(
+static HAL_StatusTypeDef sd_card_v2_init_process(
   SPI_HandleTypeDef* hspi
 )
 {
@@ -130,13 +172,7 @@ HAL_StatusTypeDef sd_card_v2_init_process(
 	}
 
   // Read OCR
-  SELECT_SD();
-	status |= HAL_SPI_Transmit(hspi, (uint8_t*)&cmd58, 6, HAL_MAX_DELAY);
-	status |= sd_card_receive_cmd_response(
-    hspi, (uint8_t*)&cmd58_response, 5, HAL_MAX_DELAY
-  );
-  DISELECT_SD();
-
+  SEND_CMD(hspi, cmd58, cmd58_response, status);
   if (cmd58_response.ocr_register_content[0] & 0x40) // Check CCS
     sd_status.capacity = STANDART;
   else
@@ -146,6 +182,8 @@ HAL_StatusTypeDef sd_card_v2_init_process(
 	return status;
 }
 
+// Implementations -----------------------------------------------------------
+
 HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
 {
 	// 2.7-3.6V and check pattern
@@ -153,7 +191,6 @@ HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
 	sd_card_r7_response cmd8_response = { 0 };
 
   HAL_StatusTypeDef status = sd_card_enter_spi_mode(hspi);
-  sd_card_enter_spi_mode(hspi);
 
   SEND_CMD(hspi, cmd8, cmd8_response, status);
 
@@ -179,10 +216,9 @@ end_of_initialization:
 	return status;
 }
 
-sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
+sd_card_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
 {
-	crc_buffer_7 crc_buffer;
-	sd_card_command cmd = (sd_card_command) {
+  sd_card_command cmd = (sd_card_command) {
 		.start_block = 0x40 | cmd_num,
 	};
 
@@ -191,48 +227,18 @@ sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
     uint8_t shift = i << 3;
     cmd.argument[3 - i] = (arg & (0xff << shift)) >> shift;
   }
-
-	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd, 5);
 	
 	return cmd;
 }
 
-HAL_StatusTypeDef sd_card_receive_byte(
-  SPI_HandleTypeDef *hspi, 
-  uint8_t* data
-)
+sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
 {
-  uint8_t dummy_data = 0xff;
+	crc_buffer_7 crc_buffer;
+	sd_card_command cmd = sd_card_get_cmd_without_crc(cmd_num, arg);
 
-  return HAL_SPI_TransmitReceive(hspi, &dummy_data, data, 1, 1000);
-}
-
-HAL_StatusTypeDef sd_card_receive_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
-  const uint8_t size
-)
-{
-  HAL_StatusTypeDef status = 0;
-
-  for (uint8_t i = 0; i < size; i++)
-    status += sd_card_receive_byte(hspi, data + i);
-  
-  return status;
-}
-
-HAL_StatusTypeDef sd_card_transmit_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
-  const uint8_t size
-)
-{
-  HAL_StatusTypeDef status = 0;
-
-  for (int16_t i = size - 1; i >= 0; i--)
-    status += HAL_SPI_Transmit(hspi, data + i, 1, 1000);
-  
-  return status;
+	cmd.crc_block = crc_buffer_calculate_crc_7(&crc_buffer, (uint8_t*)&cmd, 5);
+	
+	return cmd;
 }
 
 // We are trying to get a non-zero byte.
@@ -251,7 +257,7 @@ HAL_StatusTypeDef sd_card_wait_response(
       return HAL_TIMEOUT;
 
     status |= sd_card_receive_byte(hspi, data);
-  } while (data == NULL);
+  } while (*data == NULL);
 
   return status;
 }
@@ -268,13 +274,10 @@ HAL_StatusTypeDef sd_card_receive_cmd_response(
   // (excluding starting r1)
 	uint8_t buffer[5] = { 0 };
 	
-	// First we receive the first byte - r1
+	// We receive the first byte - r1
   HAL_StatusTypeDef status = sd_card_wait_response(hspi, buffer);
 	status |= sd_card_receive_byte(hspi, &r1);
 	*response = r1;
-	
-	// if (r1 || status)
-	// 	return HAL_ERROR;
 
   if (status)
 		return status;
@@ -282,9 +285,6 @@ HAL_StatusTypeDef sd_card_receive_cmd_response(
 	// If there are no errors, then we can continue to receive data
 	if (response_size > 1)
 	{
-		// status = HAL_SPI_Receive(
-		// 	hspi, (uint8_t*)buffer, response_size - 1, timeout
-		// );
     status = sd_card_receive_bytes(
 			hspi, (uint8_t*)buffer, response_size - 1
 		);

@@ -72,7 +72,8 @@ typedef struct {
 } sd_card_r7_response;
 
 typedef enum {
-  STANDART = 0x0,
+  UNDEFINED = 0X0,
+  STANDART,
   HIGH_OR_EXTENDED
 } sd_card_capacity;
 
@@ -91,33 +92,15 @@ extern sd_card_status sd_status;
 // CMD 0 - Resets the SD Memory Card
 HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi);
 
+sd_card_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg);
+
 sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg);
-
-HAL_StatusTypeDef sd_card_receive_byte(
-  SPI_HandleTypeDef *hspi, 
-  uint8_t* data
-);
-
-HAL_StatusTypeDef sd_card_receive_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
-  const uint8_t size
-);
-
-HAL_StatusTypeDef sd_card_transmit_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
-  const uint8_t size
-);
-
-//void sd_card_power_on(SPI_HandleTypeDef *hspi);
 
 HAL_StatusTypeDef sd_card_wait_response(
   SPI_HandleTypeDef *hspi,
   uint8_t* data
 );
 
-// response - can have size > 1!
 HAL_StatusTypeDef sd_card_receive_cmd_response(
 	SPI_HandleTypeDef *hspi, 
 	uint8_t* response, 
