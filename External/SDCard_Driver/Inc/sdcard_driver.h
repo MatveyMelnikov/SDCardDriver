@@ -30,7 +30,7 @@
   SELECT_SD(); \
 	(status) |= HAL_SPI_Transmit((hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
 	(status) |= sd_card_receive_cmd_response( \
-    (hspi), (uint8_t*)&(response), sizeof(response), HAL_MAX_DELAY \
+    (hspi), (uint8_t*)&(response), sizeof(response) \
   ); \
   DISELECT_SD();
 
@@ -89,23 +89,56 @@ extern sd_card_status sd_status;
 
 // Functions -----------------------------------------------------------------
 
-// CMD 0 - Resets the SD Memory Card
 HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi);
 
 sd_card_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg);
 
 sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg);
 
+// Waits for a value other than idle and writes it to received_value
 HAL_StatusTypeDef sd_card_wait_response(
   SPI_HandleTypeDef *hspi,
-  uint8_t* data
+  uint8_t* received_value,
+  const uint8_t idle_value
 );
 
 HAL_StatusTypeDef sd_card_receive_cmd_response(
 	SPI_HandleTypeDef *hspi, 
 	uint8_t* response, 
-	uint8_t response_size, 
-	uint32_t timeout
+	uint8_t response_size
 );
+
+// Received_size - user data size!
+HAL_StatusTypeDef sd_card_receive_data_block(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data,
+  const uint16_t data_size
+);
+
+HAL_StatusTypeDef sd_card_crc_on_off(
+  SPI_HandleTypeDef *hspi,
+  bool crc_enable
+);
+
+HAL_StatusTypeDef sd_card_set_block_len(
+  SPI_HandleTypeDef *hspi,
+  uint32_t length
+);
+
+// SDSC uses byte unit address and SDHC and SDXC Cards use
+// block unit address (512 bytes unit)
+HAL_StatusTypeDef sd_card_read_data(
+  SPI_HandleTypeDef *hspi,
+  uint32_t address,
+  uint8_t* data,
+  uint32_t block_length
+);
+
+HAL_StatusTypeDef sd_card_read_multiple_data(
+  SPI_HandleTypeDef *hspi, 
+  uint32_t address
+);
+
+HAL_StatusTypeDef sd_card_read_write(SPI_HandleTypeDef *hspi);
 
 #endif
