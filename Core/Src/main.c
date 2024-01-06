@@ -124,15 +124,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   static uint8_t data[1024];
 
-  HAL_StatusTypeDef status = sd_card_reset(&hspi2);
-  
-  // status |= sd_card_read_data(&hspi2, 0, data, 512);
-  // status |= sd_card_read_data(&hspi2, 512, data[512], 512);
-  //status |= sd_card_read_data(&hspi2, 1024, data, 512);
+  sd_card_error status = sd_card_reset(&hspi2, false);
+  if (status)
+    Error_Handler();
 
   status |= sd_card_read_multiple_data(&hspi2, 0, data, 512, 2);
-  data[460] = 0x0;
-  status |= sd_card_read_data(&hspi2, 0, data, 512);
 
   if (status)
     Error_Handler();
