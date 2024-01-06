@@ -122,12 +122,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t buffer[32] = { 0 };
-  static uint8_t data[512];
+  static uint8_t data[1024];
 
   HAL_StatusTypeDef status = sd_card_reset(&hspi2);
   
-  status |= sd_card_read_data(&hspi2, 0x0, &data, 512);
+  // status |= sd_card_read_data(&hspi2, 0, data, 512);
+  // status |= sd_card_read_data(&hspi2, 512, data[512], 512);
+  //status |= sd_card_read_data(&hspi2, 1024, data, 512);
+
+  status |= sd_card_read_multiple_data(&hspi2, 0, data, 512, 2);
+  data[460] = 0x0;
+  status |= sd_card_read_data(&hspi2, 0, data, 512);
 
   if (status)
     Error_Handler();

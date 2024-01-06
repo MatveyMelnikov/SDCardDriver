@@ -36,6 +36,16 @@
 
 // Structs -------------------------------------------------------------------
 
+// typedef enum {
+//   SD_OK = 0x00U,
+//   SD_ERROR,
+//   SD_BUSY,
+//   SD_TIMEOUT,
+//   SD_UNUSABLE_CARD,
+//   SD_CRC_ERROR,
+//   SD_INCORRECT_ARGUMENT
+// } sd_card_status;
+
 typedef struct {
   uint8_t start_block; // '0' + '1' + command index (6 bits)
   uint8_t argument[4];
@@ -43,14 +53,14 @@ typedef struct {
 } sd_card_command;
 	
 typedef enum {
-  CLEAR_FLAGS = 0x0,
-	IN_IDLE_STATE = 0x1,
-	ERASE_RESET = 0x2,
-	ILLEGAL_COMMAND = 0x4,
-	COM_CRC_ERROR = 0x8,
-	ERASE_SEQUENCE_ERROR = 0x10,
-	ADDRESS_ERROR = 0x20,
-	PARAMETER_ERROR = 0x40
+  R1_CLEAR_FLAGS = 0x0U,
+	R1_IN_IDLE_STATE = 0x1U,
+	R1_ERASE_RESET = 0x2U,
+	R1_ILLEGAL_COMMAND = 0x4U,
+	R1_COM_CRC_ERROR = 0x8U,
+	R1_ERASE_SEQUENCE_ERROR = 0x10U,
+	R1_ADDRESS_ERROR = 0x20U,
+	R1_PARAMETER_ERROR = 0x40U
 } r1_error_mask;
 
 typedef struct {
@@ -129,14 +139,17 @@ HAL_StatusTypeDef sd_card_set_block_len(
 // block unit address (512 bytes unit)
 HAL_StatusTypeDef sd_card_read_data(
   SPI_HandleTypeDef *hspi,
-  uint32_t address,
+  const uint32_t address,
   uint8_t* data,
-  uint32_t block_length
+  const uint32_t block_length
 );
 
 HAL_StatusTypeDef sd_card_read_multiple_data(
   SPI_HandleTypeDef *hspi, 
-  uint32_t address
+  const uint32_t address,
+  uint8_t* data,
+  const uint32_t block_length,
+  const uint32_t number_of_blocks
 );
 
 HAL_StatusTypeDef sd_card_read_write(SPI_HandleTypeDef *hspi);

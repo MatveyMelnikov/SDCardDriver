@@ -73,7 +73,7 @@ static HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
 
   SELECT_SD();
 	HAL_StatusTypeDef status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd0, 6, HAL_MAX_DELAY
+    hspi, (uint8_t*)&cmd0, sizeof(cmd0), HAL_MAX_DELAY
   );
 	status |= sd_card_receive_byte(hspi, &cmd0_response);
 
@@ -83,7 +83,7 @@ static HAL_StatusTypeDef sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
     status |= sd_card_receive_byte(hspi, &cmd0_response);
     if (HAL_GetTick() - tickstart > 500)
       return HAL_TIMEOUT;
-  } while (cmd0_response != IN_IDLE_STATE);
+  } while (cmd0_response != R1_IN_IDLE_STATE);
 
   DISELECT_SD();
 
@@ -126,9 +126,9 @@ static HAL_StatusTypeDef sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
     SEND_CMD(hspi, cmd55, cmd55_response, status);
     SEND_CMD(hspi, acmd41, acmd41_response, status);
 		
-		if (acmd41_response == 0x0)
+		if (acmd41_response == R1_CLEAR_FLAGS)
 			break;
-    if (acmd41_response & ILLEGAL_COMMAND)
+    if (acmd41_response & R1_ILLEGAL_COMMAND)
 			return HAL_ERROR;
     // Card initialization shall be completed within 1 second 
     // from the first ACMD41
@@ -170,7 +170,7 @@ static HAL_StatusTypeDef sd_card_v2_init_process(
     SEND_CMD(hspi, cmd55, cmd55_response, status);
     SEND_CMD(hspi, acmd41, acmd41_response, status);
 		
-		if (acmd41_response == 0x0)
+		if (acmd41_response == R1_CLEAR_FLAGS)
 			break;
     // Card initialization shall be completed within 1 second 
     // from the first ACMD41
@@ -210,7 +210,7 @@ HAL_StatusTypeDef sd_card_reset(SPI_HandleTypeDef *hspi)
   //sd_card_crc_on_off(hspi, true);
 
 	// Illegal command hence version 1.0 sd card
-	if (cmd8_response.high_order_part & ILLEGAL_COMMAND)
+	if (cmd8_response.high_order_part & R1_ILLEGAL_COMMAND)
   {
 		status |= sd_card_v1_init_process(hspi);
     goto end_of_initialization;
@@ -288,7 +288,6 @@ HAL_StatusTypeDef sd_card_receive_cmd_response(
 	
 	// We receive the first byte - r1
   HAL_StatusTypeDef status = sd_card_wait_response(hspi, &r1, 0xff);
-	//status |= sd_card_receive_byte(hspi, &r1);
 	*response = r1;
 
   if (status)
@@ -313,18 +312,12 @@ HAL_StatusTypeDef sd_card_receive_data_block(
   const uint16_t data_size
 )
 {
-  sd_card_r1_response r1 = { 0 };
   crc_buffer_16 crc_buffer = { 0 };
   crc_16_result received_crc = { 0 };
   uint8_t token = 0x0;
-  uint8_t buffer = 0x0;
-
-  HAL_StatusTypeDef status = sd_card_wait_response(hspi, &r1, 0xff);
-  if (r1 != HAL_OK)
-    return HAL_ERROR;
 
   // The token is sent with a significant delay
-  status |= sd_card_wait_response(hspi, &token, 0xff);
+  HAL_StatusTypeDef status = sd_card_wait_response(hspi, &token, 0xff);
   if (token != 0xfe)
     return HAL_ERROR;
 
@@ -371,8 +364,8 @@ HAL_StatusTypeDef sd_card_set_block_len(
 
   // We request the CSD register to check the ability to set the block size
   SELECT_SD();
-	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd9, 6, HAL_MAX_DELAY);
-  sd_card_receive_data_block(hspi, &csd_register, 16);
+	HAL_SPI_Transmit(hspi, (uint8_t*)&cmd9, sizeof(cmd9), HAL_MAX_DELAY);
+  sd_card_receive_data_block(hspi, csd_register, 16);
   DISELECT_SD();
 
   if (!(csd_register[6] & 0x80)) // READ_BL_PARTIAL - 79 bit
@@ -390,9 +383,9 @@ HAL_StatusTypeDef sd_card_set_block_len(
 
 HAL_StatusTypeDef sd_card_read_data(
   SPI_HandleTypeDef *hspi,
-  uint32_t address,
+  const uint32_t address,
   uint8_t* data,
-  uint32_t block_length
+  const uint32_t block_length
 )
 {
   sd_card_command cmd17 = sd_card_get_cmd(17, address);
@@ -403,22 +396,65 @@ HAL_StatusTypeDef sd_card_read_data(
 
   SELECT_SD();
   HAL_StatusTypeDef status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd17, 6, HAL_MAX_DELAY
+    hspi, (uint8_t*)&cmd17, sizeof(cmd17), HAL_MAX_DELAY
   );
+  status |= sd_card_receive_cmd_response(hspi, &r1, 1);
+
+  if (r1 || status)
+    goto end_read;
+
   status |= sd_card_receive_data_block(
     hspi, data, num_of_received_bytes
   );
-  DISELECT_SD();
 
+end_read:
+  DISELECT_SD();
   return status;
 }
 
 HAL_StatusTypeDef sd_card_read_multiple_data(
   SPI_HandleTypeDef *hspi, 
-  uint32_t address
+  const uint32_t address,
+  uint8_t* data,
+  const uint32_t block_length,
+  const uint32_t number_of_blocks
 )
 {
-  return HAL_OK;
+  sd_card_command cmd18 = sd_card_get_cmd(18, address);
+  sd_card_command cmd12 = sd_card_get_cmd(12, address);
+  sd_card_r1_response r1 = { 0 };
+  uint8_t busy_signal = 0;
+
+  uint32_t num_of_received_bytes = (sd_status.capacity == HIGH_OR_EXTENDED) ?
+    512 : block_length;
+
+  SELECT_SD();
+  HAL_StatusTypeDef status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd18, sizeof(cmd18), HAL_MAX_DELAY
+  );
+  status |= sd_card_receive_cmd_response(hspi, &r1, 1);
+
+  if (r1 || status)
+    goto end_read;
+
+  for (uint32_t i = 0; i < number_of_blocks; i++)
+  {
+    status |= sd_card_receive_data_block(
+      hspi, data + (i * block_length), num_of_received_bytes
+    );
+  }
+
+  status |= HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd12, sizeof(cmd12), HAL_MAX_DELAY
+  );
+
+  // We always get 0xef in r1?
+  status |= sd_card_receive_cmd_response(hspi, &r1, 1);  
+  status |= sd_card_wait_response(hspi, &busy_signal, 0x0);
+
+end_read:
+  DISELECT_SD();
+  return status;
 }
 
 HAL_StatusTypeDef sd_card_read_write(SPI_HandleTypeDef *hspi)
