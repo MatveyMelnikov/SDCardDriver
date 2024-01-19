@@ -69,6 +69,7 @@ startup_stm32f103xb.s
 # binaries
 #######################################
 PREFIX = arm-none-eabi-
+GCC_PATH = /usr/local/src/arm-gnu-toolchain-13.2/bin/
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
 

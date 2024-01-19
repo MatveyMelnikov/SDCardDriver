@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "sdcard_driver.h"
+#include <string.h> 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,30 +61,6 @@ static void MX_SPI2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-static HAL_StatusTypeDef sd_card_receive_byte(
-  SPI_HandleTypeDef *hspi, 
-  uint8_t* data
-)
-{
-  uint8_t dummy_data = 0xff;
-
-  return HAL_SPI_TransmitReceive(hspi, &dummy_data, data, 1, 1000);
-}
-
-static HAL_StatusTypeDef sd_card_receive_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
-  const uint8_t size
-)
-{
-  HAL_StatusTypeDef status = 0;
-
-  for (uint8_t i = 0; i < size; i++)
-    status += sd_card_receive_byte(hspi, data + i);
-  
-  return status;
-}
 
 /* USER CODE END 0 */
 
@@ -124,9 +101,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   static uint8_t data[1024];
 
-  sd_card_error status = sd_card_reset(&hspi2, false);
+  sd_error status = sd_card_reset(&hspi2, false);
   if (status)
     Error_Handler();
+
+  data[0] = 0x55;
+  data[1023] = 0xff;
+  data[2] = 0xaa;
+  status |= sd_card_write_multiple_data(&hspi2, 0, data, 512, 2);
+
+  memset(data, 0, 1024);
 
   status |= sd_card_read_multiple_data(&hspi2, 0, data, 512, 2);
 

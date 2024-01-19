@@ -1,14 +1,13 @@
 #include "sdcard_driver.h"
 #include <string.h>
-#include "crc-buffer.h"
 
 // Variables -----------------------------------------------------------------
 
-sd_card_status sd_status = { 0 };
+sd_status sd_card_status = { 0 };
 
 // Static functions ----------------------------------------------------------
 
-static sd_card_error sd_card_receive_byte(
+static sd_error sd_card_receive_byte(
   SPI_HandleTypeDef *hspi, 
   uint8_t* data
 )
@@ -20,13 +19,13 @@ static sd_card_error sd_card_receive_byte(
   );
 }
 
-static sd_card_error sd_card_receive_bytes(
+static sd_error sd_card_receive_bytes(
   SPI_HandleTypeDef *hspi,
   uint8_t* data,
   const uint16_t size
 )
 {
-  sd_card_error status = SD_OK;
+  sd_error status = SD_OK;
 
   for (uint16_t i = 0; i < size; i++)
     status |= sd_card_receive_byte(hspi, data + i);
@@ -34,24 +33,34 @@ static sd_card_error sd_card_receive_bytes(
   return status;
 }
 
-static sd_card_error sd_card_transmit_bytes(
+static sd_error sd_card_transmit_byte(
+  SPI_HandleTypeDef *hspi,
+  uint8_t* data
+)
+{
+  return HAL_SPI_Transmit(
+    hspi, data, sizeof(uint8_t), SD_TRANSMISSION_TIMEOUT
+  );
+}
+
+static sd_error sd_card_transmit_bytes(
   SPI_HandleTypeDef *hspi,
   uint8_t* data,
   const uint16_t size
 )
 {
-  sd_card_error status = SD_OK;
+  sd_error status = SD_OK;
 
-  for (int16_t i = size - 1; i >= 0; i--)
+  for (uint16_t i = 0; i < size; i++)
     status |= HAL_SPI_Transmit(hspi, data + i, 1, SD_TRANSMISSION_TIMEOUT);
   
   return status;
 }
 
 // To IDLE state
-static sd_card_error sd_card_power_on(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_power_on(SPI_HandleTypeDef *hspi)
 {
-  sd_card_error status = SD_OK;
+  sd_error status = SD_OK;
   uint8_t dummy_data = 0xff;
 
   DISELECT_SD();
@@ -65,16 +74,16 @@ static sd_card_error sd_card_power_on(SPI_HandleTypeDef *hspi)
   return status;
 }
 
-static sd_card_error sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
 {
   static bool sd_card_is_spi_mode = false;
-  sd_card_command cmd0 = sd_card_get_cmd(0, 0x0);
-  sd_card_r1_response cmd0_response = 0;
+  sd_command cmd0 = sd_card_get_cmd(0, 0x0);
+  sd_r1_response cmd0_response = 0;
 
   if (sd_card_is_spi_mode)
     return SD_OK;
 
-  sd_card_error status = sd_card_power_on(hspi);
+  sd_error status = sd_card_power_on(hspi);
   if (status)
     return status;
 
@@ -97,25 +106,18 @@ static sd_card_error sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
   if (status == SD_OK)
     sd_card_is_spi_mode = true;
 
-  // The problem arises when we don't turn off the power when resetting. 
-  // If we receive an error in entering the SPI mode and try to reset again, 
-  // then an incorrect response will be received in response to the CMD8.
-  // CMD0 not provided for by the initialization procedure helps 
-  // solve this problem
-  SEND_CMD(hspi, cmd0, cmd0_response, status);
-
   return status;
 }
 
 // Host should enable CRC verification before issuing ACMD41
-static sd_card_error sd_card_crc_on_off(
+static sd_error sd_card_crc_on_off(
   SPI_HandleTypeDef *hspi,
   bool crc_enable
 ) 
 {
-  sd_card_command cmd59 = sd_card_get_cmd(59, crc_enable ? 0x1 : 0x0);
-  sd_card_r1_response r1 = { 0 };
-  sd_card_error status = 0x0;
+  sd_command cmd59 = sd_card_get_cmd(59, crc_enable ? 0x1 : 0x0);
+  sd_r1_response r1 = { 0 };
+  sd_error status = 0x0;
 
   SEND_CMD(hspi, cmd59, r1, status);
   if (r1 != R1_IN_IDLE_STATE)
@@ -124,16 +126,16 @@ static sd_card_error sd_card_crc_on_off(
   return status;
 }
 
-static sd_card_error sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
 {
   // Reads OCR to get supported voltage
-  sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
-  sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
-  sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
-  sd_card_r3_response cmd58_response = { 0 };
-  sd_card_r1_response cmd55_response = { 0 };
-  sd_card_r1_response acmd41_response = { 0 };
-  sd_card_error status = SD_OK;
+  sd_command cmd58 = sd_card_get_cmd(58, 0x0);
+  sd_command cmd55 = sd_card_get_cmd(55, 0x0);
+  sd_command acmd41 = sd_card_get_cmd(41, 0x0);
+  sd_r3_response cmd58_response = { 0 };
+  sd_r1_response cmd55_response = { 0 };
+  sd_r1_response acmd41_response = { 0 };
+  sd_error status = SD_OK;
 
   SEND_CMD(hspi, cmd58, cmd58_response, status);
 	
@@ -160,24 +162,24 @@ static sd_card_error sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
       return SD_TIMEOUT;
   }
 
-  sd_status.version = 1;
-  sd_status.capacity = STANDART;
+  sd_card_status.version = 1;
+  sd_card_status.capacity = STANDART;
 
   return status;
 }
 
-static sd_card_error sd_card_v2_init_process(
+static sd_error sd_card_v2_init_process(
   SPI_HandleTypeDef* hspi
 )
 {
   // Reads OCR to get supported voltage
-  sd_card_command cmd58 = sd_card_get_cmd(58, 0x0);
-  sd_card_command cmd55 = sd_card_get_cmd(55, 0x0);
-  sd_card_command acmd41 = sd_card_get_cmd(41, 0x0);
-  sd_card_r3_response cmd58_response = { 0 };
-  sd_card_r1_response cmd55_response = { 0 };
-  sd_card_r1_response acmd41_response = { 0 };
-  sd_card_error status = SD_OK;
+  sd_command cmd58 = sd_card_get_cmd(58, 0x0);
+  sd_command cmd55 = sd_card_get_cmd(55, 0x0);
+  sd_command acmd41 = sd_card_get_cmd(41, 0x0);
+  sd_r3_response cmd58_response = { 0 };
+  sd_r1_response cmd55_response = { 0 };
+  sd_r1_response acmd41_response = { 0 };
+  sd_error status = SD_OK;
 
   SEND_CMD(hspi, cmd58, cmd58_response, status);
 	
@@ -205,23 +207,23 @@ static sd_card_error sd_card_v2_init_process(
   // Read OCR
   SEND_CMD(hspi, cmd58, cmd58_response, status);
   if (cmd58_response.ocr_register_content[0] & 0x2) // Check CCS
-    sd_status.capacity = HIGH_OR_EXTENDED;
+    sd_card_status.capacity = HIGH_OR_EXTENDED;
   else
-    sd_status.capacity = STANDART;
-  sd_status.version = 2;
+    sd_card_status.capacity = STANDART;
+  sd_card_status.version = 2;
 	
   return status;
 }
 
 // Implementations -----------------------------------------------------------
 
-sd_card_error sd_card_reset(SPI_HandleTypeDef *hspi, bool crc_enable)
+sd_error sd_card_reset(SPI_HandleTypeDef *hspi, bool crc_enable)
 {
   // 2.7-3.6V and check pattern
-  sd_card_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
-  sd_card_r7_response cmd8_response = { 0 };
+  sd_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
+  sd_r7_response cmd8_response = { 0 };
 
-  sd_card_error status = sd_card_enter_spi_mode(hspi);
+  sd_error status = sd_card_enter_spi_mode(hspi);
 
   if (status)
     goto end_of_initialization;
@@ -251,13 +253,13 @@ sd_card_error sd_card_reset(SPI_HandleTypeDef *hspi, bool crc_enable)
   status |= sd_card_v2_init_process(hspi);
 
 end_of_initialization:
-  sd_status.error_in_initialization = (bool)status;
+  sd_card_status.error_in_initialization = (bool)status;
   return status;
 }
 
-sd_card_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
+sd_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
 {
-  sd_card_command cmd = (sd_card_command) {
+  sd_command cmd = (sd_command) {
     .start_block = 0x40 | cmd_num,
   };
 
@@ -270,16 +272,16 @@ sd_card_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
   return cmd;
 }
 
-sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
+sd_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
 {
   crc_buffer_7 crc_buffer;
-  sd_card_command cmd = sd_card_get_cmd_without_crc(cmd_num, arg);
+  sd_command cmd = sd_card_get_cmd_without_crc(cmd_num, arg);
 
   // cmd.crc_block = crc_buffer_calculate_crc_7(
   //   &crc_buffer, (uint8_t*)&cmd, sizeof(cmd) - 1
   // );
   cmd.crc_block = crc_buffer_calculate_crc_7(
-    &crc_buffer, (uint8_t*)&cmd, 5
+    &crc_buffer, (uint8_t*)&cmd, sizeof(cmd) - 1
   );
 	
   return cmd;
@@ -287,13 +289,13 @@ sd_card_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
 
 // We are trying to get a non-zero byte.
 // The received byte is written to the argument
-sd_card_error sd_card_wait_response(
+sd_error sd_card_wait_response(
   SPI_HandleTypeDef *hspi,
   uint8_t* received_value,
   const uint8_t idle_value
 )
 {
-  sd_card_error status = SD_OK;
+  sd_error status = SD_OK;
   uint32_t captured_tick = HAL_GetTick();
 
   do
@@ -307,19 +309,19 @@ sd_card_error sd_card_wait_response(
   return status;
 }
 
-sd_card_error sd_card_receive_cmd_response(
+sd_error sd_card_receive_cmd_response(
 	SPI_HandleTypeDef *hspi, 
 	uint8_t* response, 
 	uint8_t response_size
 )
 {
-  sd_card_r1_response r1 = 0;
+  sd_r1_response r1 = 0;
   // Max length of cmd response - 5 bytes 
   // (excluding starting r1)
   uint8_t buffer[5] = { 0 };
 	
   // We receive the first byte - r1
-  sd_card_error status = sd_card_wait_response(hspi, &r1, 0xff);
+  sd_error status = sd_card_wait_response(hspi, &r1, 0xff);
   *response = r1;
 
   if (status)
@@ -338,7 +340,7 @@ sd_card_error sd_card_receive_cmd_response(
   return status;
 }
 
-sd_card_error sd_card_receive_data_block(
+sd_error sd_card_receive_data_block(
   SPI_HandleTypeDef *hspi,
   uint8_t* data,
   const uint16_t data_size
@@ -349,7 +351,7 @@ sd_card_error sd_card_receive_data_block(
   uint8_t token = 0x0;
 
   // The token is sent with a significant delay
-  sd_card_error status = sd_card_wait_response(hspi, &token, 0xff);
+  sd_error status = sd_card_wait_response(hspi, &token, 0xff);
   if (token != 0xfe)
     return HAL_ERROR;
 
@@ -368,32 +370,40 @@ sd_card_error sd_card_receive_data_block(
     return status;
 }
 
-sd_card_error sd_card_set_block_len(
-  SPI_HandleTypeDef *hspi,
-  uint32_t length
+bool is_partial_block_possible(
+  SPI_HandleTypeDef *hspi
 )
 {
-  sd_card_command cmd16 = sd_card_get_cmd(16, length);
-  sd_card_command cmd9 = sd_card_get_cmd(9, 0); // get CSD
-  sd_card_r1_response r1 = { 0 };
+  sd_command cmd9 = sd_card_get_cmd(9, 0); // get CSD
   uint8_t csd_register[16] = { 0 };
-  sd_card_error status = 0x0;
 
   // We request the CSD register to check the ability to set the block size
   SELECT_SD();
-  status |= HAL_SPI_Transmit(
+  sd_error status = HAL_SPI_Transmit(
     hspi, (uint8_t*)&cmd9, sizeof(cmd9), SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_data_block(hspi, csd_register, 16);
   DISELECT_SD();
 
-  if (!(csd_register[6] & 0x80)) // READ_BL_PARTIAL - 79 bit
-    return SD_INCORRECT_ARGUMENT;
+  if (status)
+    return false;
+  else
+    return csd_register[6] & 0x80;
+}
+
+sd_error sd_card_set_block_len(
+  SPI_HandleTypeDef *hspi,
+  uint32_t length
+)
+{
+  sd_command cmd16 = sd_card_get_cmd(16, length);
+  sd_r1_response r1 = { 0 };
+  sd_error status = 0x0;
 
   // The maximum block length is given by 512 Bytes
-  if (sd_status.capacity == HIGH_OR_EXTENDED || length > 512)
+  if (!is_partial_block_possible(hspi) || length > 512)
     return SD_INCORRECT_ARGUMENT;
-
+  
   SEND_CMD(hspi, cmd16, r1, status);
   if (r1)
     return SD_TRANSMISSION_ERROR;
@@ -401,18 +411,15 @@ sd_card_error sd_card_set_block_len(
   return status;
 }
 
-sd_card_error sd_card_read_data(
+sd_error sd_card_read_data(
   SPI_HandleTypeDef *hspi,
   const uint32_t address,
   uint8_t* data,
   const uint32_t block_length
 )
 {
-  sd_card_command cmd17 = sd_card_get_cmd(17, address);
-  sd_card_r1_response r1 = { 0 };
-
-  uint32_t num_of_received_bytes = (sd_status.capacity == HIGH_OR_EXTENDED) ?
-    512 : block_length;
+  sd_command cmd17 = sd_card_get_cmd(17, address);
+  sd_r1_response r1 = { 0 };
 
   SELECT_SD();
   HAL_StatusTypeDef status = HAL_SPI_Transmit(
@@ -426,7 +433,7 @@ sd_card_error sd_card_read_data(
     goto end_read;
 
   status |= sd_card_receive_data_block(
-    hspi, data, num_of_received_bytes
+    hspi, data, block_length
   );
 
 end_read:
@@ -434,7 +441,7 @@ end_read:
   return status;
 }
 
-sd_card_error sd_card_read_multiple_data(
+sd_error sd_card_read_multiple_data(
   SPI_HandleTypeDef *hspi, 
   const uint32_t address,
   uint8_t* data,
@@ -442,16 +449,13 @@ sd_card_error sd_card_read_multiple_data(
   const uint32_t number_of_blocks
 )
 {
-  sd_card_command cmd18 = sd_card_get_cmd(18, address);
-  sd_card_command cmd12 = sd_card_get_cmd(12, address);
-  sd_card_r1_response r1 = { 0 };
+  sd_command cmd18 = sd_card_get_cmd(18, address);
+  sd_command cmd12 = sd_card_get_cmd(12, address);
+  sd_r1_response r1 = { 0 };
   uint8_t busy_signal = 0;
 
-  uint32_t num_of_received_bytes = (sd_status.capacity == HIGH_OR_EXTENDED) ?
-    512 : block_length;
-
   SELECT_SD();
-  sd_card_error status = HAL_SPI_Transmit(
+  sd_error status = HAL_SPI_Transmit(
     hspi, (uint8_t*)&cmd18, sizeof(cmd18), SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);
@@ -464,7 +468,7 @@ sd_card_error sd_card_read_multiple_data(
   for (uint32_t i = 0; i < number_of_blocks; i++)
   {
     status |= sd_card_receive_data_block(
-      hspi, data + (i * block_length), num_of_received_bytes
+      hspi, data + (i * block_length), block_length
     );
   }
 
@@ -472,7 +476,7 @@ sd_card_error sd_card_read_multiple_data(
     hspi, (uint8_t*)&cmd12, sizeof(cmd12), SD_TRANSMISSION_TIMEOUT
   );
 
-  // We always get 0xef in r1?
+  // Do we always get 0xef in r1?
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);  
   status |= sd_card_wait_response(hspi, &busy_signal, 0x0);
 
@@ -481,7 +485,121 @@ end_read:
   return status;
 }
 
-sd_card_error sd_card_read_write(SPI_HandleTypeDef *hspi)
+// data_size - user data size!
+sd_error sd_card_transmit_data_block(
+  SPI_HandleTypeDef *hspi,
+  const uint8_t *const data,
+  const uint16_t data_size,
+  const uint8_t start_token
+)
 {
-  return HAL_OK;
+  crc_buffer_16 crc_buffer = { 0 };
+  uint8_t data_response = 0x0;
+  uint8_t busy_signal = 0;
+
+  crc_16_result crc_result = crc_buffer_calculate_crc_16(
+    &crc_buffer, data, data_size
+  );
+
+  sd_error status = sd_card_transmit_byte(hspi, &start_token);
+  status |= sd_card_transmit_bytes(hspi, data, data_size);
+  status |= sd_card_transmit_bytes(
+    hspi, (uint8_t*)&crc_result, sizeof(crc_16_result)
+  );
+
+  status |= sd_card_receive_byte(hspi, &data_response);
+  status |= sd_card_wait_response(hspi, &busy_signal, 0x0);
+
+  switch (data_response & 0xf)
+  {
+    case SD_DATA_RESPONSE_CRC_ERROR:
+      status = SD_CRC_ERROR;
+      break;
+    case SD_DATA_RESPONSE_WRITE_ERROR:
+      status = SD_ERROR;
+      break;
+    case SD_DATA_RESPONSE_ACCEPTED:
+      break;
+    default:
+      status |= SD_TRANSMISSION_ERROR;
+  }
+
+  return status;
+}
+
+sd_error sd_card_write_data(
+  SPI_HandleTypeDef *hspi,
+  const uint32_t address,
+  const uint8_t *const data,
+  const uint32_t block_length
+)
+{
+  sd_command cmd24 = sd_card_get_cmd(24, address);
+  sd_r1_response r1 = { 0 };
+
+  SELECT_SD();
+  sd_error status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd24, sizeof(cmd24), SD_TRANSMISSION_TIMEOUT
+  );
+  status |= sd_card_receive_cmd_response(hspi, &r1, 1);
+
+  if (r1)
+    status = SD_TRANSMISSION_ERROR;
+  if (status)
+    goto end_write;
+
+  // 0xfe - start token of single block write
+  status |= sd_card_transmit_data_block(
+    hspi, data, block_length, 0xfe
+  );
+
+end_write:
+  DISELECT_SD();
+  return status;
+}
+
+sd_error sd_card_write_multiple_data(
+  SPI_HandleTypeDef *hspi,
+  const uint32_t address,
+  const uint8_t *const data,
+  const uint32_t block_length,
+  const uint32_t number_of_blocks
+)
+{
+  sd_command cmd25 = sd_card_get_cmd(25, address);
+  sd_r1_response r1 = { 0 };
+  uint8_t stop_token = 0xfd;
+  uint8_t busy_signal = 0;
+
+  SELECT_SD();
+  sd_error status = HAL_SPI_Transmit(
+    hspi, (uint8_t*)&cmd25, sizeof(cmd25), SD_TRANSMISSION_TIMEOUT
+  );
+  status |= sd_card_receive_cmd_response(hspi, &r1, 1);
+
+  if (r1)
+    status = SD_TRANSMISSION_ERROR;
+  if (status)
+    goto end_write;
+
+  for (uint32_t i = 0; i < number_of_blocks; i++)
+  {
+    // 0xfc - start token of multiple block write
+    status |= sd_card_transmit_data_block(
+      hspi, data + (i * block_length), block_length, 0xfc
+    );
+  }
+
+  if (status)
+    goto end_write;
+
+  status |= sd_card_transmit_byte(hspi, &stop_token);
+  // The busy signal does not appear immediately. This is not
+  // described in the documentation
+  status |= sd_card_wait_response(hspi, &busy_signal, 0xff);
+  status |= sd_card_wait_response(hspi, &busy_signal, 0x0);
+
+end_write:
+  DISELECT_SD();
+  return status;
 }
