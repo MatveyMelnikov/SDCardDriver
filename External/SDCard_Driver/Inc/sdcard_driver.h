@@ -118,52 +118,54 @@ extern sd_status sd_card_status;
 
 // Functions -----------------------------------------------------------------
 
-sd_error sd_card_reset(SPI_HandleTypeDef *hspi, bool crc_enable);
+sd_error sd_card_reset(SPI_HandleTypeDef *const hspi, const bool crc_enable);
 
-sd_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg);
+sd_command sd_card_get_cmd_without_crc(
+  const uint8_t cmd_num, const uint32_t arg
+);
 
-sd_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg);
+sd_command sd_card_get_cmd(const uint8_t cmd_num, const uint32_t arg);
 
 // Waits for a value other than idle and writes it to received_value
 sd_error sd_card_wait_response(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   uint8_t* received_value,
   const uint8_t idle_value
 );
 
 sd_error sd_card_receive_cmd_response(
-  SPI_HandleTypeDef *hspi, 
-  uint8_t* response, 
-  uint8_t response_size
+	SPI_HandleTypeDef *const hspi, 
+	uint8_t* response, 
+	const uint8_t response_size
 );
 
 // data_size - user data size!
 sd_error sd_card_receive_data_block(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   uint8_t* data,
   const uint16_t data_size
 );
 
 bool is_partial_block_possible(
-  SPI_HandleTypeDef *hspi
+  SPI_HandleTypeDef *const hspi
 );
 
 sd_error sd_card_set_block_len(
-  SPI_HandleTypeDef *hspi,
-  uint32_t length
+  SPI_HandleTypeDef *const hspi,
+  const uint32_t length
 );
 
 // SDSC uses byte unit address and SDHC and SDXC Cards use
 // block unit address (512 bytes unit)
 sd_error sd_card_read_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   uint8_t* data,
   const uint32_t block_length
 );
 
 sd_error sd_card_read_multiple_data(
-  SPI_HandleTypeDef *hspi, 
+  SPI_HandleTypeDef *const hspi, 
   const uint32_t address,
   uint8_t* data,
   const uint32_t block_length,
@@ -175,21 +177,21 @@ sd_error sd_card_read_multiple_data(
 // from outside
 // data_size - user data size!
 sd_error sd_card_transmit_data_block(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint8_t *const data,
   const uint16_t data_size,
   const uint8_t start_token
 );
 
 sd_error sd_card_write_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   const uint8_t *const data,
   const uint32_t block_length
 );
 
 sd_error sd_card_write_multiple_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   const uint8_t *const data,
   const uint32_t block_length,

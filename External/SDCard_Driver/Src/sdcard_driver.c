@@ -8,7 +8,7 @@ sd_status sd_card_status = { 0 };
 // Static functions ----------------------------------------------------------
 
 static sd_error sd_card_receive_byte(
-  SPI_HandleTypeDef *hspi, 
+  SPI_HandleTypeDef *const hspi, 
   uint8_t* data
 )
 {
@@ -20,7 +20,7 @@ static sd_error sd_card_receive_byte(
 }
 
 static sd_error sd_card_receive_bytes(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   uint8_t* data,
   const uint16_t size
 )
@@ -34,8 +34,8 @@ static sd_error sd_card_receive_bytes(
 }
 
 static sd_error sd_card_transmit_byte(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data
+  SPI_HandleTypeDef *const hspi,
+  const uint8_t *const data
 )
 {
   return HAL_SPI_Transmit(
@@ -44,8 +44,8 @@ static sd_error sd_card_transmit_byte(
 }
 
 static sd_error sd_card_transmit_bytes(
-  SPI_HandleTypeDef *hspi,
-  uint8_t* data,
+  SPI_HandleTypeDef *const hspi,
+  const uint8_t *const data,
   const uint16_t size
 )
 {
@@ -58,7 +58,7 @@ static sd_error sd_card_transmit_bytes(
 }
 
 // To IDLE state
-static sd_error sd_card_power_on(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_power_on(SPI_HandleTypeDef *const hspi)
 {
   sd_error status = SD_OK;
   uint8_t dummy_data = 0xff;
@@ -74,7 +74,7 @@ static sd_error sd_card_power_on(SPI_HandleTypeDef *hspi)
   return status;
 }
 
-static sd_error sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_enter_spi_mode(SPI_HandleTypeDef *const hspi)
 {
   static bool sd_card_is_spi_mode = false;
   sd_command cmd0 = sd_card_get_cmd(0, 0x0);
@@ -111,8 +111,8 @@ static sd_error sd_card_enter_spi_mode(SPI_HandleTypeDef *hspi)
 
 // Host should enable CRC verification before issuing ACMD41
 static sd_error sd_card_crc_on_off(
-  SPI_HandleTypeDef *hspi,
-  bool crc_enable
+  SPI_HandleTypeDef *const hspi,
+  const bool crc_enable
 ) 
 {
   sd_command cmd59 = sd_card_get_cmd(59, crc_enable ? 0x1 : 0x0);
@@ -126,7 +126,7 @@ static sd_error sd_card_crc_on_off(
   return status;
 }
 
-static sd_error sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
+static sd_error sd_card_v1_init_process(SPI_HandleTypeDef *const hspi)
 {
   // Reads OCR to get supported voltage
   sd_command cmd58 = sd_card_get_cmd(58, 0x0);
@@ -169,7 +169,7 @@ static sd_error sd_card_v1_init_process(SPI_HandleTypeDef *hspi)
 }
 
 static sd_error sd_card_v2_init_process(
-  SPI_HandleTypeDef* hspi
+  SPI_HandleTypeDef *const hspi
 )
 {
   // Reads OCR to get supported voltage
@@ -217,7 +217,7 @@ static sd_error sd_card_v2_init_process(
 
 // Implementations -----------------------------------------------------------
 
-sd_error sd_card_reset(SPI_HandleTypeDef *hspi, bool crc_enable)
+sd_error sd_card_reset(SPI_HandleTypeDef *const hspi, const bool crc_enable)
 {
   // 2.7-3.6V and check pattern
   sd_command cmd8 = sd_card_get_cmd(8, (1 << 8) | 0x55);
@@ -257,7 +257,9 @@ end_of_initialization:
   return status;
 }
 
-sd_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
+sd_command sd_card_get_cmd_without_crc(
+  const uint8_t cmd_num, const uint32_t arg
+)
 {
   sd_command cmd = (sd_command) {
     .start_block = 0x40 | cmd_num,
@@ -272,7 +274,7 @@ sd_command sd_card_get_cmd_without_crc(uint8_t cmd_num, uint32_t arg)
   return cmd;
 }
 
-sd_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
+sd_command sd_card_get_cmd(const uint8_t cmd_num, const uint32_t arg)
 {
   crc_buffer_7 crc_buffer;
   sd_command cmd = sd_card_get_cmd_without_crc(cmd_num, arg);
@@ -290,7 +292,7 @@ sd_command sd_card_get_cmd(uint8_t cmd_num, uint32_t arg)
 // We are trying to get a non-zero byte.
 // The received byte is written to the argument
 sd_error sd_card_wait_response(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   uint8_t* received_value,
   const uint8_t idle_value
 )
@@ -310,9 +312,9 @@ sd_error sd_card_wait_response(
 }
 
 sd_error sd_card_receive_cmd_response(
-	SPI_HandleTypeDef *hspi, 
+	SPI_HandleTypeDef *const hspi, 
 	uint8_t* response, 
-	uint8_t response_size
+	const uint8_t response_size
 )
 {
   sd_r1_response r1 = 0;
@@ -341,7 +343,7 @@ sd_error sd_card_receive_cmd_response(
 }
 
 sd_error sd_card_receive_data_block(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   uint8_t* data,
   const uint16_t data_size
 )
@@ -371,7 +373,7 @@ sd_error sd_card_receive_data_block(
 }
 
 bool is_partial_block_possible(
-  SPI_HandleTypeDef *hspi
+  SPI_HandleTypeDef *const hspi
 )
 {
   sd_command cmd9 = sd_card_get_cmd(9, 0); // get CSD
@@ -392,8 +394,8 @@ bool is_partial_block_possible(
 }
 
 sd_error sd_card_set_block_len(
-  SPI_HandleTypeDef *hspi,
-  uint32_t length
+  SPI_HandleTypeDef *const hspi,
+  const uint32_t length
 )
 {
   sd_command cmd16 = sd_card_get_cmd(16, length);
@@ -412,7 +414,7 @@ sd_error sd_card_set_block_len(
 }
 
 sd_error sd_card_read_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   uint8_t* data,
   const uint32_t block_length
@@ -442,7 +444,7 @@ end_read:
 }
 
 sd_error sd_card_read_multiple_data(
-  SPI_HandleTypeDef *hspi, 
+  SPI_HandleTypeDef *const hspi, 
   const uint32_t address,
   uint8_t* data,
   const uint32_t block_length,
@@ -487,7 +489,7 @@ end_read:
 
 // data_size - user data size!
 sd_error sd_card_transmit_data_block(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint8_t *const data,
   const uint16_t data_size,
   const uint8_t start_token
@@ -528,7 +530,7 @@ sd_error sd_card_transmit_data_block(
 }
 
 sd_error sd_card_write_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   const uint8_t *const data,
   const uint32_t block_length
@@ -559,7 +561,7 @@ end_write:
 }
 
 sd_error sd_card_write_multiple_data(
-  SPI_HandleTypeDef *hspi,
+  SPI_HandleTypeDef *const hspi,
   const uint32_t address,
   const uint8_t *const data,
   const uint32_t block_length,
