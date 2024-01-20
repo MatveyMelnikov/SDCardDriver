@@ -1,6 +1,5 @@
 /*
 Original code: https://github.com/MatveyMelnikov/CRC
-These are inverted methods that are suitable for command structures to the SD card
 */
 
 #ifndef CRC_BUFFER_H

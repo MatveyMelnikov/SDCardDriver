@@ -1,3 +1,7 @@
+/*
+* Auxiliary and common elements
+*/
+
 #include "sd_driver_secondary.h"
 #include "crc-buffer.h"
 #include "string.h"
@@ -36,7 +40,7 @@ sd_error sd_card_transmit_byte(
 )
 {
   return HAL_SPI_Transmit(
-    hspi, data, sizeof(uint8_t), SD_TRANSMISSION_TIMEOUT
+    hspi, (uint8_t *)data, sizeof(uint8_t), SD_TRANSMISSION_TIMEOUT
   );
 }
 
@@ -49,7 +53,7 @@ sd_error sd_card_transmit_bytes(
   sd_error status = SD_OK;
 
   for (uint16_t i = 0; i < size; i++)
-    status |= HAL_SPI_Transmit(hspi, data + i, 1, SD_TRANSMISSION_TIMEOUT);
+    status |= HAL_SPI_Transmit(hspi, (uint8_t *)(data + i), 1, SD_TRANSMISSION_TIMEOUT);
   
   return status;
 }
@@ -76,9 +80,6 @@ sd_command sd_card_get_cmd(const uint8_t cmd_num, const uint32_t arg)
   crc_buffer_7 crc_buffer;
   sd_command cmd = sd_card_get_cmd_without_crc(cmd_num, arg);
 
-  // cmd.crc_block = crc_buffer_calculate_crc_7(
-  //   &crc_buffer, (uint8_t*)&cmd, sizeof(cmd) - 1
-  // );
   cmd.crc_block = crc_buffer_calculate_crc_7(
     &crc_buffer, (uint8_t*)&cmd, sizeof(cmd) - 1
   );
@@ -173,13 +174,16 @@ bool is_partial_block_possible(
   SPI_HandleTypeDef *const hspi
 )
 {
-  sd_command cmd9 = sd_card_get_cmd(9, 0); // get CSD
+  sd_command cmd_send_csd = sd_card_get_cmd(9, 0);
   uint8_t csd_register[16] = { 0 };
 
   // We request the CSD register to check the ability to set the block size
   SELECT_SD();
   sd_error status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd9, sizeof(cmd9), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_send_csd,
+    sizeof(cmd_send_csd),
+    SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_data_block(hspi, csd_register, 16);
   DISELECT_SD();
@@ -195,7 +199,7 @@ sd_error sd_card_set_block_len(
   const uint32_t length
 )
 {
-  sd_command cmd16 = sd_card_get_cmd(16, length);
+  sd_command cmd_set_blocklen = sd_card_get_cmd(16, length);
   sd_r1_response r1 = { 0 };
   sd_error status = 0x0;
 
@@ -203,7 +207,7 @@ sd_error sd_card_set_block_len(
   if (!is_partial_block_possible(hspi) || length > 512)
     return SD_INCORRECT_ARGUMENT;
   
-  SEND_CMD(hspi, cmd16, r1, status);
+  SEND_CMD(hspi, cmd_set_blocklen, r1, status);
   if (r1)
     return SD_TRANSMISSION_ERROR;
 

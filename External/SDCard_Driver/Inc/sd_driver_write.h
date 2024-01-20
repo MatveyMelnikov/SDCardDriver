@@ -1,3 +1,7 @@
+/*
+Single and multiple recording functions on SD card
+*/
+
 #ifndef SD_DRIVER_WRITE_H
 #define SD_DRIVER_WRITE_H
 
@@ -5,6 +9,9 @@
 
 // Functions -----------------------------------------------------------------
 
+// SDSC uses byte unit address and SDHC and SDXC Cards use
+// block unit address (512 bytes unit).
+// Use sd_card_set_block_len to set block length
 sd_error sd_card_write_data(
   SPI_HandleTypeDef *const hspi,
   const uint32_t address,

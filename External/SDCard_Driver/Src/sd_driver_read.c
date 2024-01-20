@@ -1,3 +1,7 @@
+/*
+Single and multiple reading functions from SD card
+*/
+
 #include "sd_driver_read.h"
 #include "crc-buffer.h"
 
@@ -10,12 +14,15 @@ sd_error sd_card_read_data(
   const uint32_t block_length
 )
 {
-  sd_command cmd17 = sd_card_get_cmd(17, address);
+  sd_command cmd_read_single_block = sd_card_get_cmd(17, address);
   sd_r1_response r1 = { 0 };
 
   SELECT_SD();
   HAL_StatusTypeDef status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd17, sizeof(cmd17), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_read_single_block,
+    sizeof(cmd_read_single_block),
+    SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);
 
@@ -41,14 +48,17 @@ sd_error sd_card_read_multiple_data(
   const uint32_t number_of_blocks
 )
 {
-  sd_command cmd18 = sd_card_get_cmd(18, address);
-  sd_command cmd12 = sd_card_get_cmd(12, address);
+  sd_command cmd_read_multiple_block = sd_card_get_cmd(18, address);
+  sd_command cmd_stop_transmission = sd_card_get_cmd(12, address);
   sd_r1_response r1 = { 0 };
   uint8_t busy_signal = 0;
 
   SELECT_SD();
   sd_error status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd18, sizeof(cmd18), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_read_multiple_block,
+    sizeof(cmd_read_multiple_block),
+    SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);
 
@@ -65,7 +75,10 @@ sd_error sd_card_read_multiple_data(
   }
 
   status |= HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd12, sizeof(cmd12), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_stop_transmission,
+    sizeof(cmd_stop_transmission),
+    SD_TRANSMISSION_TIMEOUT
   );
 
   // Do we always get 0xef in r1?

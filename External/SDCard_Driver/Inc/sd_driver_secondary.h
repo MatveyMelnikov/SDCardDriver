@@ -1,5 +1,5 @@
 /*
-* Auxiliary and general elements
+* Auxiliary and common elements
 */
 
 #ifndef SD_DRIVER_SECONDARY_H
@@ -32,11 +32,11 @@
 #define GET_VOLTAGE_FROM_R7(r7) \
   ((r7).voltage_accepted_plus_reserved & 0x0f)
 
-#define SEND_CMD(hspi, cmd, response, status) \
+#define SEND_CMD(p_hspi, cmd, response, status) \
   SELECT_SD(); \
-  (status) |= HAL_SPI_Transmit((hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
+  (status) |= HAL_SPI_Transmit((p_hspi), (uint8_t*)&(cmd), 6, HAL_MAX_DELAY); \
   (status) |= sd_card_receive_cmd_response( \
-    (hspi), (uint8_t*)&(response), sizeof(response) \
+    (p_hspi), (uint8_t*)&(response), sizeof(response) \
   ); \
   DISELECT_SD();
 

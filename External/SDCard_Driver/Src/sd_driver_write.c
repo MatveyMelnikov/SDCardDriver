@@ -53,12 +53,15 @@ sd_error sd_card_write_data(
   const uint32_t block_length
 )
 {
-  sd_command cmd24 = sd_card_get_cmd(24, address);
+  sd_command cmd_write_block = sd_card_get_cmd(24, address);
   sd_r1_response r1 = { 0 };
 
   SELECT_SD();
   sd_error status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd24, sizeof(cmd24), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_write_block,
+    sizeof(cmd_write_block),
+    SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);
 
@@ -85,14 +88,17 @@ sd_error sd_card_write_multiple_data(
   const uint32_t number_of_blocks
 )
 {
-  sd_command cmd25 = sd_card_get_cmd(25, address);
+  sd_command cmd_write_multiple_block = sd_card_get_cmd(25, address);
   sd_r1_response r1 = { 0 };
   uint8_t stop_token = 0xfd;
   uint8_t busy_signal = 0;
 
   SELECT_SD();
   sd_error status = HAL_SPI_Transmit(
-    hspi, (uint8_t*)&cmd25, sizeof(cmd25), SD_TRANSMISSION_TIMEOUT
+    hspi,
+    (uint8_t*)&cmd_write_multiple_block,
+    sizeof(cmd_write_multiple_block),
+    SD_TRANSMISSION_TIMEOUT
   );
   status |= sd_card_receive_cmd_response(hspi, &r1, 1);
 
