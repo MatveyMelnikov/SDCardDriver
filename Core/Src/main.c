@@ -21,8 +21,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "sdcard_driver.h"
-#include <string.h> 
+#include <string.h>
+#include "sd_driver_init.h"
+#include "sd_driver_read.h"
+#include "sd_driver_write.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
