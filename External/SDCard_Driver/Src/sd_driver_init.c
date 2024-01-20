@@ -3,6 +3,7 @@ Initializing SD cards of different versions and sizes
 */
 
 #include "sd_driver_init.h"
+#include "math.h"
 
 // Variables -----------------------------------------------------------------
 
@@ -74,7 +75,7 @@ static sd_error sd_card_crc_on_off(
 {
   sd_command cmd_crc_on_off = sd_card_get_cmd(59, crc_enable ? 0x1 : 0x0);
   sd_r1_response r1 = { 0 };
-  sd_error status = 0x0;
+  sd_error status = SD_OK;
 
   SEND_CMD(hspi, cmd_crc_on_off, r1, status);
   if (r1 != R1_IN_IDLE_STATE)
@@ -103,7 +104,7 @@ static sd_error sd_card_v1_init_process(SPI_HandleTypeDef *const hspi)
   // Third byte starts with 15 bit oof OCR
   if (!((ocr_response.ocr_register_content[1] & 0x1f) &&
     (ocr_response.ocr_register_content[2] & 0x80)))
-    return HAL_ERROR;
+    return SD_ERROR;
 
   uint32_t tickstart = HAL_GetTick();
   while (true)
@@ -174,7 +175,6 @@ static sd_error sd_card_v2_init_process(
   return status;
 }
 
-
 // Implementations -----------------------------------------------------------
 
 sd_error sd_card_reset(SPI_HandleTypeDef *const hspi, const bool crc_enable)
@@ -216,4 +216,50 @@ sd_error sd_card_reset(SPI_HandleTypeDef *const hspi, const bool crc_enable)
 end_of_initialization:
   sd_card_status.error_in_initialization = (bool)status;
   return status;
+}
+
+sd_error sd_card_get_common_info(
+  SPI_HandleTypeDef *const hspi, sd_info *const info
+)
+{
+  uint8_t csd_register[16] = { 0 };
+
+  // We request the CSD register to check the ability to set the block size
+  sd_error status = sd_card_get_csd(hspi, (uint8_t *const)&csd_register);
+  float transfer_rate_unit[] = { 0.1f, 1.f, 10.f, 100.f };
+  float time_value[] = { 
+    0.f, 1.f, 1.2f, 1.3f, 1.5f, 2.f, 
+    2.5f, 3.f, 3.5f, 4.f, 4.5f, 
+    5.f, 5.5f, 6.f, 7.f, 8.f 
+  };
+
+  if (status)
+    return status;
+
+  info->max_transfer_speed = transfer_rate_unit[csd_register[3] & 0x7] *
+    time_value[(csd_register[3] & 0x78) >> 3];
+  info->command_classes = (csd_register[4] << 4) | 
+    ((csd_register[5] & 0xf0) >> 4);
+  info->max_data_block_size = powf(2.f, (float)(csd_register[5] & 0xf));
+  info->partial_blocks_allowed = csd_register[6] & 0x80;
+
+  // Calculate size
+  if (sd_card_status.version == 1)
+  {
+    uint8_t size_mult = (csd_register[9] & 0xe0) >> 5;
+    uint32_t mult = (uint32_t)(powf(2.f, (float)size_mult + 2) + 0.5f);
+    uint16_t device_size = ((uint32_t)(csd_register[6] & 0x3) << 11) |
+      ((uint32_t)csd_register[7] << 2) | 
+      ((uint32_t)(csd_register[8] & 0xc0) >> 6);
+    uint32_t blocknr = (device_size + 1) * mult;
+    info->size = blocknr * info->max_data_block_size;
+  }
+  else
+  {
+    uint32_t c_size = ((uint32_t)(csd_register[7] & 0x3f) << 16) | 
+      ((uint32_t)(csd_register[8]) << 8) | csd_register[9];
+    info->size = (c_size + 1) * 512;
+  }
+
+  return SD_OK;
 }

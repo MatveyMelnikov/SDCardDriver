@@ -15,7 +15,7 @@ sd_error sd_card_receive_byte(
 {
   uint8_t dummy_data = 0xff;
 
-  return HAL_SPI_TransmitReceive(
+  return (sd_error)HAL_SPI_TransmitReceive(
     hspi, &dummy_data, data, 1, SD_TRANSMISSION_TIMEOUT
   );
 }
@@ -39,7 +39,7 @@ sd_error sd_card_transmit_byte(
   const uint8_t *const data
 )
 {
-  return HAL_SPI_Transmit(
+  return (sd_error)HAL_SPI_Transmit(
     hspi, (uint8_t *)data, sizeof(uint8_t), SD_TRANSMISSION_TIMEOUT
   );
 }
@@ -100,7 +100,7 @@ sd_error sd_card_receive_data_block(
   // The token is sent with a significant delay
   sd_error status = sd_card_wait_response(hspi, &token, 0xff);
   if (token != 0xfe)
-    return HAL_ERROR;
+    return SD_ERROR;
 
   status |= sd_card_receive_bytes(hspi, data, data_size);
   status |= sd_card_receive_bytes(hspi, (uint8_t*)&received_crc, 2);
@@ -131,7 +131,7 @@ sd_error sd_card_wait_response(
   do
   {
     if ((HAL_GetTick() - captured_tick) > SD_TRANSMISSION_TIMEOUT)
-      return HAL_TIMEOUT;
+      return SD_TIMEOUT;
 
     status |= sd_card_receive_byte(hspi, received_value);
   } while (*received_value == idle_value);
@@ -170,28 +170,27 @@ sd_error sd_card_receive_cmd_response(
   return status;
 }
 
-bool is_partial_block_possible(
-  SPI_HandleTypeDef *const hspi
+sd_error sd_card_get_csd(
+  SPI_HandleTypeDef *const hspi,
+  uint8_t *const csd
 )
 {
   sd_command cmd_send_csd = sd_card_get_cmd(9, 0);
-  uint8_t csd_register[16] = { 0 };
+  sd_r1_response r1 = { 0 };
 
   // We request the CSD register to check the ability to set the block size
   SELECT_SD();
-  sd_error status = HAL_SPI_Transmit(
+  sd_error status = (sd_error)HAL_SPI_Transmit(
     hspi,
     (uint8_t*)&cmd_send_csd,
     sizeof(cmd_send_csd),
     SD_TRANSMISSION_TIMEOUT
   );
-  status |= sd_card_receive_data_block(hspi, csd_register, 16);
+  status |= sd_card_receive_cmd_response(hspi, &r1, sizeof(r1));
+  status |= sd_card_receive_data_block(hspi, csd, 16);
   DISELECT_SD();
 
-  if (status)
-    return false;
-  else
-    return csd_register[6] & 0x80;
+  return status;
 }
 
 sd_error sd_card_set_block_len(
@@ -202,9 +201,10 @@ sd_error sd_card_set_block_len(
   sd_command cmd_set_blocklen = sd_card_get_cmd(16, length);
   sd_r1_response r1 = { 0 };
   sd_error status = 0x0;
+  uint8_t csd_register[16] = { 0 };
 
-  // The maximum block length is given by 512 Bytes
-  if (!is_partial_block_possible(hspi) || length > 512)
+  status |= sd_card_get_csd(hspi, (uint8_t *const)&csd_register);
+  if (!IS_PARTIAL_BLOCK_ALLOWED(csd_register) || length > 512)
     return SD_INCORRECT_ARGUMENT;
   
   SEND_CMD(hspi, cmd_set_blocklen, r1, status);

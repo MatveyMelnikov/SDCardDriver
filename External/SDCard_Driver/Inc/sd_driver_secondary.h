@@ -21,10 +21,10 @@
 // Macros --------------------------------------------------------------------
 
 #define SELECT_SD() \
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET)
 
 #define DISELECT_SD() \
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET)
 
 #define GET_VERSION_FROM_R7(r7) \
   (((r7).command_version_plus_reserved & 0xf0) >> 4)
@@ -38,7 +38,10 @@
   (status) |= sd_card_receive_cmd_response( \
     (p_hspi), (uint8_t*)&(response), sizeof(response) \
   ); \
-  DISELECT_SD();
+  DISELECT_SD()
+
+#define IS_PARTIAL_BLOCK_ALLOWED(csd) \
+  (bool)((csd)[6] & 0x80)
 
 // Structs -------------------------------------------------------------------
 
@@ -164,8 +167,12 @@ sd_error sd_card_receive_cmd_response(
 	const uint8_t response_size
 );
 
-bool is_partial_block_possible(
-  SPI_HandleTypeDef *const hspi
+//bool is_partial_block_possible(SPI_HandleTypeDef *const hspi);
+
+// CSD takes 16 bytes
+sd_error sd_card_get_csd(
+  SPI_HandleTypeDef *const hspi,
+  uint8_t *const csd
 );
 
 sd_error sd_card_set_block_len(

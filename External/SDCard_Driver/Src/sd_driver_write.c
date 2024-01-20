@@ -15,7 +15,7 @@ static sd_error sd_card_transmit_data_block(
   uint8_t busy_signal = 0;
 
   crc_16_result crc_result = crc_buffer_calculate_crc_16(
-    &crc_buffer, data, data_size
+    &crc_buffer, (uint8_t*)data, data_size
   );
 
   sd_error status = sd_card_transmit_byte(hspi, &start_token);
@@ -57,7 +57,7 @@ sd_error sd_card_write_data(
   sd_r1_response r1 = { 0 };
 
   SELECT_SD();
-  sd_error status = HAL_SPI_Transmit(
+  sd_error status = (sd_error)HAL_SPI_Transmit(
     hspi,
     (uint8_t*)&cmd_write_block,
     sizeof(cmd_write_block),
@@ -94,7 +94,7 @@ sd_error sd_card_write_multiple_data(
   uint8_t busy_signal = 0;
 
   SELECT_SD();
-  sd_error status = HAL_SPI_Transmit(
+  sd_error status = (sd_error)HAL_SPI_Transmit(
     hspi,
     (uint8_t*)&cmd_write_multiple_block,
     sizeof(cmd_write_multiple_block),

@@ -107,6 +107,9 @@ int main(void)
   if (status)
     Error_Handler();
 
+  sd_info info = { 0 };
+  status |= sd_card_get_common_info(&hspi2, &info);
+
   data[0] = 0x55;
   data[1023] = 0xff;
   data[2] = 0xaa;

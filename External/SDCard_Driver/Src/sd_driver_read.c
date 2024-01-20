@@ -18,7 +18,7 @@ sd_error sd_card_read_data(
   sd_r1_response r1 = { 0 };
 
   SELECT_SD();
-  HAL_StatusTypeDef status = HAL_SPI_Transmit(
+  sd_error status = (sd_error)HAL_SPI_Transmit(
     hspi,
     (uint8_t*)&cmd_read_single_block,
     sizeof(cmd_read_single_block),
@@ -54,7 +54,7 @@ sd_error sd_card_read_multiple_data(
   uint8_t busy_signal = 0;
 
   SELECT_SD();
-  sd_error status = HAL_SPI_Transmit(
+  sd_error status = (sd_error)HAL_SPI_Transmit(
     hspi,
     (uint8_t*)&cmd_read_multiple_block,
     sizeof(cmd_read_multiple_block),
