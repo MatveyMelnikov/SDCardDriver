@@ -45,3 +45,5 @@ Used during development:
 ![изображение](https://github.com/MatveyMelnikov/SDCardDriver/assets/55649891/550515b3-28a6-4311-9c46-4ed95544e5bc)
 
 ![изображение](https://github.com/MatveyMelnikov/SDCardDriver/assets/55649891/d9a84951-addb-41ba-b0d5-3500cf6d137d)
+
+![изображение](https://github.com/MatveyMelnikov/SDCardDriver/assets/55649891/65eea189-19a2-4c16-90dd-420f53f5e921)
