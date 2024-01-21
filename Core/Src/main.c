@@ -25,6 +25,7 @@
 #include "sd_driver_init.h"
 #include "sd_driver_read.h"
 #include "sd_driver_write.h"
+#include "sd_driver_erase.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,11 +116,16 @@ int main(void)
   data[2] = 0xaa;
   status |= sd_card_write_multiple_data(&hspi2, 0, data, 512, 2);
 
-  memset(data, 0, 1024);
+  status |= sd_card_read_multiple_data(&hspi2, 0, data, 512, 2);
+
+  // Erase first sector
+  status |= sd_card_set_erasable_area(&hspi2, 0, 512);
+  status |= sd_card_erase(&hspi2);
 
   status |= sd_card_read_multiple_data(&hspi2, 0, data, 512, 2);
 
-  if (status)
+  // Check status and data
+  if (status || !((data[0] == data[1]) && (data[1023] == 0xff)))
     Error_Handler();
 
   while (1)
